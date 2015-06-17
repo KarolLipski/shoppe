@@ -1,0 +1,210 @@
+.row
+  / Profile Info and Notifications
+  .col-md-6.col-sm-8.clearfix
+    %ul.user-info.pull-left.pull-none-xsm
+      %ul.user-info.pull-left.pull-right-xs.pull-none-xsm
+        / Raw Notifications
+        %li.notifications.dropdown
+          %a.dropdown-toggle{"data-close-others" => "true", "data-hover" => "dropdown", "data-toggle" => "dropdown", :href => "#"}
+            %i.entypo-attention
+            %span.badge.badge-info 6
+          %ul.dropdown-menu
+            %li.top
+              %p.small
+                %a.pull-right{:href => "#"} Mark all Read
+                You have
+                %strong 3
+                new notifications.
+            %li
+              %ul.dropdown-menu-list.scroller
+                %li.unread.notification-success
+                  %a{:href => "#"}
+                    %i.entypo-user-add.pull-right
+                    %span.line
+                      %strong New user registered
+                    %span.line.small
+                      30 seconds ago
+                %li.unread.notification-secondary
+                  %a{:href => "#"}
+                    %i.entypo-heart.pull-right
+                    %span.line
+                      %strong Someone special liked this
+                    %span.line.small
+                      2 minutes ago
+                %li.notification-primary
+                  %a{:href => "#"}
+                    %i.entypo-user.pull-right
+                    %span.line
+                      %strong Privacy settings have been changed
+                    %span.line.small
+                      3 hours ago
+                %li.notification-danger
+                  %a{:href => "#"}
+                    %i.entypo-cancel-circled.pull-right
+                    %span.line
+                      John cancelled the event
+                    %span.line.small
+                      9 hours ago
+                %li.notification-info
+                  %a{:href => "#"}
+                    %i.entypo-info.pull-right
+                    %span.line
+                      The server is status is stable
+                    %span.line.small
+                      yesterday at 10:30am
+                %li.notification-warning
+                  %a{:href => "#"}
+                    %i.entypo-rss.pull-right
+                    %span.line
+                      New comments waiting approval
+                    %span.line.small
+                      last week
+            %li.external
+              %a{:href => "#"} View all notifications
+        / Message Notifications
+        %li.notifications.dropdown
+          %a.dropdown-toggle{"data-close-others" => "true", "data-hover" => "dropdown", "data-toggle" => "dropdown", :href => "#"}
+            %i.entypo-mail
+            %span.badge.badge-secondary 10
+          %ul.dropdown-menu
+            %li
+              %ul.dropdown-menu-list.scroller
+                %li.active
+                  %a{:href => "#"}
+                    %span.image.pull-right
+                      %img.img-circle{:alt => "", :src => "assets/images/thumb-1.png"}/
+                    %span.line
+                      %strong Luc Chartier
+                      \- yesterday
+                    %span.line.desc.small
+                      This ain’t our first item, it is the best of the rest.
+                %li.active
+                  %a{:href => "#"}
+                    %span.image.pull-right
+                      %img.img-circle{:alt => "", :src => "assets/images/thumb-2.png"}/
+                    %span.line
+                      %strong Salma Nyberg
+                      \- 2 days ago
+                    %span.line.desc.small
+                      Oh he decisively impression attachment friendship so if everything.
+                %li
+                  %a{:href => "#"}
+                    %span.image.pull-right
+                      %img.img-circle{:alt => "", :src => "assets/images/thumb-3.png"}/
+                    %span.line
+                      Hayden Cartwright
+                      \- a week ago
+                    %span.line.desc.small
+                      Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
+                %li
+                  %a{:href => "#"}
+                    %span.image.pull-right
+                      %img.img-circle{:alt => "", :src => "assets/images/thumb-4.png"}/
+                    %span.line
+                      Sandra Eberhardt
+                      \- 16 days ago
+                    %span.line.desc.small
+                      On so attention necessary at by provision otherwise existence direction.
+            %li.external
+              %a{:href => "mailbox.html"} All Messages
+        / Task Notifications
+        %li.notifications.dropdown
+          %a.dropdown-toggle{"data-close-others" => "true", "data-hover" => "dropdown", "data-toggle" => "dropdown", :href => "#"}
+            %i.entypo-list
+            %span.badge.badge-warning 1
+          %ul.dropdown-menu
+            %li.top
+              %p You have 6 pending tasks
+            %li
+              %ul.dropdown-menu-list.scroller
+                %li
+                  %a{:href => "#"}
+                    %span.task
+                      %span.desc Procurement
+                      %span.percent 27%
+                    %span.progress
+                      %span.progress-bar.progress-bar-success{:style => "width: 27%;"}
+                        %span.sr-only 27% Complete
+                %li
+                  %a{:href => "#"}
+                    %span.task
+                      %span.desc App Development
+                      %span.percent 83%
+                    %span.progress.progress-striped
+                      %span.progress-bar.progress-bar-danger{:style => "width: 83%;"}
+                        %span.sr-only 83% Complete
+                %li
+                  %a{:href => "#"}
+                    %span.task
+                      %span.desc HTML Slicing
+                      %span.percent 91%
+                    %span.progress
+                      %span.progress-bar.progress-bar-success{:style => "width: 91%;"}
+                        %span.sr-only 91% Complete
+                %li
+                  %a{:href => "#"}
+                    %span.task
+                      %span.desc Database Repair
+                      %span.percent 12%
+                    %span.progress.progress-striped
+                      %span.progress-bar.progress-bar-warning{:style => "width: 12%;"}
+                        %span.sr-only 12% Complete
+                %li
+                  %a{:href => "#"}
+                    %span.task
+                      %span.desc Backup Create Progress
+                      %span.percent 54%
+                    %span.progress.progress-striped
+                      %span.progress-bar.progress-bar-info{:style => "width: 54%;"}
+                        %span.sr-only 54% Complete
+                %li
+                  %a{:href => "#"}
+                    %span.task
+                      %span.desc Upgrade Progress
+                      %span.percent 17%
+                    %span.progress.progress-striped
+                      %span.progress-bar.progress-bar-important{:style => "width: 17%;"}
+                        %span.sr-only 17% Complete
+            %li.external
+              %a{:href => "#"} See all tasks
+  / Raw Links
+  .col-md-6.col-sm-4.clearfix.hidden-xs
+    %ul.list-inline.links-list.pull-right
+      / Language Selector
+      %li.dropdown.language-selector
+        Language: &nbsp;
+        %a.dropdown-toggle{"data-close-others" => "true", "data-toggle" => "dropdown", :href => "#"}
+          %img{:src => "assets/images/flag-uk.png"}/
+        %ul.dropdown-menu.pull-right
+          %li
+            %a{:href => "#"}
+              %img{:src => "assets/images/flag-de.png"}/
+              %span Deutsch
+          %li.active
+            %a{:href => "#"}
+              %img{:src => "assets/images/flag-uk.png"}/
+              %span English
+          %li
+            %a{:href => "#"}
+              %img{:src => "assets/images/flag-fr.png"}/
+              %span François
+          %li
+            %a{:href => "#"}
+              %img{:src => "assets/images/flag-al.png"}/
+              %span Shqip
+          %li
+            %a{:href => "#"}
+              %img{:src => "assets/images/flag-es.png"}/
+              %span Espa?ol
+      %li.sep
+      %li
+        %a{"data-animate" => "1", "data-collapse-sidebar" => "1", "data-toggle" => "chat", :href => "#"}
+          %i.entypo-chat
+          Chat
+          %span.badge.badge-success.chat-notifications-badge.is-hidden 0
+      %li.sep
+      %li
+        %a{:href => "extra-login.html"}
+          Log Out
+          %i.entypo-logout.right
+%hr/

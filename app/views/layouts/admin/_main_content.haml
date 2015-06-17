@@ -1,0 +1,11 @@
+.main-content
+  = render :partial => 'layouts/admin/top_bar'
+  = render :partial => 'layouts/admin/summary_boxes'
+  .row
+    = yield
+  / Footer
+  %footer.main
+    \&copy; 2014
+    %strong Neon
+    Admin Theme by
+    %a{:href => "http://laborator.co", :target => "_blank"} Laborator
