@@ -18,3 +18,5 @@
 
 # Ignore Idea files
 .idea/
+#ignore assets
+public/assets/

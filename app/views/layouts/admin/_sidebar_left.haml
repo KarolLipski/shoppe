@@ -3,7 +3,7 @@
     / logo
     .logo
       %a{:href => "index.html"}
-        %img{:alt => "", :src => "assets/images/logo@2x.png", :width => "120"}/
+        = image_tag "neon/images/logo@2x.png", :width => "120"
     / logo collapse icon
     .sidebar-collapse
       %a.sidebar-collapse-icon.with-animation{:href => "#"}
@@ -17,7 +17,7 @@
   .sidebar-user-info
     .sui-normal
       %a.user-link{:href => "#"}
-        %img.img-circle{:alt => "", :src => "assets/images/thumb-1.png"}/
+        = image_tag "neon/images/thumb-1.png"
         %span Welcome,
         %strong Art Ramadani
     .sui-hover.inline-links.animate-in
