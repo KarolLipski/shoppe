@@ -7,7 +7,6 @@ module CategoriesHelper
           content_tag(:li) do 
             concat link_to(category.name, edit_category_path(category))
             concat ' '
-            concat link_to('Usuń', category, method: :delete, :data => {:confirm => 'Czy na pewno usunąć?'})
           end
         )
         concat(render_tree(category.subcategories)) if category.subcategories

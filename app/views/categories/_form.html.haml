@@ -1,17 +1,14 @@
-= form_for @category do |f|
-  - if @category.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
-      %ul
-        - @category.errors.full_messages.each do |msg|
-          %li= msg
+= form_for @category, :html => {class: 'form-horizontal form-groups-bordered'}  do |f|
 
-  .field
-    = f.label :name, 'Nazwa'
-    = f.text_field :name
-    / = @category.errors.full_messages_for(:name).first
-  .field
-    = f.label :parent, 'Rodzic'
-    = f.collection_select :parent_id, Category.all, :id, :name, prompt: true
-  .actions
-    = f.submit 'Save'
+  %div{class: field_class(@category, :name) }
+    = f.label :name, 'Nazwa', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.text_field :name, class: 'form-control'
+      = render_error_message(@category, :name)
+  .form-group
+    = f.label :parent, 'Rodzic', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.collection_select(:parent_id, Category.all, :id, :name, {prompt: 'Wybierz kategorie nadrzedną'}, {class: 'form-control'})
+  .form-group
+    .col-sm-offset-3.col-sm-5
+      = f.submit 'Zapisz', class: 'btn btn-success'

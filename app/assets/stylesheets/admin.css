@@ -20,4 +20,6 @@
  *= require neon/css/skins/cafe.css
  *= require neon/js/jvectormap/jquery-jvectormap-1.2.2.css
  *= require neon/js/rickshaw/rickshaw.min.css
+ *= require categories.scss
+ *= require errors.scss
  */
