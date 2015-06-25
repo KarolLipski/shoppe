@@ -1,0 +1,7 @@
+%li
+  %span
+    = category.name
+  - if category.subcategories
+    %ul
+      - category.subcategories.each do |cat|
+        = render 'categories/node', category: cat

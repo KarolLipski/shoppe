@@ -4,4 +4,6 @@
 %br
 %br
 .tree
-  = render_tree(@categories)
+  %ul
+    - @categories.each do |category|
+      = render 'categories/node', category: category

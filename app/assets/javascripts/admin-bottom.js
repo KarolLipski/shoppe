@@ -27,3 +27,4 @@
 //= require neon/js/neon-chat
 //= require neon/js/neon-custom
 //= require neon/js/neon-demo
+//= require categories
