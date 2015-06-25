@@ -6,7 +6,6 @@ module CategoriesHelper
         concat(
           content_tag(:li) do
             content_tag(:span) do
-              # concat link_to(category.name, edit_category_path(category))
               concat category.name
               concat ' '
             end
