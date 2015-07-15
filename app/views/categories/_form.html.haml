@@ -1,12 +1,12 @@
 = form_for @category, :html => {class: 'form-horizontal form-groups-bordered'}  do |f|
 
   %div{class: field_class(@category, :name) }
-    = f.label :name, 'Nazwa', class: 'col-sm-3 control-label'
+    = f.label :name, class: 'col-sm-3 control-label'
     .col-sm-5
       = f.text_field :name, class: 'form-control'
       = render_error_message(@category, :name)
   .form-group
-    = f.label :parent, 'Rodzic', class: 'col-sm-3 control-label'
+    = f.label :parent, class: 'col-sm-3 control-label'
     .col-sm-5
       = f.collection_select(:parent_id, Category.all, :id, :name, {prompt: 'Wybierz kategorie nadrzedną'}, {class: 'form-control'})
   .form-group
