@@ -2,5 +2,6 @@
 
 = render 'form'
 
-= link_to 'Usuń', @category, :method => :delete, :class => 'btn btn-red', :data => {:confirm => 'Czy na pewno chcesz usnąć?'}
+-#@todo enble destroy after check if category has no items
+-#= link_to 'Usuń', @category, :method => :delete, :class => 'btn btn-red', :data => {:confirm => 'Czy na pewno chcesz usnąć?'}
 = link_to 'Powrót', categories_path, :class => 'btn btn-blue'
