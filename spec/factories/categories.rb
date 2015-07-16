@@ -1,7 +1,12 @@
 FactoryGirl.define do
   factory :category do
-    name "MyString"
-parent nil
+    name 'kategoria'
+    association :parent, factory: :category_root
+  end
+
+  factory :category_root, parent: :category do
+    name 'kategoria glowna'
+    parent nil
   end
 
 end
