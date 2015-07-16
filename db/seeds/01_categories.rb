@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-def create_witch_child(params, parent_id)
+def create_with_child(params, parent_id)
   category = Category.create(:id => params['id'], :name => params['name'], :parent_id => parent_id)
   params['children'].each do |param|
     create_witch_child(param, category.id)
@@ -28,5 +28,5 @@ categories = [
 
 
 categories.each do |main|
-  create_witch_child(main,nil)
+  create_with_child(main,nil)
 end
