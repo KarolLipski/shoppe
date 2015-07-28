@@ -1,10 +1,17 @@
+-# encoding: utf-8
 !!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Shoppee
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
+%html{:lang => "en"}
+  = render :partial => 'layouts/frontend/head'
+  / /head
   %body
-    = yield
+    = render :partial => 'layouts/frontend/header/header'
+    / /header-bottom
+    / /header
+    = render :partial => 'layouts/frontend/slider'
+    / /slider
+    %section
+      = render :partial => 'layouts/frontend/main_content'
+    / /recommended_items
+    = render :partial => 'layouts/frontend/footer'
+    / /Footer
+    = render :partial => 'layouts/frontend/bottom_scripts'

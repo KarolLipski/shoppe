@@ -1,0 +1,48 @@
+%section#slider
+  / slider
+  .container
+    .row
+      .col-sm-12
+        #slider-carousel.carousel.slide{"data-ride" => "carousel"}
+          %ol.carousel-indicators
+            %li.active{"data-slide-to" => "0", "data-target" => "#slider-carousel"}
+            %li{"data-slide-to" => "1", "data-target" => "#slider-carousel"}
+            %li{"data-slide-to" => "2", "data-target" => "#slider-carousel"}
+          .carousel-inner
+            .item.active
+              .col-sm-6
+                %h1
+                  %span> E
+                  \-SHOPPER
+                %h2 Free E-Commerce Template
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                %button.btn.btn-default.get{:type => "button"} Get it now
+              .col-sm-6
+                %img.girl.img-responsive{:alt => "", :src => "images/home/girl1.jpg"}/
+                %img.pricing{:alt => "", :src => "images/home/pricing.png"}/
+            .item
+              .col-sm-6
+                %h1
+                  %span> E
+                  \-SHOPPER
+                %h2 100% Responsive Design
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                %button.btn.btn-default.get{:type => "button"} Get it now
+              .col-sm-6
+                %img.girl.img-responsive{:alt => "", :src => "images/home/girl2.jpg"}/
+                %img.pricing{:alt => "", :src => "images/home/pricing.png"}/
+            .item
+              .col-sm-6
+                %h1
+                  %span> E
+                  \-SHOPPER
+                %h2 Free Ecommerce Template
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                %button.btn.btn-default.get{:type => "button"} Get it now
+              .col-sm-6
+                %img.girl.img-responsive{:alt => "", :src => "images/home/girl3.jpg"}/
+                %img.pricing{:alt => "", :src => "images/home/pricing.png"}/
+          %a.left.control-carousel.hidden-xs{"data-slide" => "prev", :href => "#slider-carousel"}
+            %i.fa.fa-angle-left
+          %a.right.control-carousel.hidden-xs{"data-slide" => "next", :href => "#slider-carousel"}
+            %i.fa.fa-angle-right

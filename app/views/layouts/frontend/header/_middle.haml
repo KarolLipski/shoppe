@@ -1,0 +1,50 @@
+.header-middle
+  / header-middle
+  .container
+    .row
+      .col-sm-4
+        .logo.pull-left
+          %a{:href => "index.html"}
+            %img{:alt => "", :src => "images/home/logo.png"}/
+        .btn-group.pull-right
+          .btn-group
+            %button.btn.btn-default.dropdown-toggle.usa{"data-toggle" => "dropdown", :type => "button"}
+              USA
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Canada
+              %li
+                %a{:href => "#"} UK
+          .btn-group
+            %button.btn.btn-default.dropdown-toggle.usa{"data-toggle" => "dropdown", :type => "button"}
+              DOLLAR
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Canadian Dollar
+              %li
+                %a{:href => "#"} Pound
+      .col-sm-8
+        .shop-menu.pull-right
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "#"}
+                %i.fa.fa-user
+                Account
+            %li
+              %a{:href => "#"}
+                %i.fa.fa-star
+                Wishlist
+            %li
+              %a{:href => "checkout.html"}
+                %i.fa.fa-crosshairs
+                Checkout
+            %li
+              %a{:href => "cart.html"}
+                %i.fa.fa-shopping-cart
+                Cart
+            %li
+              %a{:href => "login.html"}
+                %i.fa.fa-lock
+                Login
