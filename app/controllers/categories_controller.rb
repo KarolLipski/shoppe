@@ -1,5 +1,4 @@
-class CategoriesController < ApplicationController
-  layout 'admin'
+class CategoriesController < AdminController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
