@@ -20,3 +20,6 @@
 .idea/
 #ignore assets
 public/assets/
+
+# Ignore own sh
+prepare_server.sh
