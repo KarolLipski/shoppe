@@ -32,4 +32,11 @@ RSpec.describe Item, type: :model do
     expect(FactoryGirl.build(:item, small_wrap: 123)).to be_valid
   end
 
+  it 'wraps should not be less than 0' do
+    expect(FactoryGirl.build(:item, small_wrap: -2)).not_to be_valid
+    expect(FactoryGirl.build(:item, big_wrap: -3)).not_to be_valid
+    expect(FactoryGirl.build(:item, small_wrap: 0)).to be_valid
+
+  end
+
 end
