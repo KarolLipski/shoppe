@@ -6,6 +6,7 @@ FactoryGirl.define do
     small_wrap 12
     big_wrap 48
     photo nil
+    association :category, factory: :category
   end
 
 end
