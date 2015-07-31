@@ -2,332 +2,38 @@
   .features_items
     / features_items
     %h2.title.text-center Features Items
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/shop/product12.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
+    - @items.each do |item|
+      .col-sm-4
+        .product-image-wrapper
+          .single-products
+            .productinfo.text-center
+              %img{:alt => "", :src => "images/shop/product12.jpg"}/
+              %h2
+                = render_price item
+              %p
+                = item.name
               %a.btn.btn-default.add-to-cart{:href => "#"}
                 %i.fa.fa-shopping-cart>
                 Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/shop/product11.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/shop/product10.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/shop/product9.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-          %img.new{:alt => "", :src => "images/home/new.png"}/
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/shop/product8.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-          %img.new{:alt => "", :src => "images/home/sale.png"}/
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/shop/product7.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/home/product6.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/home/product5.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/home/product4.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/home/product3.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/home/product2.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
-    .col-sm-4
-      .product-image-wrapper
-        .single-products
-          .productinfo.text-center
-            %img{:alt => "", :src => "images/home/product1.jpg"}/
-            %h2 $56
-            %p Easy Polo Black Edition
-            %a.btn.btn-default.add-to-cart{:href => "#"}
-              %i.fa.fa-shopping-cart>
-              Add to cart
-          .product-overlay
-            .overlay-content
-              %h2 $56
-              %p Easy Polo Black Edition
-              %a.btn.btn-default.add-to-cart{:href => "#"}
-                %i.fa.fa-shopping-cart>
-                Add to cart
-        .choose
-          %ul.nav.nav-pills.nav-justified
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to wishlist
-            %li
-              %a{:href => ""}
-                %i.fa.fa-plus-square>
-                Add to compare
+            .product-overlay
+              .overlay-content
+                %h2
+                  = render_price item
+                %p
+                  = item.name
+                %a.btn.btn-default.add-to-cart{:href => "#"}
+                  %i.fa.fa-shopping-cart>
+                  Add to cart
+          .choose
+            %ul.nav.nav-pills.nav-justified
+              %li
+                %a{:href => ""}
+                  %i.fa.fa-plus-square>
+                  Add to wishlist
+              %li
+                %a{:href => ""}
+                  %i.fa.fa-plus-square>
+                  Add to compare
     %ul.pagination
       %li.active
         %a{:href => ""} 1
