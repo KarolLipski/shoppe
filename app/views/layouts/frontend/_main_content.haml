@@ -1,6 +1,8 @@
-.container
-  .row
-    .col-sm-3
-      = render :partial => 'layouts/frontend/left_sidebar'
-    / /shipping
-    = yield
+= yield :slider
+
+%section
+  .container
+    .row
+      .col-sm-3
+        = render :partial => 'layouts/frontend/left_sidebar'
+      = yield
