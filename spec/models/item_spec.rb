@@ -36,7 +36,23 @@ RSpec.describe Item, type: :model do
     expect(FactoryGirl.build(:item, small_wrap: -2)).not_to be_valid
     expect(FactoryGirl.build(:item, big_wrap: -3)).not_to be_valid
     expect(FactoryGirl.build(:item, small_wrap: 0)).to be_valid
-
   end
+
+  context 'calculation' do
+    before(:each) do
+      @item = FactoryGirl.build(:item)
+      @stored_item1 = FactoryGirl.build(:stored_item, magazine_id: 1 , item_id: 1, quantity: 11, price: 22.50)
+      @stored_item2 = FactoryGirl.build(:stored_item, magazine_id: 1 , item_id: 1, quantity: 12, price: 30.50)
+      @stored_item3 = FactoryGirl.build(:stored_item, magazine_id: 1 , item_id: 1, quantity: 13, price: 28.50)
+      @item.stored_items << [@stored_item1, @stored_item2, @stored_item3]
+    end
+    it 'price is biggest price from all magazines' do
+      expect(@item.price).to eq(30.50)
+    end
+    it 'quantity is sum from all magazines' do
+      expect(@item.quantity).to eq(36)
+    end
+  end
+
 
 end
