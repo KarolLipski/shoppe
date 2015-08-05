@@ -38,6 +38,17 @@ RSpec.describe Item, type: :model do
     expect(FactoryGirl.build(:item, small_wrap: 0)).to be_valid
   end
 
+  it 'active scope get only items where qunatity > 0' do
+    quantities = [0,10]
+    quantities.each do |quantity|
+      item = FactoryGirl.create(:item)
+      magazine = FactoryGirl.create(:magazine)
+      FactoryGirl.create(:stored_item, magazine: magazine, item: item, quantity: quantity)
+    end
+
+    expect(Item.active.length).to eq(1)
+  end
+
   context 'calculation' do
     before(:each) do
       @item = FactoryGirl.build(:item)
