@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
   end
 
+  get '/items/actualization', to: 'items#actualization'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
