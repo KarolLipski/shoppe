@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: magazines
+#
+#  id         :integer          not null, primary key
+#  number     :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Magazine, type: :model do

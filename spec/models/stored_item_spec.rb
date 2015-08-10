@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: stored_items
+#
+#  id          :integer          not null, primary key
+#  magazine_id :integer
+#  item_id     :integer
+#  quantity    :integer
+#  price       :decimal(10, 2)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe StoredItem, type: :model do
