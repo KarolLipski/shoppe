@@ -14,14 +14,14 @@ module CsvImporter
     end
 
     def update_stored(magazine, row, item)
-      stored = StoredItem.where(magazine_id: magazine.id, item_id: item.id).first_or_create!(quantity: row[4], price: row[2].gsub(',','.'))
-      stored.update(quantity: row[4], price: row[2].gsub(',','.'))
+      stored = StoredItem.where(magazine_id: magazine.id, item_id: item.id).first_or_create!(quantity: row[3], price: row[2].gsub(',','.'))
+      stored.update(quantity: row[3], price: row[2].gsub(',','.'))
       stored
     end
 
     def update_item(row)
       item = Item.where(number: row[0]).first_or_create!(name: row[1], small_wrap: row[5], big_wrap: row[4])
-      item.update(name: row[1], small_wrap: row[5], big_wrap: row[4])
+      item.update(small_wrap: row[5], big_wrap: row[4])
       item
     end
 
