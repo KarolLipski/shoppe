@@ -6,8 +6,9 @@ class ItemsController < ApplicationController
     @items = @category.items.active.page(params[:page]).per(25)
   end
 
+  # get /items/actualization
   def actualization
-    importer = ItemsImporter.new
+    importer = CsvImporter::ItemsImporter.new
     @print = importer.import_items(File.join(Rails.root,'tmp','stany.csv'))
   end
 
