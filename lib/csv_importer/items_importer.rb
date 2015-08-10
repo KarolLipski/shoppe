@@ -3,14 +3,11 @@ module CsvImporter
   class ItemsImporter
 
     def import_items(file)
-      result = []
       CSV.foreach(file, encoding: 'windows-1250:utf-8', col_sep: ';') do |row|
-        result << row[0]
         magazine = Magazine.find_by_number(row[6])
         item = update_item(row)
         update_stored(magazine, row, item)
       end
-      result
     end
 
     def update_stored(magazine, row, item)
