@@ -1,1 +1,14 @@
-= @print.inspect
+%h3 Aktualizacja produktów
+
+= form_tag items_actualize_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag :Aktualizuj
+
+- if @table
+  %table
+    %tr
+      %td
+        = @table
+      %td
+        trakcie
+

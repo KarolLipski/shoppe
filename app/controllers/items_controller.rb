@@ -9,7 +9,12 @@ class ItemsController < ApplicationController
   # get /items/actualization
   def actualization
     importer = CsvImporter::ItemsImporter.new
-    @print = importer.import_items(File.join(Rails.root,'tmp','stany.csv'))
+   # @print = importer.import_items(File.join(Rails.root,'tmp','stany.csv'))
+  end
+
+  def actualize
+    @table = Time.now.strftime('%Y-%m-%d')
+    render 'actualization'
   end
 
 end

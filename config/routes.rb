@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
   end
 
-  get '/items/actualization', to: 'items#actualization'
+  get '/items/actualization', to: 'items#actualization', as: :items_actualization
+  post '/items/actualize', to: 'items#actualize', as: :items_actualize
 
 
   # The priority is based upon order of creation: first created -> highest priority.
