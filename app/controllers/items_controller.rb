@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  layout 'admin', only: [:actualization, :actualize]
+
   # GET /categories/:category_id/items
   def index
     @category = Category.find(params[:category_id])
