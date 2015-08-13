@@ -1,14 +1,49 @@
 %h3 Aktualizacja produktów
 
-= form_tag items_actualize_path, multipart: true do
-  = file_field_tag :file
-  = submit_tag :Aktualizuj
+.panel.panel-info{"data-collapsed" => "0"}
+  / panel head
+  .panel-heading
+    .panel-title Instrukcja
+    .panel-options
+      %a.bg{"data-target" => "#sample-modal-dialog-1", "data-toggle" => "modal", :href => "#sample-modal"}
+        %i.entypo-cog
+      %a{"data-rel" => "collapse", :href => "#"}
+        %i.entypo-down-open
+      %a{"data-rel" => "reload", :href => "#"}
+        %i.entypo-arrows-ccw
+      %a{"data-rel" => "close", :href => "#"}
+        %i.entypo-cancel
+  / panel body
+  .panel-body
+    %p Article evident arrived express highest men did boy. Mistress sensible entirely am so. Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.
+
+
+= form_tag items_actualize_path, class: 'form-horizontal form-groups-bordered',
+ multipart: true do
+  .form-group
+    = label_tag :file, 'Plik CSV', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = file_field_tag :file, class: 'form-control'
+  .form-group
+    .col-sm-offset-3.col-sm-5
+      = submit_tag :Aktualizuj, class: 'btn btn-success'
 
 - if @table
-  %table
-    %tr
-      %td
-        = @table
-      %td
-        trakcie
+  .col-md-6
+  %h4 Ostatnie aktualizacje
+  %table.table.table-condensed.table-bordered.table-hover.table-striped
+    %thead
+      %tr
+        %th Data
+        %th Status
+    %tbody
+      %tr
+        %td 2015-01-01
+        %td W trakcie
+      %tr
+        %td 2015-08-08
+        %td Sukces
+      %tr
+        %td 2013-04-21
+        %td Błąd
 
