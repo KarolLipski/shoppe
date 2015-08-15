@@ -10,11 +10,13 @@ class ItemsController < ApplicationController
 
   # get /items/actualization
   def actualization
-    importer = CsvImporter::ItemsImporter.new
-   # @print = importer.import_items(File.join(Rails.root,'tmp','stany.csv'))
+    @actualizations = ActualizationLog.order('created_at DESC').last(3)
   end
 
   def actualize
+    importer = CsvImporter::ItemsImporter.new
+    @log = ActualizationLog.create(status: 'Accepted')
+    @actualizations = ActualizationLog.order('created_at DESC').last(3)
     @table = Time.now.strftime('%Y-%m-%d')
     render 'actualization'
   end
