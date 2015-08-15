@@ -18,6 +18,6 @@ feature 'Items actualization' do
     end
 
     visit items_actualization_path
-    expect(page).to have_css("table tr", count: 4)
+    expect(page).to have_css("table#last-actualizations tr", count: 4)
   end
 end
