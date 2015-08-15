@@ -22,5 +22,12 @@ module CsvImporter
       item
     end
 
+    def actualize(file, actualization_log)
+      actualization_log.update(status: 'In Progress')
+      import_items(file)
+      actualization_log.update(status: 'Success')
+    end
+
+
   end
 end

@@ -10,17 +10,17 @@ class ItemsController < ApplicationController
 
   # get /items/actualization
   def actualization
-    @actualizations = ActualizationLog.order('created_at DESC').last(3)
+    @actualizations = ActualizationLog.order('created_at DESC').first(3)
   end
 
   def actualize
     file_path = save_uploaded_file params[:file]
-    CsvImporter::ItemsImporter.new.delay.import_items(file_path)
-
     @log = ActualizationLog.create(status: 'Accepted')
+    CsvImporter::ItemsImporter.new.delay.actualize(file_path, @log)
+
     @actualizations = ActualizationLog.order('created_at DESC').last(3)
     @table = Time.now.strftime('%Y-%m-%d')
-    render 'actualization'
+    redirect_to action: 'actualization'
   end
 
   def save_uploaded_file(file)

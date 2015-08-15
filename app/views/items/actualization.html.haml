@@ -15,7 +15,26 @@
         %i.entypo-cancel
   / panel body
   .panel-body
-    %p Article evident arrived express highest men did boy. Mistress sensible entirely am so. Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.
+    %p Wczytaj plik CSV , rozdzielony ";" w formacie (bez nagłówka w pierwszym wierszu):
+    %table.table.table-condensed.table-bordered.table-hover.table-striped
+      %thead
+        %tr
+          %th Numer
+          %th Nazwa
+          %th Cena
+          %th Ilość
+          %th Duże opakowanie
+          %th Małe opakowanie
+          %th Magazyn
+      %tbody
+        %tr
+          %td 1110000095
+          %td Telefon
+          %td 5.23
+          %td 12
+          %td 480
+          %td 120
+          %td 5016
 
 
 = form_tag items_actualize_path, class: 'form-horizontal form-groups-bordered',
