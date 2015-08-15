@@ -14,11 +14,21 @@ class ItemsController < ApplicationController
   end
 
   def actualize
-    importer = CsvImporter::ItemsImporter.new
+    file_path = save_uploaded_file params[:file]
+    CsvImporter::ItemsImporter.new.delay.import_items(file_path)
+
     @log = ActualizationLog.create(status: 'Accepted')
     @actualizations = ActualizationLog.order('created_at DESC').last(3)
     @table = Time.now.strftime('%Y-%m-%d')
     render 'actualization'
+  end
+
+  def save_uploaded_file(file)
+    name = "actualization#{Digest::MD5.hexdigest(Time.now.to_s)}"
+    directory = 'public/actualizations'
+    path = File.join(directory, name)
+    File.open(path,'wb') { |f| f.write(file.read) }
+    path
   end
 
 end

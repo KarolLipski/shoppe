@@ -27,12 +27,22 @@ RSpec.describe ItemsController, type: :controller do
   end
 
   describe 'GET #actualize' do
+    before(:each) do
+      @file = fixture_file_upload('stany.csv')
+    end
+    it 'creates new backgroud job for ItemsImporter' do
+      importer = double('importer')
+      expect(CsvImporter::ItemsImporter).to receive(:new).and_return(importer)
+      expect(importer).to receive(:delay).and_return(importer)
+      expect(importer).to receive(:import_items)
+      post :actualize, file: @file
+    end
     it 'creates new row in actualizationLog with Accepted status' do
-      post :actualize, file: File.join(Rails.root,'test/fixtures','stany.csv')
+      post :actualize, file: @file
       expect(assigns(:log).status).to eq('Accepted')
     end
     it 'renders actualiztion template' do
-      post :actualize, file: File.join(Rails.root,'test/fixtures','stany.csv')
+      post :actualize, file: @file
       expect(response).to render_template('actualization')
     end
 
