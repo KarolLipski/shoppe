@@ -26,3 +26,6 @@ prepare_server.sh
 
 #ignore actualizations files
 public/actualizations
+
+#ignore photos
+public/zdjecia

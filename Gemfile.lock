@@ -55,6 +55,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -147,6 +152,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    rmagick (2.15.4)
     rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.1)
@@ -217,6 +223,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   capybara
+  carrierwave
   coffee-rails (~> 4.1.0)
   delayed_job_active_record
   factory_girl_rails
@@ -227,6 +234,7 @@ DEPENDENCIES
   kaminari
   pg
   rails (= 4.2.1)
+  rmagick
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
