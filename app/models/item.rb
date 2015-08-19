@@ -7,7 +7,7 @@
 #  name        :string
 #  small_wrap  :integer
 #  big_wrap    :integer
-#  photo       :string
+#  photo       :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer
@@ -17,6 +17,10 @@ class Item < ActiveRecord::Base
 
   has_many :stored_items
   belongs_to :category
+
+  mount_uploader :photo, PhotoUploader
+
+  after_validation :update_photo
 
   validates_presence_of :name, :number, :small_wrap, :big_wrap
   validates_numericality_of :small_wrap, :big_wrap, :only_integer => true, :greater_than_or_equal_to => 0
@@ -30,6 +34,14 @@ class Item < ActiveRecord::Base
 
   def quantity
     stored_items.inject(0){ |sum, n| sum += n.quantity}
+  end
+
+  private
+
+  def update_photo
+    # self.remote_photo_url = "http://madej.com.pl/zdjecia/#{number[-5,5]}.jpg"
+    path = "public/zdjecia/#{number[-5,5]}.jpg"
+    self.photo = File.open(path) if (File.exist?(path) && !photo.nil?)
   end
 
 

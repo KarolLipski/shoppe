@@ -28,4 +28,8 @@ prepare_server.sh
 public/actualizations
 
 #ignore photos
-public/zdjecia
+public/item_photos
+public/item_photos_mini
+
+#ignore vagrant fixes
+config/initializers/carrierwave.rb

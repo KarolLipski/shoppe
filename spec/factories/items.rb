@@ -8,7 +8,7 @@
 #  name        :string
 #  small_wrap  :integer
 #  big_wrap    :integer
-#  photo       :string
+#  photo       :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer
