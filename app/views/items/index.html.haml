@@ -4,11 +4,11 @@
     %h2.title.text-center
       = "#{@category.parent.name}: #{@category.name}"
     - @items.each do |item|
-      .col-sm-4
+      .col-sm-3
         .product-image-wrapper
           .single-products
             .productinfo.text-center
-              %img{:alt => "", :src => "images/shop/product12.jpg"}/
+              = image_tag item.photo.url(:mini)
               %h2
                 = render_price item
               %p

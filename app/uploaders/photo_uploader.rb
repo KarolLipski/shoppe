@@ -20,8 +20,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
     def store_dir
       "item_photos_mini"
     end
-    def full_filename(for_file = model.photo.file)
-      original_filename
+    def full_filename(for_file)
+      return original_filename if original_filename
+      super.sub('mini_','')
     end
     process :resize_to_limit => [200,133]
   end
