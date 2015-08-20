@@ -22,6 +22,9 @@ FactoryGirl.define do
     big_wrap 48
     photo nil
     association :category, factory: :category
+    after :create do |i|
+      i.update_column(:photo, '23456.jpg')
+    end
   end
 
 end

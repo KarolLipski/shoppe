@@ -53,16 +53,46 @@ RSpec.describe Item, type: :model do
     expect(FactoryGirl.build(:item, small_wrap: 0)).to be_valid
   end
 
-  it 'active scope get only items where qunatity > 0' do
-    quantities = [0,10]
-    quantities.each do |quantity|
-      item = FactoryGirl.create(:item)
-      magazine = FactoryGirl.create(:magazine)
-      FactoryGirl.create(:stored_item, magazine: magazine, item: item, quantity: quantity)
+  context 'update photos' do
+    before(:each) do
+      @item = FactoryGirl.create(:item, number: 'test1')
+    end
+    context 'when file exist and photo is null' do
+      it 'updates photo column' do
+        @item.update_column(:photo, nil)
+        @item.update_photo
+        expect(@item.photo.filename).to eq('test1.jpg')
+      end
+    end
+    context 'when photo in not null' do
+      it 'doesnt update photo' do
+        @item.number = 'test2'
+        @item.update_photo
+        expect(@item.photo.filename).to eq('test1.jpg')
+      end
+    end
+  end
+
+  context 'scopes' do
+    it 'active scope returns only items where qunatity > 0' do
+      quantities = [0,10]
+      quantities.each do |quantity|
+        item = FactoryGirl.create(:item)
+        magazine = FactoryGirl.create(:magazine)
+        FactoryGirl.create(:stored_item, magazine: magazine, item: item, quantity: quantity)
+      end
+
+      expect(Item.active.length).to eq(1)
     end
 
-    expect(Item.active.length).to eq(1)
+    it 'with_photo scope returns only items with photo' do
+      FactoryGirl.create(:item)
+      FactoryGirl.create(:item).update_column(:photo, nil)
+
+      expect(Item.with_photo.size).to eq(1)
+    end
   end
+
 
   context 'calculation' do
     before(:each) do
