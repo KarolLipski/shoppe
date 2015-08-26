@@ -2,7 +2,7 @@
   .features_items
     / features_items
     %h2.title.text-center
-      = "#{@category.parent.name}: #{@category.name}"
+      = category_heading_name(@category)
     - @items.each do |item|
       .col-sm-3
         .product-image-wrapper

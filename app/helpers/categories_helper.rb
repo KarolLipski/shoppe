@@ -16,4 +16,9 @@ module CategoriesHelper
     end
   end
 
+  def category_heading_name(category)
+    return "#{category.parent.name}: #{category.name}" unless category.parent.nil?
+    return "#{category.name}"
+  end
+
 end
