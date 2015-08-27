@@ -16,6 +16,7 @@
   / panel body
   .panel-body
     %p Wczytaj plik CSV , rozdzielony ";" w formacie (bez nagłówka w pierwszym wierszu):
+    %p Opcjonalnie ostatnia kolumna moze byc numerem kategorii
     %table.table.table-condensed.table-bordered.table-hover.table-striped
       %thead
         %tr
@@ -26,6 +27,7 @@
           %th Duże opakowanie
           %th Małe opakowanie
           %th Magazyn
+          %th Kategoria(opcjonalna)
       %tbody
         %tr
           %td 1110000095
@@ -35,6 +37,7 @@
           %td 480
           %td 120
           %td 5016
+          %td 12
 
 
 = form_tag items_actualize_path, class: 'form-horizontal form-groups-bordered',
