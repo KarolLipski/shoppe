@@ -45,5 +45,10 @@ class Item < ActiveRecord::Base
       self.photo = File.open(path) if (File.exist?(path) && photo.filename.nil?)
   end
 
+  def self.search(query)
+    where("number ILIKE ? or name ILIKE ?","%#{query}%","%#{query}%").order(created_at: :desc)
+  end
+
+
 
 end

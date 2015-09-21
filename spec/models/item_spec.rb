@@ -110,5 +110,28 @@ RSpec.describe Item, type: :model do
     end
   end
 
+  context 'search' do
+    before(:each) do
+      @item = FactoryGirl.create(:stored_item)
+    end
+    it 'returns items when number matched' do
+      expect(Item.search('23456').length).to eq(1)
+    end
+    it 'returns items when name matched' do
+      expect(Item.search('Wózek').length).to eq(1)
+    end
+    it 'returns items with 0 quantity' do
+      FactoryGirl.create(:stored_item, quantity:0)
+      expect(Item.search('Wózek').length).to eq(2)
+    end
+    it 'returns items ordered by add_date' do
+      item = FactoryGirl.create(:item,created_at: 2.days.from_now)
+      expect(Item.search('Wózek').first.id).to eq(item.id)
+    end
+    it 'doesnt returns items when number or name matched' do
+      expect(Item.search('xxx').length).to eq(0)
+    end
+  end
+
 
 end
