@@ -12,7 +12,8 @@ set :repo_url, 'https://github.com/xxxx/xxx.git'
 set :deploy_via, :copy
 set :deploy_to, 'xxx'
 set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system
+ public/actualizations public/item_photos public/item_photos_mini}
 
 
 # Default value for :scm is :git
