@@ -68,7 +68,7 @@ a#scrollUp i{
 **************************/
 
 .header_top {
-  background: none repeat scroll 0 0 #F0F0E9;
+  background: none repeat scroll 0 0 #59BDFF;
 }
 
 .contactinfo ul li:first-child{
@@ -77,7 +77,7 @@ a#scrollUp i{
 
 .contactinfo ul li a{
   font-size: 12px;
-  color: #696763;
+  color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -90,7 +90,7 @@ a#scrollUp i{
 .social-icons ul li a {
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: #FFFFFF;
   padding:0px;
 }
 
@@ -346,7 +346,7 @@ ul.sub-menu {
 **************************/
 
 #footer {
-  background: #F0F0E9;
+  background: #E5E5E5;
 }
 
 
@@ -603,7 +603,7 @@ ul.sub-menu {
 }
 
 .item h1 span {
-	color:#FE980F;
+	color:#59BDFF;
 }
 
 .item h2 {
@@ -660,11 +660,11 @@ ul.sub-menu {
   padding-top: 15px;
 }
 .left-sidebar h2, .brands_products h2 {
-  color: #FE980F;
+  color: #59BDFF;
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  margin: 0 auto 30px;
+  margin: 0 auto 20px;
   text-align: center;
   text-transform: uppercase;
   position: relative;
@@ -724,7 +724,7 @@ h2.title:before{
 .category-products .panel-default .panel-heading .panel-title a {
   color: #696763;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -771,8 +771,8 @@ h2.title:before{
   background-color: #FFFFFF;
   color: #696763;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  padding: 5px 25px;
+  font-size: 13px;
+  padding: 3px 25px;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -835,9 +835,9 @@ h2.title:before{
 
 
 h2.title {
-  color: #FE980F;
+  color: #59BDFF;
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   margin: 0 15px;
   text-transform: uppercase;
