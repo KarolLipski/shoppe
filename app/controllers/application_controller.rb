@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
 
   def set_menu
-    @categories = Category.main
+    @categories = Category.main.order(:name)
   end
 
 end
