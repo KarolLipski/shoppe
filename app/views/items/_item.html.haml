@@ -1,0 +1,30 @@
+.product-image-wrapper
+  .single-products
+    .productinfo.text-center
+      = image_tag item.photo.url(:mini)
+      %h2
+        = render_price item
+      %p
+        = item.name
+      %a.btn.btn-default.add-to-cart{:href => "#"}
+        %i.fa.fa-shopping-cart>
+        Add to cart
+    .product-overlay
+      .overlay-content
+        %h2
+          = render_price item
+        %p
+          = item.name
+        %a.btn.btn-default.add-to-cart{:href => "#"}
+          %i.fa.fa-shopping-cart>
+          Add to cart
+  .choose
+    %ul.nav.nav-pills.nav-justified
+      %li
+        %a{:href => ""}
+          %i.fa.fa-plus-square>
+          Add to wishlist
+      %li
+        %a{:href => ""}
+          %i.fa.fa-plus-square>
+          Add to compare

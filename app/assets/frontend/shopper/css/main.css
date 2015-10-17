@@ -221,7 +221,6 @@ a#scrollUp i{
 
 
 .header-bottom {
-  padding-bottom: 30px;
   padding-top: 30px;
 }
 
@@ -569,7 +568,8 @@ ul.sub-menu {
 
 
 #slider {
-  padding-bottom: 45px;
+    height: 400px;
+  /*padding-bottom: 45px;*/
 }
 
 .carousel-indicators li {
