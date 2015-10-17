@@ -25,12 +25,14 @@
 #  database: db/production.sqlite3
 
 development:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
-  database: shoppee-dev
-  username: vagrant
-  password: vagrant
+  database: shoppee
+  username: shoppee
+  password: karol
   host: localhost
+  port: 3306
+  secure_auth: false
 
 test:
   adapter: postgresql

@@ -13,34 +13,31 @@
 
 ActiveRecord::Schema.define(version: 20150818203234) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "actualization_logs", force: :cascade do |t|
-    t.string   "status"
-    t.integer  "items_count"
-    t.text     "error"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "status",      limit: 255
+    t.integer  "items_count", limit: 4
+    t.text     "error",       limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.integer  "parent_id",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
+    t.integer  "priority",   limit: 4,     default: 0, null: false
+    t.integer  "attempts",   limit: 4,     default: 0, null: false
+    t.text     "handler",    limit: 65535,             null: false
+    t.text     "last_error", limit: 65535
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
+    t.string   "locked_by",  limit: 255
+    t.string   "queue",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,31 +45,31 @@ ActiveRecord::Schema.define(version: 20150818203234) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "items", force: :cascade do |t|
-    t.string   "number"
-    t.string   "name"
-    t.integer  "small_wrap"
-    t.integer  "big_wrap"
-    t.text     "photo"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "category_id"
+    t.string   "number",      limit: 255
+    t.string   "name",        limit: 255
+    t.integer  "small_wrap",  limit: 4
+    t.integer  "big_wrap",    limit: 4
+    t.text     "photo",       limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "category_id", limit: 4
   end
 
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
 
   create_table "magazines", force: :cascade do |t|
-    t.string   "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "number",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "stored_items", force: :cascade do |t|
-    t.integer  "magazine_id"
-    t.integer  "item_id"
-    t.integer  "quantity"
-    t.decimal  "price",       precision: 10, scale: 2
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.integer  "magazine_id", limit: 4
+    t.integer  "item_id",     limit: 4
+    t.integer  "quantity",    limit: 4
+    t.decimal  "price",                 precision: 10, scale: 2
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   add_index "stored_items", ["item_id"], name: "index_stored_items_on_item_id", using: :btree
