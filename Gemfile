@@ -46,6 +46,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'mysql2' ,'~> 0.3.20'
 end
 
 # Use ActiveModel has_secure_password
