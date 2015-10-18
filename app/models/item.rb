@@ -46,7 +46,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.search(query)
-    where("number ILIKE ? or name ILIKE ?","%#{query}%","%#{query}%").order(created_at: :desc)
+    where("number LIKE ? or name LIKE ?","%#{query}%","%#{query}%").order(created_at: :desc)
   end
 
 
