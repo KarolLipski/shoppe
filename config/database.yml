@@ -35,11 +35,11 @@ development:
   secure_auth: false
 
 test:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
-  database: shoppee-test
-  username: vagrant
-  password: vagrant
+  database: shoppee_test
+  username: shoppee
+  password: karol
   host: localhost
 
 production:
