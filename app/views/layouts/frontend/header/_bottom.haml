@@ -43,4 +43,7 @@
               %a{:href => "contact-us.html"} Contact
       .col-sm-3
         .search_box.pull-right
-          %input{:placeholder => "Search", :type => "text"}/
+          = form_tag search_path, method: 'get' do
+            = text_field_tag :search, nil, id: 'search_field', placeholder: 'Wyszukiwanie'
+            %button.btn#search{type: 'submit'}
+              %i.fa.fa-search

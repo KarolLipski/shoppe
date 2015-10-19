@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/items/actualization', to: 'items#actualization', as: :items_actualization
   post '/items/actualize', to: 'items#actualize', as: :items_actualize
 
+  get '/search', to: 'main#search', as: :search
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
