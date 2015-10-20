@@ -568,7 +568,7 @@ ul.sub-menu {
 
 
 #slider {
-    height: 440px;
+    height: 400px;
   /*padding-bottom: 45px;*/
 }
 
@@ -1080,6 +1080,10 @@ h2.title {
 
 .our_partners ul li a:hover{
 	background:none;
+}
+
+#main_content {
+    margin-top: 30px;
 }
 
 /*************************
