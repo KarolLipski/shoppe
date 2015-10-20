@@ -4,8 +4,7 @@
     .row
       .col-sm-4
         .logo.pull-left
-          %a{:href => "index.html"}
-            = image_tag "shopper/images/home/logo.png"
+          = link_to image_tag("madej_logo.png"), root_path
         .btn-group.pull-right
           .btn-group
             %button.btn.btn-default.dropdown-toggle.usa{"data-toggle" => "dropdown", :type => "button"}
