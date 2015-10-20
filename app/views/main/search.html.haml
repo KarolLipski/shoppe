@@ -1,2 +1,12 @@
-= render partial: 'items/items_grid', locals: {items: @items, header_text: 'Wyniki wyszukiwania'}
+-if @items.empty?
+  %div{class: 'alert alert-info'}
+    %p
+      %strong Brak wyników.
+    %p Aby zwiekszyć skuteczność wyszukiwania wpisz nazwę lub część nazwy towaru lub jego symbol.
+    %p Przykładowo :
+    %p - Wpisując 'klo' , wyszukasz wszystkie klocki oraz towary zawierające w swojej nazwie fraze 'klo'
+    %p - Wpisując 17200123456 odszukasz towar o podanym symbolu.
+    %p Wyszukiwanie uwzględnia tylko towary które znajdują sie obecnie na stanie magazynowym.
+-else
+  = render partial: 'items/items_grid', locals: {items: @items, header_text: 'Wyniki wyszukiwania'}
 
