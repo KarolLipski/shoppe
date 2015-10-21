@@ -52,7 +52,7 @@ a#scrollUp {
   bottom: 0px;
   right: 10px;
   padding: 5px 10px;
-  background: #FE980F;
+  background: #FFB240;
   color: #FFF;
   -webkit-animation: bounce 2s ease infinite;
   animation: bounce 2s ease infinite;
@@ -154,7 +154,7 @@ a#scrollUp i{
 
 .usa {
   border-radius: 0;
-  color: #B4B1AB;
+  color: #B2B2B2;
   font-size: 12px;
   margin-right: 20px;
   padding: 2px 15px;
@@ -162,13 +162,13 @@ a#scrollUp i{
 }
 
 .usa:hover {
-	background:#FE980F;
+	background:#FFB240;
 	color:#fff;
-	border-color:#FE980F;
+	border-color:#FFB240;
 }
 
 .usa:active, .usa.active {
-  background: none repeat scroll 0 0 #FE980F;
+  background: none repeat scroll 0 0 #FFB240;
   box-shadow: inherit;
   outline: 0 none;
 }
@@ -179,7 +179,7 @@ a#scrollUp i{
 }
 
 .dropdown-menu  li  a:hover, .dropdown-menu  li  a:focus {
-  background-color: #FE980F;
+  background-color: #FFB240;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
@@ -215,7 +215,7 @@ a#scrollUp i{
 
 
 .shop-menu ul li a:hover {
-	color:#fe980f;
+	color:#FFB240;
 	background:#fff;
 }
 
@@ -359,14 +359,14 @@ ul.sub-menu {
 }
 
 .companyinfo h2 {
-  color: #B4B1AB;
+  color: #B2B2B2;
   font-family: abel;
   font-size: 27px;
   text-transform: uppercase;
 }
 
 .companyinfo h2  span{
-  color:#FE980F;
+  color:#FFB240;
 }
 
 .companyinfo p {
@@ -404,7 +404,7 @@ ul.sub-menu {
   top: 0;
   width: 100%;
   height: 61px;
-  background: #FE980F;
+  background: #FFB240;
   border-radius: 3px;
   color: #FFF;
   font-size: 20px;
@@ -500,7 +500,7 @@ ul.sub-menu {
 
 .single-widget ul li a:hover{
 	background:none;
-	color:#FE980F;
+	color:#FFB240;
 }
 
 
@@ -517,7 +517,7 @@ ul.sub-menu {
 
 
 .searchform button {
-  background: #FE980F;
+  background: #FFB240;
   border: medium none;
   border-radius: 0;
   margin-left: -5px;
@@ -532,7 +532,7 @@ ul.sub-menu {
 
 .searchform  button:hover, 
 .searchform  button:focus{
-	background-color:#FE980F;
+	background-color:#FFB240;
 }
 
 .searchform p {
@@ -549,14 +549,14 @@ ul.sub-menu {
 }
 
 .footer-bottom p {
-  color: #363432;
+  color: #666666;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   margin-left: 15px;
 }
 
 .footer-bottom p span a {
-  color: #FE980F;
+  color: #FFB240;
   font-style: italic;
   text-decoration: underline;
 }
@@ -577,7 +577,7 @@ ul.sub-menu {
 }
 
 .carousel-indicators li.active {
-	  background: #FE980F;
+	  background: #FFB240;
 }
 
 .item {
@@ -596,7 +596,7 @@ ul.sub-menu {
 }
 
 .item h1 {
-  color: #B4B1AB;
+  color: #B2B2B2;
   font-family: abel;
   font-size: 48px;
   margin-top: 115px;
@@ -607,7 +607,7 @@ ul.sub-menu {
 }
 
 .item h2 {
-  color: #363432;
+  color: #666666;
   font-family: 'Roboto', sans-serif;
   font-size: 28px;
   font-weight: 700;
@@ -616,14 +616,14 @@ ul.sub-menu {
 }
 
 .item  p {
-	color:#363432;
+	color:#666666;
 	font-size:16px;
 	font-weight:300;
 	font-family: 'Roboto', sans-serif;
 }
 
 .get {
-  background: #FE980F;
+  background: #FFB240;
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
@@ -635,7 +635,7 @@ ul.sub-menu {
 
 
 .item button:hover {
-  background: #FE980F;
+  background: #FFB240;
 }
 
 .control-carousel {
@@ -646,7 +646,7 @@ ul.sub-menu {
 }
 
 .control-carousel:hover{
-  color: #FE980F ;
+  color: #FFB240 ;
 }
 
 .right {
@@ -807,7 +807,7 @@ h2.title:before{
 
 
 .tooltip-inner {
-  background-color: #FE980F;
+  background-color: #FFB240;
   border-radius: 4px;
   color: #FFFFFF;
   max-width: 200px;
@@ -817,7 +817,7 @@ h2.title:before{
 }
 
 .tooltip.top .tooltip-arrow {
-  border-top-color: #FE980F;
+  border-top-color: #FFB240;
   border-width: 5px 5px 0;
   bottom: 0;
   left: 50%;
@@ -863,7 +863,7 @@ h2.title {
 }
 
 .productinfo h2{
-	color: #FE980F;
+	color: #FFB240;
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
 	font-weight: 700;
@@ -892,7 +892,7 @@ h2.title {
 }
 
 .product-overlay {
-  background:#FE980F;
+  background:#FFB240;
   top: 0;
   display: none;
   height: 0;
@@ -921,7 +921,7 @@ h2.title {
   background:#fff;
   border: 0 none;
   border-radius: 0;
-  color: #FE980F;
+  color: #FFB240;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   margin-bottom: 25px;
@@ -929,7 +929,7 @@ h2.title {
 
 .product-overlay .add-to-cart:hover {
   background:#fff;
-  color: #FE980F;
+  color: #FFB240;
 }
 
 
@@ -953,7 +953,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-  background: #FE980F;
+  background: #FFB240;
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
@@ -968,7 +968,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-  background: #FE980F;
+  background: #FFB240;
   color: #FFFFFF;
 }
 
@@ -990,7 +990,7 @@ h2.title {
 
 .choose ul li a:hover{
 	background:none;
-	color:#FE980F;
+	color:#FFB240;
 }
 
 .category-tab {
@@ -999,7 +999,7 @@ h2.title {
 
 .category-tab ul {
   background: #40403E;
-  border-bottom: 1px solid #FE980F;
+  border-bottom: 1px solid #FFB240;
   list-style: none outside none;
   margin: 0 0 30px;
   padding: 0;
@@ -1017,7 +1017,7 @@ h2.title {
 }
 
 .category-tab ul  li  a:hover{
-	background:#FE980F;
+	background:#FFB240;
 	color:#fff;
 }
 
@@ -1026,7 +1026,7 @@ h2.title {
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  background-color: #FE980F;
+  background-color: #FFB240;
   border:0px;
   color: #FFFFFF;
   cursor: default;
@@ -1055,7 +1055,7 @@ h2.title {
 }
 
 .recommended-item-control i {
-  background: none repeat scroll 0 0 #FE980F;
+  background: none repeat scroll 0 0 #FFB240;
   color: #FFFFFF;
   font-size: 20px;
   padding: 4px 10px;
@@ -1118,8 +1118,8 @@ h2.title {
 }
 
 .pagination  .active  a, .pagination  .active  span, .pagination  .active  a:hover, .pagination  .active  span:hover, .pagination  .active  a:focus, .pagination  .active  span:focus {
-  background-color: #FE980F;
-  border-color: #FE980F;
+  background-color: #FFB240;
+  border-color: #FFB240;
   color: #FFFFFF;
   cursor: default;
   z-index: 2;
@@ -1139,7 +1139,7 @@ h2.title {
 }
 
 .pagination  li  a:hover{
-	background:#FE980F;
+	background:#FFB240;
 	color:#fff;
 }
 
@@ -1183,7 +1183,7 @@ h2.title {
 }
 
 .view-product h3 {
-  background: #FE980F;
+  background: #FFB240;
   bottom: 0;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
@@ -1209,7 +1209,7 @@ h2.title {
   top: 35%;
 }
 .item-control i {
-  background: #FE980F;
+  background: #FFB240;
   color: #FFFFFF;
   font-size: 20px;
   padding: 5px 10px;
@@ -1235,7 +1235,7 @@ h2.title {
 }
 
 .product-information h2 {
-  color: #363432;
+  color: #666666;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   margin-top: 0;
@@ -1254,7 +1254,7 @@ h2.title {
 }
 
 .product-information span span {
-  color: #FE980F;
+  color: #FFB240;
   float: left;
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
@@ -1287,7 +1287,7 @@ h2.title {
 
 
 .cart {
-  background: #FE980F;
+  background: #FFB240;
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
@@ -1332,17 +1332,17 @@ h2.title {
 }
 
 #reviews ul li a i{
-	color:#FE980F;
+	color:#FFB240;
 	padding-right:8px;
 }
 
 #reviews ul li a:hover{
 	background:#fff;
-	color:#FE980F;
+	color:#FFB240;
 }
 
 #reviews p{
-	color:#363432;
+	color:#666666;
 }
 
 #reviews  form span {
@@ -1378,7 +1378,7 @@ h2.title {
 }
 
 #reviews button {
-  background: #FE980F;
+  background: #FFB240;
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
@@ -1396,7 +1396,7 @@ h2.title {
 }
 
 .content-404 h1 {
-  color: #363432;
+  color: #666666;
   font-family: 'Roboto', sans-serif;
   font-size: 41px;
   font-weight: 300;
@@ -1407,7 +1407,7 @@ h2.title {
 }
 
 .content-404 p {
-  color: #363432;
+  color: #666666;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
 }
@@ -1417,7 +1417,7 @@ h2.title {
 }
 
 .content-404 h2 a {
-  background: #FE980F;
+  background: #FFB240;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   font-size: 44px;
@@ -1485,7 +1485,7 @@ h2.title {
 }
 
 .login-form form button, .signup-form form button {
-  background: #FE980F;
+  background: #FFB240;
   border: medium none;
   border-radius: 0;
   color: #FFFFFF;
@@ -1510,7 +1510,7 @@ h2.title {
 
 
 .or{
-	background: #FE980F;
+	background: #FFB240;
 	border-radius: 40px;
 	color: #FFFFFF;
 	font-family: 'Roboto', sans-serif;
@@ -1542,7 +1542,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb li a {
-  background:#FE980F;
+  background:#FFB240;
   color: #FFFFFF;
   padding: 3px 7px;
 }
@@ -1553,7 +1553,7 @@ h2.title {
   width: auto;
   border-width: 8px;
   border-style: solid;
-  border-color:transparent transparent transparent #FE980F;
+  border-color:transparent transparent transparent #FFB240;
   position: absolute;
   top: 11px;
   left:48px;
@@ -1571,7 +1571,7 @@ h2.title {
 
 
 #cart_items .cart_info .cart_menu {
-  background: #FE980F;
+  background: #FFB240;
   color: #fff;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
@@ -1607,7 +1607,7 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_description h4 a {
-  color: #363432;
+  color: #666666;
   font-family: 'Roboto',sans-serif;
   font-size: 20px;
   font-weight: normal;
@@ -1626,7 +1626,7 @@ h2.title {
 
 
 #cart_items .cart_info .cart_total_price {
-  color: #FE980F;
+  color: #FFB240;
   font-size: 24px;
 }
 
@@ -1673,7 +1673,7 @@ h2.title {
 }
 
 .cart_delete a:hover {
-  background:#FE980F
+  background:#FFB240
 }
 
 
@@ -1684,7 +1684,7 @@ h2.title {
 }
 
 .heading h3 {
-  color: #363432;
+  color: #666666;
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
 }
@@ -1778,7 +1778,7 @@ h2.title {
 }
 
 .update, .check_out {
-  background: #FE980F;
+  background: #FFB240;
   border-radius: 0;
   color: #FFFFFF;
   margin-top: 18px;
@@ -1805,7 +1805,7 @@ h2.title {
 
 .register-req, .step-one .heading {
   background: none repeat scroll 0 0 #F0F0E9;
-  color: #363432;
+  color: #666666;
   font-size: 20px;
   margin-bottom: 35px;
   padding: 10px 25px;
@@ -1818,7 +1818,7 @@ h2.title {
 
 
 .checkout-options h3 {
-  color: #363432;
+  color: #666666;
   font-size: 20px;
   margin-bottom: 0;
   font-weight: normal;
@@ -1845,7 +1845,7 @@ h2.title {
 }
 
 .checkout-options .nav li a {
-  color: #FE980F;
+  color: #FFB240;
   font-size: 18px;
   font-weight: normal;
   padding: 0
@@ -1859,7 +1859,7 @@ h2.title {
   margin-right: 10px;
   border-radius: 50%;
   padding: 5px;
-  background: #FE980F;
+  background: #FFB240;
   color:#fff;
   font-size: 14px;
   padding: 2px 3px;
@@ -1890,7 +1890,7 @@ h2.title {
 
 
 .shopper-info .btn-primary {
-  background: #FE980F;
+  background: #FFB240;
   border: 0 none;
   border-radius: 0;
   margin-right: 15px;
@@ -1975,7 +1975,7 @@ h2.title {
 
 #cart_items .cart_info 
 .table.table-condensed.total-result span {
-  color: #FE980F;
+  color: #FFB240;
   font-weight: 700;
   font-size: 16px
 }
@@ -2017,7 +2017,7 @@ h2.title {
 
 .blog-post-area  
 .single-blog-post p {
-  color: #363432
+  color: #666666
 }
 
 .blog-post-area 
@@ -2046,7 +2046,7 @@ h2.title {
 
 .blog-post-area 
 .post-meta ul li i {
-  background:#FE980F;
+  background:#FFB240;
   color: #FFFFFF;
   margin-left: -4px;
   margin-right: 7px;
@@ -2060,7 +2060,7 @@ h2.title {
   position: absolute;
   width: auto;
   height: auto;
-  border-color:transparent transparent transparent #FE980F;
+  border-color:transparent transparent transparent #FFB240;
   border-width:4px;
   border-style: solid;
   top:6px;
@@ -2070,7 +2070,7 @@ h2.title {
 .blog-post-area 
 .post-meta ul span {
   float: right;
-  color: #FE980F
+  color: #FFB240
 }
 
 .post-meta span{
@@ -2078,14 +2078,14 @@ h2.title {
 }
 
 .post-meta span i{
-  color: #FE980F
+  color: #FFB240
 }
 
 
 .blog-post-area  
 .single-blog-post 
 .btn-primary {
-  background:#FE980F;
+  background:#FFB240;
   border: medium none;
   border-radius: 0;
   color: #FFFFFF;
@@ -2112,7 +2112,7 @@ h2.title {
 .pagination li a:hover,
 .pagination-area 
 .pagination li .active {
-  background:#FE980F;
+  background:#FFB240;
   color: #fff
 }
 
@@ -2140,7 +2140,7 @@ h2.title {
 
 .pager-area 
 .pager li a:hover {
-  background: #FE980F;
+  background: #FFB240;
   color: #fff
 }
 
@@ -2169,7 +2169,7 @@ h2.title {
 }
 
 .rating-area .rate-this {
-  color: #363432;
+  color: #666666;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -2178,7 +2178,7 @@ h2.title {
 .rating-area 
 .ratings .color, 
 .rating-area .color {
-  color: #FE980F
+  color: #FFB240
 }
 
 
@@ -2192,7 +2192,7 @@ h2.title {
   padding: 5px 2px;
 }
 .rating-area .tag li span {
-  color: #363432;
+  color: #666666;
 }
 
 
@@ -2225,7 +2225,7 @@ h2.title {
 }
 
 .media-heading {
-  color: #363432;
+  color: #666666;
   font-size: 14px;
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
@@ -2267,7 +2267,7 @@ h2.title {
 
 .blog-socials ul li a:hover {
   color: #fff;
-  background:#FE980F
+  background:#FFB240
 }
 
 
@@ -2284,7 +2284,7 @@ h2.title {
 }
 
 .response-area h2 {
-  color: #363432;
+  color: #666666;
   font-size: 20px;
   font-weight: 700;
 }
@@ -2320,7 +2320,7 @@ h2.title {
 
 .sinlge-post-meta li {
   background:#F0F0E9;
-  color: #363432;
+  color: #666666;
   float: left;
   font-size: 10px;
   font-weight: 700;
@@ -2331,7 +2331,7 @@ h2.title {
 }
 
 .sinlge-post-meta li i {
-  background:#FE980F;
+  background:#FFB240;
   color: #FFFFFF;
   margin-right: 10px;
   padding: 8px 10px;
@@ -2352,13 +2352,13 @@ h2.title {
 .replay-box h2 {
   font-weight: 700;
   font-size: 20px;
-  color: #363432;
+  color: #666666;
   margin-top: 0;
   margin-bottom: 45px
 }
 
 .replay-box label {
-  background:#FE980F;
+  background:#FFB240;
   color: #FFFFFF;
   margin-bottom: 15px;
   padding: 3px 15px;
@@ -2367,7 +2367,7 @@ h2.title {
 }
 
 .replay-box span {
-  color: #FE980F;
+  color: #FFB240;
   float: right;
   font-weight: 700;
   margin-top: 21px;
@@ -2384,7 +2384,7 @@ h2.title {
 
 .replay-box form input:hover, 
 .text-area textarea:hover {
-  border: 1px solid #FE980F;
+  border: 1px solid #FFB240;
 }
 
 .text-area {
@@ -2397,7 +2397,7 @@ h2.title {
 }
 
 .btn.btn-primary {
-  background:#FE980F;
+  background:#FFB240;
   border: 0 none;
   border-radius: 0;
   margin-top: 16px;
@@ -2414,7 +2414,7 @@ h2.title {
   height: auto;
   border-style: solid;
   border-width: 8px;
-  border-color:#FE980F transparent transparent transparent;
+  border-color:#FFB240 transparent transparent transparent;
   top: 25px;
   left: 5px
 } 
@@ -2522,7 +2522,7 @@ h2.title {
 }
 
 .contact-info .social-networks ul li a:hover{
-  color: #FE980F;
+  color: #FFB240;
 }
 
 
