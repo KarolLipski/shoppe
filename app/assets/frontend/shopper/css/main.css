@@ -252,8 +252,8 @@ a#scrollUp i{
 }
 
 .search_box input {
-  background: #F0F0E9;
-  border: medium none;
+  /*background: #F0F0E9;*/
+  border: 1px solid #59BDFF;
   color: #B2B2B2;
   font-family: 'roboto';
   font-size: 12px;
@@ -261,10 +261,18 @@ a#scrollUp i{
   height: 35px;
   outline: medium none;
   padding-left: 10px;
-  width: 155px;
-  background-image: url(../images/home/searchicon.png);
-  background-repeat: no-repeat;
-  background-position: 130px;
+  width: 200px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+   border-radius: 5px;
+  /*background-image: url(../images/home/searchicon.png);*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: 130px;*/
+}
+
+#search {
+    background-color: #FFB240;
+    color: white;
 }
 
 
