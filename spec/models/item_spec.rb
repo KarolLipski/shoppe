@@ -53,6 +53,21 @@ RSpec.describe Item, type: :model do
     expect(FactoryGirl.build(:item, small_wrap: 0)).to be_valid
   end
 
+  it 'fixes name' do
+    name_to_fix1 = 'Wieża'
+    name_to_fix2 = 'KLOCKI DZIEWCZ E CE RESTAURACJ'
+
+    item1 = FactoryGirl.build(:item, name: name_to_fix1)
+    item1.fix_name
+    expect(item1.name).to eq 'Wieża'
+
+    item2 = FactoryGirl.build(:item, name: name_to_fix2)
+    item2.fix_name
+    expect(item2.name).to eq 'Klocki dziewczece restauracj'
+
+
+  end
+
   context 'update photos' do
     before(:each) do
       @item = FactoryGirl.create(:item, number: 'test1')

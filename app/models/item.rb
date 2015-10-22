@@ -38,6 +38,26 @@ class Item < ActiveRecord::Base
     stored_items.inject(0){ |sum, n| sum += n.quantity}
   end
 
+  #@todo capitalize utf-8
+  def fix_name
+    if(match = self.name.match(/.{14}(\s.\s).+/))
+      parts = self.name.rpartition(/#{match[1]}/)
+      parts[1].strip!
+      self.name = parts.join
+    end
+    self.name.capitalize!
+  end
+
+  def name
+    n = read_attribute(:name)
+    if(match = n.match(/.{14}(\s.\s).+/))
+      parts = n.rpartition(/#{match[1]}/)
+      parts[1].strip!
+      n = parts.join
+    end
+    return  n.capitalize
+  end
+
 
   def update_photo
     path = "public/item_photos/#{number[-5,5]}.jpg"
