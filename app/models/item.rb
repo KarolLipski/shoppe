@@ -19,6 +19,7 @@ class Item < ActiveRecord::Base
   belongs_to :category
 
   before_save :update_photo
+  before_save :fix_name, if: :new_record?
 
   mount_uploader :photo, PhotoUploader
 
@@ -38,26 +39,14 @@ class Item < ActiveRecord::Base
     stored_items.inject(0){ |sum, n| sum += n.quantity}
   end
 
-  #@todo capitalize utf-8
   def fix_name
     if(match = self.name.match(/.{14}(\s.\s).+/))
       parts = self.name.rpartition(/#{match[1]}/)
       parts[1].strip!
       self.name = parts.join
     end
-    self.name.capitalize!
+    self.name = self.name.mb_chars.capitalize
   end
-
-  def name
-    n = read_attribute(:name)
-    if(match = n.match(/.{14}(\s.\s).+/))
-      parts = n.rpartition(/#{match[1]}/)
-      parts[1].strip!
-      n = parts.join
-    end
-    return  n.capitalize
-  end
-
 
   def update_photo
     path = "public/item_photos/#{number[-5,5]}.jpg"
