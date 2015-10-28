@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'sqlite3'
+gem 'mysql2' ,'~> 0.3.20'
+gem 'pg'
+
 gem 'delayed_job_active_record'
 
 gem 'sass-rails', '~> 5.0'
@@ -26,11 +29,9 @@ gem 'capistrano-rvm'
 gem 'capistrano-passenger'
 
 group :development do
-  gem 'mysql2' ,'~> 0.3.20'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
-
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.2'
 end
@@ -44,13 +45,8 @@ group :development, :test do
   gem 'capybara'
 end
 
-group :production do
-  gem 'pg'
-  gem 'mysql2' ,'~> 0.3.20'
-end
-
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # ;2gem 'unicorn'
