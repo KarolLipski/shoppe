@@ -3,11 +3,11 @@
 # Table name: items
 #
 #  id          :integer          not null, primary key
-#  number      :string
-#  name        :string
+#  number      :string(255)
+#  name        :string(255)
 #  small_wrap  :integer
 #  big_wrap    :integer
-#  photo       :text
+#  photo       :text(65535)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer
