@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818203234) do
+ActiveRecord::Schema.define(version: 20151028223026) do
 
   create_table "actualization_logs", force: :cascade do |t|
     t.string   "status",      limit: 255
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20150818203234) do
 
   add_index "stored_items", ["item_id"], name: "index_stored_items_on_item_id", using: :btree
   add_index "stored_items", ["magazine_id"], name: "index_stored_items_on_magazine_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "email",           limit: 255
+    t.string   "login",           limit: 255
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "users", ["login"], name: "index_users_on_login", using: :btree
 
   add_foreign_key "items", "categories"
   add_foreign_key "stored_items", "items"
