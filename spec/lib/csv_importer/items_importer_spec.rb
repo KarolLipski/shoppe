@@ -42,7 +42,7 @@ RSpec.describe CsvImporter::ItemsImporter do
       end
       it 'doesnt update name' do
         @item.reload
-        expect(@item.name).to eq('name')
+        expect(@item.name).to eq('Name')
       end
       it 'doesnt create new item' do
         expect(Item.count).to eq(3) # 3 items in csv , 1 item in db
