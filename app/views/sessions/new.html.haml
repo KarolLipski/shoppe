@@ -1,3 +1,6 @@
+- flash.each do |message_type, message|
+  = content_tag(:div, message,  class: "alert alert-#{message_type}")
+
 = form_for :session, url: login_path, :html => {class: 'form-horizontal form-groups-bordered'} do |f|
   .form-group
     = f.label :login, class: 'col-sm-3 control-label'
@@ -9,5 +12,5 @@
       = f.password_field :password, class: 'form-control'
   .form-group
     .col-sm-offset-3.col-sm-5
-      = f.submit 'Logowanie', class: 'btn btn-success'
+      = f.submit 'Logowanie', class: 'btn btn-primary'
 
