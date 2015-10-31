@@ -46,4 +46,7 @@
             %li
               %a{:href => "login.html"}
                 %i.fa.fa-lock
-                Login
+                - if logged_in?
+                  Wyloguj
+                - else
+                  Logowanie

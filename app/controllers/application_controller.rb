@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_menu
 
+  include SessionsHelper
 
   def set_menu
     @categories = Category.main.order(:name)
