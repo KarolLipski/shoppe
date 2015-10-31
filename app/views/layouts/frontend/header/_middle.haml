@@ -44,9 +44,11 @@
                 %i.fa.fa-shopping-cart
                 Cart
             %li
-              %a{:href => "login.html"}
-                %i.fa.fa-lock
-                - if logged_in?
-                  Wyloguj
-                - else
+              - if logged_in?
+                = link_to(logout_path) do
+                  %i.fa.fa-lock
+                    Wyloguj
+              - else
+                = link_to(login_path) do
+                  %i.fa.fa-lock
                   Logowanie
