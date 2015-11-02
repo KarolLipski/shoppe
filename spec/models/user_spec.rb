@@ -28,8 +28,8 @@ RSpec.describe User, type: :model do
     expect(FactoryGirl.build(:user, email: 'sss')).not_to be_valid
   end
   it 'login should be unique' do
-    FactoryGirl.create(:user, login:'test')
-    expect(FactoryGirl.build(:user, login:'test')).not_to be_valid
+    FactoryGirl.create(:user, login:'test', email: 'aa@wp.pl')
+    expect(FactoryGirl.build(:user, login:'test',email: 'bb@wp.pl')).not_to be_valid
   end
   it 'email should be unique' do
     FactoryGirl.create(:user, email:'test@test.pl')
