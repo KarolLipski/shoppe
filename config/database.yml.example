@@ -45,16 +45,16 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  database: shoppee
-  username: vagrant
-  password: vagrant
-  host: localhost
+  database: xxxx
+  username: xxxx
+  password: xxxx
+  host: xxx
 
 madej_old:
-  adapter: mysql2
-  encoding: cp1250
-  database: baza62_madej
-  username: admin62_madej
-  password: Y649Zk0Q
-  host: 22262.m.tld.pl
-  port: 3306
+  adapter: xxx
+  encoding: xxx
+  database: xxx
+  username: xxx
+  password: xxx
+  host: xxx
+  port: xxx
