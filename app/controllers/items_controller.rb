@@ -1,4 +1,4 @@
-class Admin::ItemsController < ApplicationController
+class ItemsController < ApplicationController
 
   # GET /categories/:category_id/items
   def index
