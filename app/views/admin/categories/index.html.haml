@@ -1,9 +1,9 @@
 %h1 
   Kategorie produktów
-  = link_to 'Dodaj Nową', new_category_path , class: "btn btn-blue"
+  = link_to 'Dodaj Nową', new_admin_category_path , class: "btn btn-blue"
 %br
 %br
 .tree
   %ul
     - @categories.each do |category|
-      = render 'categories/node', category: category
+      = render 'admin/categories/node', category: category

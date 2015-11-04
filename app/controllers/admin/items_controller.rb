@@ -1,13 +1,5 @@
 class Admin::ItemsController < AdminController
 
-  layout 'admin', only: [:actualization, :actualize]
-
-  # GET /categories/:category_id/items
-  def index
-    @category = Category.find(params[:category_id])
-    @items = @category.items.active.with_photo.order(created_at: :desc).page(params[:page]).per(40)
-  end
-
   # get /items/actualization
   def actualization
     @actualizations = ActualizationLog.order('created_at DESC').first(3)

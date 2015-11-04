@@ -1,4 +1,4 @@
-= form_for @category, :html => {class: 'form-horizontal form-groups-bordered'}  do |f|
+= form_for [:admin,@category], :html => {class: 'form-horizontal form-groups-bordered'}  do |f|
 
   %div{class: field_class(@category, :name) }
     = f.label :name, class: 'col-sm-3 control-label'

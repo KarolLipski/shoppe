@@ -1,9 +1,9 @@
 %li
   %span
     = category.name
-  %a{:href=> edit_category_path(category),class: 'btn btn-blue btn-xs' }
+  %a{:href=> edit_admin_category_path(category),class: 'btn btn-blue btn-xs' }
     %i{class: 'entypo-pencil', title: 'Edycja'}
   - if category.subcategories
     %ul
       - category.subcategories.each do |cat|
-        = render 'categories/node', category: cat
+        = render 'admin/categories/node', category: cat

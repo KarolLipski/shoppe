@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'main#index'
 
-  get '/categories/:category_id/items(.:format)', to: 'items#index'
+  get '/categories/:category_id/items(.:format)', to: 'items#index', as: :category_items
 
   namespace :admin do
     resources :categories

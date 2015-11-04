@@ -3,13 +3,15 @@ require 'rails_helper'
 feature 'Items actualization' do
 
   scenario 'with proper data' do
-    visit items_actualization_path
+    visit admin_items_actualization_path
     attach_file 'file', File.join(Rails.root,'test/fixtures','stany.csv')
     click_button 'Aktualizuj'
     # save_and_open_page
-    expect(
-      find('tr', text: Time.now.strftime('%Y-%m-%d'))
-    ).to have_content(/Accepted|In progress/)
+    expect(page).to have_css("table#last-actualizations tr", count: 2)
+    within("table#last-actualizations") do
+      expect(page).to have_content(/Accepted|In progress/)
+    end
+
   end
 
   scenario 'show last 3 aktualizations' do
@@ -17,7 +19,8 @@ feature 'Items actualization' do
       FactoryGirl.create(:actualization_log)
     end
 
-    visit items_actualization_path
+    visit admin_items_actualization_path
+    # save_and_open_page
     expect(page).to have_css("table#last-actualizations tr", count: 4)
   end
 end
