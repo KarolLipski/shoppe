@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CategoriesController, type: :controller do
+RSpec.describe Admin::CategoriesController, type: :controller do
 
   let(:valid_attributes) {
     FactoryGirl.attributes_for(:category)
@@ -56,7 +56,7 @@ RSpec.describe CategoriesController, type: :controller do
 
       it "redirects to the categories index" do
         post :create, {:category => valid_attributes}, valid_session
-        expect(response).to redirect_to(categories_path)
+        expect(response).to redirect_to(admin_categories_path)
       end
     end
 
@@ -97,7 +97,7 @@ RSpec.describe CategoriesController, type: :controller do
       it "redirects to the category index" do
         category = Category.create! valid_attributes
         put :update, {:id => category.to_param, :category => valid_attributes}, valid_session
-        expect(response).to redirect_to(categories_path)
+        expect(response).to redirect_to(admin_categories_path)
       end
     end
 
@@ -127,7 +127,7 @@ RSpec.describe CategoriesController, type: :controller do
     it "redirects to the categories list" do
       category = Category.create! valid_attributes
       delete :destroy, {:id => category.to_param}, valid_session
-      expect(response).to redirect_to(categories_url)
+      expect(response).to redirect_to(admin_categories_url)
     end
   end
 

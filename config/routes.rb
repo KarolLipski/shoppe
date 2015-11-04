@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
   root to: 'main#index'
 
-  resources :categories do
-    resources :items, only: [:index]
-  end
+  get '/categories/:category_id/items(.:format)', to: 'items#index'
 
-  get '/items/actualization', to: 'items#actualization', as: :items_actualization
-  post '/items/actualize', to: 'items#actualize', as: :items_actualize
+  namespace :admin do
+    resources :categories
+    get '/items/actualization', to: 'items#actualization', as: :items_actualization
+    post '/items/actualize', to: 'items#actualize', as: :items_actualize
+  end
 
   get '/search', to: 'main#search', as: :search
 
