@@ -23,17 +23,21 @@ RSpec.describe User, type: :model do
   it 'is invalid without login' do
     expect(FactoryGirl.build(:user, login: nil)).not_to be_valid
   end
+  it 'is valid without email' do
+    expect(FactoryGirl.build(:user, email: nil)).to be_valid
+  end
+  it 'is invalid without password' do
+    expect(FactoryGirl.build(:user, password: nil)).not_to be_valid
+  end
   it 'email should has valid format' do
     expect(FactoryGirl.build(:user, email: 'test@wp.pl')).to be_valid
     expect(FactoryGirl.build(:user, email: 'sss')).not_to be_valid
   end
-  it 'login should be unique' do
-    FactoryGirl.create(:user, login:'test', email: 'aa@wp.pl')
-    expect(FactoryGirl.build(:user, login:'test',email: 'bb@wp.pl')).not_to be_valid
-  end
-  it 'email should be unique' do
-    FactoryGirl.create(:user, email:'test@test.pl')
-    expect(FactoryGirl.build(:user, email:'test@test.pl')).not_to be_valid
+  it 'pair login and password should be unique' do
+    FactoryGirl.create(:user, login:'test', password:'zxczxc', password_confirmation: 'zxczxc')
+    expect(FactoryGirl.build(:user, login:'test', password:'zxczxc', password_confirmation: 'zxczxc')).not_to be_valid
+    expect(FactoryGirl.build(:user, login:'test', password:'zx', password_confirmation: 'zx')).to be_valid
+    expect(FactoryGirl.build(:user, login:'login', password:'zxczxc', password_confirmation: 'zxczxc')).to be_valid
   end
   it 'should downcase email before save' do
     item = FactoryGirl.create(:user, email: 'AbC@Op.pl')

@@ -15,7 +15,7 @@ sql = "SELECT * FROM ODB"
 
 @result.each(:as => :hash) do |row|
   if !row["LOGIN"].blank? && !row["NAZWA"].blank?
-          User.create!(
+          User.create(
               name: row["NAZWA"],
               login: row["LOGIN"],
               password: row["PASS"],
