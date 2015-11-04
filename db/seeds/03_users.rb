@@ -1,11 +1,13 @@
-Admin
-User.create(
-        name: 'admin',
-        email: 'admin@gmail.com',
-        login: 'admin',
-        password: 'xxx',
-        password_confirmation: 'xxx'
-)
+# Admin
+# User.create(
+#         name: 'admin',
+#         contractor_sym: 'admin'
+#         reciver_sym: 'admin'
+#         email: 'admin@gmail.com',
+#         login: 'admin',
+#         password: 'xxx',
+#         password_confirmation: 'xxx'
+# )
 
 @connection = ActiveRecord::Base.establish_connection(:madej_old)
 sql = "SELECT * FROM ODB"
@@ -17,6 +19,8 @@ sql = "SELECT * FROM ODB"
   if !row["LOGIN"].blank? && !row["NAZWA"].blank?
           User.create(
               name: row["NAZWA"],
+              contractor_sym: row["SYMKONTR"],
+              reciver_sym: row["SYMODB"],
               login: row["LOGIN"],
               password: row["PASS"],
               password_confirmation: row["PASS"]

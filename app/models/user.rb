@@ -4,6 +4,8 @@
 #
 #  id              :integer          not null, primary key
 #  name            :string(255)
+#  contractor_sym  :string(255)
+#  reciver_sym     :string(255)
 #  email           :string(255)
 #  login           :string(255)
 #  password_digest :string(255)
@@ -17,7 +19,7 @@ class User < ActiveRecord::Base
 
   before_validation :downcase_email
 
-  validates_presence_of :name, :login
+  validates_presence_of :name, :login, :contractor_sym, :reciver_sym
   validates_format_of :email, with: VALID_EMAIL_REGEX, allow_blank: true
   validate :password_unique?
 

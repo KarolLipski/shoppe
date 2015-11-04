@@ -4,6 +4,8 @@
 #
 #  id              :integer          not null, primary key
 #  name            :string(255)
+#  contractor_sym  :string(255)
+#  reciver_sym     :string(255)
 #  email           :string(255)
 #  login           :string(255)
 #  password_digest :string(255)
@@ -19,6 +21,12 @@ RSpec.describe User, type: :model do
   end
   it 'is invalid without name' do
     expect(FactoryGirl.build(:user, name: nil)).not_to be_valid
+  end
+  it 'is invalid without contractor symbol' do
+    expect(FactoryGirl.build(:user, contractor_sym: nil)).not_to be_valid
+  end
+  it 'is invalid without reciver symbol' do
+    expect(FactoryGirl.build(:user, reciver_sym: nil)).not_to be_valid
   end
   it 'is invalid without login' do
     expect(FactoryGirl.build(:user, login: nil)).not_to be_valid

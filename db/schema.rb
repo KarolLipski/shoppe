@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028223026) do
+ActiveRecord::Schema.define(version: 20151104193000) do
 
   create_table "actualization_logs", force: :cascade do |t|
     t.string   "status",      limit: 255
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 20151028223026) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255
+    t.string   "contractor_sym",  limit: 255
+    t.string   "reciver_sym",     limit: 255
     t.string   "email",           limit: 255
     t.string   "login",           limit: 255
     t.string   "password_digest", limit: 255
