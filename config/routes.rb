@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories
+    resources :users
     get '/items/actualization', to: 'items#actualization', as: :items_actualization
     post '/items/actualize', to: 'items#actualize', as: :items_actualize
   end

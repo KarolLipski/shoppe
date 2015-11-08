@@ -16,6 +16,13 @@
 //= require neon/js/joinable
 //= require neon/js/resizeable
 //= require neon/js/neon-api
+//= require neon/js/jquery.dataTables.min
+//= require neon/js/datatables/TableTools.min
+//= require neon/js/dataTables.bootstrap
+//= require neon/js/datatables/jquery.dataTables.columnFilter
+//= require neon/js/datatables/responsive/js/datatables.responsive
+//= require neon/js/datatables/lodash.min
+//= require neon/js/select2/select2.min
 //= require neon/js/jvectormap/jquery-jvectormap-1.2.2.min
 //= require neon/js/jvectormap/jquery-jvectormap-europe-merc-en
 //= require neon/js/jquery.sparkline.min
@@ -28,3 +35,4 @@
 //= require neon/js/neon-custom
 //= require neon/js/neon-demo
 //= require categories
+//= require users
