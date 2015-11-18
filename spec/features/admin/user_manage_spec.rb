@@ -22,11 +22,11 @@ feature 'edit users' do
   end
   context 'when data is valid' do
     before(:each) do
-      fill_in 'name', with: 'firma'
-      fill_in 'contractor_sym', with: '203'
-      fill_in 'receiver_sym', with: '203'
-      fill_in 'login', with: 'login'
-      fill_in 'email', with: 'email@wp.pl'
+      fill_in 'user_name', with: 'firma'
+      fill_in 'user_contractor_sym', with: '203'
+      fill_in 'user_reciver_sym', with: '203'
+      fill_in 'user_login', with: 'login'
+      fill_in 'user_email', with: 'email@wp.pl'
       click_button 'Zapisz'
     end
     scenario 'display success info' do

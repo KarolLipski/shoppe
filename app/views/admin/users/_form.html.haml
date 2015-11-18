@@ -1,0 +1,40 @@
+= form_for [:admin,@user], :html => {class: 'form-horizontal form-groups-bordered' } do |f|
+
+  %div{class: field_class(@user, :name) }
+    = f.label :name, 'Firma', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.text_field :name, class: 'form-control'
+      = render_error_message(@user, :name)
+  %div{class: field_class(@user, :contractor_sym) }
+    = f.label :contractor_sym, 'Sym. Kontrahenta', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.text_field :contractor_sym, class: 'form-control'
+      = render_error_message(@user, :contractor_sym)
+  %div{class: field_class(@user, :reciver_sym) }
+    = f.label :reciver_sym, 'Sym. Odbiorcy', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.text_field :reciver_sym, class: 'form-control'
+      = render_error_message(@user, :reciver_sym)
+  %div{class: field_class(@user, :login) }
+    = f.label :login, class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.text_field :login, class: 'form-control'
+      = render_error_message(@user, :login)
+  %div{class: field_class(@user, :email) }
+    = f.label :emial, class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.text_field :email, class: 'form-control'
+      = render_error_message(@user, :email)
+  %div{class: field_class(@user, :password) }
+    = f.label :password, 'Hasło', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.password_field :password, class: 'form-control'
+      = render_error_message(@user, :password)
+  %div{class: field_class(@user, :password_confirmation) }
+    = f.label :password_confirmation, 'Powtórz Hasło', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = f.password_field :password_confirmation, class: 'form-control'
+      = render_error_message(@user, :password_confirmation)
+  .form-group
+    .col-sm-offset-3.col-sm-5
+      = f.submit 'Zapisz', class: 'btn btn-success'
