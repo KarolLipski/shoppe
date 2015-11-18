@@ -30,9 +30,7 @@ feature 'edit users' do
       click_button 'Zapisz'
     end
     scenario 'display success info' do
-      within('.alert-success') do
-        expect(page).to have_content('Zapisano poprawnie')
-      end
+      expect(page.html).to include("toastr.success('Dane użytkownika zostały zmienione','',opts);")
     end
     scenario 'redirect to users list' do
         expect(page).to have_selector 'h3', text: 'Klienci'
@@ -40,10 +38,9 @@ feature 'edit users' do
   end
   context 'when data is invalid' do
     scenario 'display error info' do
+      fill_in 'user_name', with: ''
       click_button 'Zapisz'
-      within('alert-danger') do
-        expect(page). to have_content('Błąd podczas zapisu')
-      end
+      expect(page.html). to include("toastr.error('Błąd zapisu','',opts);")
     end
   end
 end

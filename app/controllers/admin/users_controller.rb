@@ -17,6 +17,7 @@ class Admin::UsersController < AdminController
       flash[:success] = 'Dane użytkownika zostały zmienione'
       redirect_to admin_users_path
     else
+      flash[:danger] = 'Błąd zapisu'
       render :edit
     end
   end
