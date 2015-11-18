@@ -24,7 +24,7 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
     it 'assign proper user' do
       get :edit, id: @user.to_param
-      expect(assigns(:user)).to eq(@usser)
+      expect(assigns(:user)).to eq(@user)
     end
   end
 
@@ -36,12 +36,14 @@ RSpec.describe Admin::UsersController, type: :controller do
       let(:new_attributes) {
         attributes = FactoryGirl.attributes_for(:user)
         attributes['name'] = 'new_name'
+        attributes['password'] = ''
+        attributes['password_confirmation'] = ''
         attributes
       }
       it 'updates user' do
         put :update, {id: @user.to_param, user: new_attributes}
         @user.reload
-        expect(@user.name).to eq(new_name)
+        expect(@user.name).to eq('new_name')
       end
       it 'assigns user as @user' do
         put :update, {id: @user.to_param, user: new_attributes}
@@ -56,19 +58,29 @@ RSpec.describe Admin::UsersController, type: :controller do
         expect(flash[:success]).to be_present
       end
       context 'when password is not set' do
-        before(:each) do
-          new_attributes['password'] = ''
-          new_attributes['password_confirmation'] = ''
-        end
         it 'doesnt change current password' do
+          old_pass =  @user.password_digest
           put :update, {id: @user.to_param, user: new_attributes}
-          old_pass = FactoryGirl.attributes_for(:user)['password']
           @user.reload
-          expect(@user.authenticate(old_pass)).to eq(true)
+          expect(@user.password_digest).to eq(old_pass)
         end
-        it 'redirects to user index' do
+      end
+      context 'when password is set' do
+        it 'changes the old password' do
+          old_pass =  @user.password_digest
+          new_attributes['password'] = 'new pass'
+          new_attributes['password_confirmation'] = 'new pass'
           put :update, {id: @user.to_param, user: new_attributes}
-          expect(response).to redirect_to(admin_users_path)
+          @user.reload
+          expect(@user.password_digest).not_to eq(old_pass)
+        end
+        context 'and confirmation is not same as password' do
+          it 'dosent save user' do
+            new_attributes['password'] = 'new pass'
+            new_attributes['password_confirmation'] = ''
+            put :update, {id: @user.to_param, user: new_attributes}
+            expect(assigns(:user).errors).not_to be_empty
+          end
         end
       end
     end
