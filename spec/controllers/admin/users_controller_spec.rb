@@ -18,6 +18,48 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
   end
 
+  describe 'GET new' do
+    it 'assigns empty user as @user' do
+      get :new
+      expect(assigns(:user)).to be_a_new(User)
+    end
+  end
+
+  describe 'POST create' do
+    let(:attributes) {
+      attributes = FactoryGirl.attributes_for(:user)
+    }
+    context 'with valid params' do
+      before(:each) do
+        post :create, user: attributes
+      end
+      it 'saves the user' do
+        expect(assigns(:user).new_record?).to eq false
+      end
+      it 'sets success flash' do
+        expect(flash[:success]).to be_present
+      end
+      it 'redirect to users list' do
+        expect(response).to redirect_to(admin_users_path)
+      end
+    end
+    context 'with invalid params' do
+      before(:each) do
+        attributes['name'] = ''
+        post :create, user: attributes
+      end
+      it 'doesnt save user' do
+        expect(assigns(:user).new_record?).to eq true
+      end
+      it 'sets error flash' do
+        expect(flash[:danger]).to be_present
+      end
+      it 'renders new template' do
+        expect(response).to render_template('new')
+      end
+    end
+  end
+
   describe 'GET edit' do
     before(:each) do
       @user = FactoryGirl.create(:user)
