@@ -19,7 +19,7 @@ class Admin::UsersController < AdminController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:succes] = 'KLient został dodany'
+      flash[:success] = 'Klient został dodany'
       redirect_to admin_users_path
     else
       flash[:danger] = 'Błąd zapisu'

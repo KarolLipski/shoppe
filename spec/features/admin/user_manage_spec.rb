@@ -44,3 +44,34 @@ feature 'edit users' do
     end
   end
 end
+
+feature 'create user' do
+  before(:each) do
+    visit new_admin_user_path
+  end
+  context 'when data is valid' do
+    before(:each) do
+      fill_in 'user_name', with: 'firma'
+      fill_in 'user_contractor_sym', with: '203'
+      fill_in 'user_reciver_sym', with: '203'
+      fill_in 'user_login', with: 'login'
+      fill_in 'user_email', with: 'email@wp.pl'
+      fill_in 'user_password', with: 'password'
+      fill_in 'user_password_confirmation', with: 'password'
+      click_button 'Zapisz'
+    end
+    scenario 'display success info' do
+      expect(page.html).to include("toastr.success('Klient został dodany','',opts);")
+    end
+    scenario 'redirect to users list' do
+      expect(page).to have_selector 'h3', text: 'Klienci'
+    end
+  end
+  context 'when data is invalid' do
+    scenario 'display error info' do
+      fill_in 'user_name', with: ''
+      click_button 'Zapisz'
+      expect(page.html). to include("toastr.error('Błąd zapisu','',opts);")
+    end
+  end
+end
