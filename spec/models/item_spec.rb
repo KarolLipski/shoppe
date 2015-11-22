@@ -65,7 +65,6 @@ RSpec.describe Item, type: :model do
     item2.fix_name
     expect(item2.name).to eq 'Klocki dziewczece restauracj'
 
-
   end
 
   context 'update photos' do

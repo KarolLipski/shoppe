@@ -18,7 +18,35 @@ class Category < ActiveRecord::Base
   
   validates_presence_of :name
 
+  #Returns Root categories
   def self.main
     all.where(parent: nil)
+  end
+
+  #Counts items from category
+  def count_items
+    StoredItem.joins(:item).
+        select("items.id").distinct.
+        where(["items.category_id = :category_id AND stored_items.quantity > :quantity
+        AND items.photo is not null ",
+               {category_id: id, quantity: 0}]).
+        count
+  end
+
+  #updates items_counter
+  def update_items_counter
+    count =  count_items
+    if(items_count != count)
+      update(items_count: count)
+      update_parent_counter
+    end
+  end
+
+  #updates parent Category counter
+  def update_parent_counter
+    if parent_category = parent
+      count = Category.where(parent_id: parent_id).sum(:items_count)
+      parent_category.update(items_count: count)
+    end
   end
 end

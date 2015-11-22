@@ -15,5 +15,14 @@ class StoredItem < ActiveRecord::Base
   belongs_to :magazine
   belongs_to :item
 
+  after_save :update_category_counter
+
   validates_presence_of :item_id , :magazine_id, :quantity, :price
+
+  private
+  # Triggers update items_count for category
+  def update_category_counter
+    category = item.category
+    category.update_items_counter if category
+  end
 end
