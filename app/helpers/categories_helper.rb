@@ -21,4 +21,8 @@ module CategoriesHelper
     return "#{category.name}"
   end
 
+  def category_name_with_count(category)
+    category.name+" (#{category.items_count})"
+  end
+
 end
