@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :cart_item do
-    cart nil
-item nil
-quantity 1
-price "9.99"
+    association :cart, factory: :cart
+    association :item, factory: :item
+    quantity 1
   end
 
 end
