@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   has_secure_password
 
+  has_one :cart
+
   before_validation :downcase_email
 
   validates_presence_of :name, :login, :contractor_sym, :reciver_sym
