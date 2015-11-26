@@ -52,4 +52,5 @@ RSpec.configure do |config|
 
   #Include custom helpers to all tests
   config.include SessionsHelper
+  config.include CartsHelper
 end

@@ -1,5 +1,4 @@
 module CartsHelper
-  include SessionsHelper
 
   def current_cart
     @current_cart ||= initialize_cart
