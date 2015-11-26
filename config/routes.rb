@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     post '/items/actualize', to: 'items#actualize', as: :items_actualize
   end
 
+  resources :carts , only: [:show] do
+    get '/init_add/:item_id', to: 'carts#init_add', as: :init_add
+  end
+
   get '/search', to: 'main#search', as: :search
 
   get '/login', to: 'sessions#new'

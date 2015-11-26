@@ -11,5 +11,15 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe CartsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  context 'initialize cart' do
+    it 'returns cart for logged user' do
+      user = FactoryGirl.create(:user)
+      helper.log_in(user)
+      expect(helper.current_cart).to be_a(Cart)
+    end
+    it 'returns nil for not logged user' do
+      expect(helper.current_cart).to eq(nil)
+    end
+  end
 end
