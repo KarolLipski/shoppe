@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :carts , only: [:show] do
-    get '/init_add/:item_id', to: 'carts#init_add', as: :init_add
+
   end
+  get '/cart/init_add/:item_id', to: 'carts#init_add', as: :cart_init_add
 
   get '/search', to: 'main#search', as: :search
 

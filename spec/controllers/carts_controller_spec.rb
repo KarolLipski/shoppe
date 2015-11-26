@@ -6,9 +6,8 @@ RSpec.describe CartsController, type: :controller do
     before(:each) do
       @user = FactoryGirl.create(:user)
       log_in(@user)
-      @cart = current_cart
       @item = FactoryGirl.create(:item)
-      get :init_add, cart_id: @cart.id, item_id: @item.id
+      get :init_add, item_id: @item.id
     end
     it 'assigns item' do
       expect(assigns(:item)).to eq(@item)

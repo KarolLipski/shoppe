@@ -6,7 +6,7 @@
         = render_price item
       %p
         = item.name
-      %a.btn.btn-default.add-to-cart{:href => "#"}
+      %a.btn.btn-default.add-to-cart{:href => cart_init_add_path(item_id: item.id) }
         %i.fa.fa-shopping-cart>
         Add to cart
     .product-overlay
@@ -15,7 +15,7 @@
           = render_price item
         %p
           = item.name
-        %a.btn.btn-default.add-to-cart{:href => "#"}
+        %a.btn.btn-default.add-to-cart{:href => cart_init_add_path(item_id: item.id)}
           %i.fa.fa-shopping-cart>
           Add to cart
   .choose
