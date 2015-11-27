@@ -1,3 +1,25 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.title-orange {
+  color: #FFB240;
+}
+.cart-product-title {
+  color: #59BDFF;
+  font-size: 20px;
+}
+
+.cart-product-label {
+  color: #B2B2B2;
+}
+.cart-product-data {
+  color: #666666;
+}
+.cart-product-pricelabel {
+  font-size: 18px;
+  color: #666666;
+}
+.cart-product-price {
+  font-size: 18px;
+  color: #FFB240;
+}
