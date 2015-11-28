@@ -8,4 +8,10 @@ class CartsController < ApplicationController
     @item = Item.find(params[:item_id])
     @cart_item = @cart.cart_items.build(cart: @cart, item: @item)
   end
+
+  #POST cart/add_item
+  #adds item to cart
+  def add_item
+
+  end
 end
