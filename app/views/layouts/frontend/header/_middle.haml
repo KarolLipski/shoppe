@@ -42,7 +42,9 @@
             %li
               %a{:href => "cart.html"}
                 %i.fa.fa-shopping-cart
-                Cart
+                Koszyk
+                %span#cart-items-count
+                  ="(#{cart_size})"
             %li
               - if logged_in?
                 = link_to(logout_path) do

@@ -4,6 +4,11 @@ module CartsHelper
     @current_cart ||= initialize_cart
   end
 
+  def cart_size
+    return '0' if current_cart.nil?
+    current_cart.cart_items.count
+  end
+
   def initialize_cart
     if logged_in?
       cart = Cart.find_by(user_id: current_user.id)

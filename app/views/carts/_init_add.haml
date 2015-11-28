@@ -8,6 +8,7 @@
         Dodaj do koszyka
     .modal-body
       = form_tag(cart_add_item_path, remote: true, class: 'form-horizontal form-groups-bordered')
+      = token_tag(nil)
       .row
         .col-md-6
           %p.cart-product-title= @item.name
@@ -29,9 +30,11 @@
         %div{class: 'col-md-7 form-group' }
           = label_tag 'quantity', 'Ilość:', class: 'col-md-2 control-label'
           .col-md-4
-            = text_field_tag 'quantity','0', class: 'col-md-3 form-control'
+            = text_field_tag 'quantity',@quantity, class: 'col-md-3 form-control'
             = hidden_field_tag 'item_id', @item.id
           .col-md-3
             = submit_tag 'Dodaj', class: 'btn btn-success'
+      .row
+        %ul.errors
     .modal-footer
       %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Anuluj

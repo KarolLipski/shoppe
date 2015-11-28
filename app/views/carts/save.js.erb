@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @errors.present? %>
+    <% @errors.each do |e| %>
+        $('ul.errors').append($('<li />').html("<%= e.html_safe %>"))
+    <% end %>
+<% else %>
+    $("#my-modal").modal("hide")
+    $("#cart-items-count").text('(' + <%= cart_size %> + ')');
+<% end %>
