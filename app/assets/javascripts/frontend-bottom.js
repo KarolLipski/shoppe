@@ -16,3 +16,4 @@
 //= require shopper/js/price-range.js
 //= require shopper/js/jquery.prettyPhoto.js
 //= require shopper/js/main.js
+//= require neon/js/toastr

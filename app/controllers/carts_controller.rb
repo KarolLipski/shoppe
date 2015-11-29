@@ -16,11 +16,8 @@ class CartsController < ApplicationController
     @cart = current_cart
     @cart_item = CartItem.where(item_id: params[:item_id],cart: @cart).first_or_initialize
     @cart_item.quantity = params[:quantity]
-    if @cart_item.save
-      flash[:success] = 'Towar został dodany do koszyka'
-    else
-      @errors = @cart_item.errors.full_messages
-    end
+    @errors = @cart_item.errors.full_messages unless @cart_item.save
+
     render :save
   end
 

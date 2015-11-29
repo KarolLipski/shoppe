@@ -18,4 +18,5 @@
  *= require shopper/css/main.css
  *= require shopper/css/responsive.css
  *= require carts.scss
+ *= require toastr.scss
  */

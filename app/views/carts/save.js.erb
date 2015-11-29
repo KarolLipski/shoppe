@@ -6,4 +6,7 @@ $("ul.errors").html("")
 <% else %>
     $("#my-modal").modal("hide")
     $("#cart-items-count").text('(' + <%= cart_size %> + ')');
+
+    toastr.success('Towar został dodany do koszyka','', {"closeButton": true});
+
 <% end %>
