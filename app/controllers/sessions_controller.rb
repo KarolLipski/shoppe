@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in(user)
       redirect_to root_path
     else
-      flash[:danger] = "Login lub hasło jest nie poprawne"
+      flash.now[:danger] = "Login lub hasło jest nie poprawne"
       render :new
     end
   end

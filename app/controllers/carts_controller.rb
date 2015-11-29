@@ -14,10 +14,13 @@ class CartsController < ApplicationController
   #adds item to cart
   def add_item
     @cart = current_cart
-    @cart_item = CartItem.where(item_id: params[:item_id],cart: @cart).first_or_initialize
-    @cart_item.quantity = params[:quantity]
-    @errors = @cart_item.errors.full_messages unless @cart_item.save
-
+    if @cart.nil?
+      @errors = ['Zaloguj sie aby móc dodawać do koszyka.']
+    else
+      @cart_item = CartItem.where(item_id: params[:item_id],cart: @cart).first_or_initialize
+      @cart_item.quantity = params[:quantity]
+      @errors = @cart_item.errors.full_messages unless @cart_item.save
+    end
     render :save
   end
 

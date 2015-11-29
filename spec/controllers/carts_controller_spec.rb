@@ -41,10 +41,6 @@ RSpec.describe CartsController, type: :controller do
         xhr :post, :add_item, item_id: @item.id, quantity: 2
         expect(response).to render_template('save')
       end
-      it 'assigns success flash' do
-        xhr :post, :add_item, item_id: @item.id, quantity: 2
-        expect(flash[:success]).to be_present
-      end
       context 'and item is already present in cart' do
         it 'change quantity to current value' do
           @cart.cart_items.create(quantity: 10, item: @item)
@@ -66,6 +62,13 @@ RSpec.describe CartsController, type: :controller do
       it 'renders save template' do
         xhr :post, :add_item, item_id: @item.id, quantity: 'abc'
         expect(response).to render_template('save')
+      end
+    end
+    context 'when user is not logged' do
+      it 'sets error message' do
+        log_out
+        xhr :post, :add_item, item_id: @item.id, quantity: '23'
+        expect(assigns(:errors).size).to eq 1
       end
     end
   end
