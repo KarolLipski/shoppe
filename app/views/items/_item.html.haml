@@ -7,8 +7,8 @@
       %p
         = item.name
       = link_to(cart_init_add_path(item_id: item.id), remote: true, class: 'btn btn-default add-to-cart') do
-        Add to cart
-        %i.fa.fa-shopping-cart
+        Do Koszyka
+        %i.fa.fa-cart-plus
     .product-overlay
       .overlay-content
         %h2
@@ -16,8 +16,8 @@
         %p
           = item.name
         = link_to(cart_init_add_path(item_id: item.id), remote: true, class: 'btn btn-default add-to-cart') do
-          Add to cart
-          %i.fa.fa-shopping-cart
+          Do Koszyka
+          %i.fa.fa-cart-plus
   .choose
     %ul.nav.nav-pills.nav-justified
       %li
