@@ -24,4 +24,11 @@ class CartsController < ApplicationController
     render :save
   end
 
+  #GET cart/show
+  #displays cart items
+  def show
+    @cart = current_cart
+    @items = @cart.cart_items
+  end
+
 end
