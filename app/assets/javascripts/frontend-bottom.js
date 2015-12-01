@@ -17,3 +17,4 @@
 //= require shopper/js/jquery.prettyPhoto.js
 //= require shopper/js/main.js
 //= require neon/js/toastr
+//= require carts
