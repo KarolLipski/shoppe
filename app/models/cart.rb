@@ -6,6 +6,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  price_sum  :decimal(10, 2)   default(0.0)
 #
 
 class Cart < ActiveRecord::Base
@@ -13,4 +14,9 @@ class Cart < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :user
+
+  def recalc_sum
+    sum = cart_items.inject(0) { |sum, n| sum + (n.item.price * n.quantity)}
+    update(price_sum: sum)
+  end
 end
