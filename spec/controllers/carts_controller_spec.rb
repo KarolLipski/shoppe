@@ -8,7 +8,8 @@ RSpec.describe CartsController, type: :controller do
       @user = @cart.user
       log_in(@user)
       (1..3).each do |i|
-        FactoryGirl.create(:cart_item, cart: @cart)
+        stored_item = FactoryGirl.create(:stored_item)
+        FactoryGirl.create(:cart_item, cart: @cart, item: stored_item.item)
       end
     end
     it 'assigns items' do
@@ -66,7 +67,6 @@ RSpec.describe CartsController, type: :controller do
       end
       context 'and item is already present in cart' do
         it 'change quantity to current value' do
-          @cart.cart_items.create(quantity: 10, item: @item)
           xhr :post, :add_item, item_id: @item.id, quantity: 2
           expect(@cart.cart_items.length).to eq 1
           expect(@cart.cart_items.first.quantity).to eq 2
