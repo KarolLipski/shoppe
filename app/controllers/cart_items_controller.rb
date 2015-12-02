@@ -2,6 +2,7 @@ class CartItemsController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, only: [:update]
 
+  #PUT cart_items.json
   def update
     @cart_item = CartItem.find(params[:id])
     respond_to do |format|
@@ -17,4 +18,6 @@ class CartItemsController < ApplicationController
       end
     end
   end
+
+
 end
