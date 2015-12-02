@@ -7,10 +7,13 @@ class CartItemsController < ApplicationController
     respond_to do |format|
       if @cart_item.update(quantity: params[:quantity])
         format.json do
-          render json: { cart_item: @cart_item, cart: @cart_item.cart, errors: nil}
+          render json: { cart_item: @cart_item, cart: @cart_item.cart,
+             sum: @cart_item.cart.price_sum, errors: nil}
         end
       else
-        format.json { render json: @cart_item.errors }
+        format.json do
+          render json: { errors: @cart_item.errors.full_messages }
+        end
       end
     end
   end

@@ -2,7 +2,10 @@
   %p
     = "W koszyku: #{@items.length} produktów"
     %br
-    = "Suma : #{@cart.price_sum} zł."
+    Suma :
+    %span#cart-sum
+      = "#{@cart.price_sum}"
+    zł.
   .table-responsive.cart_info
     %table.table.table-condensed
       %thead
@@ -25,6 +28,7 @@
                   = cart_item.item.name
               %p
                 = cart_item.item.number
+              %span{class: 'errors',id:"cart-item-error-#{cart_item.id}"}
             %td.cart_description
               %p
                 = "#{cart_item.item.big_wrap} / #{cart_item.item.small_wrap}"
