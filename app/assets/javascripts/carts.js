@@ -21,7 +21,8 @@ jQuery(document).ready(function($)
                 else {
                     console.log(data.sum);
                     $("#cart-sum").text(data.sum);
-                    toastr.success('Ilość została zmieniona','', {"closeButton": true});
+                    toastr.success('Ilość została zmieniona. <br />Wartośc koszyka: '
+                        +data.sum+' zł.','', {"closeButton": true});
                 }
             }
         });
