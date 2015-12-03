@@ -1,0 +1,9 @@
+<%- @cart_size = cart_size %>
+
+toastr.success('Usunięto z koszyka. <br />Wartośc koszyka: '
+        + <%= @cart_item.cart.price_sum %> +' zł.','', {"closeButton": true});
+
+$("#cart-items-count").text('(' + <%= @cart_size %> + ')');
+$("#cart-length").text( <%= @cart_size %> );
+$("#cart-sum").text(<%= @cart_item.cart.price_sum %>);
+$("#row-cart-id-<%= @cart_item.id %>").remove()

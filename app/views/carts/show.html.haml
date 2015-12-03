@@ -1,9 +1,12 @@
 #cart_items
   %p
-    = "W koszyku: #{@items.length} produktów"
+    W koszyku:
+    %span#cart-length.cart-info-hightlight
+      = "#{@items.length}"
+    produktów
     %br
     Suma :
-    %span#cart-sum
+    %span#cart-sum.cart-info-hightlight
       = "#{@cart.price_sum}"
     zł.
   .table-responsive.cart_info
@@ -20,7 +23,7 @@
       %tbody
         - @items.each do |cart_item|
           - item = cart_item.item
-          %tr
+          %tr{id: "row-cart-id-#{cart_item.id}"}
             %td.cart_product
               = image_tag(item.photo.url(:mini), height:66, width:100)
             %td.cart_description
@@ -41,5 +44,6 @@
               %p.cart_total_price
                 = "#{cart_item.quantity * item.price} zł"
             %td.cart_delete
-              %a.cart_quantity_delete{:href => ""}
+              = link_to(cart_item_path(cart_item), class: 'cart_quantity_delete', method: :delete,
+              :data => {:confirm => 'Czy napewno usunąć z koszyka?'}, remote: true) do
                 %i.fa.fa-times

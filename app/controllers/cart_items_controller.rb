@@ -20,8 +20,11 @@ class CartItemsController < ApplicationController
     end
   end
 
+  #DELETE item form cart
   def destroy
     @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    render :destroy
   end
 
   #POST cart_items

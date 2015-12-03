@@ -83,4 +83,22 @@ RSpec.describe CartItemsController, type: :controller do
     end
   end
 
+  describe 'DELETE destroy' do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      log_in(@user)
+      @cart = current_cart
+      @stored_item = FactoryGirl.create(:stored_item)
+      @item = @stored_item.item
+      @cart_item = FactoryGirl.create(:cart_item, item: @item, cart: @cart)
+      xhr :delete, :destroy, id: @cart_item.id
+    end
+    it 'deletes item from cart' do
+      expect(@cart.cart_items.count).to eq(0)
+    end
+    it 'render destroy template' do
+      expect(response).to render_template('destroy')
+    end
+  end
+
 end
