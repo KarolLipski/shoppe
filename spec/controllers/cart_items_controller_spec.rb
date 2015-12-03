@@ -54,4 +54,33 @@ RSpec.describe CartItemsController, type: :controller do
     end
   end
 
+  describe 'POST Update' do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      log_in(@user)
+      @cart = current_cart
+      @stored_item = FactoryGirl.create(:stored_item)
+      @item = @stored_item.item
+      @cart_item = FactoryGirl.create(:cart_item, item: @item, cart: @cart)
+    end
+    context 'when data is valid' do
+      it 'updates quantity' do
+        xhr :put, :update, id: @cart_item.id, quantity: '23'
+        expect(@cart_item.reload.quantity).to eq(23)
+      end
+      it 'render json without errors' do
+        xhr :put, :update, id: @cart_item.id, quantity: '23'
+        parsed_body = JSON.parse(response.body)
+        expect(parsed_body['errors']).to eq nil
+      end
+    end
+    context 'when data is invalid' do
+      it 'render json with errors' do
+        xhr :put, :update, id: @cart_item.id, quantity: 'abc'
+        parsed_body = JSON.parse(response.body)
+        expect(parsed_body['errors']).not_to eq nil
+      end
+    end
+  end
+
 end
