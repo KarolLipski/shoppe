@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :cart_items
 
   get '/cart/init_add/:item_id', to: 'carts#init_add', as: :cart_init_add
-  post '/cart/add_item', to: 'carts#add_item', as: :cart_add_item
   get '/cart/show', to: 'carts#show', as: :cart_show
 
   get '/search', to: 'main#search', as: :search

@@ -7,7 +7,7 @@
       %h4.modal-title.title-orange
         Dodaj do koszyka
     .modal-body
-      = form_tag(cart_add_item_path, remote: true, class: 'form-horizontal form-groups-bordered')
+      = form_tag(cart_items_path, remote: true, class: 'form-horizontal form-groups-bordered')
       = token_tag(nil)
       .row
         .col-md-6
