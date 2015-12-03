@@ -40,7 +40,7 @@
                 %i.fa.fa-crosshairs
                 Checkout
             %li
-              %a{:href => "cart.html"}
+              = link_to(cart_show_path) do
                 %i.fa.fa-shopping-cart
                 Koszyk
                 %span#cart-items-count

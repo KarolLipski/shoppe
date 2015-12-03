@@ -2,12 +2,12 @@
   %p
     W koszyku:
     %span#cart-length.cart-info-hightlight
-      = "#{@items.length}"
+      = cart_size
     produktów
     %br
     Suma :
     %span#cart-sum.cart-info-hightlight
-      = "#{@cart.price_sum}"
+      = cart_value
     zł.
   .table-responsive.cart_info
     %table.table.table-condensed

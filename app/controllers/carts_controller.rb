@@ -14,7 +14,8 @@ class CartsController < ApplicationController
   #GET cart/show
   #displays cart items
   def show
-    @items = @cart.cart_items
+    @items = Array.new
+    @items = @cart.cart_items unless @cart.nil?
   end
 
   def set_cart
