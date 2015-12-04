@@ -9,26 +9,24 @@
   font-size: 20px;
 }
 
-.cart-product-label {
-  color: #B2B2B2;
-}
-.cart-product-data {
-  color: #666666;
-}
-.cart-product-pricelabel {
-  font-size: 18px;
-  color: #666666;
-}
-.cart-product-price {
-  font-size: 18px;
-  color: #FFB240;
-}
-
 .errors {
   color: red;
 }
 
-.cart-info-hightlight {
-  color: #59BDFF;
-  font-size: 16px;
+.add-cart-price {
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.add-cart-price label {
+  color: #696763;
+  font-famil: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+.add-cart-price .price {
+  margin-left: 10px;
+  color: #FFB240;
+  font-size: 20px;
+  font-weight: 900;
 }

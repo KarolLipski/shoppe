@@ -10,30 +10,43 @@
       = form_tag(cart_items_path, remote: true, class: 'form-horizontal form-groups-bordered')
       = token_tag(nil)
       .row
-        .col-md-6
-          %p.cart-product-title= @item.name
-          %p.cart-product-data
-            %span.cart-product-label
-              Numer:
-            = @item.number
-          %p.cart-product-data
-            %span.cart-product-label
-              Pakowanie:
-            = "#{@item.big_wrap}/#{@item.small_wrap}"
-          %p.cart-product-price
-            %span.cart-product-pricelabel
-              Cena:
-            = render_price(@item)
-        .col-md-6
-          = image_tag @item.photo.url(:mini)
-      .row{style:'margin-top: 20px;'}
-        %div{class: 'col-md-7 form-group' }
-          = label_tag 'quantity', 'Ilość:', class: 'col-md-2 control-label'
-          .col-md-4
-            = text_field_tag 'quantity',@quantity, class: 'col-md-3 form-control'
-            = hidden_field_tag 'item_id', @item.id
-          .col-md-3
-            = submit_tag 'Dodaj', class: 'btn btn-success'
+        .col-sm-12.padding-right
+          .product-details
+            / product-details
+            .col-sm-5
+              .view-product
+                = image_tag @item.photo.url(:mini)
+              .add-cart-price
+                %label
+                  Cena:
+                %span.price
+                  = render_price(@item)
+            .col-sm-7
+              .product-information
+                %h4.cart-product-title
+                  = @item.name
+                %p
+                  = @item.number
+                %span
+                  %span
+                    = label_tag 'quantity', 'Ilość:'
+                    = text_field_tag 'quantity', @quantity
+                    = hidden_field_tag 'item_id', @item.id
+                    = button_tag  class: 'btn btn-fefault cart' do
+                      Dodaj
+                      %i.fa.fa-shopping-cart
+                %p
+                  %b Numer:
+                  = @item.number
+                %p
+                  %b Duże opakowanie:
+                  = @item.big_wrap
+                %p
+                  %b Małe opakowanie:
+                  = @item.small_wrap
+                %p
+                  %b Barcode:
+                  590085123456
       .row
         %ul.errors
     .modal-footer
