@@ -18,7 +18,7 @@ module Shoppee
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.web_console.whitelisted_ips = '192.168.74.1'
+    # config.web_console.whitelisted_ips = '192.168.74.1'
     config.i18n.default_locale = :pl
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
