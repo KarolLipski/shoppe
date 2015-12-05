@@ -14,7 +14,7 @@ require 'rails_helper'
 
 RSpec.describe CartItem, type: :model do
   it 'has a valid factory' do
-    expect(FactoryGirl.build(:cart_item)).to be_valid
+    expect(FactoryGirl.create(:cart_item)).to be_valid
   end
   it 'is invalid without cart' do
     expect(FactoryGirl.build(:cart_item, cart: nil)).not_to be_valid
@@ -27,6 +27,9 @@ RSpec.describe CartItem, type: :model do
   end
   it 'quantity should be only numeric' do
     expect(FactoryGirl.build(:cart_item, quantity: 'asd')).not_to be_valid
+  end
+  it 'is ivalid if quantity is greather than total stored ' do
+    expect(FactoryGirl.build(:cart_item, quantity: 2000)).not_to be_valid
   end
   it 'quantity should be only >= 0' do
     cart_item = FactoryGirl.build(:cart_item, quantity: -2);
