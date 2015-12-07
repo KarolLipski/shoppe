@@ -3,12 +3,13 @@ require 'rails_helper'
 feature 'authentication' do
   feature 'login' do
     before(:each) do
-      FactoryGirl.create(:user)
+      FactoryGirl.create(:user, login: 'test_login')
     end
 
     context 'with proper data' do
       before(:each) do
         @proper_attributes = FactoryGirl.attributes_for(:user)
+        @proper_attributes[:login] = 'test_login'
       end
       scenario 'should login user' do
         visit login_path

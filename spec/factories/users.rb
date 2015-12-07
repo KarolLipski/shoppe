@@ -18,7 +18,7 @@ FactoryGirl.define do
     name 'user_name'
     contractor_sym '20000068'
     reciver_sym '20000068'
-    login 'user_login'
+    sequence(:login) { |n| "user_logn_#{n}" }
     email 'email@wp.pl'
     password 'zxczxc'
     password_confirmation 'zxczxc'

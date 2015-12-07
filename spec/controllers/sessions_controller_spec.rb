@@ -11,8 +11,9 @@ RSpec.describe SessionsController, type: :controller do
 
   describe 'POST Create' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = FactoryGirl.create(:user, login: 'test_login')
       @proper_attributes = FactoryGirl.attributes_for(:user)
+      @proper_attributes[:login] = 'test_login'
 
     end
     context 'when data is valid' do

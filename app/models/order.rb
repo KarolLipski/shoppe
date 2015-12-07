@@ -11,4 +11,7 @@
 
 class Order < ActiveRecord::Base
   belongs_to :user
+
+  validates_presence_of :user, :price
+  validates_numericality_of :price, {greater_than: 0}
 end
