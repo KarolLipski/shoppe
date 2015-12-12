@@ -15,7 +15,9 @@ jQuery(document).ready(function($)
                     $("#cart-item-error-"+cart_item_id).text(data.errors[0]);
                 }
                 else {
+
                     $("#cart-sum").text(data.sum);
+                    $("#total_price_"+cart_item_id).text(data.total_value+" zł.")
                     toastr.success('Ilość została zmieniona. <br />Wartośc koszyka: '
                         +data.sum+' zł.','', {"closeButton": true});
                 }
