@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
       redirect_to cart_show_path
       flash[:success] = 'Zamówienie zostało złożone'
     else
-      flash[:danger] = 'Niektóre z towarów zawierają błedy'
+      flash.now[:danger] = 'Niektóre z towarów zawierają błedy'
       render 'carts/show'
     end
   end
