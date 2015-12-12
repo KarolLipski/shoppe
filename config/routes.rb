@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'orders/crete'
+
   root to: 'main#index'
 
   get '/categories/:category_id/items(.:format)', to: 'items#index', as: :category_items
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :cart_items
+  resources :orders , only: [:create]
 
   get '/cart/init_add/:item_id', to: 'carts#init_add', as: :cart_init_add
   get '/cart/show', to: 'carts#show', as: :cart_show
