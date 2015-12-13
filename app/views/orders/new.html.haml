@@ -9,8 +9,8 @@
     %span#cart-sum.cart-info-hightlight
       = cart_value
     zł.
-  .table-responsive.cart_info
-    = form_for(@order) do |f|
+  = form_for(@order) do |f|
+    .table-responsive.cart_info
       %table.table.table-condensed
         %thead
           %tr.cart_menu
@@ -22,10 +22,10 @@
             %td.total Suma
             %td
         %tbody
-          = f.fields_for :order_items do |oi|
-
-            - item = oi.object.item
-            %tr{id: "row-cart-id-#{item.id}"}
+          = f.fields_for :order_items do |order_item|
+            - item = order_item.object.item
+            - cart_item_id = order_item.object.cart_item_id
+            %tr{id: "row-cart-id-#{cart_item_id}"}
               %td.cart_product
                 = image_tag(item.photo.url(:mini), height:66, width:100)
               %td.cart_description
@@ -34,24 +34,25 @@
                     = item.name
                 %p
                   = item.number
-                %span{class: 'errors',id:"cart-item-error-#{item.id}"}
-                  = oi.object.errors.full_messages.first if oi.object.errors.any?
+                %span{class: 'errors',id:"cart-item-error-#{cart_item_id}"}
+                  = order_item.object.errors.full_messages.first if order_item.object.errors.any?
               %td.cart_description
                 %p
                   = "#{item.big_wrap} / #{item.small_wrap}"
               %td.cart_price
+                = order_item.hidden_field :price
                 %p= render_price(item)
               %td.cart_quantity
-                = oi.hidden_field :price
-                = oi.hidden_field :item_id
-                = oi.text_field(:quantity, class: 'cart_quantity_input', size: 2 )
-                -#%input.cart_quantity_input{:autocomplete => "off", :name => "quantities[#{item.id}]", :size => "2", :type => "text", :item_id => item.id, :value => item.quantity}/
+                = order_item.hidden_field :item_id
+                = order_item.hidden_field :cart_item_id
+                = order_item.text_field(:quantity, class: 'cart_quantity_input', size: 2,
+                 cart_item_id: cart_item_id )
               %td.cart_total
                 %p.cart_total_price
-                  %span{id: "total_price_#{item.id}"}= "#{item.quantity * item.price} zł"
+                  %span{id: "total_price_#{cart_item_id}"}= "#{order_item.object.total_price} zł"
               %td.cart_delete
-                -#= link_to(item_path(item), class: 'cart_quantity_delete', method: :delete,
-                -#:data => {:confirm => 'Czy napewno usunąć z koszyka?'}, remote: true) do
-                -#  %i.fa.fa-times
-      .row
-        = f.submit 'Zamów', class: 'btn btn-primary pull-right'
+                = link_to(cart_item_path(cart_item_id), class: 'cart_quantity_delete', method: :delete,
+                :data => {:confirm => 'Czy napewno usunąć z koszyka?'}, remote: true) do
+                  %i.fa.fa-times
+    .row
+      = f.submit 'Zamów', class: 'btn btn-primary pull-right'

@@ -23,4 +23,11 @@ class OrderItem < ActiveRecord::Base
   def total_price
     price * quantity
   end
+
+  def cart_item_id
+    @cart_item_id
+  end
+  def cart_item_id=(val)
+    @cart_item_id = val
+  end
 end

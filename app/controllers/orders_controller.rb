@@ -28,16 +28,15 @@ class OrdersController < ApplicationController
   def new
     @user, @cart  = current_user, current_cart
     @order = Order.new(user: @user)
-    @cart.cart_items.each do |item|
-      total_price = (item.quantity * item.item.price)
-      @order.order_items.build(item: item.item,
-        quantity: item.quantity, price: item.item.price,
-        total_price: total_price)
+    @cart.cart_items.each do |cart_item|
+      @order.order_items.build(item: cart_item.item,
+        quantity: cart_item.quantity, price: cart_item.item.price,
+        cart_item_id: cart_item.id)
     end
   end
 
   def order_params
-    params.require(:order).permit(order_items_attributes: [:item_id,:quantity,:price])
+    params.require(:order).permit(order_items_attributes: [:item_id,:quantity,:price, :cart_item_id])
   end
 
 end
