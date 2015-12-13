@@ -1,23 +1,24 @@
 class CreateOrderService
 
-  attr_reader :cart, :user
+  attr_reader :cart, :user, :quantites
 
-  def initialize(cart, user)
+  def initialize(cart, user, quantities)
     @cart = cart
     @user = user
+    @quantities = quantities
   end
 
   def call
     order , price , all_valid  = create_order, 0, true
     @cart.cart_items.each do |cart_item|
+      cart_item.update(quantity: @quantities[cart_item.id.to_s])
       all_valid = false unless cart_item.valid?
-      if cart_item.quantity > 0 && all_valid
+      if cart_item.quantity > 0
         order_item = add_oder_item(cart_item,order)
         price += order_item.total_price
       end
     end
-    order.price = price
-    order.save if order.order_items.size > 0
+    order.update(price: price) if order.order_items.size > 0 && all_valid
     flash = generate_flash(order)
     return {success: order.persisted? , order: order, info: flash}
   end

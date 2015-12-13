@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # POST create order
   def create
     @user, @cart  = current_user, current_cart
-    result = CreateOrderService.new(@cart, @user).call
+    result = CreateOrderService.new(@cart, @user, params[:quantities]).call
     @items = @cart.cart_items
     if(result[:success])
       flash[result[:info][:type]] = result[:info][:message]
