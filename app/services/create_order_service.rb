@@ -17,12 +17,24 @@ class CreateOrderService
       end
     end
     order.price = price
-    saved = (all_valid && order.save) ? true : false
-    return {success: saved , order: order}
+    order.save if order.order_items.size > 0
+    flash = generate_flash(order)
+    return {success: order.persisted? , order: order, info: flash}
   end
 
   def create_order
     Order.new(user: @user)
+  end
+
+  def generate_flash(order)
+    if order.order_items.size == 0
+      return {:type => :warning, :message => 'Brak towarów do zamówienia'}
+    end
+    if order.persisted?
+      return {:type => :success, :message => 'Zamówienie zostało złożone'}
+    else
+      return {:type => :danger, :message => 'Niektóre towary zawierają błedy'}
+    end
   end
 
   def add_oder_item(cart_item,order)

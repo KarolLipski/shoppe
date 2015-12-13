@@ -4,13 +4,13 @@ class OrdersController < ApplicationController
   # POST create order
   def create
     @user, @cart  = current_user, current_cart
-    create_result = CreateOrderService.new(@cart, @user).call
+    result = CreateOrderService.new(@cart, @user).call
     @items = @cart.cart_items
-    if(create_result[:success])
+    if(result[:success])
+      flash[result[:info][:type]] = result[:info][:message]
       redirect_to cart_show_path
-      flash[:success] = 'Zamówienie zostało złożone'
     else
-      flash.now[:danger] = 'Niektóre z towarów zawierają błedy'
+      flash.now[result[:info][:type]] = result[:info][:message]
       render 'carts/show'
     end
   end

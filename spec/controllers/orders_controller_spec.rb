@@ -9,6 +9,7 @@ RSpec.describe OrdersController, type: :controller do
       @cart = current_cart
       @cart_items = FactoryGirl.create_list(:cart_item, 3, cart: @cart)
       @cart.reload
+      @result = {success: true, order: nil, info: {type: :success, message: 'xxx'}}
     end
     it 'assings current user' do
       post :create
@@ -19,27 +20,29 @@ RSpec.describe OrdersController, type: :controller do
       expect(assigns(:cart)).to eq @cart
     end
     it 'call order service' do
-      result = {success: true, order: nil}
-      allow_any_instance_of(CreateOrderService).to receive(:call).and_return(result)
+      allow_any_instance_of(CreateOrderService).to receive(:call).and_return(@result)
       post :create
+    end
+    it 'assigns proper flash' do
+      post :create
+      expect(flash[@result[:info][:type]]).to be_present
     end
     context 'when all items are valid' do
       before(:each) do
-        result = {success: true, order: nil}
-        allow_any_instance_of(CreateOrderService).to receive(:call).and_return(result)
+        allow_any_instance_of(CreateOrderService).to receive(:call).and_return(@result)
         post :create
       end
       it 'redirect to home page' do
         expect(response).to redirect_to(cart_show_path)
       end
-      it 'sets success flash' do
-        expect(flash[:success]).to be_present
-      end
     end
     context 'when some items are invalid' do
       before(:each) do
-        result = {success: false, order: nil}
-        allow_any_instance_of(CreateOrderService).to receive(:call).and_return(result)
+        order = FactoryGirl.build(:order)
+        order.order_items << FactoryGirl.build(:order_item)
+        @result[:success] = false
+        @result[:order] = order
+        allow_any_instance_of(CreateOrderService).to receive(:call).and_return(@result)
         post :create
       end
       it 'assigns items' do
@@ -47,9 +50,6 @@ RSpec.describe OrdersController, type: :controller do
       end
       it 'render cart_show template' do
         expect(response).to render_template 'carts/show'
-      end
-      it 'set error flash' do
-        expect(flash[:danger]).to be_present
       end
     end
   end

@@ -37,6 +37,17 @@ RSpec.describe  CreateOrderService do
         result = service.call
         expect(result[:success]).to eq true
       end
+      context 'when all items have 0 quantity' do
+        it 'doesnt create order' do
+          @cart_items.each do |item|
+            item.update(quantity: 0)
+          end
+          @cart.reload
+          service = CreateOrderService.new(@cart, @user)
+          result = service.call
+          expect(result[:order].id).to eq nil
+        end
+      end
     end
     context 'when some items is not valid' do
       before(:each) do
