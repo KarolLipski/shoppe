@@ -1,0 +1,57 @@
+#cart_items
+  %p
+    W koszyku:
+    %span#cart-length.cart-info-hightlight
+      = cart_size
+    produktów
+    %br
+    Suma :
+    %span#cart-sum.cart-info-hightlight
+      = cart_value
+    zł.
+  .table-responsive.cart_info
+    = form_for(@order) do |f|
+      %table.table.table-condensed
+        %thead
+          %tr.cart_menu
+            %td.image Produkt
+            %td.description
+            %td.description Pakowanie
+            %td.price Cena
+            %td.quantity Ilość
+            %td.total Suma
+            %td
+        %tbody
+          = f.fields_for :order_items do |oi|
+
+            - item = oi.object.item
+            %tr{id: "row-cart-id-#{item.id}"}
+              %td.cart_product
+                = image_tag(item.photo.url(:mini), height:66, width:100)
+              %td.cart_description
+                %h4
+                  %a{:href => ""}
+                    = item.name
+                %p
+                  = item.number
+                %span{class: 'errors',id:"cart-item-error-#{item.id}"}
+                  = oi.object.errors.full_messages.first if oi.object.errors.any?
+              %td.cart_description
+                %p
+                  = "#{item.big_wrap} / #{item.small_wrap}"
+              %td.cart_price
+                %p= render_price(item)
+              %td.cart_quantity
+                = oi.hidden_field :price
+                = oi.hidden_field :item_id
+                = oi.text_field(:quantity, class: 'cart_quantity_input', size: 2 )
+                -#%input.cart_quantity_input{:autocomplete => "off", :name => "quantities[#{item.id}]", :size => "2", :type => "text", :item_id => item.id, :value => item.quantity}/
+              %td.cart_total
+                %p.cart_total_price
+                  %span{id: "total_price_#{item.id}"}= "#{item.quantity * item.price} zł"
+              %td.cart_delete
+                -#= link_to(item_path(item), class: 'cart_quantity_delete', method: :delete,
+                -#:data => {:confirm => 'Czy napewno usunąć z koszyka?'}, remote: true) do
+                -#  %i.fa.fa-times
+      .row
+        = f.submit 'Zamów', class: 'btn btn-primary pull-right'

@@ -16,7 +16,11 @@ class OrderItem < ActiveRecord::Base
   belongs_to :order
   belongs_to :item
 
-  validates_presence_of :order, :item, :quantity, :price, :total_price
+  validates_presence_of  :item, :quantity, :price, :total_price
   validates :quantity, numericality: {only_integer: true, greater_than: 0}
   validates :price, :total_price, numericality: true
+
+  def total_price
+    price * quantity
+  end
 end
