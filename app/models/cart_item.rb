@@ -16,7 +16,7 @@ class CartItem < ActiveRecord::Base
 
   validates_presence_of :cart, :item, :quantity
   validates_numericality_of :quantity , { only_integer: true, greater_than_or_equal_to: 0}
-  validate :less_equal_total_stored , if: Proc.new { |c| !c.item.nil? && !c.quantity.blank? }
+  validates :quantity , numericality: {only_integer: true, greater_than: 0}, total_quantity: true
 
   after_save :update_cart_sum
   after_destroy :update_cart_sum
@@ -24,12 +24,6 @@ class CartItem < ActiveRecord::Base
   # Updates cart summary price
   def update_cart_sum
     cart.recalc_sum
-  end
-
-  # Validates if quantity is not greather than total stored
-  def less_equal_total_stored
-    total = item.quantity
-    errors.add(:quantity, "nie dostępna. Maksymalna dostępna to: #{total} szt.") if quantity > total
   end
 
 end
