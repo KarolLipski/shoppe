@@ -1,25 +1,19 @@
 class OrdersController < ApplicationController
   include CartsHelper
 
+  before_action :check_cart
+
   # POST create order
   def create
-    # @user, @cart  = current_user, current_cart
-    # result = CreateOrderService.new(@cart, @user, params[:quantities]).call
-    # @items = @cart.cart_items
-    # if(result[:success])
-    #   flash[result[:info][:type]] = result[:info][:message]
-    #   redirect_to cart_show_path
-    # else
-    #   flash.now[result[:info][:type]] = result[:info][:message]
-    #   render 'carts/show'
-    # end
     @user, @cart  = current_user, current_cart
     @order = Order.new(order_params)
-    @order.price = 10
     @order.user = @user
+    @order.price = @order.order_items.inject(0){|sum,order_item| sum += order_item.total_price}
     if @order.save
+      flash[:success] = 'Zamówienie zostało złożone'
       redirect_to root_path
     else
+      flash.now[:danger] = 'Niektóre towary zawierają błedy'
       render 'new'
     end
 
@@ -37,6 +31,15 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(order_items_attributes: [:item_id,:quantity,:price, :cart_item_id])
+  end
+
+
+  def check_cart
+    if current_cart.nil? || current_user.nil?
+      @order = Order.new
+      flash.now[:warning] = 'Brak produktów w koszyku'
+      render 'new'
+    end
   end
 
 end

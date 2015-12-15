@@ -7,6 +7,8 @@ pl:
         parent: 'Rodzic'
       cart_item:
         quantity: 'Ilość'
+      order_item:
+        quantity: 'Ilość'
 
   date:
     abbr_day_names:

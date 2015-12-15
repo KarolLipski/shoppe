@@ -16,13 +16,19 @@ class OrderItem < ActiveRecord::Base
   belongs_to :order
   belongs_to :item
 
+  before_validation :count_total_price
+
   validates_presence_of  :item, :quantity, :price, :total_price
   validates :quantity, numericality: {only_integer: true, greater_than: 0}, total_quantity: true
   validates :price, :total_price, numericality: true
 
 
   def total_price
-    price * quantity
+   read_attribute(:total_price) || (price * quantity)
+  end
+
+  def count_total_price
+    self.total_price = (price * quantity)
   end
 
   def cart_item_id
