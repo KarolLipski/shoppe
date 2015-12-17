@@ -2,13 +2,29 @@ require 'rails_helper'
 
 RSpec.describe OrdersController, type: :controller do
 
+  def prepare_data
+    @user = FactoryGirl.create(:user)
+    log_in(@user)
+    @cart = current_cart
+    # @cart.cart_items << FactoryGirl.create(:cart_item, cart: @cart)
+    @cart_items = FactoryGirl.create_list(:cart_item, 3, cart: @cart)
+    @cart.reload
+  end
+
+  def prepare_valid_attributes
+    order_items_attr = Hash.new
+    @cart_items.each_with_index do |cart_item, i|
+      order_items_attr[i.to_s] = { "price" => cart_item.item.price.to_s,
+                                   "item_id" => cart_item.item.id,
+                                   "cart_item_id" => cart_item.id,
+                                   "quantity" => cart_item.quantity }
+    end
+    @valid_attributes = {"order" => {"order_items_attributes"=> order_items_attr} }
+  end
+
   describe 'GET new' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
-      log_in(@user)
-      @cart = current_cart
-      @cart.cart_items << FactoryGirl.create(:cart_item, cart: @cart)
-      @cart.reload
+      prepare_data
     end
     it 'creates build new Order' do
       get :new
@@ -38,11 +54,7 @@ RSpec.describe OrdersController, type: :controller do
 
   describe 'Check cart before action' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
-      log_in(@user)
-      @cart = current_cart
-      @cart.cart_items << FactoryGirl.create(:cart_item, cart: @cart)
-      @cart.reload
+      prepare_data
     end
     context 'when there is no cart' do
       it 'assings flash' do
@@ -69,45 +81,46 @@ RSpec.describe OrdersController, type: :controller do
 
   describe 'POST create' do
     before(:each) do
-      @user = FactoryGirl.create(:user)
-      log_in @user
-      @cart = current_cart
-      @cart_items = FactoryGirl.create_list(:cart_item, 3, cart: @cart)
-      @quantities = @cart_items.map { |i| [i.id.to_s, "1"]}.to_h
-      @cart.reload
+      prepare_data
+      prepare_valid_attributes
     end
     it 'assings current user' do
-
+      post :create, @valid_attributes
+      expect(assigns(:user)).to eq(@user)
     end
     it 'assigns current cart' do
-
+      post :create, @valid_attributes
+      expect(assigns(:cart)).to eq(@cart)
     end
     it 'sets total order price' do
-
+      post :create, @valid_attributes
+      # 3 factory quantity(1)X factory price(9.99)
+      expect(assigns(:order).price).to eq(29.97)
     end
     context 'when all items are valid' do
       before(:each) do
-
+        post :create, @valid_attributes
       end
       it 'redirect to home page' do
-
+        expect(response).to redirect_to root_path
       end
       it 'sets success flash' do
-
+        expect(flash[:success]).to be_present
       end
     end
     context 'when some items are invalid' do
       before(:each) do
-
+        @valid_attributes["order"]["order_items_attributes"]["0"]["quantity"] = 'sss'
+        post :create, @valid_attributes
       end
       it 'sets error flash' do
-
+        expect(flash[:danger]).to be_present
       end
       it 'render new template' do
-
+        expect(response).to render_template :new
       end
       it 'doesnt create order' do
-
+        expect(assigns[:order].persisted?).to eq false
       end
     end
   end
