@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
 
 
   def check_cart
-    if current_cart.nil? || current_user.nil?
+    if current_cart.nil? || current_user.nil? || current_cart.cart_items.empty?
       @order = Order.new
       flash.now[:warning] = 'Brak produktów w koszyku'
       render 'new'

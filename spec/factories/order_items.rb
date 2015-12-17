@@ -15,7 +15,7 @@
 FactoryGirl.define do
   factory :order_item do
     association :order, factory: :order
-    association :item, factory: :item
+    association :item, factory: :item_with_stored
     quantity 10
     price 10.01
     total_price 100.10

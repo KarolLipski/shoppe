@@ -13,14 +13,14 @@
 #
 
 class OrderItem < ActiveRecord::Base
-  belongs_to :order
+  belongs_to :order, inverse_of: :order_items
   belongs_to :item
 
-  before_validation :count_total_price
+  before_save :count_total_price
 
-  validates_presence_of  :item, :quantity, :price, :total_price
+  validates_presence_of  :item, :quantity, :price, :order
   validates :quantity, numericality: {only_integer: true, greater_than: 0}, total_quantity: true
-  validates :price, :total_price, numericality: true
+  validates :price, numericality: true
 
 
   def total_price

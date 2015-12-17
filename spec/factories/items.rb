@@ -25,6 +25,11 @@ FactoryGirl.define do
     after :create do |i|
       i.update_column(:photo, '23456.jpg')
     end
+    factory :item_with_stored do
+      after :create do |i|
+        i.stored_items << FactoryGirl.create(:stored_item, item: i)
+      end
+    end
   end
 
 end

@@ -16,7 +16,7 @@ class CartItem < ActiveRecord::Base
 
   validates_presence_of :cart, :item, :quantity
   validates_numericality_of :quantity , { only_integer: true, greater_than_or_equal_to: 0}
-  validates :quantity , numericality: {only_integer: true, greater_than: 0}, total_quantity: true
+  validates :quantity , total_quantity: true
 
   after_save :update_cart_sum
   after_destroy :update_cart_sum

@@ -40,11 +40,4 @@ RSpec.describe OrderItem, type: :model do
     expect(FactoryGirl.build(:order_item, price: 'avc')).not_to be_valid
     expect(FactoryGirl.build(:order_item, price: 10.34)).to be_valid
   end
-  it 'is invalid without total_price' do
-    expect(FactoryGirl.build(:order_item, total_price: nil)).not_to be_valid
-  end
-  it 'total_price should by numerical' do
-    expect(FactoryGirl.build(:order_item, total_price: 'avc')).not_to be_valid
-    expect(FactoryGirl.build(:order_item, total_price: 10.34)).to be_valid
-  end
 end
