@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
   include CartsHelper
 
-  before_action :check_cart
+  before_action :check_cart, except: [:index]
 
   def index
-
+    @user = current_user
+    render 'shared/not_logged' if @user.nil?
+    @orders = Order.where(user: @user).order('created_at DESC').includes(:order_items).page(params[:page]).per(10)
   end
 
   # POST create order

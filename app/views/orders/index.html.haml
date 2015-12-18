@@ -1,0 +1,27 @@
+#cart_items
+  .table-responsive.cart_info
+    %table.table.table-condensed
+      %thead
+        %tr.cart_menu
+          %td.description Numer
+          %td.description Data
+          %td.description Ilość Pozycji
+          %td.price Wartość
+          %td.description
+          %td
+      %tbody
+        - @orders.each do |order|
+          %tr
+            %td.cart_description
+              = order.id
+            %td.cart_description
+              = render_date(order.created_at)
+            %td.cart_description
+              = order.order_items.size
+            %td.cart_description
+              = "#{order.price} zł."
+            %td.cart_description
+              %a{:href=> '#',class: 'btn btn-xs btn-fefault cart' }
+                %i.fa.fa-search
+                Podgląd
+= paginate @orders

@@ -36,9 +36,9 @@
                 %i.fa.fa-star
                 Wishlist
             %li
-              %a{:href => "checkout.html"}
-                %i.fa.fa-crosshairs
-                Checkout
+              = link_to(orders_path) do
+                %i.fa.fa-credit-card
+                Moje zamówienia
             %li
               = link_to(new_order_path) do
                 %i.fa.fa-shopping-cart

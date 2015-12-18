@@ -52,6 +52,33 @@ RSpec.describe OrdersController, type: :controller do
     end
   end
 
+  describe 'GET index' do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      log_in(@user)
+      @order = FactoryGirl.create_list(:order,3, user: @user)
+    end
+    it 'assigns current cart' do
+      get :index
+      expect(assigns(:user)).to eq(@user)
+    end
+    it 'assigns orders' do
+      get :index
+      expect(assigns(:orders).size).to eq(3)
+    end
+    it 'renders index template' do
+      get :index
+      expect(response).to render_template('index')
+    end
+    context 'when user is logout' do
+      it 'renders not logged template' do
+        log_out
+        get :index
+        expect(response).to render_template('shared/not_logged')
+      end
+    end
+  end
+
   describe 'Check cart before action' do
     before(:each) do
       prepare_data
