@@ -2,30 +2,6 @@ require 'rails_helper'
 
 RSpec.describe CartsController, type: :controller do
 
-  describe 'GET show' do
-    before(:each) do
-      @cart = FactoryGirl.create(:cart)
-      @user = @cart.user
-      log_in(@user)
-      (1..3).each do |i|
-        stored_item = FactoryGirl.create(:stored_item)
-        FactoryGirl.create(:cart_item, cart: @cart, item: stored_item.item)
-      end
-    end
-    it 'assigns items' do
-      get :show
-      expect(assigns(:items).size).to eq(3)
-    end
-    it 'assigns cart' do
-      get :show
-      expect(assigns(:cart).user_id).to eq @user.id
-    end
-    it 'renders show template' do
-      get :show
-      expect(response).to render_template('show')
-    end
-  end
-
   describe 'GET Init_add' do
     before(:each) do
       @user = FactoryGirl.create(:user)

@@ -11,13 +11,6 @@ class CartsController < ApplicationController
     @quantity = cart_item.nil? ? '0' : cart_item.quantity
   end
 
-  #GET cart/show
-  #displays cart items
-  def show
-    @items = Array.new
-    @items = @cart.cart_items unless @cart.nil?
-  end
-
   def set_cart
     @cart = current_cart
   end

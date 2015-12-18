@@ -3,6 +3,10 @@ class OrdersController < ApplicationController
 
   before_action :check_cart
 
+  def index
+
+  end
+
   # POST create order
   def create
     @user, @cart  = current_user, current_cart
@@ -16,7 +20,6 @@ class OrdersController < ApplicationController
       flash.now[:danger] = 'Niektóre towary zawierają błedy'
       render 'new'
     end
-
   end
 
   def new
