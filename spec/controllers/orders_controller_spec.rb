@@ -134,6 +134,9 @@ RSpec.describe OrdersController, type: :controller do
       it 'sets success flash' do
         expect(flash[:success]).to be_present
       end
+      it 'clears cart items' do
+        expect(@cart.cart_items).to be_empty
+      end
     end
     context 'when some items are invalid' do
       before(:each) do
