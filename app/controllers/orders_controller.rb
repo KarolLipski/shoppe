@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     @order.price = @order.order_items.inject(0){|sum,order_item| sum += order_item.total_price}
     if @order.save
       flash[:success] = 'Zamówienie zostało złożone'
-      redirect_to root_path
+      redirect_to orders_path
     else
       flash.now[:danger] = 'Niektóre towary zawierają błedy'
       render 'new'

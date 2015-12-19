@@ -128,8 +128,8 @@ RSpec.describe OrdersController, type: :controller do
       before(:each) do
         post :create, @valid_attributes
       end
-      it 'redirect to home page' do
-        expect(response).to redirect_to root_path
+      it 'redirect to orders page' do
+        expect(response).to redirect_to orders_path
       end
       it 'sets success flash' do
         expect(flash[:success]).to be_present
