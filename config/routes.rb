@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :cart_items
-  resources :orders , only: [:create, :new, :index]
+  resources :orders , only: [:create, :new, :index] do
+    resources :order_items, only: [:index]
+  end
 
   get '/cart/init_add/:item_id', to: 'carts#init_add', as: :cart_init_add
 

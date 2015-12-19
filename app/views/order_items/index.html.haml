@@ -1,0 +1,36 @@
+#cart_items
+  .table-responsive.cart_info
+    %table.table.table-condensed
+      %thead
+        %tr.cart_menu
+          %td.image Produkt
+          %td.description
+          %td.description Pakowanie
+          %td.price Cena
+          %td.quantity Ilość
+          %td.total Suma
+          %td
+      %tbody
+        - @order_items.each do |order_item|
+        - item = order_item.item
+          %tr
+            %td.cart_product
+              = image_tag(item.photo.url(:mini), height:66, width:100)
+            %td.cart_description
+              %h4
+                %a{:href => ""}
+                  = item.name
+              %p
+                = item.number
+            %td.cart_description
+              %p
+                = "#{item.big_wrap} / #{item.small_wrap}"
+            %td.cart_price
+              %p= render_price(item)
+            %td.cart_quantity
+              %p= order_item.quantity
+            %td.cart_total
+              %p.cart_total_price
+                %span
+                  = "#{order_item.total_price} zł"
+= paginate @order_items

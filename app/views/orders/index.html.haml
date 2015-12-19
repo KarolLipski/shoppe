@@ -21,7 +21,7 @@
             %td.cart_description
               = "#{order.price} zł."
             %td.cart_description
-              %a{:href=> '#',class: 'btn btn-xs btn-fefault cart' }
+              %a{:href=> order_order_items_path(order_id: order),class: 'btn btn-xs btn-fefault cart' }
                 %i.fa.fa-search
                 Podgląd
 = paginate @orders
