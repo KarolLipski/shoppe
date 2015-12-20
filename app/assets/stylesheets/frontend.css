@@ -19,4 +19,5 @@
  *= require shopper/css/responsive.css
  *= require carts.scss
  *= require toastr.scss
+ *= require orders.scss
  */

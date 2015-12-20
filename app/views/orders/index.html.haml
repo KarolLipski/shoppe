@@ -1,27 +1,27 @@
-#cart_items
+#orders
   .table-responsive.cart_info
     %table.table.table-condensed
       %thead
-        %tr.cart_menu
-          %td.description Numer
-          %td.description Data
-          %td.description Ilość Pozycji
-          %td.price Wartość
-          %td.description
+        %tr.order_menu
+          %td Numer
+          %td Data
+          %td Ilość Pozycji
+          %td Wartość
+          %td
           %td
       %tbody
         - @orders.each do |order|
-          %tr
-            %td.cart_description
+          %tr.order_body
+            %td
               = order.id
-            %td.cart_description
+            %td
               = render_date(order.created_at)
-            %td.cart_description
+            %td
               = order.order_items.size
-            %td.cart_description
+            %td
               = "#{order.price} zł."
-            %td.cart_description
-              %a{:href=> order_order_items_path(order_id: order),class: 'btn btn-xs btn-fefault cart' }
+            %td
+              %a{:href=> order_order_items_path(order_id: order) }
                 %i.fa.fa-search
                 Podgląd
 = paginate @orders

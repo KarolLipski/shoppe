@@ -1,0 +1,18 @@
+#orders {
+  .order_menu {
+    font-size: 15px;
+    background-color: #59BDFF;
+    color: white;
+    text-align: center;
+  }
+  .order_body {
+    font-size: 13px;
+    a {
+      color: #59BDFF;
+    }
+  }
+  td {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+}
