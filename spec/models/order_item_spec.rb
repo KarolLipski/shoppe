@@ -40,4 +40,9 @@ RSpec.describe OrderItem, type: :model do
     expect(FactoryGirl.build(:order_item, price: 'avc')).not_to be_valid
     expect(FactoryGirl.build(:order_item, price: 10.34)).to be_valid
   end
+  it 'pick stored item from magazine after save' do
+    order_item = FactoryGirl.build(:order_item)
+    order_item.update!(:quantity => 100)
+    expect(order_item.item.quantity).to eq 20
+  end
 end

@@ -17,6 +17,7 @@ class OrderItem < ActiveRecord::Base
   belongs_to :item
 
   before_save :count_total_price
+  after_save :pick_form_magazine
 
   validates_presence_of  :item, :quantity, :price, :order
   validates :quantity, numericality: {only_integer: true, greater_than: 0}, total_quantity: true
@@ -37,4 +38,11 @@ class OrderItem < ActiveRecord::Base
   def cart_item_id=(val)
     @cart_item_id = val
   end
+
+  #removes quantity from magazine
+  def pick_form_magazine
+    stored_item = item.stored_items.first
+    stored_item.update_attribute(:quantity, (stored_item.quantity - quantity))
+  end
+
 end
