@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require shopper/js/html5shiv.js
+//= require fancybox/jquery.fancybox.js

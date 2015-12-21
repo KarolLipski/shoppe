@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require shopper/js/jquery.js
 //= require shopper/js/bootstrap.min.js
 //= require shopper/js/jquery.scrollUp.min.js
 //= require shopper/js/price-range.js
@@ -18,3 +17,4 @@
 //= require shopper/js/main.js
 //= require neon/js/toastr
 //= require carts
+//= require fancybox_photo.js

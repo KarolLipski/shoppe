@@ -21,10 +21,6 @@
   .choose
     %ul.nav.nav-pills.nav-justified
       %li
-        %a{:href => ""}
-          %i.fa.fa-plus-square>
-          Add to wishlist
-      %li
-        %a{:href => ""}
-          %i.fa.fa-plus-square>
-          Add to compare
+        %a{:href => item.photo.url, class: 'fancy_photo'}
+          %i.fa.fa-search-plus>
+          Zdjęcie

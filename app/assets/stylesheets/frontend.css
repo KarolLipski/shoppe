@@ -20,4 +20,5 @@
  *= require carts.scss
  *= require toastr.scss
  *= require orders.scss
+ *= require fancybox/jquery.fancybox
  */
