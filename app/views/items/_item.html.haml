@@ -11,6 +11,12 @@
         %i.fa.fa-cart-plus
     .product-overlay
       .overlay-content
+        %p
+          ID:
+          = item.number
+        %p
+          Pakowanie:
+          = "#{item.big_wrap} / #{item.small_wrap}"
         %h2
           = render_price item
         %p
