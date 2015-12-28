@@ -27,7 +27,9 @@
             - cart_item_id = order_item.object.cart_item_id
             %tr{id: "row-cart-id-#{cart_item_id}"}
               %td.cart_product
-                = image_tag(item.photo.url(:mini), height:66, width:100)
+                %a{:href => item.photo.url, class: 'fancy_photo'}
+                  = image_tag(item.photo.url(:mini), height:66, width:100)
+                  %i.fa.fa-search-plus
               %td.cart_description
                 %h4
                   %a{:href => ""}

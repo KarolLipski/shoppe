@@ -15,7 +15,9 @@
         - item = order_item.item
           %tr.order_body
             %td
-              = image_tag(item.photo.url(:mini), height:66, width:100)
+              %a{:href => item.photo.url, class: 'fancy_photo'}
+                = image_tag(item.photo.url(:mini), height:66, width:100)
+                %i.fa.fa-search-plus
             %td
               = item.name
               %p
