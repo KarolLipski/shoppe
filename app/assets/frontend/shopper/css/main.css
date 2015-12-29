@@ -255,6 +255,9 @@ a#scrollUp i{
 	padding: 0;
 	padding-bottom: 10px;
 }
+.login-info li {
+    display: inline-block;
+}
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
