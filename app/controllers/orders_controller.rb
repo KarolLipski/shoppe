@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
     @order.user = @user
     @order.price = @order.order_items.inject(0){|sum,order_item| sum += order_item.total_price}
     if @order.save
-      @cart.cart_items.delete_all
+      @cart.make_empty
       flash[:success] = 'Zamówienie zostało złożone'
       redirect_to orders_path
     else

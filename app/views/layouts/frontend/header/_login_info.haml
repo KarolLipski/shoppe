@@ -1,0 +1,11 @@
+- if logged_in?
+  %p
+    ="Witaj #{@current_user.login}."
+    %br
+    Ilość towarów w
+    = link_to 'koszyku', new_order_path
+    %span#login-info-cart-size.badge= cart_size
+    %br
+    Suma:
+    %span#login-info-cart-sum.badge= cart_value
+    zł

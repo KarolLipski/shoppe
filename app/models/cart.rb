@@ -19,4 +19,9 @@ class Cart < ActiveRecord::Base
     sum = cart_items.inject(0) { |sum, n| sum + (n.item.price * n.quantity)}
     update(price_sum: sum)
   end
+
+  def make_empty
+    cart_items.delete_all
+    update(price_sum: 0)
+  end
 end

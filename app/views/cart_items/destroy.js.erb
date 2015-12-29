@@ -3,7 +3,7 @@
 toastr.success('Usunięto z koszyka. <br />Wartośc koszyka: '
         + <%= cart_value %> +' zł.','', {"closeButton": true});
 
-$("#cart-items-count").text('(' + <%= @cart_size %> + ')');
-$("#cart-length").text( <%= @cart_size %> );
-$("#cart-sum").text(<%= cart_value %>);
+$("#cart-items-count").text(<%= @cart_size %> );
+$("#login-info-cart-size").text( <%= @cart_size %> );
+$("#login-info-cart-sum").text(<%= cart_value %>);
 $("#row-cart-id-<%= @cart_item.id %>").remove()

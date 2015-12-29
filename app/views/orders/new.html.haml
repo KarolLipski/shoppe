@@ -1,14 +1,4 @@
 #cart_items
-  %p
-    W koszyku:
-    %span#cart-length.cart-info-hightlight
-      = cart_size
-    produktów
-    %br
-    Suma :
-    %span#cart-sum.cart-info-hightlight
-      = cart_value
-    zł.
   = form_for(@order) do |f|
     .table-responsive.cart_info
       %table.table.table-condensed

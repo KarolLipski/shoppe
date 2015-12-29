@@ -228,6 +228,16 @@ a#scrollUp i{
   padding-left: 0;
 }
 
+.mainmenu p {
+    color: #363432;
+    padding-left: 30px;
+}
+
+.mainmenu a {
+    color: #363432;
+    text-decoration: underline;
+}
+
 .mainmenu ul li{
   padding-right: 15px;
   padding-left: 15px;

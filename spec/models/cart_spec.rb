@@ -18,4 +18,17 @@ RSpec.describe Cart, type: :model do
   it 'is invalid without user' do
     expect(FactoryGirl.build(:cart, user: nil)).not_to be_valid
   end
+  context 'make empty' do
+    before(:each) do
+      @cart = FactoryGirl.create(:cart)
+      FactoryGirl.create_list(:cart_item, 3, cart: @cart)
+      @cart.make_empty
+    end
+    it 'removes all items' do
+      expect(@cart.cart_items.count).to eq 0
+    end
+    it 'change value to 0' do
+      expect(@cart.price_sum).to eq 0
+    end
+  end
 end

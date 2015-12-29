@@ -43,13 +43,13 @@
               = link_to(new_order_path) do
                 %i.fa.fa-shopping-cart
                 Koszyk
-                %span#cart-items-count
-                  ="(#{cart_size})"
+                %span#cart-items-count.badge
+                  = cart_size
             %li
               - if logged_in?
                 = link_to(logout_path) do
                   %i.fa.fa-lock
-                    Wyloguj
+                  Wyloguj
               - else
                 = link_to(login_path) do
                   %i.fa.fa-lock

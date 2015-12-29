@@ -10,37 +10,7 @@
             %span.icon-bar
             %span.icon-bar
         .mainmenu.pull-left
-          %ul.nav.navbar-nav.collapse.navbar-collapse
-            %li
-              %a.active{:href => "index.html"} Home
-            %li.dropdown
-              %a{:href => "#"}
-                Shop
-                %i.fa.fa-angle-down
-              %ul.sub-menu{:role => "menu"}
-                %li
-                  %a{:href => "shop.html"} Products
-                %li
-                  %a{:href => "product-details.html"} Product Details
-                %li
-                  %a{:href => "checkout.html"} Checkout
-                %li
-                  %a{:href => "cart.html"} Cart
-                %li
-                  %a{:href => "login.html"} Login
-            %li.dropdown
-              %a{:href => "#"}
-                Blog
-                %i.fa.fa-angle-down
-              %ul.sub-menu{:role => "menu"}
-                %li
-                  %a{:href => "blog.html"} Blog List
-                %li
-                  %a{:href => "blog-single.html"} Blog Single
-            %li
-              %a{:href => "404.html"} 404
-            %li
-              %a{:href => "contact-us.html"} Contact
+          = render 'layouts/frontend/header/login_info'
       .col-sm-3
         .search_box.pull-right
           = form_tag search_path, method: 'get' do
