@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
     @order.price = @order.order_items.inject(0){|sum,order_item| sum += order_item.total_price}
     if @order.save
       @cart.make_empty
+      OrderMailer.order_email(@order).deliver_later
       flash[:success] = 'Zamówienie zostało złożone'
       redirect_to orders_path
     else

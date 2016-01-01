@@ -1,4 +1,13 @@
 defaults: &defaults
+  mailer:
+    authentication: "plain"
+    address: "smtp.mailgun.org"
+    port: 587
+    domain: "sandboxxxx.mailgun.org"
+    user_name: "postmaster@sandboxxxx.mailgun.org"
+    password: "xxx"
+    admin_addresses:
+      - "xxxi@gmail.com"
 
 development:
   <<: *defaults

@@ -21,10 +21,23 @@ module Shoppee
     # config.web_console.whitelisted_ips = '192.168.74.1'
     config.i18n.default_locale = :pl
 
+    config.x = Rails.application.config_for(:config)
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/", "#{config.root}/app/validators/"]
 
     config.active_job.queue_adapter = :delayed_job
+
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        :authentication => Rails.configuration.x['mailer']['authentication'].to_sym,
+        :address => Rails.configuration.x['mailer']['address'],
+        :port => Rails.configuration.x['mailer']['port'],
+        :domain => Rails.configuration.x['mailer']['domain'],
+        :user_name => Rails.configuration.x['mailer']['user_name'],
+        :password => Rails.configuration.x['mailer']['password']
+    }
   end
 end

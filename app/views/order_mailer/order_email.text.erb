@@ -1,0 +1,15 @@
+Potwierdzenie zamówienia nr: <%= @order.id %>
+===============================================================
+Ilość pozycji : <%= @order.order_items.size %>
+Suma: <%= @order.price %>
+
+---------------------------------------------------------------
+<%- @order.order_items.each do |oi| %>
+    Towar :  <%= oi.item.number %>  <%= oi.item.name %>
+    Ilość : <%= oi.quantity %>
+    Cena : <%= oi.item.price %>
+    Mazgazyn: <%- oi.item.stored_items.each do |stored| %> <%= stored.magazine.number %> <%- end %>
+---------------------------------------------------------------
+<%- end %>
+
+==============================================================

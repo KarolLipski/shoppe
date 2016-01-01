@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Potwierdzenie zamówienia nr:
+      = @order.id
+    %h4
+      = "Ilość Pozycji : #{@order.order_items.size}"
+      %br
+      = "Suma: #{@order.price} zł."
+    %table
+      %tr
+        %th{style:"border: 1px solid black; width:115px; text-align:center"}
+          Numer
+        %th{style:"border: 1px solid black; width:280px; text-align:center"}
+          Nazwa
+        %th{style:"border: 1px solid black; width:80px; text-align:center"}
+          Ilość
+        %th{style:"border: 1px solid black; width:80px; text-align:center"}
+          Cena
+        %th{style:"border: 1px solid black; width:115px; text-align:center"}
+          Magazyn
+        %th{style:"border: 1px solid black; width:80px; text-align:center"}
+          Suma
+      - @order.order_items.each do |order_item|
+        %tr
+          %td{style:"border: 1px solid black; width:115px; text-align:center"}
+            = order_item.item.number
+          %td{style:"border: 1px solid black; width:280px; text-align:center"}
+            = order_item.item.name
+          %td{style:"border: 1px solid black; width:80px; text-align:center"}
+            = order_item.quantity
+          %td{style:"border: 1px solid black; width:80px; text-align:center"}
+            = order_item.item.price
+          %td{style:"border: 1px solid black; width:115px; text-align:center"}
+            - order_item.item.stored_items.each do |stored|
+              = "#{stored.magazine.number} "
+          %td{style:"border: 1px solid black; width:80px; text-align:center"}
+            = order_item.total_price
