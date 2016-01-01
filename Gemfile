@@ -4,6 +4,7 @@ gem 'sqlite3'
 gem 'mysql2' ,'~> 0.3.20'
 gem 'pg'
 
+gem 'daemons'
 gem 'delayed_job_active_record'
 
 gem 'sass-rails', '~> 5.0'
