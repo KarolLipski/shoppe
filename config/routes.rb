@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+  get 'dashboard/main'
+  end
+
   get 'orders/crete'
 
   root to: 'main#index'
@@ -7,6 +11,7 @@ Rails.application.routes.draw do
   get '/categories/:category_id/items(.:format)', to: 'items#index', as: :category_items
 
   namespace :admin do
+    root to: 'dashboard#main'
     resources :categories
     resources :users
     get '/items/actualization', to: 'items#actualization', as: :items_actualization
