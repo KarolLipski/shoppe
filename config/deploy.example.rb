@@ -4,6 +4,9 @@ lock '3.4.0'
 set :application, 'shoppee'
 set :repo_url, 'https://github.com/xxxx/xxx.git'
 
+set :rvm_ruby_version, '2.1.1@shoppee'
+
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -11,7 +14,7 @@ set :repo_url, 'https://github.com/xxxx/xxx.git'
 
 set :deploy_via, :copy
 set :deploy_to, 'xxx'
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/config.yml .rvmrc}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system
  public/actualizations public/item_photos public/item_photos_mini}
 
@@ -49,7 +52,22 @@ namespace :deploy do
     end
   end
 
+  desc 'Restart the delayed_job process'
+  task :restart_delayed_job do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, :exec, :'bin/delayed_job restart'
+        end
+      end
+    end
+  end
+
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
+  after :finishing, 'deploy:restart_delayed_job'
 
 end
+
+#backup manifest doesn't work properly
+Rake::Task['deploy:assets:backup_manifest'].clear_actions
