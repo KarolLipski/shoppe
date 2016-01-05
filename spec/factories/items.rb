@@ -12,6 +12,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer
+#  barcode     :string(13)
 #
 
 FactoryGirl.define do
