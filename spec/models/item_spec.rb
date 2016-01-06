@@ -148,5 +148,18 @@ RSpec.describe Item, type: :model do
     end
   end
 
+  context 'generate barcode' do
+    it 'generates proper barcode' do
+      item = FactoryGirl.build(:item, number: "2120067823")
+      item.generate_barcode
+      expect(item.barcode).to eq "5900851678234"
+    end
+    it 'create barcode before save' do
+      item = FactoryGirl.build(:item, number: "1720036450")
+      item.save
+      expect(item.barcode).to eq "5900851364502"
+    end
+  end
+
 
 end

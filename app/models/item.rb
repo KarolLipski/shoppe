@@ -19,7 +19,7 @@ class Item < ActiveRecord::Base
   has_many :stored_items
   belongs_to :category
 
-  before_save :update_photo
+  before_save :update_photo, :generate_barcode
   before_save :fix_name, if: :new_record?
 
   mount_uploader :photo, PhotoUploader
@@ -32,14 +32,17 @@ class Item < ActiveRecord::Base
   scope :active, -> { joins(:stored_items).group('items.id').having("SUM(stored_items.quantity) > 0") }
   scope :with_photo, -> { where('photo IS NOT NULL')}
 
+  # get max price from all magazines
   def price
     stored_items.max { |item_a,item_b| item_a.price <=> item_b.price}.price
   end
 
+  # returns summary quantity from all magazines
   def quantity
     stored_items.inject(0){ |sum, n| sum += n.quantity}
   end
 
+  # fixes legacy names
   def fix_name
     if(match = self.name.match(/.{14}(\s.\s).+/))
       parts = self.name.rpartition(/#{match[1]}/)
@@ -49,16 +52,31 @@ class Item < ActiveRecord::Base
     self.name = self.name.mb_chars.capitalize
   end
 
+  # update photo column if photo is reachable
   def update_photo
     path = "public/item_photos/#{number[-5,5]}.jpg"
     # self.remote_photo_url = "http://madej.com.pl/zdjecia/#{number[-5,5]}.jpg"
       self.photo = File.open(path) if (File.exist?(path) && photo.filename.nil?)
   end
 
+  # simple search by number or name
   def self.search(query)
     where("number LIKE ? or name LIKE ?","%#{query}%","%#{query}%").order(created_at: :desc)
   end
 
+  # generates EAN13 Barcode
+  def generate_barcode
+    # puts number.chars.inspect
+    return unless barcode.blank?
+    prefix = "5900851#{number.slice(-5,5)}"
+    digits = prefix.chars.map(&:to_i)
+    total = 0
+    digits.each_with_index { |v,i| total += (i.even? ? v : v*3) }
 
+    checksum = total % 10
+    checksum = (10 - checksum) unless checksum == 0
+
+    self.barcode = "#{prefix}#{checksum}"
+  end
 
 end
