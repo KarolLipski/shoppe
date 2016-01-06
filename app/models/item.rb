@@ -61,7 +61,8 @@ class Item < ActiveRecord::Base
 
   # simple search by number or name
   def self.search(query)
-    where("number LIKE ? or name LIKE ?","%#{query}%","%#{query}%").order(created_at: :desc)
+    where("number LIKE ? or name LIKE ? or barcode LIKE ?",
+          "%#{query}%","%#{query}%", "%#{query}%").order(created_at: :desc)
   end
 
   # generates EAN13 Barcode

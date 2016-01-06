@@ -14,6 +14,6 @@
       .col-sm-3
         .search_box.pull-right
           = form_tag search_path, method: 'get' do
-            = text_field_tag :search, nil, id: 'search_field', placeholder: 'Wyszukiwanie'
+            = text_field_tag :search, nil, id: 'search_field', placeholder: 'Szukaj: Nazwa, Numer, EAN'
             %button.btn#search{type: 'submit'}
               %i.fa.fa-search
