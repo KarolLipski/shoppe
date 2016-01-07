@@ -29,6 +29,12 @@ class StoredItem < ActiveRecord::Base
 
   validates_presence_of :item_id , :magazine_id, :quantity, :price
 
+  # simple search by number or name
+  def self.search(query)
+    active.where("number LIKE ? or name LIKE ? or barcode LIKE ?",
+          "%#{query}%","%#{query}%", "%#{query}%").order(created_at: :desc)
+  end
+
   private
   # Triggers update items_count for category
   def update_category_counter
