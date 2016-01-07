@@ -13,6 +13,7 @@
 class Category < ActiveRecord::Base
 
   has_many :items
+  has_many :stored_items, through: :items
 
   has_many :subcategories, :class_name => 'Category', :foreign_key => "parent_id"
   belongs_to :parent , :class_name => 'Category'

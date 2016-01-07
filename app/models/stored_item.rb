@@ -15,7 +15,17 @@ class StoredItem < ActiveRecord::Base
   belongs_to :magazine
   belongs_to :item
 
+  delegate :photo,:name,:number,:small_wrap,:big_wrap,:barcode, to: :item
+
   after_save :update_category_counter
+
+
+  scope :active, -> { includes(:item).select('MAX(stored_items.id) as id',
+         'SUM(quantity) as quantity', 'item_id','MAX(price) as price',
+         'MAX(stored_items.created_at) as created_at',
+         'MAX(stored_items.updated_at) as updated_at').
+          where('items.photo is not null').group(:item_id).
+          having('SUM(stored_items.quantity) > 0').references(:item) }
 
   validates_presence_of :item_id , :magazine_id, :quantity, :price
 

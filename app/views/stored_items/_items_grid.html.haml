@@ -4,5 +4,5 @@
     = header_text
   - items.each do |item|
     .col-sm-3
-      = render partial: 'items/item', locals: {item: item}
+      = render partial: 'stored_items/item', locals: {item: item}
 = paginate items
