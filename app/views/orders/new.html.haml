@@ -13,7 +13,7 @@
             %td
         %tbody
           = f.fields_for :order_items do |order_item|
-            - item = order_item.object.item
+            - item = order_item.object.stored_item
             - cart_item_id = order_item.object.cart_item_id
             %tr{id: "row-cart-id-#{cart_item_id}"}
               %td.cart_product
@@ -33,9 +33,9 @@
                   = "#{item.big_wrap} / #{item.small_wrap}"
               %td.cart_price
                 = order_item.hidden_field :price
-                %p= render_price(item)
+                %p= render_price(item, :sell_price)
               %td.cart_quantity
-                = order_item.hidden_field :item_id
+                = order_item.hidden_field :stored_item_id
                 = order_item.hidden_field :cart_item_id
                 = order_item.text_field(:quantity, class: 'cart_quantity_input', size: 2,
                  cart_item_id: cart_item_id )

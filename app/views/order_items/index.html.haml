@@ -12,7 +12,7 @@
           %td
       %tbody
         - @order_items.each do |order_item|
-        - item = order_item.item
+        - item = order_item.stored_item
           %tr.order_body
             %td
               %a{:href => item.photo.url, class: 'fancy_photo'}
@@ -26,7 +26,7 @@
               %p
                 = "#{item.big_wrap} / #{item.small_wrap}"
             %td
-              %p= render_price(item)
+              %p= render_price(item, :sell_price)
             %td
               %p= order_item.quantity
             %td

@@ -14,12 +14,12 @@
 
 class OrderItem < ActiveRecord::Base
   belongs_to :order, inverse_of: :order_items
-  belongs_to :item
+  belongs_to :stored_item
 
   before_save :count_total_price
   after_save :pick_form_magazine
 
-  validates_presence_of  :item, :quantity, :price, :order
+  validates_presence_of  :stored_item, :quantity, :price, :order
   validates :quantity, numericality: {only_integer: true, greater_than: 0}, total_quantity: true
   validates :price, numericality: true
 
@@ -41,7 +41,6 @@ class OrderItem < ActiveRecord::Base
 
   #removes quantity from magazine
   def pick_form_magazine
-    stored_item = item.stored_items.first
     stored_item.update_attribute(:quantity, (stored_item.quantity - quantity))
   end
 

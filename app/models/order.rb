@@ -11,7 +11,7 @@
 
 class Order < ActiveRecord::Base
   belongs_to :user
-  has_many :order_items , -> { includes(:item) }, inverse_of: :order
+  has_many :order_items , -> { includes(:stored_item) }, inverse_of: :order
 
   accepts_nested_attributes_for :order_items
 

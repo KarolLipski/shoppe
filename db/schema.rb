@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107231657) do
+ActiveRecord::Schema.define(version: 20160108132650) do
 
   create_table "actualization_logs", force: :cascade do |t|
     t.string   "status",      limit: 255
@@ -85,16 +85,15 @@ ActiveRecord::Schema.define(version: 20160107231657) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer  "order_id",    limit: 4
-    t.integer  "item_id",     limit: 4
-    t.integer  "quantity",    limit: 4
-    t.decimal  "price",                 precision: 10, scale: 2
-    t.decimal  "total_price",           precision: 10, scale: 2
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.integer  "order_id",       limit: 4
+    t.integer  "quantity",       limit: 4
+    t.decimal  "price",                    precision: 10, scale: 2
+    t.decimal  "total_price",              precision: 10, scale: 2
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "stored_item_id", limit: 4
   end
 
-  add_index "order_items", ["item_id"], name: "index_order_items_on_item_id", using: :btree
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
@@ -134,7 +133,6 @@ ActiveRecord::Schema.define(version: 20160107231657) do
   add_foreign_key "cart_items", "carts"
   add_foreign_key "carts", "users"
   add_foreign_key "items", "categories"
-  add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
   add_foreign_key "stored_items", "items"

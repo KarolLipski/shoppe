@@ -35,12 +35,12 @@ RSpec.describe StoredItem, type: :model do
     expect(FactoryGirl.build(:stored_item, quantity: nil)).not_to be_valid
   end
 
-  it 'sold_price return max price from all magazines' do
+  it 'sell_price return max price from all magazines' do
     item = FactoryGirl.create(:item)
     stored1 = FactoryGirl.create(:stored_item, price: 7, item: item)
     stored2 = FactoryGirl.create(:stored_item, price: 8, item: item)
     stored3 = FactoryGirl.create(:stored_item, price: 3, item: item)
-    expect(stored3.sold_price).to eq(8)
+    expect(stored3.sell_price).to eq(8)
   end
 
 end

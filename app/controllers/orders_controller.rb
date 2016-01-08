@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
       flash[:success] = 'Zamówienie zostało złożone'
       redirect_to orders_path
     else
+      puts @order.order_items.inspect
       flash.now[:danger] = 'Niektóre towary zawierają błedy'
       render 'new'
     end
@@ -30,14 +31,14 @@ class OrdersController < ApplicationController
     @user, @cart  = current_user, current_cart
     @order = Order.new(user: @user)
     @cart.cart_items.each do |cart_item|
-      @order.order_items.build(item: cart_item.item,
-        quantity: cart_item.quantity, price: cart_item.item.price,
+      @order.order_items.build(stored_item: cart_item.stored_item,
+        quantity: cart_item.quantity, price: cart_item.stored_item.sell_price,
         cart_item_id: cart_item.id)
     end
   end
 
   def order_params
-    params.require(:order).permit(order_items_attributes: [:item_id,:quantity,:price, :cart_item_id])
+    params.require(:order).permit(order_items_attributes: [:stored_item_id,:quantity,:price, :cart_item_id])
   end
 
 

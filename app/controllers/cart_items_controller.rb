@@ -9,7 +9,7 @@ class CartItemsController < ApplicationController
     respond_to do |format|
       if @cart_item.update(quantity: params[:quantity])
         format.json do
-          render json: { total_value: (@cart_item.item.price * @cart_item.quantity), cart_item: @cart_item, cart: @cart_item.cart,
+          render json: { total_value: (@cart_item.stored_item.sell_price * @cart_item.quantity), cart_item: @cart_item, cart: @cart_item.cart,
              sum: @cart_item.cart.price_sum, errors: nil}
         end
       else
