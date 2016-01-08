@@ -7,7 +7,7 @@ class CartsController < ApplicationController
   # initialize action before add item to cart
   def init_add
     @item = StoredItem.includes(:item).find(params[:item_id])
-    cart_item = CartItem.where(item_id: @item.id,cart: @cart).first
+    cart_item = CartItem.where(stored_item_id: @item.id,cart: @cart).first
     @quantity = cart_item.nil? ? '0' : cart_item.quantity
   end
 

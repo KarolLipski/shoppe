@@ -16,7 +16,7 @@ class Cart < ActiveRecord::Base
   validates_presence_of :user
 
   def recalc_sum
-    sum = cart_items.inject(0) { |sum, n| sum + (n.item.price * n.quantity)}
+    sum = cart_items.inject(0) { |sum, n| sum + (n.stored_item.sell_price * n.quantity)}
     update(price_sum: sum)
   end
 

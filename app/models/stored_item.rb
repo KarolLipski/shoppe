@@ -29,6 +29,14 @@ class StoredItem < ActiveRecord::Base
 
   validates_presence_of :item_id , :magazine_id, :quantity, :price
 
+  # Max price from all magazines
+  def sell_price
+    StoredItem.select('MAX(price) as max_price').where(item: item).first.max_price
+  end
+  # Sum quantities from all magazines
+  def sell_quantity
+    StoredItem.select('SUM(quantity) as sum_quantity').where(item: item).first.sum_quantity
+  end
   # simple search by number or name
   def self.search(query)
     active.where("number LIKE ? or name LIKE ? or barcode LIKE ?",
