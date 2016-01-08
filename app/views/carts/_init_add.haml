@@ -31,7 +31,7 @@
                   %span
                     = label_tag 'quantity', 'Ilość:'
                     = text_field_tag 'quantity', @quantity
-                    = hidden_field_tag 'item_id', @item.id
+                    = hidden_field_tag 'stored_item_id', @item.id
                     = button_tag  class: 'btn btn-fefault cart' do
                       Dodaj
                       %i.fa.fa-shopping-cart

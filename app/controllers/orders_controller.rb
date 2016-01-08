@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
       flash[:success] = 'Zamówienie zostało złożone'
       redirect_to orders_path
     else
-      puts @order.order_items.inspect
       flash.now[:danger] = 'Niektóre towary zawierają błedy'
       render 'new'
     end

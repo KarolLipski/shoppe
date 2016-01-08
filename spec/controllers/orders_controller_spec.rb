@@ -6,7 +6,6 @@ RSpec.describe OrdersController, type: :controller do
     @user = FactoryGirl.create(:user)
     log_in(@user)
     @cart = current_cart
-    # @cart.cart_items << FactoryGirl.create(:cart_item, cart: @cart)
     @cart_items = FactoryGirl.create_list(:cart_item, 3, cart: @cart)
     @cart.reload
   end
@@ -14,8 +13,8 @@ RSpec.describe OrdersController, type: :controller do
   def prepare_valid_attributes
     order_items_attr = Hash.new
     @cart_items.each_with_index do |cart_item, i|
-      order_items_attr[i.to_s] = { "price" => cart_item.item.price.to_s,
-                                   "item_id" => cart_item.item.id,
+      order_items_attr[i.to_s] = { "price" => cart_item.stored_item.sell_price.to_s,
+                                   "stored_item_id" => cart_item.stored_item.id,
                                    "cart_item_id" => cart_item.id,
                                    "quantity" => cart_item.quantity }
     end

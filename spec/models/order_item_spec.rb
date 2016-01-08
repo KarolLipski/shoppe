@@ -21,8 +21,8 @@ RSpec.describe OrderItem, type: :model do
   it 'is invalid without order' do
     expect(FactoryGirl.build(:order_item, order: nil)).not_to be_valid
   end
-  it 'is invalid without item' do
-    expect(FactoryGirl.build(:order_item, item: nil)).not_to be_valid
+  it 'is invalid without stored_item' do
+    expect(FactoryGirl.build(:order_item, stored_item: nil)).not_to be_valid
   end
   it 'is invalid without quantity' do
     expect(FactoryGirl.build(:order_item, quantity: nil)).not_to be_valid
@@ -43,6 +43,6 @@ RSpec.describe OrderItem, type: :model do
   it 'pick stored item from magazine after save' do
     order_item = FactoryGirl.build(:order_item)
     order_item.update!(:quantity => 100)
-    expect(order_item.item.quantity).to eq 20
+    expect(order_item.stored_item.quantity).to eq 20
   end
 end

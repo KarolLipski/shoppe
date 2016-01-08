@@ -20,7 +20,7 @@ RSpec.describe CartItem, type: :model do
     expect(FactoryGirl.build(:cart_item, cart: nil)).not_to be_valid
   end
   it 'is invalid without item' do
-    expect(FactoryGirl.build(:cart_item, item: nil)).not_to be_valid
+    expect(FactoryGirl.build(:cart_item, stored_item: nil)).not_to be_valid
   end
   it 'is invalid without quantity' do
     expect(FactoryGirl.build(:cart_item, quantity: nil)).not_to be_valid

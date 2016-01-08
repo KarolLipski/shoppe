@@ -27,15 +27,15 @@
       - @order.order_items.each do |order_item|
         %tr
           %td{style:"border: 1px solid black; width:115px; text-align:center"}
-            = order_item.item.number
+            = order_item.stored_item.number
           %td{style:"border: 1px solid black; width:280px; text-align:center"}
-            = order_item.item.name
+            = order_item.stored_item.name
           %td{style:"border: 1px solid black; width:80px; text-align:center"}
             = order_item.quantity
           %td{style:"border: 1px solid black; width:80px; text-align:center"}
-            = order_item.item.price
+            = order_item.price
           %td{style:"border: 1px solid black; width:115px; text-align:center"}
-            - order_item.item.stored_items.each do |stored|
+            - order_item.stored_item.item.stored_items.each do |stored|
               = "#{stored.magazine.number} "
           %td{style:"border: 1px solid black; width:80px; text-align:center"}
             = order_item.total_price
