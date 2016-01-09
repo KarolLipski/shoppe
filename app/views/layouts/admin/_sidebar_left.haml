@@ -43,7 +43,7 @@
         %button{:type => "submit"}
           %i.entypo-search
     %li
-      %a{:href => ""}
+      %a{:href => admin_root_path}
         %i.entypo-gauge
         %span Dashboard
     %li
@@ -64,6 +64,10 @@
         %i.entypo-layout
         %span Towary
       %ul
+        %li
+          %a{:href => admin_items_path}
+            %i.fa.fa-list-alt
+            %span Lista Towarów
         %li
           %a{:href => admin_items_actualization_path}
             %i.entypo-upload

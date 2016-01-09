@@ -1,8 +1,28 @@
+%h3 Towary w systemie
+
+.panel.panel-info{"data-collapsed" => "0"}
+  / panel head
+  .panel-heading
+    .panel-title Lista towarów
+    .panel-options
+      %a.bg{"data-target" => "#sample-modal-dialog-1", "data-toggle" => "modal", :href => "#sample-modal"}
+        %i.entypo-cog
+      %a{"data-rel" => "collapse", :href => "#"}
+        %i.entypo-down-open
+      %a{"data-rel" => "reload", :href => "#"}
+        %i.entypo-arrows-ccw
+      %a{"data-rel" => "close", :href => "#"}
+        %i.entypo-cancel
+  / panel body
+  .panel-body
+    %p Możliwe wyszukiwanie po symbolu lub nazwie towaru.
+
 %table#items-table.stripe.hover{"data-source" => admin_items_path(format: :json)}
   %thead
     %tr
       %th Numer
       %th Nazwa
-      %th Data dodania
       %th Kategoria
+      %th Data dodania
+      %th Ost. Aktualizacja
   %tbody
