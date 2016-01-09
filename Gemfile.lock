@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 9eee0a1975b5a22e50bdc73fcca7db7f8a12c143
+  branch: master
+  specs:
+    jquery-datatables-rails (3.3.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,6 +47,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    ajax-datatables-rails (0.3.1)
+      railties (>= 3.1)
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
@@ -246,6 +259,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ajax-datatables-rails
   annotate
   bcrypt (~> 3.1.7)
   better_errors
@@ -266,6 +280,7 @@ DEPENDENCIES
   font-awesome-rails
   haml-rails
   jbuilder (~> 2.0)
+  jquery-datatables-rails!
   jquery-rails
   kaminari
   mysql2 (~> 0.3.20)

@@ -25,4 +25,5 @@
  *= require neon/js/select2/select2.css
  *= require categories.scss
  *= require errors.scss
+ *= require dataTables/jquery.dataTables
  */

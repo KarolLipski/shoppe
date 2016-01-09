@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require dataTables/jquery.dataTables
 //= require neon/js/gsap/main-gsap
 //= require neon/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min
 //= require neon/js/bootstrap
 //= require neon/js/joinable
 //= require neon/js/resizeable
 //= require neon/js/neon-api
-//= require neon/js/jquery.dataTables.min
 //= require neon/js/datatables/TableTools.min
 //= require neon/js/dataTables.bootstrap
 //= require neon/js/datatables/jquery.dataTables.columnFilter
@@ -36,3 +36,4 @@
 //= require neon/js/neon-demo
 //= require categories
 //= require users
+//= require admin/items

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#main'
     resources :categories
     resources :users
+    resources :items, only: [:index]
     get '/items/actualization', to: 'items#actualization', as: :items_actualization
     post '/items/actualize', to: 'items#actualize', as: :items_actualize
   end

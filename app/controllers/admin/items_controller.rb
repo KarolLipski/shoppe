@@ -1,5 +1,13 @@
 class Admin::ItemsController < AdminController
 
+  # list of all items
+  def index
+    respond_to do |format|
+      format.html
+      format.json { render json: ItemDatatable.new(view_context)}
+    end
+  end
+
   # get /items/actualization
   def actualization
     @actualizations = ActualizationLog.order('created_at DESC').first(3)
