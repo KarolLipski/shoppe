@@ -13,6 +13,11 @@ class Admin::ItemsController < AdminController
     @actualizations = ActualizationLog.order('created_at DESC').first(3)
   end
 
+  #get /items/noCategories
+  def no_categories
+    @items = Item.active.with_photo.where(category: nil).order('number DESC')
+  end
+
   def actualize
     file_path = save_uploaded_file params[:file]
     @log = ActualizationLog.create(status: 'Accepted')

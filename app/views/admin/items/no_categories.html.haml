@@ -1,0 +1,34 @@
+%h3= "Towary bez nadanej kategorii (#{@items.length})"
+
+.panel.panel-info{"data-collapsed" => "0"}
+  / panel head
+  .panel-heading
+    .panel-title Lista towarów
+    .panel-options
+      %a.bg{"data-target" => "#sample-modal-dialog-1", "data-toggle" => "modal", :href => "#sample-modal"}
+        %i.entypo-cog
+      %a{"data-rel" => "collapse", :href => "#"}
+        %i.entypo-down-open
+      %a{"data-rel" => "reload", :href => "#"}
+        %i.entypo-arrows-ccw
+      %a{"data-rel" => "close", :href => "#"}
+        %i.entypo-cancel
+  / panel body
+  .panel-body
+    %p Wyświetlane towary które są aktualnie na stanie , posiadają zdjęcie ale nie mają nadanej kategorii.
+
+%table.table.responsive
+  %thead
+    %tr
+      %th Foto
+      %th Nazwa
+      %th Numer
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td
+          %a{:href => item.photo.url, class: 'fancy_photo'}
+            = image_tag(item.photo.url(:mini), height:66, width:100)
+            %i.fa.fa-search-plus
+        %td= item.name
+        %td= item.number

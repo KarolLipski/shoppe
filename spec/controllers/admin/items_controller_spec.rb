@@ -41,7 +41,18 @@ RSpec.describe Admin::ItemsController, type: :controller do
       post :actualize, file: @file
       expect(response).to redirect_to action: :actualization
     end
+  end
 
+  describe 'GET #noCategories' do
+    it 'assigns only items with quantity and photo' do
+      item1 = FactoryGirl.create(:item, category: nil) # without quantity
+      item2 = FactoryGirl.create(:item_with_stored, category: nil) # without photo
+      item2.update_column(:photo, nil)
+      item3 = FactoryGirl.create(:item_with_stored, category: nil) # without photo
+
+      get :no_categories
+      expect(assigns(:items).first).to eq item3
+    end
   end
 
 end

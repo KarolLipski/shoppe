@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
     get '/items/actualization', to: 'items#actualization', as: :items_actualization
     post '/items/actualize', to: 'items#actualize', as: :items_actualize
+    get 'items/noCategories', to: 'items#no_categories', as: :items_no_categories
   end
 
   resources :cart_items
