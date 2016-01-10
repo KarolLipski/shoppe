@@ -27,4 +27,5 @@
  *= require categories.scss
  *= require errors.scss
  *= require dataTables/jquery.dataTables
+ *= require fancybox/jquery.fancybox
  */

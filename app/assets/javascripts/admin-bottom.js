@@ -37,3 +37,5 @@
 //= require categories
 //= require users
 //= require admin/items
+//= require fancybox/jquery.fancybox.js
+//= require fancybox_photo.js

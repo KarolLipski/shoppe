@@ -22,6 +22,7 @@
     %tr
       %th Foto
       %th Nazwa
+      %th Kategoria
       %th Numer
   %tbody
     - @items.each do |item|
@@ -31,4 +32,6 @@
             = image_tag(item.photo.url(:mini), height:66, width:100)
             %i.fa.fa-search-plus
         %td= item.name
+        %td
+          = text_field_tag(:category,nil, class: 'form-control input-lg item_category', size: 3)
         %td= item.number
