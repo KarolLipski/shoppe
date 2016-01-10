@@ -8,6 +8,22 @@ class Admin::ItemsController < AdminController
     end
   end
 
+  # PATCH/PUT /items/1.json
+  def update
+    @item = Item.find(params[:id])
+    respond_to do |format|
+      if @item.update(item_params)
+        format.json  do
+          render json: {errors: nil}
+        end
+      else
+        format.json do
+          render json: { errors: @item.errors.full_messages}
+        end
+      end
+    end
+  end
+
   # get /items/actualization
   def actualization
     @actualizations = ActualizationLog.order('created_at DESC').first(3)
@@ -35,6 +51,11 @@ class Admin::ItemsController < AdminController
     path = File.join(directory, name)
     File.open(path,'wb') { |f| f.write(file.read) }
     path
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_params
+    params.require(:item).permit(:number, :name, :small_wrap, :big_wrap, :category_id)
   end
 
 end
