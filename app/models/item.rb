@@ -26,6 +26,7 @@ class Item < ActiveRecord::Base
 
 
   validates_presence_of :name, :number, :small_wrap, :big_wrap
+  validates_presence_of :category , :if => Proc.new { |item| item.category_id.present? }
   validates_numericality_of :small_wrap, :big_wrap, :only_integer => true, :greater_than_or_equal_to => 0
 
   # only items where quantity > 0

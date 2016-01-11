@@ -38,6 +38,23 @@ RSpec.describe Item, type: :model do
     expect(FactoryGirl.build(:item, big_wrap: nil)).not_to be_valid
   end
 
+  context 'category validation' do
+    before(:each) do
+      @category = FactoryGirl.create(:category)
+    end
+    it 'is invalid if category is not valid' do
+      expect(FactoryGirl.build(:item, category_id: 1)).not_to be_valid
+    end
+    it 'is valid without category' do
+      expect(FactoryGirl.build(:item, category: nil)).to be_valid
+
+    end
+    it 'is valid with proper category' do
+      expect(FactoryGirl.build(:item, category: @category)).to be_valid
+
+    end
+  end
+
   it 'big_wrap should be only number' do
     expect(FactoryGirl.build(:item, big_wrap: 'abc')).not_to be_valid
     expect(FactoryGirl.build(:item, big_wrap: 123)).to be_valid
