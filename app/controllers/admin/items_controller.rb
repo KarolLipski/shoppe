@@ -1,5 +1,7 @@
 class Admin::ItemsController < AdminController
 
+  skip_before_filter :verify_authenticity_token, only: [:update]
+
   # list of all items
   def index
     respond_to do |format|

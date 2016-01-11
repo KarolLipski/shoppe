@@ -28,14 +28,16 @@
           %th Numer
       %tbody
         - @items.each do |item|
-          %tr
+          %tr{id: "row-actualize-itemid-#{item.id}"}
             %td
               %a{:href => item.photo.url, class: 'fancy_photo'}
                 = image_tag(item.photo.url(:mini), height:66, width:100)
                 %i.fa.fa-search-plus
             %td= item.name
             %td
-              = text_field_tag(:category,nil, class: 'form-control input-lg item_category', size: 3)
+              = text_field_tag(:category,nil, class: 'form-control input-lg actualize_item_category', size: 3,
+              item_id: item.id)
+              %span{class: 'errors',id:"item-error-#{item.id}"}
             %td= item.number
   .col-sm-4.scrollspy
     %ul
