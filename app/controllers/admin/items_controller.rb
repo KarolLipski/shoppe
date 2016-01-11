@@ -15,7 +15,7 @@ class Admin::ItemsController < AdminController
     @item = Item.find(params[:id])
     respond_to do |format|
       if @item.update(item_params)
-        @item.category.update_items_counter
+        @item.category.update_items_counter if @item.category
         format.json  do
           render json: {errors: nil}
         end
