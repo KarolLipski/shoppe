@@ -29,8 +29,9 @@ class Item < ActiveRecord::Base
   validates_presence_of :category , :if => Proc.new { |item| item.category_id.present? }
   validates_numericality_of :small_wrap, :big_wrap, :only_integer => true, :greater_than_or_equal_to => 0
 
+  scope :active, -> { where({ active: true}) }
   # only items where quantity > 0
-  scope :active, -> { joins(:stored_items).group('items.id').having("SUM(stored_items.quantity) > 0") }
+  scope :on_stock, -> { joins(:stored_items).group('items.id').having("SUM(stored_items.quantity) > 0") }
   scope :with_photo, -> { where('photo IS NOT NULL')}
 
   # get max price from all magazines

@@ -24,7 +24,7 @@ class StoredItem < ActiveRecord::Base
          'SUM(quantity) as quantity', 'item_id','MAX(price) as price',
          'MAX(stored_items.created_at) as created_at',
          'MAX(stored_items.updated_at) as updated_at').
-          where('items.photo is not null').group(:item_id).
+          where('items.photo is not null and items.active = 1').group(:item_id).
           having('SUM(stored_items.quantity) > 0').references(:item) }
 
   validates_presence_of :item_id , :magazine_id, :quantity, :price

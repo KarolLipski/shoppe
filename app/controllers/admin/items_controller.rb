@@ -35,7 +35,7 @@ class Admin::ItemsController < AdminController
   #get /items/noCategories
   def no_categories
     @categories = Category.main.order(:name)
-    @items = Item.active.with_photo.where(category: nil).order('number DESC')
+    @items = Item.on_stock.with_photo.where(category: nil).order('number DESC')
   end
 
   def actualize

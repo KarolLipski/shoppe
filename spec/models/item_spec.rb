@@ -106,7 +106,7 @@ RSpec.describe Item, type: :model do
   end
 
   context 'scopes' do
-    it 'active scope returns only items where qunatity > 0' do
+    it 'on_stock scope returns only items where qunatity > 0' do
       quantities = [0,10]
       quantities.each do |quantity|
         item = FactoryGirl.create(:item)
@@ -114,7 +114,7 @@ RSpec.describe Item, type: :model do
         FactoryGirl.create(:stored_item, magazine: magazine, item: item, quantity: quantity)
       end
 
-      expect(Item.active.length).to eq(1)
+      expect(Item.on_stock.length).to eq(1)
     end
 
     it 'with_photo scope returns only items with photo' do
@@ -122,6 +122,12 @@ RSpec.describe Item, type: :model do
       FactoryGirl.create(:item).update_column(:photo, nil)
 
       expect(Item.with_photo.size).to eq(1)
+    end
+
+    it 'active return only active items' do
+      FactoryGirl.create(:item)
+      FactoryGirl.create(:item, active: 0)
+      expect(Item.active.length).to eq(1)
     end
   end
 
