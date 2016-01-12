@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108132650) do
+ActiveRecord::Schema.define(version: 20160112040836) do
 
   create_table "actualization_logs", force: :cascade do |t|
     t.string   "status",      limit: 255
@@ -70,10 +70,11 @@ ActiveRecord::Schema.define(version: 20160108132650) do
     t.integer  "small_wrap",  limit: 4
     t.integer  "big_wrap",    limit: 4
     t.text     "photo",       limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "category_id", limit: 4
     t.string   "barcode",     limit: 13
+    t.boolean  "active",      limit: 1,     default: true
   end
 
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
