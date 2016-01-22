@@ -1,10 +1,11 @@
 
 $('.circle').circleProgress({
-    size: 35,
+    size: 32,
+    startAngle: 4.5,
     fill: {
         gradient: ["#59BDFF", "#FFB240"]
     },
     animation: {
-        duration: 1700
+        duration: 1200
     }
 });
