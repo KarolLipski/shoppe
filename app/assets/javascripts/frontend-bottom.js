@@ -18,3 +18,4 @@
 //= require neon/js/toastr
 //= require carts
 //= require fancybox_photo.js
+//= require circles.js

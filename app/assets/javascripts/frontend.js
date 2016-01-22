@@ -15,3 +15,4 @@
 //= require bootstrap
 //= require shopper/js/html5shiv.js
 //= require fancybox/jquery.fancybox.js
+//= require circle-progress/circle-progress.js
