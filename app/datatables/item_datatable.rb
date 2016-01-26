@@ -25,7 +25,7 @@ class ItemDatatable < AjaxDatatablesRails::Base
           record.category.name,
           @view.render_date(record.created_at),
           @view.render_date(record.updated_at),
-          @view.changeActiveButton(record)
+          changeActiveButton(record)
       ]
     end
   end
@@ -35,5 +35,10 @@ class ItemDatatable < AjaxDatatablesRails::Base
     Item.joins(:category).all
   end
 
-  # ==== Insert 'presenter'-like methods below if necessary
+  def changeActiveButton(item)
+    text = (item.active) ? 'Aktywny' : 'Nieaktywny'
+    css = (item.active) ? "btn btn-green btn-xs" : "btn btn-red btn-xs"
+    @view.link_to text, @view.admin_item_path(item, item: {active: !item.active}), remote: true, :class => css, :id => "change-active-#{item.id}" ,method: :put
+  end
+
 end

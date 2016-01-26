@@ -49,11 +49,11 @@ RSpec.describe Admin::ItemsController, type: :controller do
         expect(assigns(:item)).to eq(@item)
       end
 
-      it 'render json without errors' do
-        xhr :put, :update, {id: @item.id, :item => valid_attributes}
-        parsed_body = JSON.parse(response.body)
-        expect(parsed_body['errors']).to eq nil
-      end
+      # it 'render json without errors' do
+      #   xhr :put, :update, {id: @item.id, :item => valid_attributes}
+      #   parsed_body = JSON.parse(response.body)
+      #   expect(parsed_body['errors']).to eq nil
+      # end
 
     end
 
