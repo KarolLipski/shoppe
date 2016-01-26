@@ -34,7 +34,7 @@ jQuery(document).ready(function($)
                 else {
                     toastr.success('Kategoria zmieniona','', {"closeButton": true});
                     $("#row-actualize-itemid-"+item_id).remove();
-                    $('.actualize_item_category:first').focus();
+                    //$('.actualize_item_category').next().focus();
                 }
             }
         });
