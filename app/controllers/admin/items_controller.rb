@@ -19,6 +19,9 @@ class Admin::ItemsController < AdminController
         format.json  do
           render json: {errors: nil}
         end
+        format.js do
+          render :changeActive
+        end
       else
         format.json do
           render json: { errors: @item.errors.full_messages}
@@ -58,7 +61,7 @@ class Admin::ItemsController < AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
-    params.require(:item).permit(:number, :name, :small_wrap, :big_wrap, :category_id)
+    params.require(:item).permit(:number, :name, :small_wrap, :big_wrap, :category_id, :active)
   end
 
 end

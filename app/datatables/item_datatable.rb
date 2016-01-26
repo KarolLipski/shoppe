@@ -4,7 +4,7 @@ class ItemDatatable < AjaxDatatablesRails::Base
 
   def sortable_columns
     # Declare strings in this format: ModelName.column_name
-    @sortable_columns ||= %w(Item.number Item.name Category.name Item.created_at Item.updated_at )
+    @sortable_columns ||= %w(Item.number Item.name Category.name Item.created_at Item.updated_at Item.active )
   end
 
   def searchable_columns
@@ -25,6 +25,7 @@ class ItemDatatable < AjaxDatatablesRails::Base
           record.category.name,
           @view.render_date(record.created_at),
           @view.render_date(record.updated_at),
+          @view.changeActiveButton(record)
       ]
     end
   end

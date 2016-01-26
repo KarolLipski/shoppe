@@ -1,0 +1,14 @@
+var button = $("#change-active-<%= @item.id %>");
+<% if @item.active %>
+    button.text('Aktywny');
+    button.attr("href", '<%= admin_item_url(@item, item:{active: 0}) %>');
+    button.removeClass('btn-red');
+    button.addClass('btn-green');
+<% else %>
+    button.text('Nieaktywny');
+    button.attr("href", '<%= admin_item_url(@item, item:{active: 1}) %>');
+    button.removeClass('btn-green');
+    button.addClass('btn-red');
+<% end %>
+
+toastr.success('Aktywność została zmieniona','', {"closeButton": true});

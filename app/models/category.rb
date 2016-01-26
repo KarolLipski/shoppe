@@ -30,7 +30,7 @@ class Category < ActiveRecord::Base
     StoredItem.joins(:item).
         select("items.id").distinct.
         where(["items.category_id = :category_id AND stored_items.quantity > :quantity
-        AND items.photo is not null ",
+        AND items.photo is not null AND items.active",
                {category_id: id, quantity: 0}]).
         count
   end

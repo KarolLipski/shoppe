@@ -51,6 +51,10 @@ RSpec.describe Category, type: :model do
         @item.update_column(:photo, nil)
         expect(@category.count_items).to eq(0)
       end
+      it 'doesnt count deactivated items' do
+        @item.update_column(:active, 0)
+        expect(@category.count_items).to eq(0)
+      end
     end
     context 'update items_count' do
       it 'updates items_count column' do
