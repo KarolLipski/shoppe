@@ -1,5 +1,7 @@
 class ItemDatatable < AjaxDatatablesRails::Base
 
+  attr_accessor :context
+
   def_delegator :@view, :link_to
 
   def sortable_columns
@@ -32,7 +34,21 @@ class ItemDatatable < AjaxDatatablesRails::Base
 
 
   def get_raw_records
+    return all_context unless @context
+    self.send("#{@context}_context".to_sym)
+  end
+
+  # All items
+  def all_context
     Item.joins(:category).all
+  end
+
+  # Active Items without photo
+  def no_photo_context
+    Item.joins(:stored_items).joins(:category).where('active = 1')
+        .where('photo IS NULL')
+        .where('stored_items.quantity > 0')
+        .references(:stored_items)
   end
 
   def changeActiveButton(item)

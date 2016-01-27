@@ -110,4 +110,8 @@ RSpec.describe Admin::ItemsController, type: :controller do
     end
   end
 
+  describe 'GET #noPhotos' do
+
+  end
+
 end

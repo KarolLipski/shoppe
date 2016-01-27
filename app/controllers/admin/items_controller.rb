@@ -4,9 +4,10 @@ class Admin::ItemsController < AdminController
 
   # list of all items
   def index
+    datatable = ItemDatatable.new(view_context)
     respond_to do |format|
       format.html
-      format.json { render json: ItemDatatable.new(view_context)}
+      format.json { render json: datatable}
     end
   end
 
@@ -39,6 +40,16 @@ class Admin::ItemsController < AdminController
   def no_categories
     @categories = Category.main.order(:name)
     @items = Item.on_stock.with_photo.where(category: nil).order('number DESC')
+  end
+
+  #GET /items/noPhotos
+  def no_photos
+    datatable = ItemDatatable.new(view_context)
+    datatable.context = 'no_photo'
+    respond_to do |format|
+      format.html
+      format.json { render json: datatable}
+    end
   end
 
   def actualize
