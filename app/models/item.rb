@@ -19,7 +19,7 @@ class Item < ActiveRecord::Base
   has_many :stored_items
   belongs_to :category
 
-  before_save :update_photo, :generate_barcode
+  before_save :generate_barcode
   before_save :fix_name, if: :new_record?
 
   mount_uploader :photo, PhotoUploader
@@ -63,6 +63,7 @@ class Item < ActiveRecord::Base
       path = "public/item_photos/#{item_number}.jpg"
       self.photo = File.open(path) if (File.exist?(path) && photo.filename.nil?)
     end
+    save
   end
 
   # simple search by number or name
@@ -73,7 +74,6 @@ class Item < ActiveRecord::Base
 
   # generates EAN13 Barcode
   def generate_barcode
-    # puts number.chars.inspect
     return unless barcode.blank?
     prefix = "5900851#{number.slice(-5,5)}"
     digits = prefix.chars.map(&:to_i)

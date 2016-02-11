@@ -96,11 +96,11 @@ RSpec.describe Item, type: :model do
         expect(@item.photo.filename).to eq('test1.jpg')
       end
     end
-    context 'when photo in not null' do
+    context 'when file doesnt exit' do
       it 'doesnt update photo' do
         @item.number = 'test2'
         @item.update_photo
-        expect(@item.photo.filename).to eq('test1.jpg')
+        expect(@item.photo.filename).to eq(nil)
       end
     end
   end

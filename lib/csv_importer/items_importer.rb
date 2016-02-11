@@ -20,6 +20,7 @@ module CsvImporter
       category_id = (row[7].blank?) ? nil : row[7]
       item = Item.where(number: row[0]).first_or_create!(name: row[1], small_wrap: row[5], big_wrap: row[4], category_id: category_id)
       item.update(small_wrap: row[5], big_wrap: row[4])
+      item.update_photo
       item
     end
 
