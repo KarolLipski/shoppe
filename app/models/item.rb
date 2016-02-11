@@ -56,9 +56,13 @@ class Item < ActiveRecord::Base
 
   # update photo column if photo is reachable
   def update_photo
-    path = "public/item_photos/#{number[-5,5]}.jpg"
-    # self.remote_photo_url = "http://madej.com.pl/zdjecia/#{number[-5,5]}.jpg"
+    begin
+      item_number = number[-5,5]
+      self.remote_photo_url = RemoteImageChecker.new.get_valid_url(item_number)
+    rescue
+      path = "public/item_photos/#{item_number}.jpg"
       self.photo = File.open(path) if (File.exist?(path) && photo.filename.nil?)
+    end
   end
 
   # simple search by number or name

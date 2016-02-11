@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-  get 'dashboard/main'
-  end
-
   get 'orders/crete'
 
   root to: 'main#index'
