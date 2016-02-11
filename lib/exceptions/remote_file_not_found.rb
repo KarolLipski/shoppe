@@ -1,3 +1,3 @@
 module  Exceptions
-  class RemoteFileNotFoud < StandardError; end
+  class RemoteFileNotFound < StandardError; end
 end
