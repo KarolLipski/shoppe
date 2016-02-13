@@ -38,4 +38,9 @@ class User < ActiveRecord::Base
   def downcase_email
     self.email = email.downcase if self.email
   end
+
+  def admin?
+    return admin
+  end
+
 end

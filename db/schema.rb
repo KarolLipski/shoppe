@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112040836) do
+ActiveRecord::Schema.define(version: 20160213185808) do
 
   create_table "actualization_logs", force: :cascade do |t|
     t.string   "status",      limit: 255
@@ -125,8 +125,9 @@ ActiveRecord::Schema.define(version: 20160112040836) do
     t.string   "email",           limit: 255
     t.string   "login",           limit: 255
     t.string   "password_digest", limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.boolean  "admin",           limit: 1,   default: false
   end
 
   add_index "users", ["login"], name: "index_users_on_login", using: :btree
