@@ -17,6 +17,10 @@ RSpec.describe Admin::CategoriesController, type: :controller do
   # CategoriesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before :each do
+    controller.stub(:authenticate)
+  end
+
   describe "GET #index" do
     it "assigns all categories as @categories" do
       category = Category.create! valid_attributes

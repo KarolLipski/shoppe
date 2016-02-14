@@ -11,6 +11,10 @@ RSpec.describe Admin::ItemsController, type: :controller do
     invalid
   }
 
+  before :each do
+    controller.stub(:authenticate)
+  end
+
   describe 'GET #actualization' do
 
     it 'assigns last 3 actualizations' do

@@ -6,6 +6,7 @@ feature 'users listing' do
     (1..3).each do |i|
       FactoryGirl.create(:user,login:"user_#{i}", password:"pass_#{i}", password_confirmation:"pass_#{i}")
     end
+    allow_any_instance_of(AdminController).to receive(:authenticate)
   end
   scenario 'list all users' do
     visit admin_users_path
@@ -17,6 +18,7 @@ end
 
 feature 'edit users' do
   before(:each) do
+    allow_any_instance_of(AdminController).to receive(:authenticate)
     @user = FactoryGirl.create(:user)
     visit edit_admin_user_path @user
   end
@@ -47,6 +49,7 @@ end
 
 feature 'create user' do
   before(:each) do
+    allow_any_instance_of(AdminController).to receive(:authenticate)
     visit new_admin_user_path
   end
   context 'when data is valid' do
