@@ -158,7 +158,6 @@ a#scrollUp i{
   font-size: 12px;
   margin-right: 20px;
   padding: 2px 15px;
-  margin-top: 10px;
 }
 
 .usa:hover {
@@ -862,7 +861,7 @@ h2.title {
   font-weight: 700;
   margin: 0 15px;
   text-transform: uppercase;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -2543,4 +2542,20 @@ h2.title {
   color: #FFB240;
 }
 
+.sort_box {
+    text-align: right;
+    margin-bottom: 15px;
+}
+.sort_box .btn-group {
+    padding-right: 35px;
+}
 
+.sort-label {
+
+    display: inline-block;
+    margin-right: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFB240;
+}

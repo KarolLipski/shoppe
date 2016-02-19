@@ -2,6 +2,25 @@
   / features_items
   %h2.title.text-center
     = header_text
+  .sort_box
+    %p.sort-label Sortowanie:
+    .btn-group
+      %button.btn.btn-default.dropdown-toggle.usa{"data-toggle" => "dropdown", :type => "button"}
+        = sort_label @sort_type
+        %span.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => "?sort=created_at&sort_type=DESC"} Data: Najnowsze
+        %li
+          %a{:href => "?sort=created_at&sort_type=ASC"} Data: Najstarsze
+        %li
+          %a{:href => "?sort=price&sort_type=DESC"} Cena: Największa
+        %li
+          %a{:href => "?sort=price&sort_type=ASC"} Cena: Najmniejsza
+        %li
+          %a{:href => "?sort=quantity&sort_type=DESC"} Ilość: Największa
+        %li
+          %a{:href => "?sort=quantity&sort_type=ASC"} Ilość: Najmniejsza
   - items.each do |item|
     .col-sm-3
       = render partial: 'stored_items/item', locals: {item: item}

@@ -3,7 +3,7 @@
     .productinfo.text-center
       = image_tag item.photo.url(:mini)
       %h2
-        = render_price item
+        = render_price(item, :sell_price)
       %p
         = item.name
       = link_to(cart_init_add_path(item_id: item.id), remote: true, class: 'btn btn-default add-to-cart') do
@@ -18,7 +18,7 @@
           Pakowanie:
           = "#{item.big_wrap} / #{item.small_wrap}"
         %h2
-          = render_price item
+          = render_price(item, :sell_price)
         %p
           = item.name
         = link_to(cart_init_add_path(item_id: item.id), remote: true, class: 'btn btn-default add-to-cart') do
