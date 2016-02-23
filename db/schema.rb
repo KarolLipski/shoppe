@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213185808) do
+ActiveRecord::Schema.define(version: 20160223100341) do
 
   create_table "actualization_logs", force: :cascade do |t|
     t.string   "status",      limit: 255
@@ -81,6 +81,14 @@ ActiveRecord::Schema.define(version: 20160213185808) do
 
   create_table "magazines", force: :cascade do |t|
     t.string   "number",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
