@@ -2,12 +2,12 @@
 #
 # Table name: cart_items
 #
-#  id         :integer          not null, primary key
-#  cart_id    :integer
-#  item_id    :integer
-#  quantity   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id             :integer          not null, primary key
+#  cart_id        :integer
+#  quantity       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  stored_item_id :integer
 #
 
 FactoryGirl.define do
