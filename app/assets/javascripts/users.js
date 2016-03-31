@@ -7,7 +7,7 @@ var tableContainer;
 
 jQuery(document).ready(function($)
 {
-    tableContainer = $("#table-customers");
+    tableContainer = $("#table-standard_datatable");
 
     tableContainer.dataTable({
         "sPaginationType": "bootstrap",

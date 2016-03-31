@@ -1,0 +1,1 @@
+FactoryGirl.create(:offer , name: 'oferta 31', start_date: Faker::Date.backward(3), end_date: Faker::Date.forward(100))

@@ -10,7 +10,7 @@ feature 'users listing' do
   end
   scenario 'list all users' do
     visit admin_users_path
-    within("table#table-customers") do
+    within("table#table-standard_datatable") do
       expect(page).to have_css("tr", count:4)
     end
   end

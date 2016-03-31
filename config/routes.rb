@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'dashboard#main'
+    resources :offers
     resources :categories
     resources :users
     resources :items, only: [:index, :update]
