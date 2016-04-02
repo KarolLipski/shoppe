@@ -42,7 +42,7 @@ RSpec.describe Admin::OffersController, type: :controller do
         expect(assigns(:offer).new_record?).to eq false
       end
       it 'sets success flash' do
-        expect(flash[:successs]).to be_present
+        expect(flash[:success]).to be_present
       end
       it 'redirects to offer index' do
         expect(response).to redirect_to(admin_offers_path)
@@ -50,8 +50,8 @@ RSpec.describe Admin::OffersController, type: :controller do
     end
     context 'with invalid params' do
       before(:each) do
-        attributes[:name] = ''
-        post :create, attributes
+        attributes['name'] = ''
+        post :create, offer: attributes
       end
       it 'doesnt save offer' do
         expect(assigns(:offer).new_record?).to eq true
@@ -68,7 +68,7 @@ RSpec.describe Admin::OffersController, type: :controller do
   describe 'GET edit' do
     it 'assings proper offer' do
       @offer = FactoryGirl.create(:offer)
-      get :edit
+      get :edit, id: @offer.to_param
       expect(assigns(:offer)).to eq(@offer)
     end
   end

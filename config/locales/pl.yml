@@ -9,6 +9,10 @@ pl:
         quantity: 'Ilość'
       order_item:
         quantity: 'Ilość'
+      offer:
+        name: 'Nazwa'
+        start_date: 'Data startu'
+        end_date: 'Data końca'
 
   date:
     abbr_day_names:
