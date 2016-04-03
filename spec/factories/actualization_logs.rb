@@ -15,6 +15,7 @@ FactoryGirl.define do
     status "Success"
     items_count 1200
     error nil
+    log_type "actualization"
   end
 
 end

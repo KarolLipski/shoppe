@@ -11,5 +11,5 @@
 #
 
 class ActualizationLog < ActiveRecord::Base
-  validates_presence_of :status
+  validates_presence_of :status, :log_type
 end

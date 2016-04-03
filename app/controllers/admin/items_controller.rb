@@ -54,7 +54,7 @@ class Admin::ItemsController < AdminController
 
   def actualize
     file_path = save_uploaded_file params[:file]
-    @log = ActualizationLog.create(status: 'Accepted')
+    @log = ActualizationLog.create(status: 'Accepted', log_type: 'actualization')
     CsvImporter::ItemsImporter.new.delay.actualize(file_path, @log)
 
     @actualizations = ActualizationLog.order('created_at DESC').last(3)

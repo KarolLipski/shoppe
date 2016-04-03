@@ -78,27 +78,34 @@ RSpec.describe Admin::ItemsController, type: :controller do
   end
 
   describe 'GET #actualize' do
-    before(:each) do
-      @file = fixture_file_upload('stany.csv')
+    context 'actualize stored' do
+      before(:each) do
+        @file = fixture_file_upload('stany.csv')
+      end
+      it 'saves file in public/actualization' do
+        expect(controller).to receive(:save_uploaded_file).with(@file)
+        post :actualize, file: @file
+      end
+      it 'creates new backgroud job for ItemsImporter' do
+        importer = double('importer')
+        expect(CsvImporter::ItemsImporter).to receive(:new).and_return(importer)
+        expect(importer).to receive(:delay).and_return(importer)
+        expect(importer).to receive(:actualize)
+        post :actualize, file: @file
+      end
+      it 'creates new row in actualizationLog with Accepted status' do
+        post :actualize, file: @file
+        expect(assigns(:log).status).to eq('Accepted')
+      end
+      it 'redirects to actualization page' do
+        post :actualize, file: @file
+        expect(response).to redirect_to action: :actualization
+      end
     end
-    it 'saves file in public/actualization' do
-      expect(controller).to receive(:save_uploaded_file).with(@file)
-      post :actualize, file: @file
-    end
-    it 'creates new backgroud job for ItemsImporter' do
-      importer = double('importer')
-      expect(CsvImporter::ItemsImporter).to receive(:new).and_return(importer)
-      expect(importer).to receive(:delay).and_return(importer)
-      expect(importer).to receive(:actualize)
-      post :actualize, file: @file
-    end
-    it 'creates new row in actualizationLog with Accepted status' do
-      post :actualize, file: @file
-      expect(assigns(:log).status).to eq('Accepted')
-    end
-    it 'redirects to actualization page' do
-      post :actualize, file: @file
-      expect(response).to redirect_to action: :actualization
+    context 'import offer items' do
+      before(:each) do
+        @file = fixture_file_upload('oferta.csv')
+      end
     end
   end
 

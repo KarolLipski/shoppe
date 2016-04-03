@@ -19,6 +19,9 @@ RSpec.describe ActualizationLog, type: :model do
   it 'is invalid without status' do
     expect(FactoryGirl.build(:actualization_log, status:nil)).not_to be_valid
   end
+  it 'is invalid without log_type' do
+    expect(FactoryGirl.build(:actualization_log, log_type:nil)).not_to be_valid
+  end
 
 
 end

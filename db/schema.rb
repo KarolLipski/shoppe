@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403132941) do
+ActiveRecord::Schema.define(version: 20160403232512) do
 
   create_table "actualization_logs", force: :cascade do |t|
     t.string   "status",      limit: 255
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160403132941) do
     t.text     "error",       limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "log_type",    limit: 255
   end
 
   create_table "cart_items", force: :cascade do |t|
