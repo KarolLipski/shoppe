@@ -12,8 +12,9 @@
 #
 
 FactoryGirl.define do
-  factory :offer_item do
-    association :item , factory: :item
+  factory :offer_item, parent: :stored_item, class: 'OfferItem' do
+    magazine nil
+    quantity nil
     association :offer, factory: :offer
     price "9.99"
   end
