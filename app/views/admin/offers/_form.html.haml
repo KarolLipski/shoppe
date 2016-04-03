@@ -8,12 +8,20 @@
   %div{class: field_class(@offer,:start_date) }
     = f.label :start_date, 'Data startu', class: 'col-sm-3 control-label'
     .col-sm-5
-      = f.text_field :start_date, class: 'form-control'
+      .input-group
+        = f.text_field :start_date, class: 'form-control datepicker', 'data-format':'yyyy-mm-dd'
+        .input-group-addon
+          %a{:href => "#"}
+            %i.entypo-calendar
       = render_error_message(@offer, :start_date)
   %div{class: field_class(@offer,:end_date) }
     = f.label :end_date, 'Data końca', class: 'col-sm-3 control-label'
     .col-sm-5
-      = f.text_field :end_date, class: 'form-control'
+      .input-group
+        = f.text_field :end_date, class: 'form-control datepicker', data:{format: 'yyyy-mm-dd'}
+        .input-group-addon
+          %a{href: "#"}
+            %i.entypo-calendar
       = render_error_message(@offer, :end_date)
   .form-group
     .col-sm-offset-3.col-sm-5

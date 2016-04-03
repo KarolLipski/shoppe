@@ -14,6 +14,7 @@
 //= require neon/js/gsap/main-gsap
 //= require neon/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min
 //= require neon/js/bootstrap
+//= require neon/js/bootstrap-datepicker
 //= require neon/js/joinable
 //= require neon/js/resizeable
 //= require neon/js/neon-api
