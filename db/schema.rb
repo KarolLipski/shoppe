@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223100341) do
+ActiveRecord::Schema.define(version: 20160403132941) do
 
   create_table "actualization_logs", force: :cascade do |t|
     t.string   "status",      limit: 255
@@ -118,13 +118,16 @@ ActiveRecord::Schema.define(version: 20160223100341) do
     t.integer  "magazine_id", limit: 4
     t.integer  "item_id",     limit: 4
     t.integer  "quantity",    limit: 4
-    t.decimal  "price",                 precision: 10, scale: 2
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.decimal  "price",                   precision: 10, scale: 2
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.string   "type",        limit: 255
+    t.integer  "offer_id",    limit: 4
   end
 
   add_index "stored_items", ["item_id"], name: "index_stored_items_on_item_id", using: :btree
   add_index "stored_items", ["magazine_id"], name: "index_stored_items_on_magazine_id", using: :btree
+  add_index "stored_items", ["offer_id"], name: "index_stored_items_on_offer_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -147,4 +150,5 @@ ActiveRecord::Schema.define(version: 20160223100341) do
   add_foreign_key "orders", "users"
   add_foreign_key "stored_items", "items"
   add_foreign_key "stored_items", "magazines"
+  add_foreign_key "stored_items", "offers"
 end

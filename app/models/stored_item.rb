@@ -27,8 +27,12 @@ class StoredItem < ActiveRecord::Base
           where('items.photo is not null and items.active = 1').group(:item_id).
           having('SUM(stored_items.quantity) > 0').references(:item) }
 
-  validates_presence_of :item_id , :magazine_id, :quantity, :price
+  validates_presence_of :item_id , :price
+  validates_presence_of :magazine_id, :quantity, if: :check_base
 
+  def check_base
+    self.class == StoredItem
+  end
   # Max price from all magazines
   def sell_price
     StoredItem.select('MAX(price) as max_price').where(item: item).first.max_price
