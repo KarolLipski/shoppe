@@ -33,7 +33,7 @@ class Admin::ItemsController < AdminController
 
   # get /items/actualization
   def actualization
-    @actualizations = ActualizationLog.where(log_type:'actualization').order('created_at DESC').first(3)
+    @actualizations = ActualizationLog.where(log_type:'Items').order('created_at DESC').first(3)
   end
 
   #get /items/noCategories
@@ -55,7 +55,9 @@ class Admin::ItemsController < AdminController
   def actualize
     file_path = save_uploaded_file(params[:file], params[:type])
     @log = ActualizationLog.create(status: 'Accepted', log_type: params[:type])
-    CsvImporter::ItemsImporter.new.delay.actualize(file_path, @log)
+
+    importer = CsvImporter.const_get("#{params[:type]}Importer")
+    importer.new.delay.actualize(file_path, @log)
 
     @actualizations = ActualizationLog.where(log_type: params[:type]).order('created_at DESC').last(3)
     @table = Time.now.strftime('%Y-%m-%d')

@@ -17,12 +17,10 @@ RSpec.describe Admin::ItemsController, type: :controller do
 
   describe 'GET #actualization' do
 
-    it 'assigns last 3 actualizations' do
-      actualizations =  double("actualizations");
-      expect(ActualizationLog).to receive(:order).with('created_at DESC').and_return(actualizations)
-      expect(actualizations).to receive(:first).with(3).and_return(actualizations)
+    it 'assigns last 3 Items actualizations' do
+      a = FactoryGirl.create_list(:actualization_log,4)
       get :actualization
-      expect(assigns(:actualizations)).to eq actualizations
+      expect(assigns(:actualizations).size).to eq 3
     end
 
     it 'renders with admin layout' do
@@ -83,22 +81,22 @@ RSpec.describe Admin::ItemsController, type: :controller do
         @file = fixture_file_upload('stany.csv')
       end
       it 'saves file in public/actualization' do
-        expect(controller).to receive(:save_uploaded_file).with(@file,'actualization')
-        post :actualize, file: @file, type: 'actualization'
+        expect(controller).to receive(:save_uploaded_file).with(@file,'Items')
+        post :actualize, file: @file, type: 'Items'
       end
       it 'creates new backgroud job for ItemsImporter' do
         importer = double('importer')
         expect(CsvImporter::ItemsImporter).to receive(:new).and_return(importer)
         expect(importer).to receive(:delay).and_return(importer)
         expect(importer).to receive(:actualize)
-        post :actualize, file: @file, type: 'actualization'
+        post :actualize, file: @file, type: 'Items'
       end
       it 'creates new row in actualizationLog with Accepted status' do
-        post :actualize, file: @file, type: 'actualization'
+        post :actualize, file: @file, type: 'Items'
         expect(assigns(:log).status).to eq('Accepted')
       end
       it 'redirects to actualization page' do
-        post :actualize, file: @file, type: 'actualization'
+        post :actualize, file: @file, type: 'Items'
         expect(response).to redirect_to action: :actualization
       end
     end
@@ -107,18 +105,18 @@ RSpec.describe Admin::ItemsController, type: :controller do
         @file = fixture_file_upload('oferta.csv')
       end
       it 'save file in public/actualization' do
-        expect(controller).to receive(:save_uploaded_file).with(@file, 'offer_import')
-        post :actualize, file: @file, type: 'offer_import'
+        expect(controller).to receive(:save_uploaded_file).with(@file, 'Offer')
+        post :actualize, file: @file, type: 'Offer'
       end
       it 'creates new backgroudJob for ItemsImporter' do
         importer = double('importer')
-        expect(CsvImporter::ItemsImporter).to receive(:new).and_return(importer)
+        expect(CsvImporter::OfferImporter).to receive(:new).and_return(importer)
         expect(importer).to receive(:delay).and_return(importer)
         expect(importer).to receive(:actualize)
-        post :actualize, file: @file, type: 'offer_import'
+        post :actualize, file: @file, type: 'Offer'
       end
       it 'creates new row in actualizationLog with Accepted status' do
-        post :actualize, file: @file, type: 'offer_import'
+        post :actualize, file: @file, type: 'Offer'
         expect(assigns(:log).status).to eq('Accepted')
       end
       it 'redirects to actualization page'
