@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::UsersController, type: :controller do
 
   before :each do
-    controller.stub(:authenticate)
+    allow_any_instance_of(AdminController).to receive(:authenticate)
   end
 
   describe 'GET index' do

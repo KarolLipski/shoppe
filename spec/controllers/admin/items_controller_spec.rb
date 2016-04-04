@@ -12,7 +12,7 @@ RSpec.describe Admin::ItemsController, type: :controller do
   }
 
   before :each do
-    controller.stub(:authenticate)
+    allow_any_instance_of(AdminController).to receive(:authenticate)
   end
 
   describe 'GET #actualization' do
