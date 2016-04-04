@@ -18,7 +18,7 @@ RSpec.describe Admin::ItemsController, type: :controller do
   describe 'GET #actualization' do
 
     it 'assigns last 3 Items actualizations' do
-      a = FactoryGirl.create_list(:actualization_log,4)
+      FactoryGirl.create_list(:actualization_log,4)
       get :actualization
       expect(assigns(:actualizations).size).to eq 3
     end
@@ -106,20 +106,24 @@ RSpec.describe Admin::ItemsController, type: :controller do
       end
       it 'save file in public/actualization' do
         expect(controller).to receive(:save_uploaded_file).with(@file, 'Offer')
-        post :actualize, file: @file, type: 'Offer'
+        post :actualize, file: @file, type: 'Offer', offer_id: 1
       end
       it 'creates new backgroudJob for ItemsImporter' do
         importer = double('importer')
         expect(CsvImporter::OfferImporter).to receive(:new).and_return(importer)
+        expect(importer).to receive(:offer_id=)
         expect(importer).to receive(:delay).and_return(importer)
         expect(importer).to receive(:actualize)
-        post :actualize, file: @file, type: 'Offer'
+        post :actualize, file: @file, type: 'Offer', offer_id: 1
       end
       it 'creates new row in actualizationLog with Accepted status' do
-        post :actualize, file: @file, type: 'Offer'
+        post :actualize, file: @file, type: 'Offer', offer_id: 1
         expect(assigns(:log).status).to eq('Accepted')
       end
-      it 'redirects to actualization page'
+      it 'redirects to actualization page' do
+        post :actualize, file: @file, type: 'Offer', offer_id: 1
+        expect(response).to redirect_to admin_offers_actualization_path(offer_id: 1)
+      end
     end
   end
 

@@ -30,6 +30,22 @@ RSpec.describe Admin::OffersController, type: :controller do
     end
   end
 
+  describe 'GET actualization' do
+    it 'assigns last actualization' do
+      FactoryGirl.create_list(:actualization_log, 2, log_type: 'Offer')
+      get :actualization , offer_id: 1
+      expect(assigns(:actualizations).size).to eq 1
+    end
+    it 'renders actualization template' do
+      get :actualization, offer_id: 1
+      expect(response).to render_template('actualization')
+    end
+    it 'assigns offer_id' do
+      get :actualization, offer_id: 1
+      expect(assigns(:offer_id)).to eq "1"
+    end
+  end
+
   describe 'POST create' do
     let(:attributes) {
       attributes = FactoryGirl.attributes_for(:offer)

@@ -17,4 +17,4 @@
         %td= offer.end_date
         %td
           = link_to 'Edycja', edit_admin_offer_path(offer), :class => 'btn btn-xs btn-blue'
-          = link_to 'Towary', '#', :class => 'btn btn-xs btn-orange'
+          = link_to 'Towary', admin_offers_actualization_path(offer_id: offer.id), :class => 'btn btn-xs btn-orange'

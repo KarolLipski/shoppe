@@ -1,7 +1,6 @@
 require 'csv'
 module CsvImporter
   class OfferImporter < ItemsImporter
-    attr_accessor :offer_id
 
     def import_items(file, encoding = 'windows-1250:utf-8')
       CSV.foreach(file, encoding: encoding, col_sep: ';') do |row|

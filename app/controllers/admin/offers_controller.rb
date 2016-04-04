@@ -15,6 +15,12 @@ class Admin::OffersController < AdminController
     @offer = Offer.find(params[:id])
   end
 
+  #GET admin/offers/actualization/:offer_id
+  def actualization
+    @offer_id = params[:offer_id]
+    @actualizations = ActualizationLog.where(log_type:'Offer').order('created_at DESC').first(1)
+  end
+
   #POST admin/offers
   def create
     @offer = Offer.new(offer_params)

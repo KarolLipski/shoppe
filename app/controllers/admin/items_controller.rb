@@ -62,7 +62,11 @@ class Admin::ItemsController < AdminController
 
     @actualizations = ActualizationLog.where(log_type: params[:type]).order('created_at DESC').last(3)
     @table = Time.now.strftime('%Y-%m-%d')
-    redirect_to action: 'actualization'
+    if params[:type] == 'Items'
+      redirect_to admin_items_actualization_path
+    else
+      redirect_to admin_offers_actualization_path(offer_id: params[:offer_id])
+    end
   end
 
   def save_uploaded_file(file, type)

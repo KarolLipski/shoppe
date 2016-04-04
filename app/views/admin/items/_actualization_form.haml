@@ -1,0 +1,11 @@
+= form_tag admin_items_actualize_path, class: 'form-horizontal form-groups-bordered',
+ multipart: true do
+  = hidden_field_tag :type, actualization_type
+  = hidden_field_tag :offer_id, offer_id
+  .form-group
+    = label_tag :file, 'Plik CSV', class: 'col-sm-3 control-label'
+    .col-sm-5
+      = file_field_tag :file, class: 'form-control'
+  .form-group
+    .col-sm-offset-3.col-sm-5
+      = submit_tag :Aktualizuj, class: 'btn btn-success'
