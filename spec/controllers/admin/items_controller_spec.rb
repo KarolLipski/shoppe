@@ -77,28 +77,28 @@ RSpec.describe Admin::ItemsController, type: :controller do
     end
   end
 
-  describe 'GET #actualize' do
+  describe 'POST #actualize' do
     context 'actualize stored' do
       before(:each) do
         @file = fixture_file_upload('stany.csv')
       end
       it 'saves file in public/actualization' do
-        expect(controller).to receive(:save_uploaded_file).with(@file)
-        post :actualize, file: @file
+        expect(controller).to receive(:save_uploaded_file).with(@file,'actualization')
+        post :actualize, file: @file, type: 'actualization'
       end
       it 'creates new backgroud job for ItemsImporter' do
         importer = double('importer')
         expect(CsvImporter::ItemsImporter).to receive(:new).and_return(importer)
         expect(importer).to receive(:delay).and_return(importer)
         expect(importer).to receive(:actualize)
-        post :actualize, file: @file
+        post :actualize, file: @file, type: 'actualization'
       end
       it 'creates new row in actualizationLog with Accepted status' do
-        post :actualize, file: @file
+        post :actualize, file: @file, type: 'actualization'
         expect(assigns(:log).status).to eq('Accepted')
       end
       it 'redirects to actualization page' do
-        post :actualize, file: @file
+        post :actualize, file: @file, type: 'actualization'
         expect(response).to redirect_to action: :actualization
       end
     end
@@ -106,6 +106,22 @@ RSpec.describe Admin::ItemsController, type: :controller do
       before(:each) do
         @file = fixture_file_upload('oferta.csv')
       end
+      it 'save file in public/actualization' do
+        expect(controller).to receive(:save_uploaded_file).with(@file, 'offer_import')
+        post :actualize, file: @file, type: 'offer_import'
+      end
+      it 'creates new backgroudJob for ItemsImporter' do
+        importer = double('importer')
+        expect(CsvImporter::ItemsImporter).to receive(:new).and_return(importer)
+        expect(importer).to receive(:delay).and_return(importer)
+        expect(importer).to receive(:actualize)
+        post :actualize, file: @file, type: 'offer_import'
+      end
+      it 'creates new row in actualizationLog with Accepted status' do
+        post :actualize, file: @file, type: 'offer_import'
+        expect(assigns(:log).status).to eq('Accepted')
+      end
+      it 'redirects to actualization page'
     end
   end
 

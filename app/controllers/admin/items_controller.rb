@@ -53,17 +53,17 @@ class Admin::ItemsController < AdminController
   end
 
   def actualize
-    file_path = save_uploaded_file params[:file]
-    @log = ActualizationLog.create(status: 'Accepted', log_type: 'actualization')
+    file_path = save_uploaded_file(params[:file], params[:type])
+    @log = ActualizationLog.create(status: 'Accepted', log_type: params[:type])
     CsvImporter::ItemsImporter.new.delay.actualize(file_path, @log)
 
-    @actualizations = ActualizationLog.order('created_at DESC').last(3)
+    @actualizations = ActualizationLog.where(log_type: params[:type]).order('created_at DESC').last(3)
     @table = Time.now.strftime('%Y-%m-%d')
     redirect_to action: 'actualization'
   end
 
-  def save_uploaded_file(file)
-    name = "actualization#{Digest::MD5.hexdigest(Time.now.to_s)}"
+  def save_uploaded_file(file, type)
+    name = "actualization#{type}_#{Time.now.to_s}"
     directory = 'public/actualizations'
     path = File.join(directory, name)
     File.open(path,'wb') { |f| f.write(file.read) }
