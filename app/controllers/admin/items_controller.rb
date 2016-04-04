@@ -56,8 +56,9 @@ class Admin::ItemsController < AdminController
     file_path = save_uploaded_file(params[:file], params[:type])
     @log = ActualizationLog.create(status: 'Accepted', log_type: params[:type])
 
-    importer = CsvImporter.const_get("#{params[:type]}Importer")
-    importer.new.delay.actualize(file_path, @log)
+    importer = CsvImporter.const_get("#{params[:type]}Importer").new
+    importer.offer_id = params[:offer_id] if params[:offer_id]
+    importer.delay.actualize(file_path, @log)
 
     @actualizations = ActualizationLog.where(log_type: params[:type]).order('created_at DESC').last(3)
     @table = Time.now.strftime('%Y-%m-%d')
