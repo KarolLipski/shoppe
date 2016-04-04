@@ -33,7 +33,7 @@ class Admin::ItemsController < AdminController
 
   # get /items/actualization
   def actualization
-    @actualizations = ActualizationLog.order('created_at DESC').first(3)
+    @actualizations = ActualizationLog.where(log_type:'actualization').order('created_at DESC').first(3)
   end
 
   #get /items/noCategories
