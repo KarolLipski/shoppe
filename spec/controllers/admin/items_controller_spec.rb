@@ -80,47 +80,66 @@ RSpec.describe Admin::ItemsController, type: :controller do
       before(:each) do
         @file = fixture_file_upload('stany.csv')
       end
-      it 'saves file in public/actualization' do
-        expect(controller).to receive(:save_uploaded_file).with(@file,'Items')
+      it 'assigns actualizator' do
+        post :actualize, file: @file, type: 'Items'
+        expect(assigns(:actualizator)).to be_instance_of(ItemActualizator)
+      end
+      context 'if the is no file' do
+        it 'assigns last actualizations logs' do
+          post :actualize, type: 'Items'
+          expect(assigns(:actualizations))
+        end
+        it 'renders actualization template' do
+          post :actualize, type: 'Items'
+          expect(response).to render_template('actualization')
+        end
+        it 'sets error flash' do
+          post :actualize, type: 'Items'
+          expect(flash[:danger]).to be_present
+        end
+      end
+      it 'execute actualizator' do
+        act = double('actualizator')
+        expect(ItemActualizator).to receive(:new).and_return(act)
+        expect(act).to receive(:actualize_from_csv)
+        expect(act).to receive(:success_redirect).and_return(admin_items_actualization_path)
         post :actualize, file: @file, type: 'Items'
       end
-      it 'creates new backgroud job for ItemsImporter' do
-        importer = double('importer')
-        expect(CsvImporter::ItemsImporter).to receive(:new).and_return(importer)
-        expect(importer).to receive(:delay).and_return(importer)
-        expect(importer).to receive(:actualize)
+      it 'redirects to actualization path' do
         post :actualize, file: @file, type: 'Items'
-      end
-      it 'creates new row in actualizationLog with Accepted status' do
-        post :actualize, file: @file, type: 'Items'
-        expect(assigns(:log).status).to eq('Accepted')
-      end
-      it 'redirects to actualization page' do
-        post :actualize, file: @file, type: 'Items'
-        expect(response).to redirect_to action: :actualization
+        expect(response).to redirect_to admin_items_actualization_path
       end
     end
-    context 'import offer items' do
+    context 'actualize offer' do
       before(:each) do
         @file = fixture_file_upload('oferta.csv')
       end
-      it 'save file in public/actualization' do
-        expect(controller).to receive(:save_uploaded_file).with(@file, 'Offer')
+      it 'assigns actualizator' do
+        post :actualize, file: @file, type: 'Offer', offer_id: 1
+        expect(assigns(:actualizator)).to be_instance_of(ItemActualizator)
+      end
+      context 'if the is no file' do
+        it 'assigns last actualizations logs' do
+          post :actualize, type: 'Offer', offer_id: 1
+          expect(assigns(:actualizations))
+        end
+        it 'renders actualization template' do
+          post :actualize, type: 'Offer', offer_id: 1
+          expect(response).to render_template('admin/offers/actualization')
+        end
+        it 'sets error flash' do
+          post :actualize, type: 'Offer', offer_id: 1
+          expect(flash[:danger]).to be_present
+        end
+      end
+      it 'execute actualizator' do
+        act = double('actualizator')
+        expect(ItemActualizator).to receive(:new).and_return(act)
+        expect(act).to receive(:actualize_from_csv)
+        expect(act).to receive(:success_redirect).and_return(admin_items_actualization_path)
         post :actualize, file: @file, type: 'Offer', offer_id: 1
       end
-      it 'creates new backgroudJob for ItemsImporter' do
-        importer = double('importer')
-        expect(CsvImporter::OfferImporter).to receive(:new).and_return(importer)
-        expect(importer).to receive(:offer_id=)
-        expect(importer).to receive(:delay).and_return(importer)
-        expect(importer).to receive(:actualize)
-        post :actualize, file: @file, type: 'Offer', offer_id: 1
-      end
-      it 'creates new row in actualizationLog with Accepted status' do
-        post :actualize, file: @file, type: 'Offer', offer_id: 1
-        expect(assigns(:log).status).to eq('Accepted')
-      end
-      it 'redirects to actualization page' do
+      it 'redirects to actualization path' do
         post :actualize, file: @file, type: 'Offer', offer_id: 1
         expect(response).to redirect_to admin_offers_actualization_path(offer_id: 1)
       end

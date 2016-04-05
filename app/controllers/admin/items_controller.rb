@@ -52,29 +52,18 @@ class Admin::ItemsController < AdminController
     end
   end
 
+  #POST /items/actualize
   def actualize
-    file_path = save_uploaded_file(params[:file], params[:type])
-    @log = ActualizationLog.create(status: 'Accepted', log_type: params[:type])
+    @actualizator = ItemActualizator.new(params)
 
-    importer = CsvImporter.const_get("#{params[:type]}Importer").new
-    importer.offer_id = params[:offer_id] if params[:offer_id]
-    importer.delay.actualize(file_path, @log)
-
-    @actualizations = ActualizationLog.where(log_type: params[:type]).order('created_at DESC').last(3)
-    @table = Time.now.strftime('%Y-%m-%d')
-    if params[:type] == 'Items'
-      redirect_to admin_items_actualization_path
-    else
-      redirect_to admin_offers_actualization_path(offer_id: params[:offer_id])
+    unless params.has_key?(:file)
+      @actualizations = ActualizationLog.where(log_type: params[:type]).
+          order('created_at DESC').last(@actualizator.log_count)
+      flash.now[:danger] = 'Nie wybrano pliku Csv'
+      return render @actualizator.error_template
     end
-  end
-
-  def save_uploaded_file(file, type)
-    name = "actualization#{type}_#{Time.now.to_s}"
-    directory = 'public/actualizations'
-    path = File.join(directory, name)
-    File.open(path,'wb') { |f| f.write(file.read) }
-    path
+    @actualizator.actualize_from_csv
+    redirect_to @actualizator.success_redirect
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
