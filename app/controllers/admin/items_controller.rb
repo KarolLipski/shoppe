@@ -59,11 +59,12 @@ class Admin::ItemsController < AdminController
     unless params.has_key?(:file)
       @actualizations = ActualizationLog.where(log_type: params[:type]).
           order('created_at DESC').last(@actualizator.log_count)
-      flash.now[:danger] = 'Nie wybrano pliku Csv'
-      return render @actualizator.error_template
+      flash[:danger] = 'Nie wybrano pliku Csv'
+      return redirect_to @actualizator.redirect
     end
     @actualizator.actualize_from_csv
-    redirect_to @actualizator.success_redirect
+    flash[:success] = 'Plik CSV zostanie wgrany w tle'
+    redirect_to @actualizator.redirect
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

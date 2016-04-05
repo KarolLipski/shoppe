@@ -91,7 +91,7 @@ RSpec.describe Admin::ItemsController, type: :controller do
         end
         it 'renders actualization template' do
           post :actualize, type: 'Items'
-          expect(response).to render_template('actualization')
+          expect(response).to redirect_to admin_items_actualization_path
         end
         it 'sets error flash' do
           post :actualize, type: 'Items'
@@ -102,7 +102,7 @@ RSpec.describe Admin::ItemsController, type: :controller do
         act = double('actualizator')
         expect(ItemActualizator).to receive(:new).and_return(act)
         expect(act).to receive(:actualize_from_csv)
-        expect(act).to receive(:success_redirect).and_return(admin_items_actualization_path)
+        expect(act).to receive(:redirect).and_return(admin_items_actualization_path)
         post :actualize, file: @file, type: 'Items'
       end
       it 'redirects to actualization path' do
@@ -125,7 +125,7 @@ RSpec.describe Admin::ItemsController, type: :controller do
         end
         it 'renders actualization template' do
           post :actualize, type: 'Offer', offer_id: 1
-          expect(response).to render_template('admin/offers/actualization')
+          expect(response).to redirect_to admin_offers_actualization_path(offer_id: 1)
         end
         it 'sets error flash' do
           post :actualize, type: 'Offer', offer_id: 1
@@ -136,7 +136,7 @@ RSpec.describe Admin::ItemsController, type: :controller do
         act = double('actualizator')
         expect(ItemActualizator).to receive(:new).and_return(act)
         expect(act).to receive(:actualize_from_csv)
-        expect(act).to receive(:success_redirect).and_return(admin_items_actualization_path)
+        expect(act).to receive(:redirect).and_return(admin_items_actualization_path)
         post :actualize, file: @file, type: 'Offer', offer_id: 1
       end
       it 'redirects to actualization path' do

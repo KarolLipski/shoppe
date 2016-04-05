@@ -22,6 +22,7 @@ class Item < ActiveRecord::Base
 
   before_save :generate_barcode
   before_save :fix_name, if: :new_record?
+  before_validation :set_empty_wraps
 
   mount_uploader :photo, PhotoUploader
 
@@ -85,6 +86,11 @@ class Item < ActiveRecord::Base
     checksum = (10 - checksum) unless checksum == 0
 
     self.barcode = "#{prefix}#{checksum}"
+  end
+
+  def set_empty_wraps
+    self.big_wrap = (big_wrap) ? big_wrap : 1
+    self.small_wrap = (small_wrap) ? small_wrap : 1
   end
 
 end

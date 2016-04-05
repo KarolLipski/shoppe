@@ -36,13 +36,8 @@ class ItemActualizator
     ActualizationLog.create(status: 'Accepted', log_type: @params[:type])
   end
 
-  #Return name of template if any errors
-  def error_template
-    return (params[:type] == 'Items') ? 'actualization': 'admin/offers/actualization'
-  end
-
-  # Returns success redirect path after actualize
-  def success_redirect
+  # Returns redirect path after actualize
+  def redirect
     return (params[:type] == 'Items') ? admin_items_actualization_path : admin_offers_actualization_path(offer_id: params[:offer_id])
   end
 
