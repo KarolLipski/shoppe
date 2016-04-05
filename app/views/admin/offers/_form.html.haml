@@ -9,7 +9,7 @@
     = f.label :start_date, 'Data startu', class: 'col-sm-3 control-label'
     .col-sm-5
       .input-group
-        = f.text_field :start_date, class: 'form-control datepicker', 'data-format':'yyyy-mm-dd'
+        = f.text_field :start_date, class: 'form-control datepicker', data:{format: 'yyyy-mm-dd'}
         .input-group-addon
           %a{:href => "#"}
             %i.entypo-calendar
