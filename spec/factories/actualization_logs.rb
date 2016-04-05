@@ -8,6 +8,7 @@
 #  error       :text(65535)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  log_type    :string(255)
 #
 
 FactoryGirl.define do

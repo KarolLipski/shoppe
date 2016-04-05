@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: offer_items
+# Table name: stored_items
 #
 #  id          :integer          not null, primary key
 #  magazine_id :integer
@@ -9,6 +9,8 @@
 #  price       :decimal(10, 2)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  type        :string(255)
+#  offer_id    :integer
 #
 
 require 'rails_helper'

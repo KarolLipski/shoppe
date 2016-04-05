@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: stored_items
+#
+#  id          :integer          not null, primary key
+#  magazine_id :integer
+#  item_id     :integer
+#  quantity    :integer
+#  price       :decimal(10, 2)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  type        :string(255)
+#  offer_id    :integer
+#
+
 class OfferItem < StoredItem
   belongs_to :offer
   after_save :update_category_counter
