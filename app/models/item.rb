@@ -18,6 +18,7 @@
 class Item < ActiveRecord::Base
 
   has_many :stored_items
+  has_many :offer_items
   belongs_to :category
 
   before_save :generate_barcode

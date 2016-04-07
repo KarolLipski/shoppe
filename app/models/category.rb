@@ -14,6 +14,7 @@ class Category < ActiveRecord::Base
 
   has_many :items
   has_many :stored_items, through: :items
+  has_many :offer_items, through: :items
 
   has_many :subcategories, :class_name => 'Category', :foreign_key => "parent_id"
   belongs_to :parent , :class_name => 'Category'
@@ -51,4 +52,10 @@ class Category < ActiveRecord::Base
       parent_category.update(items_count: count)
     end
   end
+
+  def self.all_for_offer(offer_id)
+    includes(:parent).where('id IN (SELECT DISTINCT items.category_id FROM items join stored_items where stored_items.offer_id = 4)')
+  end
+
+
 end
