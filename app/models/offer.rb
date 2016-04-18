@@ -13,4 +13,9 @@
 class Offer < ActiveRecord::Base
   has_many :offer_items
   validates_presence_of :name , :start_date, :end_date
+
+  def self.active
+    now = Time.now
+    where("start_date <= ? AND end_date >= ?", now, now).order(start_date: :desc).first
+  end
 end

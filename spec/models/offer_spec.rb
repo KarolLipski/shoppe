@@ -25,4 +25,19 @@ RSpec.describe Offer, type: :model do
   it 'is invalid without end_date' do
     expect(FactoryGirl.build(:offer, end_date: nil)).not_to be_valid
   end
+  context 'active offer' do
+    it 'find offer if is active offer' do
+      offer = FactoryGirl.create(:offer, start_date: 2.days.ago, end_date: 2.days.from_now)
+      expect(Offer.active).to eq offer
+    end
+    it 'return null if isnt active offer' do
+      offer = FactoryGirl.create(:offer, start_date: 10.days.ago, end_date: 2.days.ago)
+      expect(Offer.active).to eq nil
+    end
+    it 'retruns last offer if two ar atvie' do
+      offer = FactoryGirl.create(:offer, start_date: 2.days.ago, end_date: 2.days.from_now)
+      offer2 = FactoryGirl.create(:offer, start_date: 1.days.ago, end_date: 2.days.from_now)
+      expect(Offer.active).to eq offer2
+    end
+  end
 end

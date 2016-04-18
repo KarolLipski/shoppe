@@ -53,8 +53,8 @@ class Category < ActiveRecord::Base
     end
   end
 
-  def self.all_for_offer(offer_id)
-    includes(:parent).where('id IN (SELECT DISTINCT items.category_id FROM items join stored_items where stored_items.offer_id = 4)')
+  def self.all_for_offer(offer)
+    includes(:parent).where("id IN (SELECT DISTINCT items.category_id FROM items join stored_items where stored_items.offer_id = #{offer.id})")
   end
 
 
