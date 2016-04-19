@@ -11,21 +11,21 @@
         - @menu.magazine_categories.each do |category|
           .panel.panel-default
             - if category[:subcategories].empty?
-              = render 'layouts/frontend/menu/node', category: category
+              = render 'layouts/frontend/menu/node', category: category, type: 'mag'
             - else
-              = render 'layouts/frontend/menu/collapsed_node', category: category
+              = render 'layouts/frontend/menu/collapsed_node', category: category, type: 'mag'
       #offer_tab.tab-pane
         - @menu.offer_categories.each do |category|
           .panel.panel-default
             - if category[:subcategories].empty?
-              = render 'layouts/frontend/menu/node', category: category
+              = render 'layouts/frontend/menu/node', category: category, type: 'offer'
             - else
-              = render 'layouts/frontend/menu/collapsed_node', category: category
+              = render 'layouts/frontend/menu/collapsed_node', category: category, type: 'offer'
 - else
   #accordian.panel-group.category-products
     - @menu.magazine_categories.each do |category|
       .panel.panel-default
         - if category[:subcategories].empty?
-          = render 'layouts/frontend/menu/node', category: category
+          = render 'layouts/frontend/menu/node', category: category, type: 'mag'
         - else
-          = render 'layouts/frontend/menu/collapsed_node', category: category
+          = render 'layouts/frontend/menu/collapsed_node', category: category, type: 'mag'

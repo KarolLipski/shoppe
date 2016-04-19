@@ -21,8 +21,21 @@ module CategoriesHelper
     return "#{category.name}"
   end
 
-  def category_name_with_count(category)
-    category.name+" (#{category.items_count})"
+  def category_name_with_count(category, type)
+    postfix = (type == 'mag') ? " (#{category.items_count})" : ""
+    category.name + postfix
+  end
+
+  def collapsed_id(type, category)
+    type+'_'+category.name.gsub(' ','')
+  end
+
+  def collapsed_category_name(type, category)
+    if type == 'mag'
+      category.name+" (#{category.items_count})"
+    else
+      category.name
+    end
   end
 
 end
