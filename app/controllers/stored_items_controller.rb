@@ -6,6 +6,7 @@ class StoredItemsController < ApplicationController
     @items = @category.stored_items.active.
         order(get_sort_type).
         page(params[:page]).per(40)
+    activate_menu_tab
   end
 
   private
@@ -20,4 +21,10 @@ class StoredItemsController < ApplicationController
     end
     return session[:customer_sort_type] = @sort_type = "#{sort} #{sort_type}"
   end
+
+  # Sets last viewed type to session (for activate proper tab)
+  def activate_menu_tab
+    session[:active_tab] = 'mag'
+  end
+
 end

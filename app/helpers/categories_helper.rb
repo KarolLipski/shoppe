@@ -38,4 +38,14 @@ module CategoriesHelper
     end
   end
 
+  def tab_class(type)
+    case type
+      when 'mag'
+        klass = (!session[:active_tab] || session[:active_tab] == 'mag') ? 'active': nil
+      when 'offer'
+        klass = (session[:active_tab] == 'offer') ? 'active': nil
+    end
+    return klass
+  end
+
 end

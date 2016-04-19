@@ -749,6 +749,14 @@ h2.title:before{
   text-transform: uppercase;
 }
 
+.category-products #offer_tab .panel-default .panel-heading .panel-title a {
+    color: #005288;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
 .panel-group .panel-heading + .panel-collapse .panel-body {
   border-top: 0 none;
 }
@@ -770,8 +778,15 @@ h2.title:before{
 
 .panel-body ul{
   padding-left: 20px;
+  margin-bottom: 0px;
 }
 
+#offer_tab .panel-body ul li a {
+    color: #005288;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
 
 .panel-body ul li a {
   color: #696763;
@@ -2558,4 +2573,8 @@ h2.title {
     font-weight: 400;
     font-size: 14px;
     color: #FFB240;
+}
+
+.offer-category {
+    color: darkred;
 }

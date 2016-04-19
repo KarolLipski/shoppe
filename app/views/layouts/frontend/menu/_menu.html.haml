@@ -1,20 +1,20 @@
 - if @menu.has_offer
   %ul.nav.nav-tabs.bordered
-    %li.active
+    %li{:class => tab_class('mag')}
       %a{"data-toggle" => "tab", :href => "#category_tab"} Magazyn
-    %li
+    %li{:class => tab_class('offer')}
       %a{"data-toggle" => "tab", :href => "#offer_tab"}
         = @menu.offer.name
   #accordian.panel-group.category-products
     .tab-content
-      #category_tab.tab-pane.active
+      #category_tab.tab-pane{:class => tab_class('mag')}
         - @menu.magazine_categories.each do |category|
           .panel.panel-default
             - if category[:subcategories].empty?
               = render 'layouts/frontend/menu/node', category: category, type: 'mag'
             - else
               = render 'layouts/frontend/menu/collapsed_node', category: category, type: 'mag'
-      #offer_tab.tab-pane
+      #offer_tab.tab-pane{:class => tab_class('offer')}
         - @menu.offer_categories.each do |category|
           .panel.panel-default
             - if category[:subcategories].empty?
