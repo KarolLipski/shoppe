@@ -9,4 +9,4 @@
       %ul
         - category[:subcategories].each do |sub_cat|
           %li
-            = link_to category_name_with_count(sub_cat, type), [sub_cat, :items]
+            = category_items_link(sub_cat, type, @menu.offer)

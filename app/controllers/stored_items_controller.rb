@@ -3,13 +3,19 @@ class StoredItemsController < ApplicationController
   # GET /categories/:category_id/items
   def index
     @category = Category.find(params[:category_id])
-    @items = @category.stored_items.active.
-        order(get_sort_type).
-        page(params[:page]).per(40)
+    @items = find_items.order(get_sort_type).page(params[:page]).per(40)
     activate_menu_tab
   end
 
   private
+  # Finds Items depends of type
+  def find_items
+    if params[:offer_id]
+      return @category.offer_items.where(offer_id: params[:offer_id]).active
+    end
+    @category.stored_items.active
+  end
+
   # Gets customer ordering
   def get_sort_type
     sort, sort_type = 'created_at','DESC'
@@ -24,7 +30,8 @@ class StoredItemsController < ApplicationController
 
   # Sets last viewed type to session (for activate proper tab)
   def activate_menu_tab
-    session[:active_tab] = 'mag'
+    type = (params[:offer_id]) ? 'offer': 'mag'
+    session[:active_tab] = type
   end
 
 end

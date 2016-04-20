@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'main#index'
 
   get '/categories/:category_id/items(.:format)', to: 'stored_items#index', as: :category_items
+  get '/categories/:category_id/offers/:offer_id/items(.:format)', to: 'stored_items#index', as: :category_offer_items
 
   namespace :admin do
     root to: 'dashboard#main'

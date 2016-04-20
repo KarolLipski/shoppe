@@ -21,9 +21,12 @@ module CategoriesHelper
     return "#{category.name}"
   end
 
-  def category_name_with_count(category, type)
-    postfix = (type == 'mag') ? " (#{category.items_count})" : ""
-    category.name + postfix
+  def category_items_link(category, type, offer)
+    if type == 'mag'
+      link_to category.name + " (#{category.items_count})", category_items_path(category)
+    else
+      link_to category.name, category_offer_items_path(category, offer)
+    end
   end
 
   def collapsed_id(type, category)
