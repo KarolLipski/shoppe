@@ -24,12 +24,17 @@ class ItemDatatable < AjaxDatatablesRails::Base
         # example: record.attribute,
           record.number,
           record.name,
-          record.category.name,
+          category_name(record),
           @view.render_date(record.created_at),
           @view.render_date(record.updated_at),
           changeActiveButton(record)
       ]
     end
+  end
+
+  def category_name(record)
+      return record.category.name if record.category
+      'BRAK'
   end
 
 
@@ -40,12 +45,12 @@ class ItemDatatable < AjaxDatatablesRails::Base
 
   # All items
   def all_context
-    Item.joins(:category).all
+    Item.joins("LEFT JOIN categories ON items.category_id = categories.id").all
   end
 
   # Active Items without photo
   def no_photo_context
-    Item.joins(:stored_items).joins(:category).where('active = 1')
+    Item.joins(:stored_items).joins("LEFT JOIN categories ON items.category_id = categories.id").where('active = 1')
         .where('photo IS NULL')
         .where('stored_items.quantity > 0')
         .references(:stored_items)

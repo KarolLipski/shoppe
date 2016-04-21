@@ -48,3 +48,7 @@
       %tr
         %td=actualization.created_at.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
         %td=actualization.status
+
+%h3= "Towary w ofercie"
+
+= render 'admin/datatables/items', title: 'Lista towarów znajdujących sie w ofercie.', path:  admin_offers_actualization_path(offer_id: @offer_id, format: :json)

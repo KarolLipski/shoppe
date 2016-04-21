@@ -18,7 +18,16 @@ class Admin::OffersController < AdminController
   #GET admin/offers/actualization/:offer_id
   def actualization
     @offer_id = params[:offer_id]
-    @actualizations = ActualizationLog.where(log_type:'Offer').order('created_at DESC').first(1)
+    respond_to do |format|
+      format.html do
+        @actualizations = ActualizationLog.where(log_type:'Offer').order('created_at DESC').first(1)
+      end
+      format.json do
+        datatable = OfferItemDatatable.new(view_context)
+        datatable.offer_id = @offer_id
+        render json: datatable
+      end
+    end
   end
 
   #POST admin/offers
