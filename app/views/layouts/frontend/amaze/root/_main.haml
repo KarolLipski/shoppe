@@ -1,0 +1,36 @@
+%section.main-container.col1-layout.home-content-container
+  .container
+    .std
+      .best-seller-pro.wow.bounceInUp.animated
+        .slider-items-products
+          .new_title.center
+            %h2 Best Seller
+          #best-seller-slider.product-flexslider.hidden-buttons
+            .slider-items.slider-width-col4
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+      / Featured Slider
+      .featured-pro
+        .slider-items-products
+          .title.col-lg-6
+            .new_title.center
+              %h2
+                %span Featured Products
+            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra tristique eros dignissim venenatis. Nam et dolor id arcu efficitur tincidunt quis non nisi. Duis commodo pellentesque quam, id mollis ligula dictum id. Morbi cursus consectetur magna a egestas. Sed eu sagittis leo. Mauris euismod dapibus nisl, at euismod nunc commodo vel. Nulla semper non nisi in placerat. Aenean at nisl eu odio ullamcorper varius non ac ante. Quisque dictum, felis lobortis faucibus ornare, enim mi mollis ex, ac vestibulum neque nibh at nisi.
+            %a.view-all{:href => "#", :title => "Subscribe"}
+              %span View All Products
+          #featured-slider.product-flexslider.hidden-buttons.col-lg-6
+            .slider-items.slider-width-col4
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'
+              = render :partial => 'stored_items/amaze_item'

@@ -1,0 +1,36 @@
+.item
+  .item-inner
+    .product-block
+      .product-image
+        %a{:href => "product_detail.html"}
+          %figure.product-display
+            .sale-label.sale-top-left Sale
+            -#.new-label.new-top-left New
+            = image_tag('amaze/product1.jpg',class:"lazyOwl product-mainpic", style:"display: block;")
+            = image_tag('amaze/product1.jpg',class:"product-secondpic")
+      .product-meta
+        .product-action
+          %a.addcart{:href => "shopping_cart.html"}
+            %i.icon-shopping-cart &nbsp;
+            Add to cart
+          %a.wishlist{:href => "wishlist.html"}
+            %i.icon-heart &nbsp;
+          %a.quickview{:href => "quick_view.html"}
+            %i.icon-zoom &nbsp;
+    .item-info
+      .info-inner
+        .item-title
+          %a{:href => "product_detail.html", :title => "Retis lapen casen"} Sample Product
+        .item-content
+          .item-price
+            .price-box
+              %span.regular-price
+                %span.price $125.00
+          .rating
+            .ratings
+              .rating-box
+                .rating{:style => "width:80%"}
+              %p.rating-links
+                %a{:href => "#"} 1 Review(s)
+                %span.separator |
+                %a{:href => "#"} Add Review

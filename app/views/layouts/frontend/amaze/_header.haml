@@ -1,0 +1,131 @@
+%header.header
+  .container
+    .row
+      .col-lg-5.col-sm-4.col-md-5
+        / Header Logo
+        %a.logo{:href => "index.html", :title => "Magento Commerce"}
+          = image_tag('amaze/logo.png')
+      / End Header Logo
+      .col-lg-7.col-sm-8.col-md-7.col-xs-12
+        .header-top
+          .welcome-msg.hidden-xs Default welcome msg!
+          / Header Language
+          .dropdown.block-language-wrapper
+            %a.block-language.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              = image_tag('amaze/english.png')
+              English
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
+                  = image_tag('amaze/english.png')
+                  English
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
+                  = image_tag('amaze/english.png')
+                  French
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
+                  = image_tag('amaze/english.png')
+                  German
+          / End Header Language
+          / Header Top Links
+          .toplinks
+            .links
+              .myaccount
+                %a{:href => "login.html", :title => "My Account"}
+                  %span.hidden-xs My Account
+              .wishlist
+                %a{:href => "wishlist.html", :title => "My Wishlist"}
+                  %span.hidden-xs Wishlist
+              .demo
+                %a{:href => "blog.html", :title => "Blog"}
+                  %span.hidden-xs Blog
+              / Header Company
+              .dropdown.block-company-wrapper.hidden-xs
+                %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  Company
+                  %span.caret
+                %ul.dropdown-menu{:role => "menu"}
+                  %li{:role => "presentation"}
+                    %a{:href => "about_us.html", :role => "menuitem", :tabindex => "-1"} About Us
+                  %li{:role => "presentation"}
+                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Customer Service
+                  %li{:role => "presentation"}
+                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Privacy Policy
+                  %li{:role => "presentation"}
+                    %a{:href => "sitemap.html", :role => "menuitem", :tabindex => "-1"} Site Map
+                  %li{:role => "presentation"}
+                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Search Terms
+                  %li{:role => "presentation"}
+                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Advanced Search
+              / End Header Company
+              .login
+                %a{:href => "login.html"}
+                  %span.hidden-xs Log In
+        / End Header Top Links
+        .cart_cur_block
+          / Header Currency
+          .dropdown.block-currency-wrapper
+            %a.block-currency.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              USD
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} $ - Dollar
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} £ - Pound
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} € - Euro
+          / End Header Currency
+          / Top Cart
+          .top-cart-contain
+            .mini-cart
+              .basket.dropdown-toggle{"data-hover" => "dropdown", "data-toggle" => "dropdown"}
+                %a{:href => "#"}
+                  %span.hidden-xs shopping cart (3)
+              %div
+                .top-cart-content.arrow_box{:style => "display: none;"}
+                  .block-subtitle Recently added item(s)
+                  %ul#cart-sidebar.mini-products-list
+                    %li.item.odd
+                      %a.product-image{:href => "product_detail.html", :title => "Skater Dress In Leaf Print"}
+                        = image_tag('amaze/product1.jpg', width: 55)
+                      .product-details
+                        %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
+                        %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
+                        %p.product-name
+                          %a{:href => "product_detail.html"} Sample Product
+                        %strong 1
+                        x
+                        %span.price $20.00
+                    %li.item.even
+                      %a.product-image{:href => "product_detail.html", :title => "Product layout: large content"}
+                        = image_tag('amaze/product1.jpg', width: 55)
+                      .product-details
+                        %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
+                        %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
+                        %p.product-name
+                          %a{:href => "product_detail.html"} Sample Product
+                        %strong 1
+                        x
+                        %span.price $230.00
+                    %li.item.last.odd
+                      %a.product-image{:href => "product_detail.html", :title => "Skater Dress In Leaf Print"}
+                        = image_tag('amaze/product1.jpg', width: 55)
+                      .product-details
+                        %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
+                        %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
+                        %p.product-name
+                          %a{:href => "product_detail.html"} Sample Product
+                        %strong 2
+                        x
+                        %span.price $420.00
+                  .top-subtotal
+                    Subtotal:
+                    %span.price $520.00
+                  .actions
+                    %button.btn-checkout{:type => "button"}
+                      %span Checkout
+                    %button.view-cart{:type => "button"}
+                      %span View Cart

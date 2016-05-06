@@ -1,0 +1,66 @@
+.slider-section
+  .container
+    .row
+      %aside.cat-block.pro-block.col-xs-12.col-sm-12.col-md-5
+        .pro1-block
+          %ul.top-cat-box
+            %li
+              %div
+                = image_tag('amaze/women-img.png')
+                %h2 Women
+              %p Lorem ipsum dolor sit amet, consectetur.
+              %a{:href => "#"} Buy Now
+            %li
+              %div
+                = image_tag('amaze/men-img.png')
+                %h2 Men
+              %p Consectetur adipiscing elit.
+              %a{:href => "#"} Buy Now
+            %li
+              %div
+                = image_tag('amaze/electronics-img.png')
+                %h2 Electronics
+              %p Voluptatem accusantium doloremque
+              %a{:href => "#"} Buy Now
+            %li
+              %div
+                = image_tag('amaze/furniture-img.png')
+                %h2 Furniture
+              %p eaque ipsa quae ab illo inventore
+              %a{:href => "#"} Buy Now
+      / //showcase-right
+      .slider-intro.col-lg-7.col-sm-12.col-md-7
+        .the-slideshow.slideshow-wrapper
+          %ul.slideshow{:style => "overflow: hidden;"}
+            %li.slide
+              %p
+                %a{:href => "#"}
+                  = image_tag('amaze/banner-img.jpg')
+              .caption.light1.top-right
+                .caption-inner
+                  %p.heading Women Collection 2014
+                  %p.heading1 Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                  %p.intro-btn
+                    %a{:href => "#", :title => "Click to see all features"} Shop Now
+            %li.slide
+              %p
+                %a{:href => "#"}
+                  = image_tag('amaze/banner-img.jpg')
+              .caption.light1.top-right
+                .caption-inner
+                  %h2.heading You like this theme?
+                  %p.heading1 Pellentesque habitant morbi tristique senectus
+                  %p.intro-btn
+                    %a{:href => "#", :title => "Click to see all features"} Buy Now
+            %li.slide
+              %p
+                %a{:href => "#", :title => "#"}
+                  = image_tag('amaze/banner-img.jpg')
+                  .caption.light1.top-right
+                .caption-inner
+                  %p.heading Responsive Layout
+                  %p.intro-btn
+                    %a{:href => "#", :title => "Click to see all features"} Buy Now
+          %a#home-slides-prev.backward.browse-button{:href => "#"} previous
+          %a#home-slides-next.forward.browse-button{:href => "#"} next
+          #home-slides-pager.tab-pager.tab-pager-img.tab-pager-ring-lgray

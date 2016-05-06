@@ -1,0 +1,15 @@
+= javascript_include_tag 'amaze/frontend-bottom'
+
+= bootstrap_flash
+
+:javascript
+  jQuery(function() {
+    jQuery(".slideshow").cycle({
+      fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, 			pager: '#home-slides-pager',
+      prev: '#home-slides-prev',
+      next: '#home-slides-next'
+    });
+  });
+    //
+:javascript
+  new UISearch( document.getElementById( 'form-search' ) );
