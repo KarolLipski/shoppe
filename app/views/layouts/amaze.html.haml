@@ -1,0 +1,2630 @@
+!!!
+%html{:lang => "en"}
+  = render :partial => 'layouts/frontend/amaze/head'
+  %body
+    .page
+      / Header
+      %header.header
+        .container
+          .row
+            .col-lg-5.col-sm-4.col-md-5
+              / Header Logo
+              %a.logo{:href => "index.html", :title => "Magento Commerce"}
+                %img{:alt => "Magento Commerce", :src => "images/logo.png"}/
+            / End Header Logo
+            .col-lg-7.col-sm-8.col-md-7.col-xs-12
+              .header-top
+                .welcome-msg.hidden-xs Default welcome msg!
+                / Header Language
+                .dropdown.block-language-wrapper
+                  %a.block-language.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                    %img{:alt => "language", :src => "images/english.png"}
+                      English
+                      %span.caret
+                  %ul.dropdown-menu{:role => "menu"}
+                    %li{:role => "presentation"}
+                      %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
+                        %img{:alt => "language", :src => "images/english.png"} English
+                    %li{:role => "presentation"}
+                      %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
+                        %img{:alt => "language", :src => "images/francais.png"} French
+                    %li{:role => "presentation"}
+                      %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
+                        %img{:alt => "language", :src => "images/german.png"} German
+                / End Header Language
+                / Header Top Links
+                .toplinks
+                  .links
+                    .myaccount
+                      %a{:href => "login.html", :title => "My Account"}
+                        %span.hidden-xs My Account
+                    .wishlist
+                      %a{:href => "wishlist.html", :title => "My Wishlist"}
+                        %span.hidden-xs Wishlist
+                    .demo
+                      %a{:href => "blog.html", :title => "Blog"}
+                        %span.hidden-xs Blog
+                    / Header Company
+                    .dropdown.block-company-wrapper.hidden-xs
+                      %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                        Company
+                        %span.caret
+                      %ul.dropdown-menu{:role => "menu"}
+                        %li{:role => "presentation"}
+                          %a{:href => "about_us.html", :role => "menuitem", :tabindex => "-1"} About Us
+                        %li{:role => "presentation"}
+                          %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Customer Service
+                        %li{:role => "presentation"}
+                          %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Privacy Policy
+                        %li{:role => "presentation"}
+                          %a{:href => "sitemap.html", :role => "menuitem", :tabindex => "-1"} Site Map
+                        %li{:role => "presentation"}
+                          %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Search Terms
+                        %li{:role => "presentation"}
+                          %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Advanced Search
+                    / End Header Company
+                    .login
+                      %a{:href => "login.html"}
+                        %span.hidden-xs Log In
+              / End Header Top Links
+              .cart_cur_block
+                / Header Currency
+                .dropdown.block-currency-wrapper
+                  %a.block-currency.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                    USD
+                    %span.caret
+                  %ul.dropdown-menu{:role => "menu"}
+                    %li{:role => "presentation"}
+                      %a{:href => "#", :role => "menuitem", :tabindex => "-1"} $ - Dollar
+                    %li{:role => "presentation"}
+                      %a{:href => "#", :role => "menuitem", :tabindex => "-1"} £ - Pound
+                    %li{:role => "presentation"}
+                      %a{:href => "#", :role => "menuitem", :tabindex => "-1"} € - Euro
+                / End Header Currency
+                / Top Cart
+                .top-cart-contain
+                  .mini-cart
+                    .basket.dropdown-toggle{"data-hover" => "dropdown", "data-toggle" => "dropdown"}
+                      %a{:href => "#"}
+                        %span.hidden-xs shopping cart (3)
+                    %div
+                      .top-cart-content.arrow_box{:style => "display: none;"}
+                        .block-subtitle Recently added item(s)
+                        %ul#cart-sidebar.mini-products-list
+                          %li.item.odd
+                            %a.product-image{:href => "product_detail.html", :title => "Skater Dress In Leaf Print"}
+                              %img{:alt => "Product image", :src => "products-images/product1.jpg", :width => "55"}/
+                            .product-details
+                              %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
+                              %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
+                              %p.product-name
+                                %a{:href => "product_detail.html"} Sample Product
+                              %strong 1
+                              x
+                              %span.price $20.00
+                          %li.item.even
+                            %a.product-image{:href => "product_detail.html", :title => "Product layout: large content"}
+                              %img{:alt => "Product image", :src => "products-images/product1.jpg", :width => "55"}/
+                            .product-details
+                              %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
+                              %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
+                              %p.product-name
+                                %a{:href => "product_detail.html"} Sample Product
+                              %strong 1
+                              x
+                              %span.price $230.00
+                          %li.item.last.odd
+                            %a.product-image{:href => "product_detail.html", :title => "Skater Dress In Leaf Print"}
+                              %img{:alt => "Product image", :src => "products-images/product1.jpg", :width => "55"}/
+                            .product-details
+                              %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
+                              %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
+                              %p.product-name
+                                %a{:href => "product_detail.html"} Sample Product
+                              %strong 2
+                              x
+                              %span.price $420.00
+                        .top-subtotal
+                          Subtotal:
+                          %span.price $520.00
+                        .actions
+                          %button.btn-checkout{:type => "button"}
+                            %span Checkout
+                          %button.view-cart{:type => "button"}
+                            %span View Cart
+      / End Top Cart
+      / end header
+      / Navbar
+      %nav
+        .container
+          .nav-inner
+            / mobile-menu
+            #mobile-menu.hidden-desktop
+              %ul.navmenu
+                %li
+                  .menutop
+                    .toggle
+                      %span.icon-bar
+                      %span.icon-bar
+                      %span.icon-bar
+                    %h2 Menu
+                  %ul.submenu{:style => "display:none;"}
+                    %li
+                      %ul.topnav
+                        %li.level0.nav-6.level-top.first.parent
+                          %a.level-top{:href => "index.html"}
+                            %span Home
+                          %ul.level0
+                            %li.level1
+                              %a{:href => "../../layout-1/red/index.html"}
+                                %span Home Version 1
+                            %li.level1
+                              %a{:href => "../../layout-2/red/index.html"}
+                                %span Home Version 2
+                            %li.level1
+                              %a{:href => "../../layout-1/aqua/index.html"}
+                                %span Aqua
+                            %li.level1
+                              %a{:href => "../../layout-1/orange/index.html"}
+                                %span Orange
+                            %li.level1
+                              %a{:href => "../../layout-1/red/index.html"}
+                                %span Red
+                            %li.level1
+                              %a{:href => "../../layout-1/yellow/index.html"}
+                                %span Yellow
+                        %li.level0.nav-1.level-top.first.parent
+                          %a.level-top{:href => "grid.html"}
+                            %span Women
+                          %ul.level0
+                            %li.level1.nav-1-1.first.parent
+                              %a{:href => "grid.html"}
+                                %span Stylish Bag
+                              %ul.level1
+                                %li.level2.nav-1-1-1.first
+                                  %a{:href => "grid.html"}
+                                    %span Clutch Handbags
+                                %li.level2.nav-1-1-2
+                                  %a{:href => "grid.html"}
+                                    %span Diaper Bags
+                                %li.level2.nav-1-1-3
+                                  %a{:href => "grid.html"}
+                                    %span Bags
+                                %li.level2.nav-1-1-4.last
+                                  %a{:href => "grid.html"}
+                                    %span Hobo Handbags
+                            %li.level1.nav-1-2.parent
+                              %a{:href => "grid.html"}
+                                %span Material Bag
+                              %ul.level1
+                                %li.level2.nav-1-2-5.first
+                                  %a{:href => "grid.html"}
+                                    %span Beaded Handbags
+                                %li.level2.nav-1-2-6
+                                  %a{:href => "grid.html"}
+                                    %span Fabric Handbags
+                                %li.level2.nav-1-2-7
+                                  %a{:href => "grid.html"}
+                                    %span Handbags
+                                %li.level2.nav-1-2-8.last
+                                  %a{:href => "grid.html"}
+                                    %span Leather Handbags
+                            %li.level1.nav-1-3.parent
+                              %a{:href => "grid.html"}
+                                %span Shoes
+                              %ul.level1
+                                %li.level2.nav-1-3-9.first
+                                  %a{:href => "grid.html"}
+                                    %span Flat Shoes
+                                %li.level2.nav-1-3-10
+                                  %a{:href => "grid.html"}
+                                    %span Flat Sandals
+                                %li.level2.nav-1-3-11
+                                  %a{:href => "grid.html"}
+                                    %span Boots
+                                %li.level2.nav-1-3-12.last
+                                  %a{:href => "grid.html"}
+                                    %span Heels
+                            %li.level1.nav-1-4.parent
+                              %a{:href => "grid.html"}
+                                %span Jwellery
+                              %ul.level1
+                                %li.level2.nav-1-4-13.first
+                                  %a{:href => "grid.html"}
+                                    %span Bracelets
+                                %li.level2.nav-1-4-14
+                                  %a{:href => "grid.html"}
+                                    %span Necklaces &amp; Pendants
+                                %li.level2.nav-1-4-15
+                                  %a{:href => "grid.html"}
+                                    %span Pendants
+                                %li.level2.nav-1-4-16.last
+                                  %a{:href => "grid.html"}
+                                    %span Pins &amp; Brooches
+                            %li.level1.nav-1-5.parent
+                              %a{:href => "grid.html"}
+                                %span Dresses
+                              %ul.level1
+                                %li.level2.nav-1-5-17.first
+                                  %a{:href => "grid.html"}
+                                    %span Casual Dresses
+                                %li.level2.nav-1-5-18
+                                  %a{:href => "grid.html"}
+                                    %span Evening
+                                %li.level2.nav-1-5-19
+                                  %a{:href => "grid.html"}
+                                    %span Designer
+                                %li.level2.nav-1-5-20.last
+                                  %a{:href => "grid.html"}
+                                    %span Party
+                            %li.level1.nav-1-6.last.parent
+                              %a{:href => "grid.html"}
+                                %span Swimwear
+                              %ul.level1
+                                %li.level2.nav-1-6-21.first
+                                  %a{:href => "grid.html"}
+                                    %span Swimsuits
+                                %li.level2.nav-1-6-22
+                                  %a{:href => "grid.html"}
+                                    %span Beach Clothing
+                                %li.level2.nav-1-6-23
+                                  %a{:href => "grid.html"}
+                                    %span Clothing
+                                %li.level2.nav-1-6-24.last
+                                  %a{:href => "grid.html"}
+                                    %span Bikinis
+                        %li.level0.nav-2.level-top.parent
+                          %a.level-top{:href => "grid.html"}
+                            %span Men
+                          %ul.level0
+                            %li.level1.nav-2-1.first.parent
+                              %a{:href => "grid.html"}
+                                %span Shoes
+                              %ul.level1
+                                %li.level2.nav-2-1-1.first
+                                  %a{:href => "grid.html"}
+                                    %span Sport Shoes
+                                %li.level2.nav-2-1-2
+                                  %a{:href => "grid.html"}
+                                    %span Casual Shoes
+                                %li.level2.nav-2-1-3
+                                  %a{:href => "grid.html"}
+                                    %span Leather Shoes
+                                %li.level2.nav-2-1-4.last
+                                  %a{:href => "grid.html"}
+                                    %span canvas shoes
+                            %li.level1.nav-2-2.parent
+                              %a{:href => "grid.html"}
+                                %span Dresses
+                              %ul.level1
+                                %li.level2.nav-2-2-5.first
+                                  %a{:href => "grid.html"}
+                                    %span Casual Dresses
+                                %li.level2.nav-2-2-6
+                                  %a{:href => "grid.html"}
+                                    %span Evening
+                                %li.level2.nav-2-2-7
+                                  %a{:href => "grid.html"}
+                                    %span Designer
+                                %li.level2.nav-2-2-8.last
+                                  %a{:href => "grid.html"}
+                                    %span Party
+                            %li.level1.nav-2-3.parent
+                              %a{:href => "grid.html"}
+                                %span Jackets
+                              %ul.level1
+                                %li.level2.nav-2-3-9.first
+                                  %a{:href => "grid.html"}
+                                    %span Coats
+                                %li.level2.nav-2-3-10
+                                  %a{:href => "grid.html"}
+                                    %span Formal Jackets
+                                %li.level2.nav-2-3-11
+                                  %a{:href => "grid.html"}
+                                    %span Leather Jackets
+                                %li.level2.nav-2-3-12.last
+                                  %a{:href => "grid.html"}
+                                    %span Blazers
+                            %li.level1.nav-2-4.parent
+                              %a{:href => "grid.html"}
+                                %span Watches
+                              %ul.level1
+                                %li.level2.nav-2-4-13.first
+                                  %a{:href => "grid.html"}
+                                    %span Fastrack
+                                %li.level2.nav-2-4-14
+                                  %a{:href => "grid.html"}
+                                    %span Casio
+                                %li.level2.nav-2-4-15
+                                  %a{:href => "grid.html"}
+                                    %span Titan
+                                %li.level2.nav-2-4-16.last
+                                  %a{:href => "grid.html"}
+                                    %span Tommy-Hilfiger
+                            %li.level1.nav-2-5.parent
+                              %a{:href => "grid.html"}
+                                %span Sunglasses
+                              %ul.level1
+                                %li.level2.nav-2-5-17.first
+                                  %a{:href => "grid.html"}
+                                    %span Ray Ban
+                                %li.level2.nav-2-5-18
+                                  %a{:href => "grid.html"}
+                                    %span Fastrack
+                                %li.level2.nav-2-5-19
+                                  %a{:href => "grid.html"}
+                                    %span Police
+                                %li.level2.nav-2-5-20.last
+                                  %a{:href => "grid.html"}
+                                    %span Oakley
+                            %li.level1.nav-2-6.last.parent
+                              %a{:href => "grid.html"}
+                                %span Accessories
+                              %ul.level1
+                                %li.level2.nav-2-6-21.first
+                                  %a{:href => "grid.html"}
+                                    %span Backpacks
+                                %li.level2.nav-2-6-22
+                                  %a{:href => "grid.html"}
+                                    %span Wallets
+                                %li.level2.nav-2-6-23
+                                  %a{:href => "grid.html"}
+                                    %span Laptop Bags
+                                %li.level2.nav-2-6-24.last
+                                  %a{:href => "grid.html"}
+                                    %span Belts
+                        %li.level0.nav-3.level-top.parent
+                          %a.level-top{:href => "grid.html"}
+                            %span Electronics
+                          %ul.level0
+                            %li.level1.nav-3-1.first.parent
+                              %a{:href => "grid.html"}
+                                %span Mobiles
+                              %ul.level1
+                                %li.level2.nav-3-1-1.first
+                                  %a{:href => "grid.html"}
+                                    %span Samsung
+                                %li.level2.nav-3-1-2
+                                  %a{:href => "grid.html"}
+                                    %span Nokia
+                                %li.level2.nav-3-1-3
+                                  %a{:href => "grid.html"}
+                                    %span iPhone
+                                %li.level2.nav-3-1-4.last
+                                  %a{:href => "grid.html"}
+                                    %span Sony
+                            %li.level1.nav-3-2.parent
+                              %a{:href => "grid.html"}
+                                %span Accessories
+                              %ul.level1
+                                %li.level2.nav-3-2-5.first
+                                  %a{:href => "grid.html"}
+                                    %span Mobile Memory Cards
+                                %li.level2.nav-3-2-6
+                                  %a{:href => "grid.html"}
+                                    %span Cases &amp; Covers
+                                %li.level2.nav-3-2-7
+                                  %a{:href => "grid.html"}
+                                    %span Mobile Headphones
+                                %li.level2.nav-3-2-8.last
+                                  %a{:href => "grid.html"}
+                                    %span Bluetooth Headsets
+                            %li.level1.nav-3-3.parent
+                              %a{:href => "grid.html"}
+                                %span Cameras
+                              %ul.level1
+                                %li.level2.nav-3-3-9.first
+                                  %a{:href => "grid.html"}
+                                    %span Camcorders
+                                %li.level2.nav-3-3-10
+                                  %a{:href => "grid.html"}
+                                    %span Point &amp; Shoot
+                                %li.level2.nav-3-3-11
+                                  %a{:href => "grid.html"}
+                                    %span Digital SLR
+                                %li.level2.nav-3-3-12.last
+                                  %a{:href => "grid.html"}
+                                    %span Camera Accessories
+                            %li.level1.nav-3-4.parent
+                              %a{:href => "grid.html"}
+                                %span Audio &amp; Video
+                              %ul.level1
+                                %li.level2.nav-3-4-13.first
+                                  %a{:href => "grid.html"}
+                                    %span MP3 Players
+                                %li.level2.nav-3-4-14
+                                  %a{:href => "grid.html"}
+                                    %span iPods
+                                %li.level2.nav-3-4-15
+                                  %a{:href => "grid.html"}
+                                    %span Speakers
+                                %li.level2.nav-3-4-16.last
+                                  %a{:href => "grid.html"}
+                                    %span Video Players
+                            %li.level1.nav-3-5.parent
+                              %a{:href => "grid.html"}
+                                %span Computer
+                              %ul.level1
+                                %li.level2.nav-3-5-17.first
+                                  %a{:href => "grid.html"}
+                                    %span External Hard Disks
+                                %li.level2.nav-3-5-18
+                                  %a{:href => "grid.html"}
+                                    %span Pendrives
+                                %li.level2.nav-3-5-19
+                                  %a{:href => "grid.html"}
+                                    %span Headphones
+                                %li.level2.nav-3-5-20.last
+                                  %a{:href => "grid.html"}
+                                    %span PC Components
+                            %li.level1.nav-3-6.last.parent
+                              %a{:href => "grid.html"}
+                                %span Appliances
+                              %ul.level1
+                                %li.level2.nav-3-6-21.first
+                                  %a{:href => "grid.html"}
+                                    %span Vacuum Cleaners
+                                %li.level2.nav-3-6-22
+                                  %a{:href => "grid.html"}
+                                    %span Indoor Lighting
+                                %li.level2.nav-3-6-23
+                                  %a{:href => "grid.html"}
+                                    %span Kitchen Tools
+                                %li.level2.nav-3-6-24.last
+                                  %a{:href => "grid.html"}
+                                    %span Water Purifiers
+                        %li.level0.nav-4.level-top.parent
+                          %a.level-top{:href => "grid.html"}
+                            %span Furniture
+                          %ul.level0
+                            %li.level1.nav-4-1.first.parent
+                              %a{:href => "grid.html"}
+                                %span Living Room
+                              %ul.level1
+                                %li.level2.nav-4-1-1.first
+                                  %a{:href => "grid.html"}
+                                    %span Racks &amp; Cabinets
+                                %li.level2.nav-4-1-2
+                                  %a{:href => "grid.html"}
+                                    %span Sofas
+                                %li.level2.nav-4-1-3
+                                  %a{:href => "grid.html"}
+                                    %span Chairs
+                                %li.level2.nav-4-1-4.last
+                                  %a{:href => "grid.html"}
+                                    %span Tables
+                            %li.level1.nav-4-2.parent
+                              %a{:href => "grid.html"}
+                                %span Dining &amp; Bar
+                              %ul.level1
+                                %li.level2.nav-4-2-5.first
+                                  %a{:href => "grid.html"}
+                                    %span Dining Table Sets
+                                %li.level2.nav-4-2-6
+                                  %a{:href => "grid.html"}
+                                    %span Serving Trolleys
+                                %li.level2.nav-4-2-7
+                                  %a{:href => "grid.html"}
+                                    %span Bar Counters
+                                %li.level2.nav-4-2-8.last
+                                  %a{:href => "grid.html"}
+                                    %span Dining Cabinets
+                            %li.level1.nav-4-3.parent
+                              %a{:href => "grid.html"}
+                                %span Bedroom
+                              %ul.level1
+                                %li.level2.nav-4-3-9.first
+                                  %a{:href => "grid.html"}
+                                    %span Beds
+                                %li.level2.nav-4-3-10
+                                  %a{:href => "grid.html"}
+                                    %span Chest of Drawers
+                                %li.level2.nav-4-3-11
+                                  %a{:href => "grid.html"}
+                                    %span Wardrobes &amp; Almirahs
+                                %li.level2.nav-4-3-12.last
+                                  %a{:href => "grid.html"}
+                                    %span Nightstands
+                            %li.level1.nav-4-4.last.parent
+                              %a{:href => "grid.html"}
+                                %span Kitchen
+                              %ul.level1
+                                %li.level2.nav-4-4-13.first
+                                  %a{:href => "grid.html"}
+                                    %span Kitchen Racks
+                                %li.level2.nav-4-4-14
+                                  %a{:href => "grid.html"}
+                                    %span Kitchen Fittings
+                                %li.level2.nav-4-4-15
+                                  %a{:href => "grid.html"}
+                                    %span Wall Units
+                                %li.level2.nav-4-4-16.last
+                                  %a{:href => "grid.html"}
+                                    %span Benches &amp; Stools
+                        %li.level0.nav-5.level-top.last
+                          %a.level-top{:href => "grid.html"}
+                            %span Fashion
+                        %li.level0.nav-6.level-top.first.parent
+                          %a.level-top{:href => "#"}
+                            %span Pages
+                          %ul.level0
+                            %li.level1.first
+                              %a{:href => "grid.html"}
+                                %span Grid
+                            %li.level1.nav-10-2
+                              %a{:href => "list.html"}
+                                %span List
+                            %li.level1.nav-10-3
+                              %a{:href => "product_detail.html"}
+                                %span Product Detail
+                            %li.level1.nav-10-4
+                              %a{:href => "shopping_cart.html"}
+                                %span Shopping Cart
+                            %li.level1.first
+                              %a{:href => "checkout.html"}
+                                %span Checkout
+                              %ul.level2
+                                %li.level2.nav-2-1-1.first
+                                  %a{:href => "checkout_method.html"}
+                                    %span Checkout Method
+                                %li.level2.nav-2-1-5.last
+                                  %a{:href => "checkout_billing_info.html"}
+                                    %span Checkout Billing Info
+                            %li.level1.nav-10-4
+                              %a{:href => "wishlist.html"}
+                                %span Wishlist
+                            %li.level1
+                              %a{:href => "dashboard.html"}
+                                %span Dashboard
+                            %li.level1
+                              %a{:href => "multiple_addresses.html"}
+                                %span Multiple Addresses
+                            %li.level1
+                              %a{:href => "about_us.html"}
+                                %span About Us
+                            %li.level1
+                              %a{:href => "compare.html"}
+                                %span Compare
+                            %li.level1
+                              %a{:href => "delivery.html"}
+                                %span Delivery
+                            %li.level1
+                              %a{:href => "faq.html"}
+                                %span FAQ
+                            %li.level1
+                              %a{:href => "quick_view.html"}
+                                %span Quick View
+                            %li.level1
+                              %a{:href => "newsletter.html"}
+                                %span Newsletter
+                            %li.level1
+                              %a{:href => "contact_us.html"}
+                                %span Contact Us
+                            %li.level1.first
+                              %a{:href => "blog.html"}
+                                %span Blog
+                              %ul.level2
+                                %li.level2.nav-2-1-1.first
+                                  %a{:href => "blog_detail.html"}
+                                    %span Blog Detail
+                            %li.level1
+                              %a{:href => "404error.html"}
+                                %span 404 Error Page
+            / navmenu
+            / End mobile-menu
+            %ul#nav.hidden-xs
+              %li#nav-home.level0.parent.drop-menu.active
+                %a{:href => "index.html"}
+                  %span Home
+                %ul.level1{:style => "display: none;"}
+                  %li.level1.first.parent
+                    %a{:href => "../../layout-1/yellow/index.html"}
+                      %span Home Version 1
+                  %li.level1.parent
+                    %a{:href => "../../layout-2/yellow/index.html"}
+                      %span Home Version 2
+                  %li.level1.parent
+                    %a{:href => "../../layout-1/aqua/index.html"}
+                      %span Aqua
+                  %li.level1.parent
+                    %a{:href => "../../layout-1/green/index.html"}
+                      %span Green
+                  %li.level1.parent
+                    %a{:href => "../../layout-1/orange/index.html"}
+                      %span Orange
+                  %li.level1.parent
+                    %a{:href => "../../layout-1/red/index.html"}
+                      %span Red
+              %li.level0.parent.drop-menu
+                %a{:href => "#"}
+                  %span Pages
+                %ul.level1{:style => "display: none;"}
+                  %li.level1.first
+                    %a{:href => "grid.html"}
+                      %span Grid
+                  %li.level1.nav-10-2
+                    %a{:href => "list.html"}
+                      %span List
+                  %li.level1.nav-10-3
+                    %a{:href => "product_detail.html"}
+                      %span Product Detail
+                  %li.level1.nav-10-4
+                    %a{:href => "shopping_cart.html"}
+                      %span Shopping Cart
+                  %li.level1.first.parent
+                    %a{:href => "checkout.html"}
+                      %span Checkout
+                    %ul.level2
+                      %li.level2.nav-2-1-1.first
+                        %a{:href => "checkout_method.html"}
+                          %span Checkout Method
+                      %li.level2.nav-2-1-5.last
+                        %a{:href => "checkout_billing_info.html"}
+                          %span Checkout Billing Info
+                  %li.level1.nav-10-4
+                    %a{:href => "wishlist.html"}
+                      %span Wishlist
+                  %li.level1
+                    %a{:href => "dashboard.html"}
+                      %span Dashboard
+                  %li.level1
+                    %a{:href => "multiple_addresses.html"}
+                      %span Multiple Addresses
+                  %li.level1
+                    %a{:href => "about_us.html"}
+                      %span About Us
+                  %li.level1
+                    %a{:href => "compare.html"}
+                      %span Compare
+                  %li.level1
+                    %a{:href => "delivery.html"}
+                      %span Delivery
+                  %li.level1
+                    %a{:href => "faq.html"}
+                      %span FAQ
+                  %li.level1
+                    %a{:href => "quick_view.html"}
+                      %span Quick View
+                  %li.level1
+                    %a{:href => "newsletter.html"}
+                      %span Newsletter
+                  %li.level1
+                    %a{:href => "contact_us.html"}
+                      %span Contact Us
+                  %li.level1
+                    %a{:href => "sitemap.html"}
+                      %span Sitemap
+                  %li.level1.first.parent
+                    %a{:href => "blog.html"}
+                      %span Blog
+                    %ul.level2
+                      %li.level2.nav-2-1-1.first
+                        %a{:href => "blog_detail.html"}
+                          %span Blog Detail
+                  %li.level1
+                    %a{:href => "404error.html"}
+                      %span 404 Error Page
+              %li.level0.nav-5.level-top.first
+                %a.level-top{:href => "grid.html"}
+                  %span Women
+                  %span.category-label-hot Hot
+                .level0-wrapper.dropdown-6col{:style => "display: none; left: 0px;"}
+                  .level0-wrapper2
+                    .nav-block.nav-block-center
+                      %ul.level0
+                        %li.level1.nav-6-1.first.parent.item
+                          %a{:href => "grid.html"}
+                            %span Styliest Bag
+                          %ul.level1
+                            %li.level2.nav-6-1-1.first
+                              %a{:href => "grid.html"}
+                                %span Clutch Handbags
+                            %li.level2.nav-6-1-2
+                              %a{:href => "grid.html"}
+                                %span Diaper Bags
+                            %li.level2.nav-6-1-2
+                              %a{:href => "grid.html"}
+                                %span Bags
+                            %li.level2.nav-6-1-3.last
+                              %a{:href => "grid.html"}
+                                %span Hobo Handbags
+                        %li.level1.nav-6-2.parent.item
+                          %a{:href => "grid.html"}
+                            %span Material Bag
+                          %ul.level1
+                            %li.level2.nav-6-2-4.first
+                              %a{:href => "grid.html"}
+                                %span Beaded Handbags
+                            %li.level2.nav-6-2-5
+                              %a{:href => "grid.html"}
+                                %span Fabric Handbags
+                            %li.level2.nav-6-2-5
+                              %a{:href => "grid.html"}
+                                %span Handbags
+                            %li.level2.nav-6-2-6.last
+                              %a{:href => "grid.html"}
+                                %span Leather Handbags
+                        %li.level1.nav-6-3.parent.item
+                          %a{:href => "grid.html"}
+                            %span Designer Bag
+                          %ul.level1
+                            %li.level2.nav-6-3-9.first
+                              %a{:href => "grid.html"}
+                                %span Flat Shoes
+                            %li.level2.nav-6-3-10
+                              %a{:href => "grid.html"}
+                                %span Flat Sandals
+                            %li.level2.nav-6-3-11
+                              %a{:href => "grid.html"}
+                                %span Boots
+                            %li.level2.nav-6-3-12.last
+                              %a{:href => "grid.html"}
+                                %span Heels
+                        %li.level1.nav-6-4.parent.item
+                          %a{:href => "grid.html"}
+                            %span Cotton Bag
+                          %ul.level1
+                            %li.level2.nav-6-4-13.first
+                              %a{:href => "grid.html"}
+                                %span Bracelets
+                            %li.level2.nav-6-4-14
+                              %a{:href => "grid.html"}
+                                %span Necklaces &amp; Pendants
+                            %li.level2.nav-6-4-14
+                              %a{:href => "grid.html"}
+                                %span Pendants
+                            %li.level2.nav-6-4-15.last
+                              %a{:href => "grid.html"}
+                                %span Pins &amp; Brooches
+                        %li.level1.nav-6-5.last.parent.item
+                          %a{:href => "grid.html"}
+                            %span Swimwear
+                          %ul.level1
+                            %li.level2.nav-6-8-28.first
+                              %a{:href => "grid.html"}
+                                %span Swimsuits
+                            %li.level2.nav-6-8-29
+                              %a{:href => "grid.html"}
+                                %span Beach Clothing
+                            %li.level2.nav-6-8-29
+                              %a{:href => "grid.html"}
+                                %span Clothing
+                            %li.level2.nav-6-8-30.last
+                              %a{:href => "grid.html"}
+                                %span Bikinis
+                  .nav-add
+                    .push_item
+                      .push_img
+                        %a{:href => "#"}
+                          %img{:alt => "women_jwellery", :src => "images/women_jwellery.png"}                       .push_text Lorem Ipsum is simply dummy text of the printing
+                    .push_item
+                      .push_img
+                        %a{:href => "#"}
+                          %img{:alt => "women_bag", :src => "images/women_jwellery.png"}                       .push_text Lorem Ipsum is simply dummy text of the printing
+                    .push_item
+                      .push_img
+                        %a{:href => "#"}
+                          %img{:alt => "women_sandle", :src => "images/women_jwellery.png"}                       .push_text Lorem Ipsum is simply dummy text of the printing
+                    .push_item.push_item_last
+                      .push_img
+                        %a{:href => "#"}
+                          %img{:alt => "women_top", :src => "images/women_jwellery.png"}                       .push_text Lorem Ipsum is simply dummy text of the printing
+                    %br.clear
+              %li.level0.nav-7.level-top.parent
+                %a.level-top{:href => "grid.html"}
+                  %span Men
+                .level0-wrapper.dropdown-6col{:style => "display: none; left: 0px;"}
+                  .level0-wrapper2
+                    .nav-block.nav-block-center
+                      %ul.level0
+                        %li.level1.nav-7-1.first.parent.item
+                          %a{:href => "grid.html"}
+                            %span Gents Purses
+                          %ul.level1
+                            %li.level2.nav-7-3-15.first
+                              %a{:href => "grid.html"}
+                                %span Digital Cameras
+                            %li.level2.nav-7-3-16
+                              %a{:href => "grid.html"}
+                                %span Camcorders
+                            %li.level2.nav-7-3-17
+                              %a{:href => "grid.html"}
+                                %span Lenses
+                            %li.level2.nav-7-3-18
+                              %a{:href => "grid.html"}
+                                %span Filters
+                            %li.level2.nav-7-3-19.last
+                              %a{:href => "grid.html"}
+                                %span Tripods
+                        %li.level1.nav-7-3.parent.item
+                          %a{:href => "grid.html"}
+                            %span Gents Purses
+                          %ul.level1
+                            %li.level2.nav-7-3-15.first
+                              %a{:href => "grid.html"}
+                                %span Digital Cameras
+                            %li.level2.nav-7-3-16
+                              %a{:href => "grid.html"}
+                                %span Camcorders
+                            %li.level2.nav-7-3-17
+                              %a{:href => "grid.html"}
+                                %span Lenses
+                            %li.level2.nav-7-3-18
+                              %a{:href => "grid.html"}
+                                %span Filters
+                            %li.level2.nav-7-3-19.last
+                              %a{:href => "grid.html"}
+                                %span Tripods
+                        %li.level1.nav-7-3.parent.item
+                          %a{:href => "grid.html"}
+                            %span Gents Purses
+                          %ul.level1
+                            %li.level2.nav-7-3-15.first
+                              %a{:href => "grid.html"}
+                                %span Digital Cameras
+                            %li.level2.nav-7-3-16
+                              %a{:href => "grid.html"}
+                                %span Camcorders
+                            %li.level2.nav-7-3-17
+                              %a{:href => "grid.html"}
+                                %span Lenses
+                            %li.level2.nav-7-3-18
+                              %a{:href => "grid.html"}
+                                %span Filters
+                            %li.level2.nav-7-3-19.last
+                              %a{:href => "grid.html"}
+                                %span Tripods
+                        %li.level1.nav-7-4.parent.item
+                          %a{:href => "grid.html"}
+                            %span Gifts
+                          %ul.level1
+                            %li.level2.nav-7-2-8.first
+                              %a{:href => "grid.html"}
+                                %span Headsets
+                            %li.level2.nav-7-2-9
+                              %a{:href => "grid.html"}
+                                %span Batteries
+                            %li.level2.nav-7-2-10
+                              %a{:href => "grid.html"}
+                                %span Screen Protectors
+                            %li.level2.nav-7-2-11
+                              %a{:href => "grid.html"}
+                                %span Memory Cards
+                            %li.level2.nav-7-2-14.last
+                              %a{:href => "grid.html"}
+                                %span Cases
+                        %li.level1.nav-7-4.last.parent.item
+                          %a{:href => "grid.html"}
+                            %span Accessories
+                          %ul.level1
+                            %li.level2.nav-7-2-8.first
+                              %a{:href => "grid.html"}
+                                %span Headsets
+                            %li.level2.nav-7-2-9
+                              %a{:href => "grid.html"}
+                                %span Batteries
+                            %li.level2.nav-7-2-10
+                              %a{:href => "grid.html"}
+                                %span Screen Protectors
+                            %li.level2.nav-7-2-11
+                              %a{:href => "grid.html"}
+                                %span Memory Cards
+                            %li.level2.nav-7-2-14.last
+                              %a{:href => "grid.html"}
+                                %span Cases
+              %li.level0.nav-6.level-top.parent
+                %a.level-top{:href => "grid.html"}
+                  %span Electronics
+                  %span.category-label New
+                .level0-wrapper.dropdown-6col{:style => "display: none; left: 0px;"}
+                  .level0-wrapper2
+                    .nav-block.nav-block-center.grid13-8.itemgrid.itemgrid-4col
+                      %ul.level0
+                        %li.level1.nav-6-3.parent.item
+                          %a{:href => "grid.html"}
+                            %span Shoes
+                          %ul.level1
+                            %li.level2.nav-6-3-9.first
+                              %a{:href => "grid.html"}
+                                %span Flat Shoes
+                            %li.level2.nav-6-3-10
+                              %a{:href => "grid.html"}
+                                %span Flat Sandals
+                            %li.level2.nav-6-3-11
+                              %a{:href => "grid.html"}
+                                %span Boots
+                            %li.level2.nav-6-3-11
+                              %a{:href => "grid.html"}
+                                %span Boots
+                            %li.level2.nav-6-3-12.last
+                              %a{:href => "grid.html"}
+                                %span Heels
+                        %li.level1.nav-6-4.parent.item
+                          %a{:href => "grid.html"}
+                            %span Jewelry
+                          %ul.level1
+                            %li.level2.nav-6-4-13.first
+                              %a{:href => "grid.html"}
+                                %span Bracelets
+                            %li.level2.nav-6-4-14
+                              %a{:href => "grid.html"}
+                                %span Necklaces &amp; Pendants
+                            %li.level2.nav-6-4-14
+                              %a{:href => "grid.html"}
+                                %span Necklaces
+                            %li.level2.nav-6-4-14
+                              %a{:href => "grid.html"}
+                                %span Pendants
+                            %li.level2.nav-6-4-15.last
+                              %a{:href => "grid.html"}
+                                %span Pins &amp; Brooches
+                        %li.level1.nav-6-5.parent.item
+                          %a{:href => "grid.html"}
+                            %span Dresses
+                          %ul.level1
+                            %li.level2.nav-6-5-16.first
+                              %a{:href => "grid.html"}
+                                %span Casual Dresses
+                            %li.level2.nav-6-5-17
+                              %a{:href => "grid.html"}
+                                %span Evening
+                            %li.level2.nav-6-5-18
+                              %a{:href => "grid.html"}
+                                %span Designer
+                            %li.level2.nav-6-5-18
+                              %a{:href => "grid.html"}
+                                %span Designer
+                            %li.level2.nav-6-5-19.last
+                              %a{:href => "grid.html"}
+                                %span Party
+                        %li.level1.nav-6-6.last.parent.item
+                          %a{:href => "grid.html"}
+                            %span Jackets
+                          %ul.level1
+                            %li.level2.nav-6-7-24.first
+                              %a{:href => "grid.html"}
+                                %span Coats
+                            %li.level2.nav-6-7-25
+                              %a{:href => "grid.html"}
+                                %span Jackets
+                            %li.level2.nav-6-7-26
+                              %a{:href => "grid.html"}
+                                %span Leather Jackets
+                            %li.level2.nav-6-7-26
+                              %a{:href => "grid.html"}
+                                %span Leather Jackets
+                            %li.level2.nav-6-7-27.last
+                              %a{:href => "grid.html"}
+                                %span Blazers
+                    .nav-block.nav-block-right.std.grid12-3
+                      %a.product-image{:href => "#", :title => "Stablished fact reader"}
+                        %img{:alt => "Product image", :src => "products-images/product1.jpg", :width => "150"}/
+                      .item-title
+                        %a{:href => "#", :title => "Ut tincidunt tortor"} Sample Product
+                      .price-box
+                        %span.regular-price
+                          %span.price $125.00
+              %li.level0.nav-7.level-top.parent
+                %a.level-top{:href => "grid.html"}
+                  %span Furniture
+                .level0-wrapper.dropdown-6col{:style => "left: 0pt; display: none;"}
+                  .level0-wrapper2
+                    .nav-block.nav-block-center.grid12-8.itemgrid.itemgrid-4col
+                      %ul.level0
+                        %li.level1.nav-7-1.first.parent.item
+                          %a{:href => "grid.html"}
+                            %span Smartphones
+                          %ul.level1
+                            %li.level2.nav-7-1-1.first
+                              %a{:href => "grid.html"}
+                                %span Samsung
+                            %li.level2.nav-7-1-2
+                              %a{:href => "grid.html"}
+                                %span Apple
+                            %li.level2.nav-7-1-4
+                              %a{:href => "grid.html"}
+                                %span BlackBerry
+                            %li.level2.nav-7-1-6
+                              %a{:href => "grid.html"}
+                                %span Nokia
+                            %li.level2.nav-7-1-7.last
+                              %a{:href => "grid.html"}
+                                %span HTC
+                        %li.level1.nav-7-3.parent.item
+                          %a{:href => "grid.html"}
+                            %span Cameras
+                          %ul.level1
+                            %li.level2.nav-7-3-15.first
+                              %a{:href => "grid.html"}
+                                %span Digital Cameras
+                            %li.level2.nav-7-3-16
+                              %a{:href => "grid.html"}
+                                %span Camcorders
+                            %li.level2.nav-7-3-17
+                              %a{:href => "grid.html"}
+                                %span Lenses
+                            %li.level2.nav-7-3-18
+                              %a{:href => "grid.html"}
+                                %span Filters
+                            %li.level2.nav-7-3-19.last
+                              %a{:href => "grid.html"}
+                                %span Tripods
+                        %li.level1.nav-7-4.last.parent.item
+                          %a{:href => "grid.html"}
+                            %span Accessories
+                          %ul.level1
+                            %li.level2.nav-7-2-8.first
+                              %a{:href => "grid.html"}
+                                %span Headsets
+                            %li.level2.nav-7-2-9
+                              %a{:href => "grid.html"}
+                                %span Batteries
+                            %li.level2.nav-7-2-10
+                              %a{:href => "grid.html"}
+                                %span Screen Protectors
+                            %li.level2.nav-7-2-11
+                              %a{:href => "grid.html"}
+                                %span Memory Cards
+                            %li.level2.nav-7-2-14.last
+                              %a{:href => "grid.html"}
+                                %span Cases
+                    .nav-block.nav-block-right.std.grid12-4
+                      %a{:href => "grid.html"}
+                        %img.fade-on-hover{:alt => "furniture", :src => "images/menu_furniture.png"}/
+              %li.level0.nav-8.level-top
+                %a.level-top{:href => "grid.html"}
+                  %span Boys
+              %li.level0.nav-8.level-top
+                %a.level-top{:href => "grid.html"}
+                  %span Girls
+              %li.nav-custom-link.level0.level-top.parent
+                %a.level-top{:href => "#"}
+                  %span Custom
+                .level0-wrapper{:style => "display: none; left: 0px;"}
+                  .header-nav-dropdown-wrapper.clearer
+                    .grid12-5
+                      %h4.heading HTML5 + CSS3
+                      .ccs3-html5-box
+                        %em.icon-html5 &nbsp;
+                        %em.icon-css3 &nbsp;
+                      %p Our designed to deliver almost everything you want to do online without requiring additional plugins.CSS3 has been split into "modules".
+                    .grid12-5
+                      %h4.heading Responsive Design
+                      %a{:href => "#//"}
+                        .icon-custom-reponsive
+                      %p Responsive design is a Web design to provide an optimal navigation with a minimum of resizing, and scrolling across a wide range of devices.
+                    .grid12-5
+                      %h4.heading Google Fonts
+                      %a{:href => "#//"}
+                        .icon-custom-google-font
+                      %p Our font delivery service is built upon a reliable, global network of servers. Our flexible solution provides multiple implementation options.
+                    .grid12-5
+                      %h4.heading Smart Product Grid
+                      %a{:href => "#//"}
+                        .icon-custom-grid
+                      %p Smart Product Grid is uses maximum available width of the screen to display content. It can be displayed on any screen or any devices.
+                    %br
+            #form-search.search-bar
+              %form#search_mini_form{:action => "#", :method => "get"}
+                %input#search.search-bar-input{:name => "search", :placeholder => "Search entire store here...", :type => "text", :value => ""}
+                  %input.search-bar-submit{:type => "submit", :value => ""}
+                    %span.search-icon
+                      %img{:alt => "search-icon", :src => "images/search-icon.png"}/
+      / end nav
+      / breadcrumbs
+      .breadcrumbs
+        .container
+          .row
+            %ul
+              %li.home
+                %a{:href => "index.html", :title => "Go to Home Page"} Home
+                %span &raquo;
+              %li
+                %a{:href => "grid.html", :title => "Go to Home Page"} Women
+                %span &raquo;
+              %li.category13
+                %strong Tops &amp; Tees
+      / End breadcrumbs
+      / Two columns content
+      .main-container.col2-left-layout
+        .main.container
+          .row
+            %section.col-sm-9.col-sm-push-3
+              .col-main
+                .category-title
+                  %h1 Tops &amp; Tees
+                .category-description.std
+                  .slider-items-products
+                    #category-desc-slider.product-flexslider.hidden-buttons
+                      .slider-items.slider-width-col1
+                        / Item
+                        .item
+                          %a{:href => "#x"}
+                            %img{:alt => "women_banner", :src => "images/women_banner.png"}/
+                          .cat-img-title.cat-bg.cat-box
+                            %h2.cat-heading Category Banner
+                            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        / End Item
+                        / Item
+                        .item
+                          %a{:href => "#x"}
+                            %img{:alt => "women_banner", :src => "images/women_banner.png"}/
+                / End Item
+                .category-products
+                  .toolbar
+                    .sorter
+                      .view-mode
+                        %span.button.button-active.button-grid{:title => "Grid"} Grid
+                        %a.button.button-list{:href => "list.html", :title => "List"} List
+                    #sort-by
+                      %label.left Sort By:
+                      %ul
+                        %li
+                          %a{:href => "#"}
+                            Position
+                            %span.right-arrow
+                          %ul
+                            %li
+                              %a{:href => "#"} Name
+                            %li
+                              %a{:href => "#"} Price
+                            %li
+                              %a{:href => "#"} Position
+                      %a.button-asc.left{:href => "#", :title => "Set Descending Direction"}
+                        %span.glyphicon.glyphicon-arrow-up{:style => "color:#999;font-size:11px;"}
+                    .pager
+                      #limiter
+                        %label View:
+                        %ul
+                          %li
+                            %a{:href => "#"}
+                              15
+                              %span.right-arrow
+                            %ul
+                              %li
+                                %a{:href => "#"} 20
+                              %li
+                                %a{:href => "#"} 30
+                              %li
+                                %a{:href => "#"} 35
+                      .pages
+                        %label Page:
+                        %ul.pagination
+                          %li
+                            %a{:href => "#"} &laquo;
+                          %li.active
+                            %a{:href => "#"} 1
+                          %li
+                            %a{:href => "#"} 2
+                          %li
+                            %a{:href => "#"} 3
+                          %li
+                            %a{:href => "#"} &raquo;
+                  %ul.products-grid
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .sale-label.sale-top-left Sale
+                                %img.lazyOwl.product-mainpic{:alt => "Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Retis lapen casen"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %span.regular-price
+                                    %span.price $125.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:80%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .item-img
+                          .product-block
+                            .product-image
+                              %a{:href => "product_detail.html"}
+                                %figure.product-display
+                                  .new-label.new-top-left New
+                                  %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                    %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                             .product-meta
+                              .product-action
+                                %a.addcart{:href => "shopping_cart.html"}
+                                  %i.icon-shopping-cart &nbsp;
+                                  Add to cart
+                                %a.wishlist{:href => "wishlist.html"}
+                                  %i.icon-heart &nbsp;
+                                %a.quickview{:href => "javascript:;"}
+                                  %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Ut tincidunt tortor"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $567.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $456.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:50%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .item-img
+                          .product-block
+                            .product-image
+                              %a{:href => "product_detail.html"}
+                                %figure.product-display
+                                  .sale-label.new-top-right Sale
+                                  %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                    %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                             .product-meta
+                              .product-action
+                                %a.addcart{:href => "shopping_cart.html"}
+                                  %i.icon-shopping-cart &nbsp;
+                                  Add to cart
+                                %a.wishlist{:href => "wishlist.html"}
+                                  %i.icon-heart &nbsp;
+                                %a.quickview{:href => "javascript:;"}
+                                  %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Ut tincidunt tortor"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $567.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $456.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:80%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .new-label.new-top-left New
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Stablished fact reader"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $100.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $90.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:0%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .sale-label.sale-top-left Sale
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Retis lapen casen"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %span.regular-price
+                                    %span.price $125.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:80%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .item-img
+                          .product-block
+                            .product-image
+                              %a{:href => "product_detail.html"}
+                                %figure.product-display
+                                  .new-label.new-top-left New
+                                  %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                    %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                             .product-meta
+                              .product-action
+                                %a.addcart{:href => "shopping_cart.html"}
+                                  %i.icon-shopping-cart &nbsp;
+                                  Add to cart
+                                %a.wishlist{:href => "wishlist.html"}
+                                  %i.icon-heart &nbsp;
+                                %a.quickview{:href => "javascript:;"}
+                                  %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Ut tincidunt tortor"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $567.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $456.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:50%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .item-img
+                          .product-block
+                            .product-image
+                              %a{:href => "product_detail.html"}
+                                %figure.product-display
+                                  .new-label.new-top-left New
+                                  %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                    %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                             .product-meta
+                              .product-action
+                                %a.addcart{:href => "shopping_cart.html"}
+                                  %i.icon-shopping-cart &nbsp;
+                                  Add to cart
+                                %a.wishlist{:href => "wishlist.html"}
+                                  %i.icon-heart &nbsp;
+                                %a.quickview{:href => "javascript:;"}
+                                  %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Ut tincidunt tortor"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $567.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $456.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:80%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .new-label.new-top-left New
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Stablished fact reader"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $100.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $90.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:0%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .new-label.new-top-left New
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Stablished fact reader"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $100.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $90.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:0%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .sale-label.sale-top-left Sale
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Retis lapen casen"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %span.regular-price
+                                    %span.price $125.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:80%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .item-img
+                          .product-block
+                            .product-image
+                              %a{:href => "product_detail.html"}
+                                %figure.product-display
+                                  .new-label.new-top-left New
+                                  %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                    %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                             .product-meta
+                              .product-action
+                                %a.addcart{:href => "shopping_cart.html"}
+                                  %i.icon-shopping-cart &nbsp;
+                                  Add to cart
+                                %a.wishlist{:href => "wishlist.html"}
+                                  %i.icon-heart &nbsp;
+                                %a.quickview{:href => "javascript:;"}
+                                  %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Ut tincidunt tortor"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $567.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $456.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:50%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .item-img
+                          .product-block
+                            .product-image
+                              %a{:href => "product_detail.html"}
+                                %figure.product-display
+                                  .sale-label.new-top-right Sale
+                                  %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                    %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                             .product-meta
+                              .product-action
+                                %a.addcart{:href => "shopping_cart.html"}
+                                  %i.icon-shopping-cart &nbsp;
+                                  Add to cart
+                                %a.wishlist{:href => "wishlist.html"}
+                                  %i.icon-heart &nbsp;
+                                %a.quickview{:href => "javascript:;"}
+                                  %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Ut tincidunt tortor"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $567.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $456.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:80%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .new-label.new-top-left New
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Stablished fact reader"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $100.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $90.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:0%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .sale-label.sale-top-left Sale
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Retis lapen casen"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %span.regular-price
+                                    %span.price $125.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:80%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .item-img
+                          .product-block
+                            .product-image
+                              %a{:href => "product_detail.html"}
+                                %figure.product-display
+                                  .new-label.new-top-left New
+                                  %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                    %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                             .product-meta
+                              .product-action
+                                %a.addcart{:href => "shopping_cart.html"}
+                                  %i.icon-shopping-cart &nbsp;
+                                  Add to cart
+                                %a.wishlist{:href => "wishlist.html"}
+                                  %i.icon-heart &nbsp;
+                                %a.quickview{:href => "javascript:;"}
+                                  %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Ut tincidunt tortor"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $567.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $456.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:50%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .item-img
+                          .product-block
+                            .product-image
+                              %a{:href => "product_detail.html"}
+                                %figure.product-display
+                                  .new-label.new-top-left New
+                                  %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                    %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                             .product-meta
+                              .product-action
+                                %a.addcart{:href => "shopping_cart.html"}
+                                  %i.icon-shopping-cart &nbsp;
+                                  Add to cart
+                                %a.wishlist{:href => "wishlist.html"}
+                                  %i.icon-heart &nbsp;
+                                %a.quickview{:href => "javascript:;"}
+                                  %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Ut tincidunt tortor"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $567.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $456.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:80%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .new-label.new-top-left New
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Stablished fact reader"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $100.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $90.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:0%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+                      .item-inner
+                        .product-block
+                          .product-image
+                            %a{:href => "product_detail.html"}
+                              %figure.product-display
+                                .new-label.new-top-left New
+                                %img.lazyOwl.product-mainpic{:alt => " Sample Product", :src => "products-images/product1.jpg", :style => "display: block;"}
+                                  %img.product-secondpic{:alt => " Sample Product", :src => "products-images/product1.jpg"}                           .product-meta
+                            .product-action
+                              %a.addcart{:href => "shopping_cart.html"}
+                                %i.icon-shopping-cart &nbsp;
+                                Add to cart
+                              %a.wishlist{:href => "wishlist.html"}
+                                %i.icon-heart &nbsp;
+                              %a.quickview{:href => "javascript:;"}
+                                %i.icon-zoom &nbsp;
+                        .item-info
+                          .info-inner
+                            .item-title
+                              %a{:href => "product_detail.html", :title => "Stablished fact reader"} Sample Product
+                            .item-content
+                              .item-price
+                                .price-box
+                                  %p.old-price
+                                    %span.price-label Regular Price:
+                                    %span.price $100.00
+                                  %p.special-price
+                                    %span.price-label Special Price
+                                    %span.price $90.00
+                              .rating
+                                .ratings
+                                  .rating-box
+                                    .rating{:style => "width:0%"}
+                                  %p.rating-links
+                                    %a{:href => "#"} 1 Review(s)
+                                    %span.separator |
+                                    %a{:href => "#"} Add Review
+            %aside.col-left.sidebar.col-sm-3.col-xs-12.col-sm-pull-9.wow.bounceInUp.animated
+              .side-nav-categories
+                .block-title Categories
+                .box-content.box-category
+                  %ul#magicat
+                    %li.level0-.level0.open
+                      %span.magicat-cat
+                        %a{:href => "#fashion.html"}
+                          %span Women
+                      %ul{:style => "display: none;"}
+                        %li.first.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#new-in.html"}
+                              %span New In
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#clothing.html"}
+                                  %span Clothing
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#shoes.html"}
+                                  %span shoes
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#bags.html"}
+                                  %span Bags
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#watches.html"}
+                                  %span Watches
+                        %li.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#formal-wear.html"}
+                              %span formal-wear
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#thorts-and-skirts.html"}
+                                  %span Thorts &amp; Skirts
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#leggings-jeggings.html"}
+                                  %span Leggings &amp; Jeggings
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#caps-scarves-stoles.html"}
+                                  %span Caps,Scarves &amp; stoles
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#socks-stockings.html"}
+                                  %span Socks &amp; Stockings
+                        %li.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#jackets-blazers.html"}
+                              %span jackets-blazers
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#sweaters.html"}
+                                  %span Sweaters
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#sweat-shirts.html"}
+                                  %span Sweat Shirts
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#look-leather.html"}
+                                  %span Look Leather
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#denim.html"}
+                                  %span Denim
+                        %li.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#lingerie-sleepwear.html"}
+                              %span lingerie-sleepwear
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#bridal-lingerie.html"}
+                                  %span Bridal Lingerie
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#babydolls.html"}
+                                  %span Babydolls
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#bustiers.html"}
+                                  %span Bustiers
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#panties.html"}
+                                  %span Panties
+                        %li.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#ethnic-wear.html"}
+                              %span ETHNIC WEAR
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#suits-sets.html"}
+                                  %span Suits Sets
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#dress-material.html"}
+                                  %span Dress Material
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#sweatshirts.html"}
+                                  %span Sweatshirts
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#gloves.html"}
+                                  %span Gloves
+                        %li.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#new-this-week.html"}
+                              %span New This Week
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#new-this-week/clothing.html"}
+                                  %span Clothing
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#new-this-week/footwear.html"}
+                                  %span Footwear
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#new-this-week/accessories.html"}
+                                  %span Accessories
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#new-this-week/sandals.html"}
+                                  %span Sandals
+                        %li.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#shop-by-size.html"}
+                              %span Shop By Size
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#beauty.html"}
+                                  %span Beauty
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#hair-body-care.html"}
+                                  %span Hair &amp; Body-Care
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#brand-stores.html"}
+                                  %span Brand Stores
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#sisley.html"}
+                                  %span Sisley
+                        %li.last.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#girls-apparel.html"}
+                              %span Girls Apparel
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#frocks.html"}
+                                  %span Frocks
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#tops-t-shirts.html"}
+                                  %span Tops &amp; T-shirts
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#bottomwear.html"}
+                                  %span Bottomwear
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#sweaters.html"}
+                                  %span Sweaters
+                    %li.level0-.level0
+                      %span.magicat-cat
+                        %a{:href => "#electronics.html"}
+                          %span Men
+                    %li.level0-.level0.shoes
+                      %span.magicat-cat
+                        %a{:href => "#shoes.html"}
+                          %span Shoes
+                    %li.level0-.level0.watches.open
+                      %span.magicat-cat
+                        %a{:href => "#watches.html"}
+                          %span Watches
+                      %ul{:style => "display: none;"}
+                        %li.first.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#designers.html"}
+                              %span Designers
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#calvin-klein.html"}
+                                  %span Calvin Klein
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#emporio-armani.html"}
+                                  %span Emporio Armani
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#french-connection.html"}
+                                  %span French Connection
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#hush-puppies.html"}
+                                  %span Hush Puppies
+                        %li.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#style.html"}
+                              %span Style
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#alba.html"}
+                                  %span Alba
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#kenneth-cole.html"}
+                                  %span Kenneth Cole
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#morellato.html"}
+                                  %span Morellato
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#timex-premium.html"}
+                                  %span Timex Premium
+                        %li.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#specification.html"}
+                              %span Specification
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#just-cavalli.html"}
+                                  %span Just Cavalli
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#pierre-cardin.html"}
+                                  %span Pierre Cardin
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#rotary.html"}
+                                  %span Rotary
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#silitalia.html"}
+                                  %span Silitalia
+                        %li.last.level1-.level1.open
+                          %span.magicat-cat
+                            %a{:href => "#most-popular-brands.html"}
+                              %span Most Popular Brands
+                          %ul{:style => "display: none;"}
+                            %li.first.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#most-popular-brands/citizen.html"}
+                                  %span Citizen
+                            %li.level2-.level2l
+                              %span.magicat-cat
+                                %a{:href => "#most-popular-brands/diesel.html"}
+                                  %span Diesel
+                            %li.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#most-popular-brands/dkny.html"}
+                                  %span DKNY
+                            %li.last.level2-.level2
+                              %span.magicat-cat
+                                %a{:href => "#most-popular-brands/esprit.html"}
+                                  %span Esprit
+                    %li.level0-.level0.last
+                      %span.magicat-cat
+                        %a{:href => "#furniture.html"}
+                          %span Furniture
+              .block.block-layered-nav
+                .block-title Shop By
+                .block-content
+                  %p.block-subtitle Shopping Options
+                  %dl#narrow-by-list
+                    %dt.odd Price
+                    %dd.odd
+                      %ol
+                        %li
+                          %a{:href => "#"}
+                            %span.price $0.00
+                            \-
+                            %span.price $99.99
+                          (6)
+                        %li
+                          %a{:href => "#"}
+                            %span.price $100.00
+                            and above
+                          (6)
+                    %dt.even Manufacturer
+                    %dd.even
+                      %ol
+                        %li
+                          %a{:href => "#"} TheBrand
+                          (9)
+                        %li
+                          %a{:href => "#"} Company
+                          (4)
+                        %li
+                          %a{:href => "#"} LogoFashion
+                          (1)
+                    %dt.odd Color
+                    %dd.odd
+                      %ol
+                        %li
+                          %a{:href => "#"} Green
+                          (1)
+                        %li
+                          %a{:href => "#"} White
+                          (5)
+                        %li
+                          %a{:href => "#"} Black
+                          (5)
+                        %li
+                          %a{:href => "#"} Gray
+                          (4)
+                        %li
+                          %a{:href => "#"} Dark Gray
+                          (3)
+                        %li
+                          %a{:href => "#"} Blue
+                          (1)
+                    %dt.last.even Size
+                    %dd.last.even
+                      %ol
+                        %li
+                          %a{:href => "#"} S
+                          (6)
+                        %li
+                          %a{:href => "#"} M
+                          (6)
+                        %li
+                          %a{:href => "#"} L
+                          (4)
+                        %li
+                          %a{:href => "#"} XL
+                          (4)
+              .block.block-cart
+                .block-title My Cart
+                .block-content
+                  .summary
+                    %p.amount
+                      There are
+                      %a{:href => "#"} 2 items
+                      in your cart.
+                    %p.subtotal
+                      %span.label Cart Subtotal:
+                      %span.price $27.99
+                  .ajax-checkout
+                    %button.button.button-checkout{:title => "Submit", :type => "submit"}
+                      %span Checkout
+                  %p.block-subtitle Recently added item(s)
+                  %ul
+                    %li.item
+                      %a.product-image{:href => "product_detail.html", :title => "Fisher-Price Bubble Mower"}
+                        %img{:alt => "product-image", :src => "products-images/product1.jpg", :width => "80"}/
+                      .product-details
+                        .access
+                          %a.btn-remove1{:href => "#", :title => "Remove This Item"}
+                            %span.icon
+                            Remove
+                        %p.product-name
+                          %a{:href => "product_detail.html"} Sample Product
+                        %strong 1
+                        x
+                        %span.price $19.99
+                    %li.item.last
+                      %a.product-image{:href => "product_detail.html", :title => "Prince Lionheart Jumbo Toy Hammock"}
+                        %img{:alt => "product-image", :src => "products-images/product1.jpg", :width => "80"}/
+                      .product-details
+                        .access
+                          %a.btn-remove1{:href => "#", :title => "Remove This Item"}
+                            %span.icon
+                            Remove
+                        %p.product-name
+                          %a{:href => "product_detail.html"} Sample Product
+                        %strong 1
+                        x
+                        %span.price $8.00
+              / access clearfix
+              .block.block-subscribe
+                .block-title Newsletter
+                %form#newsletter-validate-detail{:action => "http://www.magikcommerce.com//newsletter/subscriber/new/", :method => "post"}
+                  .block-content
+                    .form-subscribe-header Sign up for our newsletter:
+                    %input#newsletter.input-text.required-entry.validate-email{:name => "email", :placeholder => "Enter your email address", :title => "", :type => "text"}
+                      .actions
+                        %button.button.button-subscribe{:title => "Submit", :type => "submit"}
+                          %span Subscribe
+              .block.block-compare
+                .block-title Compare Products (2)
+                .block-content
+                  %ol#compare-items
+                    %li.item.odd
+                      %input.compare-item-id{:type => "hidden", :value => "2173"}
+                        %a.btn-remove1{:href => "#", :title => "Remove This Item"}
+                        %a.product-name{:href => "#"} Sofa with Box-Edge Polyester Wrapped Cushions
+                    %li.item.last.even
+                      %input.compare-item-id{:type => "hidden", :value => "2174"}
+                        %a.btn-remove1{:href => "#", :title => "Remove This Item"}
+                        %a.product-name{:href => "#"} Sofa with Box-Edge Down-Blend Wrapped Cushions
+                  .ajax-checkout
+                    %button.button.button-compare{:title => "Submit", :type => "submit"}
+                      %span Compare
+                    %button.button.button-clear{:title => "Submit", :type => "submit"}
+                      %span Clear
+              .block.block-list.block-viewed
+                .block-title Recently Viewed
+                .block-content
+                  %ol#recently-viewed-items
+                    %li.item.odd
+                      %p.product-name
+                        %a{:href => "#"} Armchair with Box-Edge Upholstered Arm
+                    %li.item.even
+                      %p.product-name
+                        %a{:href => "#"} Pearce Upholstered Slee pere
+                    %li.item.last.odd
+                      %p.product-name
+                        %a{:href => "#"} Sofa with Box-Edge Down-Blend Wrapped Cushions
+              .block.block-poll
+                .block-title Community Poll
+                %form#pollForm{:action => "#", :method => "post", :onSubmit => "return validatePollAnswerIsSelected();"}
+                  .block-content
+                    %p.block-subtitle What is your favorite Magento feature?
+                    %ul#poll-answers
+                      %li.odd
+                        %input#vote_5.radio.poll_vote{:name => "vote", :type => "radio", :value => "5"}
+                          %span.label
+                            %label{:for => "vote_5"} Layered Navigation
+                      %li.even
+                        %input#vote_6.radio.poll_vote{:name => "vote", :type => "radio", :value => "6"}
+                          %span.label
+                            %label{:for => "vote_6"} Price Rules
+                      %li.odd
+                        %input#vote_7.radio.poll_vote{:name => "vote", :type => "radio", :value => "7"}
+                          %span.label
+                            %label{:for => "vote_7"} Category Management
+                      %li.last.even
+                        %input#vote_8.radio.poll_vote{:name => "vote", :type => "radio", :value => "8"}
+                          %span.label
+                            %label{:for => "vote_8"} Compare Products
+                    .actions
+                      %button.button.button-vote{:title => "Vote", :type => "submit"}
+                        %span Vote
+              .block.block-tags
+                .block-title Popular Tags
+                .block-content
+                  %ul.tags-list
+                    %li
+                      %a{:href => "#tagId/23/", :style => "font-size:98.3333333333%;"} Camera
+                    %li
+                      %a{:href => "#tagId/109/", :style => "font-size:86.6666666667%;"} Hohoho
+                    %li
+                      %a{:href => "#tagId/27/", :style => "font-size:145%;"} SEXY
+                    %li
+                      %a{:href => "#tagId/61/", :style => "font-size:75%;"} Tag
+                    %li
+                      %a{:href => "#tagId/29/", :style => "font-size:110%;"} Test
+                    %li
+                      %a{:href => "#tagId/17/", :style => "font-size:86.6666666667%;"} bones
+                    %li
+                      %a{:href => "#tagId/12/", :style => "font-size:110%;"} cool
+                    %li
+                      %a{:href => "#tagId/184/", :style => "font-size:86.6666666667%;"} cool t-shirt
+                    %li
+                      %a{:href => "#tagId/173/", :style => "font-size:86.6666666667%;"} crap
+                    %li
+                      %a{:href => "#tagId/41/", :style => "font-size:86.6666666667%;"} good
+                    %li
+                      %a{:href => "#tagId/16/", :style => "font-size:86.6666666667%;"} green
+                    %li
+                      %a{:href => "#tagId/5/", :style => "font-size:86.6666666667%;"} hip
+                    %li
+                      %a{:href => "#tagId/51/", :style => "font-size:75%;"} laptop
+                    %li
+                      %a{:href => "#tagId/20/", :style => "font-size:75%;"} mobile
+                    %li
+                      %a{:href => "#tagId/70/", :style => "font-size:75%;"} nice
+                    %li
+                      %a{:href => "#tagId/42/", :style => "font-size:86.6666666667%;"} phone
+                    %li
+                      %a{:href => "#tagId/30/", :style => "font-size:98.3333333333%;"} red
+                    %li
+                      %a{:href => "#tagId/28/", :style => "font-size:86.6666666667%;"} tight
+                    %li
+                      %a{:href => "#tagId/2/", :style => "font-size:75%;"} trendy
+                    %li
+                      %a{:href => "#tagId/4/", :style => "font-size:86.6666666667%;"} young
+                  .actions
+                    %a.view-all{:href => "#"} View All Tags
+              .block.block-banner
+                %a{:href => "#"}
+                  %img{:alt => "block-banner", :src => "images/block-banner.png"}/
+      / End Two columns content
+      / Footer
+      %footer
+        .container
+          .inner
+            .brand-logo
+              .slider-items-products
+                #brand-logo-slider.product-flexslider.hidden-buttons
+                  .slider-items.slider-width-col6
+                    / Item
+                    .item
+                      %a{:href => "#x"}
+                        %img{:alt => "Image", :src => "images/b-logo1.png"}/
+                    / End Item
+                    / Item
+                    .item
+                      %a{:href => "#x"}
+                        %img{:alt => "Image", :src => "images/b-logo2.png"}/
+                    / End Item
+                    / Item
+                    .item
+                      %a{:href => "#x"}
+                        %img{:alt => "Image", :src => "images/b-logo3.png"}/
+                    / End Item
+                    / Item
+                    .item
+                      %a{:href => "#x"}
+                        %img{:alt => "Image", :src => "images/b-logo4.png"}/
+                    / End Item
+                    / Item
+                    .item
+                      %a{:href => "#x"}
+                        %img{:alt => "Image", :src => "images/b-logo5.png"}/
+                    / End Item
+                    / Item
+                    .item
+                      %a{:href => "#x"}
+                        %img{:alt => "Image", :src => "images/b-logo6.png"}/
+                    / End Item
+                    / Item
+                    .item
+                      %a{:href => "#x"}
+                        %img{:alt => "Image", :src => "images/b-logo1.png"}/
+                    / End Item
+                    / Item
+                    .item
+                      %a{:href => "#x"}
+                        %img{:alt => "Image", :src => "images/b-logo4.png"}/
+            / End Item
+            .footer-middle
+              .col-md-3.col-sm-12.col-xs-12
+                .footer-column-1
+                  .footer-logo
+                    %a{:href => "index.html", :title => "Logo"}
+                      %img{:alt => "logo", :src => "images/footer-logo.png"}/
+                  %p Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  .social
+                    %ul.link
+                      %li.fb
+                        %a{:href => "#"}
+                      %li.tw
+                        %a{:href => "#"}
+                      %li.googleplus
+                        %a{:href => "#"}
+                      %li.rss
+                        %a{:href => "#"}
+                      / <li class="pintrest"><a href="#"></a></li>
+                      %li.linkedin
+                        %a{:href => "#"}
+                      %li.youtube
+                        %a{:href => "#"}
+              .col-md-2.col-sm-6.col-xs-12
+                %h4.green Shopping Guide
+                %ul.links
+                  %li.first
+                    %a{:href => "about_us.html", :title => "How to buy"} About us
+                  %li
+                    %a{:href => "faq.html", :title => "FAQs"} FAQs
+                  %li
+                    %a{:href => "#", :title => "Payment"} Payment
+                  %li
+                    %a{:href => "#", :title => "Shipment&lt;/a&gt;"} Shipment
+                  %li
+                    %a{:href => "#", :title => "Where is my order?"} Where is my order?
+                  %li.last
+                    %a{:href => "#", :title => "Return policy"} Return policy
+              .col-md-2.col-sm-6.col-xs-12
+                %h4.yellow Style Advisor
+                %ul.links
+                  %li.first
+                    %a{:href => "login.html", :title => "Your Account"} Your Account
+                  %li
+                    %a{:href => "#", :title => "Information"} Information
+                  %li
+                    %a{:href => "#", :title => "Addresses"} Addresses
+                  %li
+                    %a{:href => "#", :title => "Addresses"} Discount
+                  %li
+                    %a{:href => "#", :title => "Orders History"} Orders History
+                  %li.last
+                    %a{:href => "#", :title => " Additional Information"} Additional Information
+              .col-md-2.col-sm-6.col-xs-12
+                %h4.orange Information
+                %ul.links
+                  %li.first
+                    %a{:href => "sitemap.html", :title => "Site Map"} Site Map
+                  %li
+                    %a{:href => "#/", :title => "Search Terms"} Search Terms
+                  %li
+                    %a{:href => "#", :title => "Advanced Search"} Advanced Search
+                  %li
+                    %a{:href => "contact_us.html", :title => "Contact Us"} Contact Us
+                  %li
+                    %a{:href => "#", :title => "Suppliers"} Suppliers
+                  %li.last
+                    %a.link-rss{:href => "#", :title => "Our stores"} Our stores
+              .col-md-3.col-sm-6.col-xs-12
+                %h4.blue Contact Us
+                .contacts-info
+                  %address
+                    %i.add-icon> &nbsp;
+                    123 Main Street, Anytown,
+                    %br
+                      \&nbsp;CA 12345  USA
+                  .phone-footer
+                    %i.phone-icon &nbsp;
+                    +1 800 123 1234
+                  .email-footer
+                    %i.email-icon &nbsp;
+                    %a{:href => "mailto:support@magikcommerce.com"} support@magikcommerce.com
+            .footer-bottom
+              .col-sm-3.col-xs-12.coppyright &copy; 2015 Magikcommerce. All Rights Reserved.
+              .col-sm-9.col-xs-12.company-links
+                %ul.links
+                  %li
+                    %a{:href => "#", :title => "Magento Themes"} Magento Themes
+                  %li
+                    %a{:href => "#", :title => "Premium Themes"} Premium Themes
+                  %li
+                    %a{:href => "#", :title => "Responsive Themes"} Responsive Themes
+                  %li.last
+                    %a{:href => "#", :title => "Magento Extensions"} Magento Extensions
+    / End Footer
+    .help_slider
+      .text.alignleft Need Help?
+      .icons
+        %a#questionbox-side-phonebutton.show_hide{:href => "javascript:void(0)"}
+          %i.icon-phones &nbsp;
+        %a#questionbox-side-emailbutton.show_hide1{:href => "javascript:void(0)"}
+          %i.icon-email &nbsp;
+    #hideShow.right-side-content{:style => "display: none;"}
+      / Contact Static Block
+      .slider-phone.active
+        %h2 Talk To Us
+        %h3 Available 24/7
+        %p.textcenter
+          Want to speak to someone? We're here 24/7 to answer any questions. Just call!
+          %br
+            %br
+              %span.phone-number +1 800 123 1234
+        %a#hideDiv.slider-close{:href => "javascript:void(0)"}
+      .slider-email.hidden
+        %h2 Let us know how we can help you.
+        %form#form-contact-help_slider{:action => "#", :enctype => "application/x-www-form-urlencoded", :method => "post"}
+          .column.sixty
+            %div
+              %ul
+                %li
+                  %label First Name
+                  %input.required-entry{:name => "FirstName", :type => "text"}
+                    .clearfix
+                %li
+                  %label Last Name
+                  %input.required-entry{:name => "LastName", :type => "text"}
+                    .clearfix
+                %li
+                  %label Email Address
+                  %input.required-entry{:name => "Email", :type => "email"}
+                    .clearfix
+                %li
+                  %label Phone Number
+                  %input{:name => "Phone", :type => "text"}
+                    .clearfix
+          .column.fourty.last
+            .padding
+              %textarea.required-entry{:name => "Contact_Form_Message__c"} How can we help you?
+              .textright
+                %button.button.btn-sent{:title => "Add to Cart", :type => "button"}
+                  %span Send
+        .clearfix
+        %a.slider-close{:href => "#"}
+    #hideShow1{:style => "display: none;"}
+      .right-side-content.hidden1
+        .slider-email.active
+          #messages_product_view
+          #formSuccess{:style => "display:none;"} Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.
+          %form#contactForm1{:method => "post"}
+            .column.sixty
+              %h2 TALK TO US
+              %ul
+                %li
+                  %label
+                    Name
+                    %em.required *
+                  %input#name.input-text.required-entry{:name => "name", :title => "Name", :type => "text", :value => ""}
+                %li
+                  %label
+                    Email
+                    %em.required *
+                  %input#email.input-text.required-entry.validate-email{:name => "email", :title => "Email", :type => "text", :value => ""}
+                %li
+                  %label Telephone
+                  %input#telephone.input-text{:name => "telephone", :title => "Telephone", :type => "text", :value => ""}
+              %p.required * Required Fields
+            / column sixty
+            .column.fourty.last
+              .padding
+                %label
+                  Comment
+                  %em.required *
+                %textarea.required-entry.input-text{:cols => "5", :name => "comment", :rows => "3", :title => "Comment"}
+                .textright
+                  %input{:name => "hideit", :style => "display:none !important;", :type => "text", :value => ""}
+                    %button.button.btn-sent{:title => "Submit", :type => "submit"}
+                      %span Submit
+                    %img#loader{:alt => "loader", :src => "images/mgkloading1.gif", :style => "display:none;"}                 / textright
+          / padding
+          / column fourty last
+          %a#hideDiv1.slider-close{:href => "javascript:void(0)"}
+    / slider-email active
+    / right-side-content hidden1
+    / JavaScript
+    %script{:src => "js/jquery.min.js", :type => "text/javascript"}
+    %script{:src => "js/bootstrap.min.js", :type => "text/javascript"}
+    %script{:src => "js/common.js", :type => "text/javascript"}
+    %script{:src => "js/slider.js", :type => "text/javascript"}
+    %script{:src => "js/owl.carousel.min.js", :type => "text/javascript"}
+    :javascript
+    //
+  jQuery(function() {
+    jQuery(".slideshow").cycle({
+      fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, 			pager: '#home-slides-pager',
+      prev: '#home-slides-prev',
+      next: '#home-slides-next'
+    });
+  });
+    //
+        :javascript
+      new UISearch( document.getElementById( 'form-search' ) );

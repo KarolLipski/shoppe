@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :set_menu
 
+  layout 'amaze'
+
   include SessionsHelper
 
   def set_menu
