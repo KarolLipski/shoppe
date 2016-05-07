@@ -1,5 +1,7 @@
 class MainController < ApplicationController
 
+  layout 'amaze_root'
+
   def index
     @last_added = StoredItem.active.order(created_at: :desc)
                       .take(30).shuffle.first(6)

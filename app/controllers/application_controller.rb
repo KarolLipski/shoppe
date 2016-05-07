@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_menu
 
-  layout 'amaze_root'
+  layout 'amaze'
 
   include SessionsHelper
 
