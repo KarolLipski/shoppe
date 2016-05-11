@@ -5,26 +5,31 @@
         %figure.product-display
           .sale-label.sale-top-left Sale
           -#.new-label.new-top-left New
-          = image_tag('amaze/product1.jpg',class:"lazyOwl product-mainpic", style:"display: block;")
-          = image_tag('amaze/product1.jpg',class:"product-secondpic")
+          = image_tag item.photo.url(:mini) ,class:"lazyOwl product-mainpic", style:"display: block;"
+          = image_tag item.photo.url(:mini) ,class:"product-secondpic"
     .product-meta
       .product-action
         %a.addcart{:href => "shopping_cart.html"}
-          %i.icon-shopping-cart &nbsp;
-          Add to cart
-        %a.wishlist{:href => "wishlist.html"}
-          %i.icon-heart &nbsp;
+          %i.fa.fa-shopping-cart &nbsp;
+          Koszyk
+        -#%a.wishlist{:href => "wishlist.html"}
+        -#  %i.icon-heart &nbsp;
         %a.quickview{:href => "quick_view.html"}
-          %i.icon-zoom &nbsp;
+          %i.fa.fa-search &nbsp;
   .item-info
     .info-inner
       .item-title
-        %a{:href => "product_detail.html", :title => "Retis lapen casen"} Sample Product
+        %a{:href => "product_detail.html", :title => "Retis lapen casen"}
+          = item.name
       .item-content
         .item-price
           .price-box
             %span.regular-price
-              %span.price $125.00
+              %span.price
+                = render_price(item, :sell_price)
+              %span.packing
+                &nbsp;
+                ="(#{item.big_wrap} / #{item.small_wrap})"
         .rating
           .ratings
             .rating-box

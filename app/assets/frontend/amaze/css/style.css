@@ -6635,8 +6635,8 @@ Text Domain: Amaze
 		overflow: hidden;
 		position: relative;
 		display: block;
-		height: 56px;
-		margin-top: -50px;
+		height: 36px;
+		margin-top: -30px;
 	}
 	.product-block .product-action {
 		width: 100%;
@@ -6669,7 +6669,7 @@ Text Domain: Amaze
 	.product-block .product-action a {
 		display: inline-block;
 		text-align: center;
-		line-height: 50px;
+		line-height: 60px;
 		height: 50px;
 		color: #fff;
 		font-size: 13px;

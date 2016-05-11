@@ -575,7 +575,7 @@ a:hover .caption.light3 .heading, a:hover .caption.light3 p {
 	height : 220px;
 	margin : 5px;
 	float : left;
-	padding : 30px 20px 20px;
+	padding-top: 10px;
 	-webkit-box-sizing : border-box;
 	-moz-box-sizing : border-box;
 	box-sizing : border-box;

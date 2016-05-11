@@ -4,25 +4,21 @@
       .best-seller-pro.wow.bounceInUp.animated
         .slider-items-products
           .new_title.center
-            %h2 Best Seller
+            %h2 Nowości
           #best-seller-slider.product-flexslider.hidden-buttons
             .slider-items.slider-width-col4
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
+              - @last_added.each do |item|
+                .item
+                  = render :partial => 'layouts/frontend/amaze/root/item', locals: {item: item}
+      .best-seller-pro.wow.bounceInUp.animated
+        .slider-items-products
+          .new_title.center
+            %h2 Wybrane dla Ciebie
+          #best-seller-slider.product-flexslider.hidden-buttons
+            .slider-items.slider-width-col4
+              - @recommend.each do |item|
+                .item
+                  = render :partial => 'layouts/frontend/amaze/root/item', locals: {item: item}
       / Featured Slider
       .featured-pro
         .slider-items-products
@@ -35,17 +31,6 @@
               %span View All Products
           #featured-slider.product-flexslider.hidden-buttons.col-lg-6
             .slider-items.slider-width-col4
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
-              .item
-                = render :partial => 'stored_items/amaze_item'
+              - @last_added.each do |item|
+                .item
+                  = render :partial => 'layouts/frontend/amaze/root/item', locals: {item: item}
