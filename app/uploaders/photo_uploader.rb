@@ -24,7 +24,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
       return original_filename if original_filename
       super.sub('mini_','')
     end
-    process :resize_to_limit => [200,133]
+    process :resize_and_pad => [260,180]
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
