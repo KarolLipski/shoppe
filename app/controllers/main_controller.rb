@@ -1,6 +1,6 @@
 class MainController < ApplicationController
 
-  layout 'amaze_root'
+  layout 'frontend/amaze/root/index'
 
   def index
     @last_added = StoredItem.active.order(created_at: :desc)

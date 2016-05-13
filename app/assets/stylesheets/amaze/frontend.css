@@ -17,4 +17,8 @@
  *= require amaze/css/owl.theme.css
  *= require amaze/css/style.css
  *= require fancybox/jquery.fancybox
+ *= require carts.scss
+ *= require toastr.scss
+ *= require orders.scss
+ *= require circles.scss
  */

@@ -9,16 +9,7 @@
       / end header
       / Navbar
       = render :partial => 'layouts/frontend/amaze/navbar'
-      / end nav
-      / Slider
-      = render :partial => 'layouts/frontend/amaze/root/slider'
-      / end Slider
-      / end banner section
-      = render :partial => 'layouts/frontend/amaze/root/service_info'
-      / main container
-      = render :partial => 'layouts/frontend/amaze/root/main'
-      / End Featured Slider
-      / End main container
+      = yield
       / Footer
       = render :partial => 'layouts/frontend/amaze/footer'
     / End Footer

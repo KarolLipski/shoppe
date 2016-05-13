@@ -10,9 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require amaze/js/bootstrap.min.js
 //= require amaze/js/common.js
 //= require amaze/js/slider.js
 //= require amaze/js/owl.carousel.min.js

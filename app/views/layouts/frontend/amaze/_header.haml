@@ -3,87 +3,50 @@
     .row
       .col-lg-5.col-sm-4.col-md-5
         / Header Logo
-        %a.logo{:href => "index.html", :title => "Magento Commerce"}
+        = link_to root_path do
           = image_tag('logos/madej.png', width: "85px")
       / End Header Logo
       .col-lg-7.col-sm-8.col-md-7.col-xs-12
         .header-top
-          .welcome-msg.hidden-xs Default welcome msg!
+          .welcome-msg.hidden-xs
+            = welcome_message
           / Header Language
           .dropdown.block-language-wrapper
             %a.block-language.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              = image_tag('amaze/english.png')
-              English
+              = image_tag('amaze/polish.png')
+              Polski
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
               %li{:role => "presentation"}
                 %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
-                  = image_tag('amaze/english.png')
-                  English
-              %li{:role => "presentation"}
-                %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
-                  = image_tag('amaze/english.png')
-                  French
-              %li{:role => "presentation"}
-                %a{:href => "#", :role => "menuitem", :tabindex => "-1"}
-                  = image_tag('amaze/english.png')
-                  German
+                  = image_tag('amaze/polish.png')
+                  Polski
           / End Header Language
           / Header Top Links
           .toplinks
             .links
               .myaccount
-                %a{:href => "login.html", :title => "My Account"}
-                  %span.hidden-xs My Account
+                %a{:href => "#", :title => "My Account"}
+                  %span.hidden-xs Moje konto
               .wishlist
-                %a{:href => "wishlist.html", :title => "My Wishlist"}
-                  %span.hidden-xs Wishlist
-              .demo
-                %a{:href => "blog.html", :title => "Blog"}
-                  %span.hidden-xs Blog
-              / Header Company
-              .dropdown.block-company-wrapper.hidden-xs
-                %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                  Company
-                  %span.caret
-                %ul.dropdown-menu{:role => "menu"}
-                  %li{:role => "presentation"}
-                    %a{:href => "about_us.html", :role => "menuitem", :tabindex => "-1"} About Us
-                  %li{:role => "presentation"}
-                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Customer Service
-                  %li{:role => "presentation"}
-                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Privacy Policy
-                  %li{:role => "presentation"}
-                    %a{:href => "sitemap.html", :role => "menuitem", :tabindex => "-1"} Site Map
-                  %li{:role => "presentation"}
-                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Search Terms
-                  %li{:role => "presentation"}
-                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Advanced Search
-              / End Header Company
+                %a{:href => "#", :title => "My Wishlist"}
+                  %span.hidden-xs Ulubione
               .login
-                %a{:href => "login.html"}
-                  %span.hidden-xs Log In
+                - if logged_in?
+                  = link_to(logout_path) do
+                    %span.hidden-xs Wyloguj
+                - else
+                  = link_to(login_path) do
+                    %span.hidden-xs Logowanie
         / End Header Top Links
         .cart_cur_block
           / Header Currency
-          .dropdown.block-currency-wrapper
-            %a.block-currency.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              USD
-              %span.caret
-            %ul.dropdown-menu{:role => "menu"}
-              %li{:role => "presentation"}
-                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} $ - Dollar
-              %li{:role => "presentation"}
-                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} £ - Pound
-              %li{:role => "presentation"}
-                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} € - Euro
-          / End Header Currency
           / Top Cart
           .top-cart-contain
             .mini-cart
               .basket.dropdown-toggle{"data-hover" => "dropdown", "data-toggle" => "dropdown"}
                 %a{:href => "#"}
-                  %span.hidden-xs shopping cart (3)
+                  %span.hidden-xs Koszyk (3)
               %div
                 .top-cart-content.arrow_box{:style => "display: none;"}
                   .block-subtitle Recently added item(s)

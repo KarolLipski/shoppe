@@ -1,16 +1,38 @@
-- flash.each do |message_type, message|
-  = content_tag(:div, message,  class: "alert alert-#{message_type}")
-
-= form_for :session, url: login_path, :html => {class: 'form-horizontal form-groups-bordered'} do |f|
-  .form-group
-    = f.label :login, class: 'col-sm-3 control-label'
-    .col-sm-5
-      = f.text_field :login, class: 'form-control'
-  .form-group
-    = f.label :password, 'Hasło', class: 'col-sm-3 control-label'
-    .col-sm-5
-      = f.password_field :password, class: 'form-control'
-  .form-group
-    .col-sm-offset-3.col-sm-5
-      = f.submit 'Logowanie', class: 'btn btn-primary'
-
+%section.main-container.col1-layout
+  .main.container
+    .account-login
+      .page-title
+        %h2 Logowanie do Systemu
+      %fieldset.col2-set
+        %legend
+        .col-1.registered-users
+          %strong Zarejestrowany użytkownik
+          .content
+            %p Jeśli posiadasz dane dosępowe, zaloguj się.
+            = form_for :session, url: login_path, :html => {class: 'form-horizontal form-groups-bordered'} do |f|
+              %ul.form-list
+                %li
+                  = f.label :login
+                  %span.required *
+                  %br/
+                  = f.text_field :login, class: 'input-text required-entry'
+                %li
+                  = f.label :password, 'Hasło'
+                  %span.required *
+                  %br/
+                  = f.password_field :password, class: 'input-text required-entry validate-password'
+              %p.required * Wymagane
+              .buttons-set
+                = f.submit 'Logowanie', class: 'send2 button login'
+        .col-2.new-users
+          %strong Nie masz loginu i hasła ?
+          .content
+            %p Oferta produktowa skierowana jest do odbiorców hurtowych.
+            %P Jeśli nie posiadasz loginu i hasła a jesteś zainteresowany współpracą, prosimy o kontakt.
+            %p
+              biuro@madej.com.pl lub tel: +48 22 702 60 00
+    %br/
+    %br/
+    %br/
+    %br/
+    %br/

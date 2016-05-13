@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  layout 'frontend/amaze/root/index'
+
   def new
   end
 
