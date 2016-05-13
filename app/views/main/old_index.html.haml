@@ -1,0 +1,33 @@
+- content_for :slider do
+  = render 'layouts/frontend/slider'
+
+.features_items
+  / features_items
+  %h2.title.text-center Ostatnio dodane
+  - @last_added.each do |item|
+    .col-sm-4
+      = render partial: 'stored_items/item', locals: {item: item}
+
+/ features_items
+.recommended_items
+  / recommended_items
+  %h2.title.text-center Polecane dla Ciebie
+  #recommended-item-carousel.carousel.slide{"data-ride" => "carousel"}
+    .carousel-inner
+      .item.active
+        - @recommend.first(3).each do |item|
+          .col-sm-4
+            = render partial: 'stored_items/item', locals: {item: item}
+      .item
+        - @recommend.drop(3).first(3).each do |item|
+          .col-sm-4
+            = render partial: 'stored_items/item', locals: {item: item}
+      .item
+        - @recommend.drop(6).each do |item|
+          .col-sm-4
+            = render partial: 'stored_items/item', locals: {item: item}
+
+    %a.left.recommended-item-control{"data-slide" => "prev", :href => "#recommended-item-carousel"}
+      %i.fa.fa-angle-left
+    %a.right.recommended-item-control{"data-slide" => "next", :href => "#recommended-item-carousel"}
+      %i.fa.fa-angle-right
