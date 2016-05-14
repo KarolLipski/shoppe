@@ -14,12 +14,12 @@
           Koszyk
         -#%a.wishlist{:href => "wishlist.html"}
         -#  %i.icon-heart &nbsp;
-        %a.quickview{:href => "quick_view.html"}
+        %a.quickview{:href => item.photo.url, class: 'fancy_photo'}
           %i.fa.fa-search &nbsp;
   .item-info
     .info-inner
       .item-title
-        %a{:href => "product_detail.html", :title => "Retis lapen casen"}
+        %span.item_name
           = item.name
       .item-content
         .item-price

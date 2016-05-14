@@ -1,3 +1,9 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.item .item_name {
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+}

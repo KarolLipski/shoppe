@@ -16,6 +16,7 @@
  *= require amaze/css/owl.carousel.css
  *= require amaze/css/owl.theme.css
  *= require amaze/css/style.css
+ *= require items.scss
  *= require fancybox/jquery.fancybox
  *= require carts.scss
  *= require toastr.scss
