@@ -24,7 +24,7 @@
               .add-cart-quantity-level
                 %label
                   Dostępność:
-                %span.circle{"data-value" => circleValue(@item.big_wrap, @item.sell_quantity)}
+                -#%span.circle{"data-value" => circleValue(@item.big_wrap, @item.sell_quantity)}
             .col-sm-7
               .product-information
                 %h4.cart-product-title
@@ -56,4 +56,4 @@
     .modal-footer
       %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Anuluj
 
-= javascript_include_tag "circles.js"
+-#= javascript_include_tag "circles.js"

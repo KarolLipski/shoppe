@@ -9,7 +9,7 @@
           = image_tag item.photo.url(:mini) ,class:"product-secondpic"
     .product-meta
       .product-action
-        %a.addcart{:href => "shopping_cart.html"}
+        = link_to(cart_init_add_path(item_id: item.id), remote: true, class: 'addcart') do
           %i.fa.fa-shopping-cart &nbsp;
           Koszyk
         -#%a.wishlist{:href => "wishlist.html"}
