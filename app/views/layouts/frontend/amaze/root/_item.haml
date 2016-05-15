@@ -30,11 +30,4 @@
               %span.packing
                 &nbsp;
                 ="(#{item.big_wrap} / #{item.small_wrap})"
-        .rating
-          .ratings
-            .rating-box
-              .rating{:style => "width:80%"}
-            %p.rating-links
-              %a{:href => "#"} 1 Review(s)
-              %span.separator |
-              %a{:href => "#"} Add Review
+        = stockValue(item.big_wrap, item.sell_quantity)

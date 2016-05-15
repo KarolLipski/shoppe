@@ -1,11 +1,18 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.title-orange {
-  color: #FFB240;
+.title-cart {
+    font-size: 20px;
+    text-align: left;
+    line-height: 1.2em;
+    padding-bottom: 12px;
+    letter-spacing: -1px;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
 }
 .cart-product-title {
-  color: #59BDFF;
+  margin-bottom: 20px;
+  color: #000;
   font-size: 20px;
 }
 
@@ -24,11 +31,11 @@
   font-size: 20px;
   font-weight: 700;
 }
-.add-cart-price .price {
-  margin-left: 10px;
-  color: #FFB240;
-  font-size: 20px;
-  font-weight: 900;
+.add-cart-price .item-price {
+    margin-left: 10px;
+    font-size: 23px;
+    color: #000;
+    font-weight: bold;
 }
 
 .add-cart-quantity-level {
@@ -42,3 +49,50 @@
   font-size: 16px;
   font-weight: 700;
 }
+
+.product-information .button .btn-cart {
+  background: none repeat scroll 0 0 #f0cc03;
+}
+.modal-add-cart {
+  width:700px;
+}
+
+.product-information span input {
+    border: 1px solid #DEDEDC;
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    height: 33px;
+    outline: medium none;
+    text-align: center;
+    width: 80px;
+}
+
+.product-information span label {
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-right: 5px;
+    font-size: 18px;  
+}
+
+.product-information .btn-cart {
+    background: none repeat scroll 0 0 #f0cc03;
+    border: medium none;
+    color: #fff;
+    float: rigth;
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 10px;
+    margin-top: 0;
+    padding: 11px 20px 12px;
+    text-shadow: none;
+    transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
+}
+
+.product-information .btn-cart:hover {
+    background: #000;
+    text-shadow: none;
+    color: #fff;
+}   

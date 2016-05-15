@@ -1,10 +1,10 @@
-.modal-dialog
+.modal-dialog.modal-add-cart
   .modal-content
     .modal-header
       %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
         %span{"aria-hidden" => "true"}
           ×
-      %h4.modal-title.title-orange
+      %h4.modal-title.title-cart
         Dodaj do koszyka
     .modal-body
       = form_tag(cart_items_path, remote: true, class: 'form-horizontal form-groups-bordered')
@@ -19,26 +19,16 @@
               .add-cart-price
                 %label
                   Cena:
-                %span.price
+                %span.item-price
                   = render_price(@item, :sell_price)
               .add-cart-quantity-level
                 %label
                   Dostępność:
-                -#%span.circle{"data-value" => circleValue(@item.big_wrap, @item.sell_quantity)}
+                = stockValue(@item.big_wrap, @item.sell_quantity)
             .col-sm-7
               .product-information
                 %h4.cart-product-title
                   = @item.name
-                %p
-                  = @item.number
-                %span
-                  %span
-                    = label_tag 'quantity', 'Ilość:'
-                    = text_field_tag 'quantity', @quantity
-                    = hidden_field_tag 'stored_item_id', @item.id
-                    = button_tag  class: 'btn btn-fefault cart' do
-                      Dodaj
-                      %i.fa.fa-shopping-cart
                 %p
                   %b Numer:
                   = @item.number
@@ -51,8 +41,16 @@
                 %p
                   %b EAN:
                   = @item.barcode
-      .row
-        %ul.errors
+                %span
+                  %span
+                    = label_tag 'quantity', 'Ilość:'
+                    = text_field_tag 'quantity', @quantity
+                    = hidden_field_tag 'stored_item_id', @item.id
+                    = button_tag  class: 'button btn-cart' do
+                      Dodaj
+                      %i.fa.fa-shopping-cart
+                %p
+                  %ul.errors
     .modal-footer
       %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Anuluj
 
