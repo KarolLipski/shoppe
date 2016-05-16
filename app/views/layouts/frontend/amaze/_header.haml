@@ -46,49 +46,34 @@
             .mini-cart
               .basket.dropdown-toggle{"data-hover" => "dropdown", "data-toggle" => "dropdown"}
                 %a{:href => "#"}
-                  %span.hidden-xs Koszyk (3)
+                  %span.hidden-xs
+                    = "Koszyk (#{cart_size})"
               %div
                 .top-cart-content.arrow_box{:style => "display: none;"}
-                  .block-subtitle Recently added item(s)
+                  .block-subtitle Ostatnio dodane towary
                   %ul#cart-sidebar.mini-products-list
-                    %li.item.odd
-                      %a.product-image{:href => "product_detail.html", :title => "Skater Dress In Leaf Print"}
-                        = image_tag('amaze/product1.jpg', width: 55)
-                      .product-details
-                        %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
-                        %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
-                        %p.product-name
-                          %a{:href => "product_detail.html"} Sample Product
-                        %strong 1
-                        x
-                        %span.price $20.00
-                    %li.item.even
-                      %a.product-image{:href => "product_detail.html", :title => "Product layout: large content"}
-                        = image_tag('amaze/product1.jpg', width: 55)
-                      .product-details
-                        %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
-                        %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
-                        %p.product-name
-                          %a{:href => "product_detail.html"} Sample Product
-                        %strong 1
-                        x
-                        %span.price $230.00
-                    %li.item.last.odd
-                      %a.product-image{:href => "product_detail.html", :title => "Skater Dress In Leaf Print"}
-                        = image_tag('amaze/product1.jpg', width: 55)
-                      .product-details
-                        %a.btn-remove1{:href => "#", :onClick => "", :title => "Remove This Item"} Remove This Item
-                        %a.btn-edit{:href => "#", :title => "Edit item"} Edit item
-                        %p.product-name
-                          %a{:href => "product_detail.html"} Sample Product
-                        %strong 2
-                        x
-                        %span.price $420.00
+                    - unless current_cart.nil?
+                      - current_cart.last_added(5).each do |cart_item|
+                        - item = cart_item.stored_item.item
+                        %li.item.odd
+                          %a.product-image
+                            = image_tag(item.photo.url(:mini), width: 55)
+                          .product-details
+                            %a.btn-remove1{:href => "#", :onClick => "", :title => "Usuń"} Usuń This Item
+                            %a.btn-edit{:href => "#", :title => "Edycja"} Edycja
+                            %p.product-name
+                              %a
+                                = item.name
+                            %strong
+                              = cart_item.quantity
+                            x
+                            %span.price
+                              = cart_item.stored_item.sell_price
+
                   .top-subtotal
-                    Subtotal:
-                    %span.price $520.00
+                    Razem:
+                    %span.price
+                      = cart_value
                   .actions
-                    %button.btn-checkout{:type => "button"}
-                      %span Checkout
                     %button.view-cart{:type => "button"}
-                      %span View Cart
+                      %span Zobacz całość

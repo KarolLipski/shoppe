@@ -24,4 +24,8 @@ class Cart < ActiveRecord::Base
     cart_items.delete_all
     update(price_sum: 0)
   end
+
+  def last_added(limit)
+    cart_items.order(created_at: :desc).take(limit)
+  end
 end
