@@ -55,12 +55,12 @@
                     - unless current_cart.nil?
                       - current_cart.last_added(5).each do |cart_item|
                         - item = cart_item.stored_item.item
-                        %li.item.odd
+                        %li.item{class: cycle('even', 'odd')}
                           %a.product-image
                             = image_tag(item.photo.url(:mini), width: 55)
                           .product-details
-                            %a.btn-remove1{:href => "#", :onClick => "", :title => "Usuń"} Usuń This Item
-                            %a.btn-edit{:href => "#", :title => "Edycja"} Edycja
+                            -#%a.btn-remove1{:href => "#", :onClick => "", :title => "Usuń"} Usuń This Item
+                            -#%a.btn-edit{:href => "#", :title => "Edycja"} Edycja
                             %p.product-name
                               %a
                                 = item.name

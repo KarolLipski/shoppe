@@ -1,3 +1,24 @@
+function update_cart_count(size) {
+  $('.basket.dropdown-toggle a span.hidden-xs').text('Koszyk ('+size+')');
+}
+
+function update_catr_value(value) {
+  $('.top-subtotal .price').text(value)
+}
+function add_to_first(name, image_path, price, quantity) {
+  $('.top-cart-content ul li:eq(0)').before('<li class="even item"><a class="product-image"><img width="55" src="'+ image_path +'"></a><div class="product-details"><p class="product-name"><a>'+ name +' </a> </p> <strong>'+quantity+'</strong>x <span class="price">'+price+' </span> </div> </li>');
+}
+ function add_item_to_preview(name, image_path, price, quantity) {
+   var list_size = $('.top-cart-content ul li').length;
+   if(list_size == 5) {
+     $('.top-cart-content ul li:last').remove();
+       add_to_first(name, image_path, price, quantity);
+   }
+   else {
+     add_to_first(name, image_path, price, quantity);
+   }
+ }
+
 $("ul.errors").html("")
 <% if @errors.present? %>
     <% @errors.each do |e| %>
@@ -5,10 +26,13 @@ $("ul.errors").html("")
     <% end %>
 <% else %>
     $("#my-modal").modal("hide")
-    $("#cart-items-count").text(<%= cart_size %> );
-    $("#login-info-cart-size").text( <%= cart_size %> );
-    $("#login-info-cart-sum").text( <%= current_cart.reload.price_sum %> );
-
+    update_cart_count(<%= cart_size %>);
+    update_catr_value(<%= current_cart.reload.price_sum %>);
+     add_item_to_preview('<%= @cart_item.stored_item.item.name %>',
+       '<%= image_path(@cart_item.stored_item.item.photo.url(:mini)) %>',
+       '<%= @cart_item.stored_item.sell_price %>',
+       '<%= @cart_item.quantity %>'
+       );
     toastr.success('Towar został dodany do koszyka','', {"closeButton": true});
 
 <% end %>
