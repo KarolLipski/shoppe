@@ -32,6 +32,14 @@ class StoredItem < ActiveRecord::Base
   validates_presence_of :item_id , :price
   validates_presence_of :magazine_id, :quantity, if: :check_base
 
+  def self.bestsellers(limit)
+    select('stored_items.* ,COUNT(order_items.stored_item_id) as order_count')
+    .joins('LEFT OUTER JOIN order_items ON order_items.stored_item_id = stored_items.id')
+    .group('stored_items.id')
+    .having('SUM(stored_items.quantity) > 0')
+    .order('order_count desc, SUM(stored_items.quantity) desc').take(limit)
+  end
+
   def check_base
     self.class == StoredItem
   end
