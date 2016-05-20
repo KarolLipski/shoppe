@@ -11,7 +11,7 @@
       = render :partial => 'layouts/frontend/amaze/navbar'
       / end nav
       / breadcrumbs
-      = render :partial => 'layouts/frontend/amaze/breadcrumbs'
+      -#= render :partial => 'layouts/frontend/amaze/breadcrumbs'
       / End breadcrumbs
       / Two columns content
       .main-container.col2-left-layout
@@ -19,112 +19,7 @@
           .row
             %section.col-sm-9.col-sm-push-3
               .col-main
-                .category-title
-                  %h1 Tops &amp; Tees
-                .category-description.std
-                  .slider-items-products
-                    #category-desc-slider.product-flexslider.hidden-buttons
-                      .slider-items.slider-width-col1
-                        / Item
-                        .item
-                          %a{:href => "#x"}
-                            %img{:alt => "women_banner", :src => "images/women_banner.png"}/
-                          .cat-img-title.cat-bg.cat-box
-                            %h2.cat-heading Category Banner
-                            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        / End Item
-                        / Item
-                        .item
-                          %a{:href => "#x"}
-                            %img{:alt => "women_banner", :src => "images/women_banner.png"}/
-                / End Item
-                .category-products
-                  .toolbar
-                    .sorter
-                      .view-mode
-                        %span.button.button-active.button-grid{:title => "Grid"} Grid
-                        %a.button.button-list{:href => "list.html", :title => "List"} List
-                    #sort-by
-                      %label.left Sort By:
-                      %ul
-                        %li
-                          %a{:href => "#"}
-                            Position
-                            %span.right-arrow
-                          %ul
-                            %li
-                              %a{:href => "#"} Name
-                            %li
-                              %a{:href => "#"} Price
-                            %li
-                              %a{:href => "#"} Position
-                      %a.button-asc.left{:href => "#", :title => "Set Descending Direction"}
-                        %span.glyphicon.glyphicon-arrow-up{:style => "color:#999;font-size:11px;"}
-                    .pager
-                      #limiter
-                        %label View:
-                        %ul
-                          %li
-                            %a{:href => "#"}
-                              15
-                              %span.right-arrow
-                            %ul
-                              %li
-                                %a{:href => "#"} 20
-                              %li
-                                %a{:href => "#"} 30
-                              %li
-                                %a{:href => "#"} 35
-                      .pages
-                        %label Page:
-                        %ul.pagination
-                          %li
-                            %a{:href => "#"} &laquo;
-                          %li.active
-                            %a{:href => "#"} 1
-                          %li
-                            %a{:href => "#"} 2
-                          %li
-                            %a{:href => "#"} 3
-                          %li
-                            %a{:href => "#"} &raquo;
-                  %ul.products-grid
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
-                    %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-                      = render :partial => 'stored_items/amaze_item'
+                = yield
             = render :partial => 'layouts/frontend/amaze/left_sidebar'
       / End Two columns content
       / Footer

@@ -1,3 +1,50 @@
-
-= render partial: 'stored_items/items_grid',
-  locals: {items: @items, header_text: category_heading_name(@category)}
+.category-title
+  %h1
+    = @category.name
+  .category-description.std
+    .slider-items-products
+      #category-desc-slider.product-flexslider.hidden-buttons
+        .slider-items.slider-width-col1
+          / Item
+          .item
+            %a{}
+              = image_tag("categories/#{@category.logo}", width: "85px", height: "250px")
+  / End Item
+  .category-products
+    .toolbar
+      .sorter
+        .view-mode
+          %span.button.button-active.button-grid{:title => "Grid"} Grid
+      #sort-by
+        %label.left Sortowanie:
+        %ul
+          %li
+            %a{:href => "#"}
+              Position
+              %span.right-arrow
+            %ul
+              %li
+                %a{:href => "#"} Name
+              %li
+                %a{:href => "#"} Price
+              %li
+                %a{:href => "#"} Position
+      .pager
+        #limiter
+        .pages
+          %label Page:
+          %ul.pagination
+            %li
+              %a{:href => "#"} &laquo;
+            %li.active
+              %a{:href => "#"} 1
+            %li
+              %a{:href => "#"} 2
+            %li
+              %a{:href => "#"} 3
+            %li
+              %a{:href => "#"} &raquo;
+    %ul.products-grid
+      - @items.each do |item|
+        %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
+          = render :partial => 'layouts/frontend/amaze/root/item', locals: {item: item}
