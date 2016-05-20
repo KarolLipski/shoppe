@@ -3,7 +3,9 @@
     .product-image
       %a
         %figure.product-display
-          .sale-label.sale-top-left Sale
+          - if defined? type
+            .sale-label.sale-top-left
+              = type
           -#.new-label.new-top-left New
           = image_tag item.photo.url(:mini) ,class:"lazyOwl product-mainpic", style:"display: block;"
           = image_tag item.photo.url(:mini) ,class:"product-secondpic"

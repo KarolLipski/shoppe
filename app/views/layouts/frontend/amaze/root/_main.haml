@@ -9,7 +9,7 @@
             .slider-items.slider-width-col4
               - @last_added.each do |item|
                 .item
-                  = render :partial => 'layouts/frontend/amaze/root/item', locals: {item: item}
+                  = render :partial => 'layouts/frontend/amaze/root/item', locals: {item: item, type: 'New'}
       .best-seller-pro.wow.bounceInUp.animated
         .slider-items-products
           .new_title.center
