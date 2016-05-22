@@ -1,0 +1,12 @@
+%li.level0-.level0.open
+  %span.magicat-cat
+    %a{}
+      %span
+        = "#{category[:category].name} (#{category[:category].items_count})"
+  %ul{:style => "display: none;"}
+    - category[:subcategories].each do |sub_cat|
+      %li.first.level1-.level1
+        %span.magicat-cat
+          %a{:href => category_items_url(sub_cat)}
+            %span
+              = "#{sub_cat.name} (#{sub_cat.items_count})"
