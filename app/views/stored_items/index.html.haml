@@ -20,15 +20,21 @@
         %ul
           %li
             %a{:href => "#"}
-              Position
+              = sort_label @sort_type
               %span.right-arrow
             %ul
               %li
-                %a{:href => "#"} Name
+                %a{:href => "?sort=created_at&sort_type=DESC"} Data: Najnowsze
               %li
-                %a{:href => "#"} Price
+                %a{:href => "?sort=created_at&sort_type=ASC"} Data: Najstarsze
               %li
-                %a{:href => "#"} Position
+                %a{:href => "?sort=price&sort_type=DESC"} Cena: Największa
+              %li
+                %a{:href => "?sort=price&sort_type=ASC"} Cena: Najmniejsza
+              %li
+                %a{:href => "?sort=quantity&sort_type=DESC"} Ilość: Największa
+              %li
+                %a{:href => "?sort=quantity&sort_type=ASC"} Ilość: Najmniejsza
       .pager
         #limiter
         .pages

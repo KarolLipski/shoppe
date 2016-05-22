@@ -4987,13 +4987,13 @@ Text Domain: Amaze
 		outline: medium none;
 		padding: 5px 10px;
 		position: relative;
-		width: 80px;
+		width: 160px;
 		float: left;
 		color: #333;
 		border: 1px solid #F3F3F3;
 	}
 	#sort-by li li {
-		width: 80px;
+		width: 160px;
 		margin-top: 0px;
 		border-top: none;
 		border-right: none;
