@@ -1,34 +1,35 @@
-.product-image-wrapper
-  .single-products
-    .productinfo.text-center
-      = image_tag item.photo.url(:mini)
-      %h2
-        = render_price(item, :sell_price)
-      %p
-        = item.name
-      = link_to(cart_init_add_path(item_id: item.id), remote: true, class: 'btn btn-default add-to-cart') do
-        Do Koszyka
-        %i.fa.fa-cart-plus
-    .product-overlay
-      .overlay-content
-        %p
-          ID:
-          = item.number
-        %p
-          Pakowanie:
-          = "#{item.big_wrap} / #{item.small_wrap}"
-        %h2
-          = render_price(item, :sell_price)
-        %p
+.item-inner
+  .product-block
+    .product-image
+      %a
+        %figure.product-display
+          - if defined? type
+            .sale-label.sale-top-left
+              = type
+          -#.new-label.new-top-left New
+          = image_tag item.photo.url(:mini) ,class:"lazyOwl product-mainpic", style:"display: block;"
+          = image_tag item.photo.url(:mini) ,class:"product-secondpic"
+    .product-meta
+      .product-action
+        = link_to(cart_init_add_path(item_id: item.id), remote: true, class: 'addcart') do
+          %i.fa.fa-shopping-cart &nbsp;
+          Koszyk
+        -#%a.wishlist{:href => "wishlist.html"}
+        -#  %i.icon-heart &nbsp;
+        %a.quickview{:href => item.photo.url, class: 'fancy_photo'}
+          %i.fa.fa-search &nbsp;
+  .item-info
+    .info-inner
+      .item-title
+        %span.item_name
           = item.name
-        = link_to(cart_init_add_path(item_id: item.id), remote: true, class: 'btn btn-default add-to-cart') do
-          Do Koszyka
-          %i.fa.fa-cart-plus
-  .choose
-    %ul.nav.nav-pills.nav-justified
-      %li
-        %a{:href => item.photo.url, class: 'fancy_photo'}
-          %i.fa.fa-search-plus>
-          Zdjęcie
-      %li.circle{"data-value" => circleValue(item.big_wrap, item.sell_quantity)}
-        Stan
+      .item-content
+        .item-price
+          .price-box
+            %span.regular-price
+              %span.price
+                = render_price(item, :sell_price)
+              %span.packing
+                &nbsp;
+                ="(#{item.big_wrap} / #{item.small_wrap})"
+        = stockValue(item.big_wrap, item.sell_quantity)

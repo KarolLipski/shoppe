@@ -42,7 +42,7 @@
     %ul.products-grid
       - @items.each do |item|
         %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-          = render :partial => 'layouts/frontend/amaze/root/item', locals: {item: item}
+          = render :partial => 'stored_items/item', locals: {item: item}
 .pager
   .pages
     = paginate @items
