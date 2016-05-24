@@ -9,14 +9,14 @@
           %a.level-top{:href => items_main_path}
             %span Kategorie
         %li.level0.nav-8.level-top
-          %a.level-top{:href => "grid.html"}
+          %a.level-top{:href => items_main_path(sort: 'created_at', sort_type: 'DESC')}
             %span Nowości
         %li.level0.nav-8.level-top
           %a.level-top{:href => "grid.html"}
             %span Oferta 32
             %span.category-label Nowość
         %li.nav-custom-link.level0.level-top.parent
-          %a.level-top{:href => "#"}
+          %a.level-top{:href => ''}
             %span Kolekcje
           .level0-wrapper{:style => "display: none; left: 0px;"}
             .header-nav-dropdown-wrapper.clearer
