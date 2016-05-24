@@ -13,4 +13,16 @@ class ApplicationController < ActionController::Base
     @menu = MenuGenerator.new
   end
 
+  # Gets customer ordering
+  def get_sort_type
+    sort, sort_type = 'created_at','DESC'
+    if params[:sort]
+      sort = params[:sort] ? params[:sort] : sort
+      sort_type = params[:sort_type] ? params[:sort_type] : sort_type
+    elsif session[:customer_sort_type]
+      return @sort_type = session[:customer_sort_type]
+    end
+    return session[:customer_sort_type] = @sort_type = "#{sort} #{sort_type}"
+  end
+
 end

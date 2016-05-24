@@ -10,39 +10,7 @@
             %a{}
               = image_tag("categories/#{@category.logo}", width: "85px", height: "250px")
   / End Item
-  .category-products
-    .toolbar
-      .sorter
-        .view-mode
-          %span.button.button-active.button-grid{:title => "Grid"} Grid
-      #sort-by
-        %label.left Sortowanie:
-        %ul
-          %li
-            %a{:href => "#"}
-              = sort_label @sort_type
-              %span.right-arrow
-            %ul
-              %li
-                %a{:href => "?sort=created_at&sort_type=DESC"} Data: Najnowsze
-              %li
-                %a{:href => "?sort=created_at&sort_type=ASC"} Data: Najstarsze
-              %li
-                %a{:href => "?sort=price&sort_type=DESC"} Cena: Największa
-              %li
-                %a{:href => "?sort=price&sort_type=ASC"} Cena: Najmniejsza
-              %li
-                %a{:href => "?sort=quantity&sort_type=DESC"} Ilość: Największa
-              %li
-                %a{:href => "?sort=quantity&sort_type=ASC"} Ilość: Najmniejsza
-      .pager
-        #limiter
-        .pages
-          = paginate @items
-    %ul.products-grid
-      - @items.each do |item|
-        %li.item.col-lg-4.col-md-3.col-sm-4.col-xs-12
-          = render :partial => 'stored_items/item', locals: {item: item}
+  = render :partial => 'stored_items/items_grid'
 .pager
   .pages
     = paginate @items

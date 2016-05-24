@@ -1,0 +1,14 @@
+.category-title
+  %h1
+    Oferta Magazynowa
+  .category-description.std
+    .slider-items-products
+      #category-desc-slider.product-flexslider.hidden-buttons
+        .slider-items.slider-width-col1
+          / Item
+          .item
+  / End Item
+  = render :partial => 'stored_items/items_grid'
+.pager
+  .pages
+    = paginate @items
