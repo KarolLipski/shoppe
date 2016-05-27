@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/items/offer/:offer_id', to: 'offer#index', as: :offer_main
 
   get '/categories/:category_id/items(.:format)', to: 'stored_items#index', as: :category_items
-  get '/categories/:category_id/offers/:offer_id/items(.:format)', to: 'stored_items#index', as: :category_offer_items
+  get '/categories/:category_id/offers/:offer_id/items(.:format)', to: 'offer_items#index', as: :category_offer_items
 
   namespace :admin do
     root to: 'dashboard#main'
