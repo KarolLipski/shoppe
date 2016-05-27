@@ -2,11 +2,11 @@
   %span.magicat-cat
     %a{}
       %span
-        = "#{category[:category].name} (#{category[:category].items_count})"
+        = category_items_name(category[:category], type)
   %ul{:style => "display: none;"}
     - category[:subcategories].each do |sub_cat|
       %li.first.level1-.level1
         %span.magicat-cat
-          %a{:href => category_items_url(sub_cat)}
+          %a{:href => menu_item_url(sub_cat, type, offer)}
             %span
-              = "#{sub_cat.name} (#{sub_cat.items_count})"
+              = category_items_name(sub_cat, type)

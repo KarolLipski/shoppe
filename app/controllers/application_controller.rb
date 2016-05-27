@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def set_menu
-    @menu = MenuGenerator.new
+    @menu = MenuGenerator.new.magazine_categories
   end
 
   # Gets customer ordering

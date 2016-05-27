@@ -1,2 +1,2 @@
 = render :partial => 'stored_items/items_grid', locals: { title: @category.name,
-  image: image_tag("categories/#{@category.logo}", width: "85px", height: "250px")}
+  image: category_logo(@category)}

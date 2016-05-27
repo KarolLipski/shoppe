@@ -1,5 +1,5 @@
 %li.level0-.level0
   %span.magicat-cat
-    %a{:href => category_items_url(category[:category])}
+    %a{:href => menu_item_url(category[:category], type, offer)}
       %span
-        = "#{category[:category].name} (#{category[:category].items_count})"
+        = category_items_name(category[:category], type)

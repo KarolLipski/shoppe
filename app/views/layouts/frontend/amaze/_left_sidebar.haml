@@ -1,13 +1,14 @@
 %aside.col-left.sidebar.col-sm-3.col-xs-12.col-sm-pull-9.wow.bounceInUp.animated
   .side-nav-categories
-    .block-title Kategorie
+    .block-title
+      = @menu[:title]
     .box-content.box-category
       %ul#magicat
-        - @menu.magazine_categories.each do |category|
+        - @menu[:categories].each do |category|
           - if category[:subcategories].empty?
-            = render 'layouts/frontend/menu/node', category: category
+            = render 'layouts/frontend/menu/node', category: category, type: @menu[:type], offer: @menu[:offer]
           - else
-            = render 'layouts/frontend/menu/collapsed_node', category: category
+            = render 'layouts/frontend/menu/collapsed_node', category: category, type: @menu[:type],offer: @menu[:offer]
   .block.block-layered-nav
     .block-title Shop By
     .block-content

@@ -21,6 +21,29 @@ module CategoriesHelper
     return "#{category.name}"
   end
 
+  def category_logo(category)
+    if category.logo
+      return image_tag("categories/#{@category.logo}", width: "85px", height: "250px")
+    end
+    nil
+  end
+
+  def menu_item_url(category, type, offer)
+    if type == :magazine
+      category_items_path(category)
+    else
+      category_offer_items_path(category, offer)
+    end
+  end
+
+  def category_items_name(category, type)
+    if type == :magazine
+      "#{category.name} (#{category.items_count})"
+    else
+      "#{category.name}"
+    end
+  end
+
   def category_items_link(category, type, offer)
     if type == 'mag'
       link_to category.name + " (#{category.items_count})", category_items_path(category)

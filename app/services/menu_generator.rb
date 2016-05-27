@@ -18,7 +18,7 @@ class MenuGenerator
       end
       categories <<  { category: category, subcategories: sub_categories }
     end
-    return categories
+    return {categories: categories, type: :magazine, title: 'Kategorie'}
   end
 
   def offer_categories
@@ -34,7 +34,7 @@ class MenuGenerator
         categories <<  { category: category, subcategories: sub_categories }
       end
     end
-    return categories
+    return {categories: categories, type: :offer, title: @offer.name, offer: @offer}
   end
 
   def offer_ids
