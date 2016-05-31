@@ -1,16 +1,18 @@
-#cart_items
-  = form_for(@order) do |f|
-    .table-responsive.cart_info
-      %table.table.table-condensed
+.cart
+  .page-title
+    %h2 Zawartość Koszyka
+  .table-responive
+    = form_for(@order) do |f|
+      %table.data-table.cart-table
         %thead
-          %tr.cart_menu
-            %td.image Produkt
-            %td.description
-            %td.description Pakowanie
-            %td.price Cena
-            %td.quantity Ilość
-            %td.total Suma
-            %td
+          %tr.first.last
+            %th.image Produkt
+            %th.description
+            %th.description Pakowanie
+            %th.price Cena
+            %th.quantity Ilość
+            %th.total Suma
+            %th
         %tbody
           = f.fields_for :order_items do |order_item|
             - item = order_item.object.stored_item
@@ -21,8 +23,8 @@
                   = image_tag(item.photo.url(:mini), height:66, width:100)
                   %i.fa.fa-search-plus
               %td.cart_description
-                %h4
-                  %a{:href => ""}
+                %h2.product-name
+                  %a{}
                     = item.name
                 %p
                   = item.number
@@ -31,9 +33,11 @@
               %td.cart_description
                 %p
                   = "#{item.big_wrap} / #{item.small_wrap}"
-              %td.cart_price
+              %td
                 = order_item.hidden_field :price
-                %p= render_price(item, :sell_price)
+                %span.cart-price
+                  %span.price
+                    %p= render_price(item, :sell_price)
               %td.cart_quantity
                 = order_item.hidden_field :stored_item_id
                 = order_item.hidden_field :cart_item_id
@@ -41,10 +45,11 @@
                  cart_item_id: cart_item_id )
               %td.cart_total
                 %p.cart_total_price
-                  %span{id: "total_price_#{cart_item_id}"}= "#{order_item.object.total_price} zł"
+                  %span.cart-price
+                    %span{class: 'price', id: "total_price_#{cart_item_id}"}= "#{order_item.object.total_price} zł"
               %td.cart_delete
                 = link_to(cart_item_path(cart_item_id), class: 'cart_quantity_delete', method: :delete,
                 :data => {:confirm => 'Czy napewno usunąć z koszyka?'}, remote: true) do
-                  %i.fa.fa-times
-    .row
-      = f.submit 'Zamów', class: 'btn btn-primary pull-right'
+                  %i.fa.fa-times{style: 'color:red;'}
+      .row
+        = f.submit 'Zamów', class: 'btn btn-primary pull-right'
