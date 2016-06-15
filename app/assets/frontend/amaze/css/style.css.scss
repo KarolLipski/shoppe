@@ -492,7 +492,7 @@ Text Domain: Amaze
 		outline: none;
 	}
 	.searchIconNew {
-		background: url("../images/search-icon.png") no-repeat scroll center center;
+		background: url(asset-path("amaze/search-icon.png")) no-repeat scroll center center;
 		width: 45px;
 		height: 45px;
 		left: 7px;
@@ -873,7 +873,7 @@ Text Domain: Amaze
 		padding: 5px 0;
 	}
 	.btn-remove1 {
-		background-image: url(../images/btn_remove.png);
+		background-image: url(asset-path("amaze/btn_remove.png"));
 		margin: 0px 0 0 18px;
 	}
 	.btn-remove1:hover, .btn-remove1:focus {
@@ -2314,14 +2314,14 @@ Text Domain: Amaze
 		height: 15px;
 		font-size: 0;
 		line-height: 0;
-		background: url(../images/bkg_rating.png) 0 0 repeat-x;
+		background: url(asset-path('amaze/bkg_rating.png')) 0 0 repeat-x;
 		text-indent: -999em;
 		overflow: hidden;
 	}
 	.rating-box .rating {
 		float: left;
 		height: 15px;
-		background: url(../images/bkg_rating.png) 0 100% repeat-x;
+        background: url(asset-path('amaze/bkg_rating.png')) 0 100% repeat-x;
 	}
 	.ratings .rating-box {
 		margin-right: 8px;
@@ -3188,7 +3188,7 @@ Text Domain: Amaze
 		right: 10px;
 		text-decoration: none;
 		width: 50px;
-		background: url(../images/to-top-arrow.png) no-repeat center;
+		background: asset-path('amaze/to-top-arrow.png') no-repeat center;
 		background-color: #222;
 		text-transform: uppercase;
 		z-index: 1000;
@@ -3310,10 +3310,10 @@ Text Domain: Amaze
 		opacity: 0.9;
 	}
 	.box-category .subDropdown.plus {
-		background-image: url("../images/plus.png");
+		background-image: url(asset-path("amaze/plus.png"));
 	}
 	.box-category .subDropdown.minus {
-		background-image: url("../images/minus.png");
+		background-image: url(asset-path("amaze/minus.png"));
 	}
 	.box-category ul li a {
 		display: block;
@@ -3457,7 +3457,7 @@ Text Domain: Amaze
 		width: 30px;
 	}
 	ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
-		background: url("../images/leftNav.png") no-repeat scroll 2px 3px;
+		background: url(asset-path("amaze/leftNav.png")) no-repeat scroll 2px 3px;
 	}
 	.sidebar-left {
 		margin-left: 0;
@@ -3812,7 +3812,7 @@ Text Domain: Amaze
 		color: #FF4C4C;
 	}
 	.btn-remove1 {
-		background-image: url(../images/btn_remove.png);
+		background-image: url(asset-path('amaze/btn_remove.png'));
 		margin: 0px 0 0 18px;
 	}
 	.btn-remove1:hover, .btn-remove1:focus {
@@ -4294,7 +4294,7 @@ Text Domain: Amaze
 		opacity: 0;
 		transition: all 0.3s ease 0s;
 		transform: scale(0.5) rotateY(180deg);
-		background-image: url(../images/plus-img.png);
+		background-image: url(asset-path('amaze/plus-img.png'));
 		background-repeat: no-repeat;
 		background-position: center;
 		background-color: #666;
@@ -5104,7 +5104,7 @@ Text Domain: Amaze
 		visibility: visible;
 	}
 	.toolbar .button-list {
-		background: url(../images/icon_list.png) no-repeat 10px 7px;
+		background: url(asset-path('amaze/icon_list.png')) no-repeat 10px 7px;
 		text-transform: none;
 		padding: 5px 8px 5px 30px;
 		color: #333;
@@ -5113,14 +5113,14 @@ Text Domain: Amaze
 	}
 	.toolbar a.button-grid {
 		border: 1px #f3f3f3 solid;
-		background: url(../images/icon_grid.png) no-repeat 10px 7px;
+		background: url(asset-path('amaze/icon_grid.png')) no-repeat 10px 7px;
 		background-color: #fff;
 		color: #333;
 		padding: 5px 8px 5px 30px;
 		line-height: 20px;
 	}
 	.toolbar span.button-active.button-grid {
-		background: url(../images/icon_grid_act.png) no-repeat 10px 7px;
+		background: url(asset-path('amaze/icon_grid_act.png')) no-repeat 10px 7px;
 		background-color: #f8f8f8;
 		color: #333;
 		padding: 5px 8px 5px 30px;
@@ -5129,7 +5129,7 @@ Text Domain: Amaze
 		line-height: 20px;
 	}
 	.toolbar span.button-active.button-list {
-		background: url(../images/icon_list_act.png) no-repeat 10px 7px;
+		background: url(asset-path('amaze/icon_list_act.png')) no-repeat 10px 7px;
 		background-color: #f8f8f8;
 		color: #333;
 		padding: 5px 8px 5px 30px;
@@ -5488,10 +5488,10 @@ Text Domain: Amaze
 		position: absolute;
 	}
 	.button-up:hover {
-		background: #333 url(../images/icon_arrow_up.png) no-repeat 15px 15px;
+		background: #333 url(asset-path('amaze/icon_arrow_up.png')) no-repeat 15px 15px;
 	}
 	.button-down:hover {
-		background: #333 url(../images/icon_arrow_down.png) no-repeat 15px 15px;
+		background: #333 url(asset-path('amaze/icon_arrow_down.png')) no-repeat 15px 15px;
 	}
 	.button-up, .button-down {
 		height: 44px;
@@ -5520,11 +5520,11 @@ Text Domain: Amaze
 		font-family: 'Open Sans', sans-serif;
 	}
 	.button-up:hover, .button-up:focus {
-		background-image: url(../images/icon_arrow_up.png);
+		background-image: url(asset-path('amaze/icon_arrow_up.png'));
 		background-position: 16px 16px;
 	}
 	.button-down:hover, .button-down:focus {
-		background-image: url(../images/icon_arrow_down.png);
+		background-image: url(asset-path('amaze/icon_arrow_down.png'));
 		background-position: 16px 16px;
 	}
 	.product-view .product-shop button.button.btn-cart:before {
@@ -7250,6 +7250,7 @@ Text Domain: Amaze
 	}
 	.cart .product-name a {
 		font-size: 14px;
+        font-weight: 800;
 	}
 	#shopping-cart-table .data-table td {
 		vertical-align: middle;
@@ -8117,7 +8118,7 @@ Text Domain: Amaze
 		z-index: 8040;
 	}
 	.right-side-content .slider-close {
-		background: url("../images/close-icon.png") no-repeat scroll center top transparent;
+		background: url(asset-path('amaze/close-icon.png')) no-repeat scroll center top transparent;
 	}
 	.right-side-content input {
 		background: #F0F0F0;
@@ -8426,6 +8427,7 @@ Text Domain: Amaze
 	}
 	.data-table input, data-table select, data-table textarea {
 		margin: 3px;
+        text-align: center;
 	}
 	.data-table p {
 		margin: 10px 0;
@@ -8650,7 +8652,7 @@ Text Domain: Amaze
 		z-index: 101;
 	}
 	.newsletter-sign-box {
-		background:url(../images/newsletter-bg.png) no-repeat center;
+		background:url(asset-path('amaze/newsletter-bg.png')) no-repeat center;
 		border-radius: 0;
 		left: 38%;
 		margin: 100px auto;
