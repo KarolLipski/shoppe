@@ -11,10 +11,12 @@
         %li.level0.nav-8.level-top
           %a.level-top{:href => items_main_path(sort: 'created_at', sort_type: 'DESC')}
             %span Nowości
-        %li.level0.nav-8.level-top
-          %a.level-top{:href => offer_main_path(offer_id: 4)}
-            %span Oferta 32
-            %span.category-label Nowość
+        - unless @offer.nil?
+          %li.level0.nav-8.level-top
+            %a.level-top{:href => offer_main_path(offer_id: @offer.id)}
+              %span
+                = @offer.name
+              %span.category-label Nowość
         %li.nav-custom-link.level0.level-top.parent
           %a.level-top{:href => ''}
             %span Kolekcje
