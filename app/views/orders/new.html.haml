@@ -51,5 +51,23 @@
                 = link_to(cart_item_path(cart_item_id), class: 'cart_quantity_delete', method: :delete,
                 :data => {:confirm => 'Czy napewno usunąć z koszyka?'}, remote: true) do
                   %i.fa.fa-times{style: 'color:red;'}
-      .row
-        = f.submit 'Zamów', class: 'btn btn-primary pull-right'
+  .cart-collaterals.row
+    .totals.col-sm-4
+      %h3 Podsumowanie KOszyka
+      .inner
+        %table#shopping-cart-totals-table.table.shopping-cart-table-total
+          %tfoot
+            %tr
+              %td.a-left{:colspan => "1", :style => ""}
+                %strong Suma
+              %td.a-right{:style => ""}
+                %strong
+                  %span.price 
+                    = "#{@cart.price_sum} zł"
+          %tbody
+            %tr
+        %ul.checkout
+          %li
+            = button_tag(type: 'submit', class: 'button button btn-proceed-checkout', onClick: "document.getElementById('new_order').submit();") do
+              %span Wyślij zamówienie
+              

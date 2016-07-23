@@ -75,5 +75,8 @@
                     %span.price
                       = cart_value
                   .actions
-                    %button.view-cart{:type => "button"}
-                      %span Zobacz całość
+                    = link_to new_order_path do
+                      %button.view-cart{:type => "button"}
+                        %span 
+                          Zobacz całość
+                        

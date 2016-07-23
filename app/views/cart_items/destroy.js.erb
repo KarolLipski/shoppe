@@ -6,4 +6,5 @@ toastr.success('Usunięto z koszyka. <br />Wartośc koszyka: '
 $("#cart-items-count").text(<%= @cart_size %> );
 $("#login-info-cart-size").text( <%= @cart_size %> );
 $("#login-info-cart-sum").text(<%= cart_value %>);
+$("#shopping-cart-totals-table span.price").text(<%= cart_value %>+' zł');
 $("#row-cart-id-<%= @cart_item.id %>").remove()

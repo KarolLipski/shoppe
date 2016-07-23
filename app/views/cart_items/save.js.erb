@@ -6,7 +6,13 @@ function update_catr_value(value) {
   $('.top-subtotal .price').text(value)
 }
 function add_to_first(name, image_path, price, quantity) {
-  $('.top-cart-content ul li:eq(0)').before('<li class="even item"><a class="product-image"><img width="55" src="'+ image_path +'"></a><div class="product-details"><p class="product-name"><a>'+ name +' </a> </p> <strong>'+quantity+'</strong>x <span class="price">'+price+' </span> </div> </li>');
+  if( $('.top-cart-content ul li').length != 0 ) {
+    $('.top-cart-content ul li:eq(0)').before('<li class="even item"><a class="product-image"><img width="55" src="'+ image_path +'"></a><div class="product-details"><p class="product-name"><a>'+ name +' </a> </p> <strong>'+quantity+'</strong>x <span class="price">'+price+' </span> </div> </li>');
+  }
+  else {
+    $('.top-cart-content ul').append('<li class="even item"><a class="product-image"><img width="55" src="'+ image_path +'"></a><div class="product-details"><p class="product-name"><a>'+ name +' </a> </p> <strong>'+quantity+'</strong>x <span class="price">'+price+' </span> </div> </li>');
+  }
+  
 }
  function add_item_to_preview(name, image_path, price, quantity) {
    var list_size = $('.top-cart-content ul li').length;
