@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'orders/crete'
-
   root to: 'main#index'
 
   get '/items/main', to: 'items#index', as: :items_main
