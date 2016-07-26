@@ -1,36 +1,56 @@
-#orders
-  .table-responsive.cart_info
-    %table.table.table-condensed
+.cart
+  .page-title
+    %h2
+      = "Zamówienie nr: ##{@order.id}"
+  .table-responive
+    %table.data-table.cart-table
       %thead
-        %tr.order_menu
-          %td Produkt
-          %td
-          %td Pakowanie
-          %td Cena
-          %td Ilość
-          %td Suma
-          %td
+        %tr.first.last
+          %th.image Produkt
+          %th.description
+          %th.description Pakowanie
+          %th.price Cena
+          %th.quantity Ilość
+          %th.total Suma
+          %th
       %tbody
         - @order_items.each do |order_item|
         - item = order_item.stored_item
-          %tr.order_body
-            %td
+          %tr
+            %td.cart_product
               %a{:href => item.photo.url, class: 'fancy_photo'}
                 = image_tag(item.photo.url(:mini), height:66, width:100)
                 %i.fa.fa-search-plus
-            %td
-              = item.name
+            %td.cart_description
+              %h2.product-name
+                %a{}
+                  = item.name
               %p
                 = item.number
-            %td
+            %td.cart_description
               %p
                 = "#{item.big_wrap} / #{item.small_wrap}"
             %td
-              %p= render_price(order_item, :price)
-            %td
+              %span.cart-price
+                %span.price
+                  %p= render_price(order_item, :price)
+            %td.cart_quantity
               %p= order_item.quantity
-            %td
-              %p
-                %span
-                  = "#{order_item.total_price} zł"
-= paginate @order_items
+            %td.cart_total
+              %p.cart_total_price
+                %span.cart-price
+                  %span{class: 'price'}= "#{order_item.total_price} zł"
+  .cart-collaterals.row
+    .totals.col-sm-4
+      %h3 Podsumowanie
+      .inner
+        %table#shopping-cart-totals-table.table.shopping-cart-table-total
+          %tfoot
+            %tr
+              %td.a-left{:colspan => "1", :style => ""}
+                %strong Suma
+              %td.a-right{:style => ""}
+                %strong
+                  %span.price 
+                    = "#{@order.price} zł"
+              
