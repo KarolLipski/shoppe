@@ -1,27 +1,28 @@
-#orders
-  .table-responsive.cart_info
-    %table.table.table-condensed
-      %thead
-        %tr.order_menu
-          %td Numer
-          %td Data
-          %td Ilość Pozycji
-          %td Wartość
-          %td
-          %td
-      %tbody
-        - @orders.each do |order|
-          %tr.order_body
-            %td
-              = order.id
-            %td
-              = render_date(order.created_at)
-            %td
-              = order.order_items.size
-            %td
-              = "#{order.price} zł."
-            %td
-              %a{:href=> order_order_items_path(order_id: order) }
-                %i.fa.fa-search
-                Podgląd
-= paginate @orders
+.my-account
+  .page-title.new_page_title
+    %h2 Moje Zamówienia
+  .dashboard
+    .recent-orders
+      .table-responsive
+        %table#my-orders-table.data-table
+          %thead
+            %tr.first.last
+              %th Numer
+              %th Data
+              %th Ilość pozycji
+              %th
+                %span.nobr Suma
+              %th  
+          %tbody
+            - @orders.each do |order|
+              %tr.first.odd
+                %td= "##{order.id}"
+                %td= render_date(order.created_at)
+                %td= order.order_items.size
+                %td
+                  %span.price= "#{order.price} zł."
+                %td.a-center.last
+                  %span.nobr
+                    %a{:href=> order_order_items_path(order_id: order) } 
+                      Podgląd
+      = paginate @orders
