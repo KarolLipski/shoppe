@@ -40,5 +40,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # BetterErrors on vagrant Vm
-  BetterErrors::Middleware.allow_ip! '10.0.2.2'
+  BetterErrors::Middleware.allow_ip! '192.168.254.1'
 end
