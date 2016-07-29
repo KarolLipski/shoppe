@@ -51,8 +51,8 @@
           %a.level-top{:href => orders_path}
             %span Moje zamowienia
       #form-search.search-bar
-        %form#search_mini_form{:action => "#", :method => "get"}
-          %input#search.search-bar-input{:name => "search", :placeholder => "Search entire store here...", :type => "text", :value => ""}
-            %input.search-bar-submit{:type => "submit", :value => ""}
-              %span.search-icon
-                = image_tag('amaze/search-icon.png')
+        = form_tag search_path, method: 'get' , id: 'search_mini_form' do
+          = text_field_tag :search, nil, id: 'search', class: 'search-bar-input', placeholder: 'Szukaj: Nazwa Numer EAN'
+          = submit_tag '', class: 'search-bar-submit'
+          %span.search-icon
+            = image_tag('amaze/search-icon.png')

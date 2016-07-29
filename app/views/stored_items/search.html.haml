@@ -8,5 +8,5 @@
     %p - Wpisując 17200123456 odszukasz towar o podanym symbolu.
     %p Wyszukiwanie uwzględnia tylko towary które znajdują sie obecnie na stanie magazynowym.
 -else
-  = render partial: 'stored_items/items_grid', locals: {items: @items, header_text: 'Wyniki wyszukiwania'}
+  = render partial: 'stored_items/items_grid', locals: {items: @items, title: 'Wyniki wyszukiwania', image: nil}
 

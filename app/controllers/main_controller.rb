@@ -9,11 +9,4 @@ class MainController < ApplicationController
     @bestsellers = StoredItem.bestsellers(8)
   end
 
-  def search
-      @items = []
-      unless params[:search].blank?
-        @items = StoredItem.search(params[:search]).page(params[:page]).per(42)
-      end
-  end
-
 end

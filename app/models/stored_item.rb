@@ -54,7 +54,7 @@ class StoredItem < ActiveRecord::Base
   # simple search by number or name
   def self.search(query)
     active.where("number LIKE ? or name LIKE ? or barcode LIKE ?",
-          "%#{query}%","%#{query}%", "%#{query}%").order(created_at: :desc)
+          "%#{query}%","%#{query}%", "%#{query}%")
   end
 
   private

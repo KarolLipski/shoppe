@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get '/cart/init_add/:item_id', to: 'carts#init_add', as: :cart_init_add
 
-  get '/search', to: 'main#search', as: :search
+  get '/search', to: 'stored_items#search', as: :search
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
