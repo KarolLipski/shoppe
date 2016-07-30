@@ -34,6 +34,11 @@ class OfferItem < StoredItem
     100000000000
   end
 
+  #After buy we dont remove quantities
+  def pick_form_magazine(quantity)
+
+  end
+
   private
   # Triggers update items_count for category
   def update_category_counter

@@ -57,6 +57,11 @@ class StoredItem < ActiveRecord::Base
           "%#{query}%","%#{query}%", "%#{query}%")
   end
 
+  #removes quantity from magazine
+  def pick_form_magazine(quantity)
+    update_attribute(:quantity, (self.quantity - quantity))
+  end
+
   private
   # Triggers update items_count for category
   def update_category_counter
