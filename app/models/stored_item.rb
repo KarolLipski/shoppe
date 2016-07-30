@@ -58,7 +58,7 @@ class StoredItem < ActiveRecord::Base
   end
 
   #removes quantity from magazine
-  def pick_form_magazine(quantity)
+  def pick_from_magazine(quantity)
     update_attribute(:quantity, (self.quantity - quantity))
   end
 

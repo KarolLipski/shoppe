@@ -35,8 +35,7 @@ class OfferItem < StoredItem
   end
 
   #After buy we dont remove quantities
-  def pick_form_magazine(quantity)
-
+  def pick_from_magazine(quantity)
   end
 
   private
