@@ -11,7 +11,7 @@ class StoredItemsController < ApplicationController
   def search
     @items = []
     unless params[:search].blank?
-      @items = StoredItem.search(params[:search]).order(get_sort_type).page(params[:page]).per(42)
+      @items = StoredItem.search(params[:search]).page(params[:page]).per(42)
     end
   end
 
