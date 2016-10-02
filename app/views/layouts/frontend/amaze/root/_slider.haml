@@ -21,35 +21,45 @@
         .the-slideshow.slideshow-wrapper
           %ul.slideshow{:style => "overflow: hidden;"}
             %li.slide
+              .slide-desc
+                .content
+                  %p.head
+                    Piłki Nożne
+                  %p.description
+                    Już jest nowa dostawa piłek nożnych.Zapraszamy do składania zamówień.Już jest nowa dostawa piłek nożnych.Zapraszamy do składania zamówień.
+                    %span.more
+                      %a{href: '#'}
+                        Zobacz
               %p
                 %a{:href => "#"}
                   = image_tag('slider_images/soccer.jpg',width:670, height:480)
-              .caption.light1.top-right
-                .caption-inner
-                  %p.heading Piłki Nożne
-                  %p.heading1 Już jest nowa dostawa piłek nożnych.Zapraszamy do składania zamówień.
-                  %p.intro-btn
-                    %a{:href => "#", :title => "Click to see all features"} Zobacz
             %li.slide
+              .slide-desc
+                .content
+                  %p.head
+                    Zestawy do gry w badmintona.
+                  %p.description
+                    Już jest nowa dostawa zestawów do badmintona.Zapraszamy do składania zamówień.
+                    %span.more
+                      %a{href: '#'}
+                        Zobacz
               %p
                 %a{:href => "#"}
                   = image_tag('slider_images/badminton.jpg',width:670, height:480)
-              .caption.light1.top-right
-                .caption-inner
-                  %h2.heading Zestawy do gry w badmintona.
-                  %p.heading1 Już jest nowa dostawa zestawów do badmintona.Zapraszamy do składania zamówień.
-                  %p.intro-btn
-                    %a{:href => "#", :title => "Click to see all features"} Zobacz
             %li.slide
+              .slide-desc
+                .content
+                  %p.head
+                    Rowerki Baby Trike
+                  %p.description
+                    Już jest nowa dostawa rowerków Baby Trike.Zapraszamy do składania zamówień.
+                    %span.more
+                      %a{href: '#'}
+                        Zobacz
               %p
                 %a{:href => "#", :title => "#"}
                   = image_tag('slider_images/babytrike.jpg',width:670, height:480)
-              .caption.light1.top-right
-                .caption-inner
-                  %h2.heading Rowerki Baby Trike
-                  %p.heading1 Już jest nowa dostawa rowerków Baby Trike.Zapraszamy do składania zamówień.
-                  %p.intro-btn
-                    %a{:href => "#", :title => "Click to see all features"} Zobacz
+
           %a#home-slides-prev.backward.browse-button{:href => "#"} previous
           %a#home-slides-next.forward.browse-button{:href => "#"} next
           #home-slides-pager.tab-pager.tab-pager-img.tab-pager-ring-lgray

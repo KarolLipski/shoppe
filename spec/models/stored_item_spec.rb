@@ -45,4 +45,12 @@ RSpec.describe StoredItem, type: :model do
     expect(stored3.sell_price).to eq(8)
   end
 
+  context 'active scope' do
+    it 'returns items only with photo'
+    it 'return items with active flag'
+    it 'return items where sum quantity > 0'
+  end
+
+  it 'bestsellers returns most ordered items'
+
 end

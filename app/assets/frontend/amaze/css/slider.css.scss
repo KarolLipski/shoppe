@@ -43,7 +43,7 @@ ul.slideshow {
 	position: absolute;
 	left: -40px;
 	top: 45%;
-	background: url(../images/slideshow-arrows.png) 0 0 no-repeat;
+	background: url(asset-path("amaze/slideshow-arrows.png")) 0 0 no-repeat;
 	width: 50px;
 	height: 50px;
 	display: none;
@@ -55,7 +55,7 @@ ul.slideshow {
 	position: absolute;
 	right: -40px;
 	top: 45%;
-	background: url(../images/slideshow-arrows.png) -50px 0 no-repeat;
+	background: url(asset-path("amaze/slideshow-arrows.png")) -50px 0 no-repeat;
 	width: 50px;
 	height: 50px;
 	display: none;
@@ -72,7 +72,7 @@ ul.slideshow {
 */
 .the-slideshow .tab-pager {
 	position: absolute;
-	bottom: 15px;
+	top: 15px;
 	left: 550px;
 }
 .the-slideshow .slideshow {
@@ -133,15 +133,15 @@ ul.slideshow {
 }
 /* Light gray rounded squares */
 .tab-pager.tab-pager-rounded-lgray a {
-	background: url(../images/tab-pager-rounded-lgray.png) 0 0 no-repeat transparent;
+	background: url(asset-path("amaze/tab-pager-rounded-lgray.png")) 0 0 no-repeat transparent;
 }
 /* Light gray circles */
 .tab-pager.tab-pager-circle-lgray a {
-	background: url(../images/tab-pager-circle-lgray.png) 0 0 no-repeat transparent;
+	background: url(asset-path("amaze/tab-pager-circle-lgray.png")) 0 0 no-repeat transparent;
 }
 /* Light gray rings */
 .tab-pager.tab-pager-ring-lgray a {
-	background: url(../images/tab-pager-ring-lgray.png) 0 0 no-repeat transparent;
+	background: url(asset-path("amaze/tab-pager-ring-lgray.png")) 0 0 no-repeat transparent;
 }
 /* Caption
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -675,4 +675,37 @@ a:hover .caption.light3 .heading, a:hover .caption.light3 p {
     overflow: hidden;
     padding: 0;
 }}
+
+// My overrides
+.slide-desc {
+    background-color:#343434;
+    height:100px;
+    position:absolute;
+    z-index:3;
+    left:0;
+    width:100%;
+    opacity:0.8;
+    bottom:0;
+    filter:alpha(opacity=80);
+  .content {
+    padding-left: 15px;
+    .head {
+      color:white;
+      font-size:22px;
+    }
+    .description {
+      color:white;
+      font-size:13px
+    }
+    .more {
+      a {
+        color: #F0CC03;
+        font-weight: 400;
+        font-size:12px;
+      }
+    }
+  }
+
+
+}
 
