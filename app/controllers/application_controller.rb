@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def set_menu
     @offer = Offer.active
-    @menu = MenuGenerator.new.magazine_categories
+    @menu = Menu::Magazine.new
   end
 
   # Gets customer ordering

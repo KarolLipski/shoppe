@@ -1,7 +1,8 @@
 class OfferItemsController < StoredItemsController
 
   def set_menu
-    @menu = MenuGenerator.new.offer_categories
+    @menu = Menu::Offer.new
+    @offer = Offer.active
   end
 
   # GET /categories/:category_id/items

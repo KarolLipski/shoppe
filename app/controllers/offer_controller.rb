@@ -1,7 +1,7 @@
 class OfferController < ApplicationController
 
   def set_menu
-    @menu = MenuGenerator.new.offer_categories
+    @menu = Menu::Offer.new
   end
 
   def index
