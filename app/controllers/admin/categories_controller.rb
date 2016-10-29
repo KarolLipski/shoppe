@@ -23,10 +23,16 @@ class Admin::CategoriesController < AdminController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to admin_categories_path, notice: 'Category was successfully created.' }
+        format.html {
+          redirect_to admin_categories_path, notice: 'Category was successfully created.'
+          flash[:success] = 'Categoria została dodana'
+        }
         format.json { render :show, status: :created, location: @category }
       else
-        format.html { render :new }
+        format.html {
+          render :new
+          flash[:danger] = 'Błąd'
+        }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
@@ -37,10 +43,16 @@ class Admin::CategoriesController < AdminController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to admin_categories_path, notice: 'Category was successfully updated.' }
+        format.html {
+          redirect_to admin_categories_path, notice: 'Category was successfully updated.'
+          flash[:success] = 'Categoria została zmieniona'
+        }
         format.json { render :show, status: :ok, location: @category }
       else
-        format.html { render :edit }
+        format.html {
+          render :edit
+          flash[:danger] = 'Błąd'
+        }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
