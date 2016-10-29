@@ -4,7 +4,7 @@ class Admin::CategoriesController < AdminController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.main
+    @categories = Category.main.includes(:subcategories)
   end
 
   # GET /categories/new

@@ -32,6 +32,7 @@ gem 'capistrano-rvm'
 gem 'capistrano-passenger'
 
 group :development do
+  gem 'meta_request'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
