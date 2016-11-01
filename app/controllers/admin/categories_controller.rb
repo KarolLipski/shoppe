@@ -4,7 +4,7 @@ class Admin::CategoriesController < AdminController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.main.includes(:subcategories)
+    @categories = Category.main.order(:name).includes(:subcategories)
   end
 
   # GET /categories/new
@@ -24,14 +24,14 @@ class Admin::CategoriesController < AdminController
     respond_to do |format|
       if @category.save
         format.html {
-          redirect_to admin_categories_path, notice: 'Category was successfully created.'
           flash[:success] = 'Categoria została dodana'
+          redirect_to admin_categories_path, notice: 'Category was successfully created.'
         }
         format.json { render :show, status: :created, location: @category }
       else
         format.html {
+          flash.now[:danger] = 'Błąd'
           render :new
-          flash[:danger] = 'Błąd'
         }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
@@ -44,14 +44,14 @@ class Admin::CategoriesController < AdminController
     respond_to do |format|
       if @category.update(category_params)
         format.html {
-          redirect_to admin_categories_path, notice: 'Category was successfully updated.'
           flash[:success] = 'Categoria została zmieniona'
+          redirect_to admin_categories_path, notice: 'Category was successfully updated.'
         }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html {
+          flash.now[:danger] = 'Błąd'
           render :edit
-          flash[:danger] = 'Błąd'
         }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
