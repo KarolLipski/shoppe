@@ -1,5 +1,5 @@
 class Admin::CategoriesController < AdminController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
@@ -27,7 +27,7 @@ class Admin::CategoriesController < AdminController
           flash[:success] = 'Categoria została dodana'
           redirect_to admin_categories_path, notice: 'Category was successfully created.'
         }
-        format.json { render :show, status: :created, location: @category }
+        format.json { render json: @category, status: :created }
       else
         format.html {
           flash.now[:danger] = 'Błąd'
@@ -47,7 +47,7 @@ class Admin::CategoriesController < AdminController
           flash[:success] = 'Categoria została zmieniona'
           redirect_to admin_categories_path, notice: 'Category was successfully updated.'
         }
-        format.json { render :show, status: :ok, location: @category }
+        format.json { render json: @category, status: :ok }
       else
         format.html {
           flash.now[:danger] = 'Błąd'

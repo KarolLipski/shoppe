@@ -1,0 +1,32 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+ @import "font-awesome";
+ @import "neon/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css";
+ @import "neon/css/font-icons/entypo/css/entypo.css";
+ @import "neon/css/bootstrap.css";
+ @import "neon/css/neon-core.css";
+ @import "neon/css/neon-theme.css";
+ @import "neon/css/neon-forms.css";
+ @import "neon/css/custom.css";
+ @import "neon/css/skins/cafe.css";
+ @import "neon/js/jvectormap/jquery-jvectormap-1.2.2.css";
+ @import "neon/js/rickshaw/rickshaw.min.css";
+ @import "neon/js/datatables/responsive/css/datatables.responsive.css";
+ @import "neon/js/select2/select2-bootstrap.css";
+ @import "neon/js/select2/select2.css";
+ @import "admin/categories.scss";
+ @import "errors.scss";
+ @import "dataTables/jquery.dataTables";
+ @import "fancybox/jquery.fancybox";
+
