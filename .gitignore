@@ -41,3 +41,6 @@ config/initializers/carrierwave.rb
 config/deploy/production.rb
 config/deploy/staging.rb
 config/deploy.rb
+
+#bower_components
+vendor/assets/bower_components

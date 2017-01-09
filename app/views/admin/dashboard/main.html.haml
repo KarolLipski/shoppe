@@ -1,415 +1,670 @@
-%hr/
-:javascript
-  jQuery(document).ready(function($) 
-  {
-  	// Sample Toastr Notification
-  	setTimeout(function()
-  	{			
-  		var opts = {
-  			"closeButton": true,
-  			"debug": false,
-  			"positionClass": rtl() || public_vars.$pageContainer.hasClass('right-sidebar') ? "toast-top-left" : "toast-top-right",
-  			"toastClass": "black",
-  			"onclick": null,
-  			"showDuration": "300",
-  			"hideDuration": "1000",
-  			"timeOut": "5000",
-  			"extendedTimeOut": "1000",
-  			"showEasing": "swing",
-  			"hideEasing": "linear",
-  			"showMethod": "fadeIn",
-  			"hideMethod": "fadeOut"
-  		};
-  
-  		toastr.success("You have been awarded with 1 year free subscription. Enjoy it!", "Account Subcription Updated", opts);
-  	}, 3000);
-  	
-  	
-  	// Sparkline Charts
-  	$('.inlinebar').sparkline('html', {type: 'bar', barColor: '#ff6264'} );
-  	$('.inlinebar-2').sparkline('html', {type: 'bar', barColor: '#445982'} );
-  	$('.inlinebar-3').sparkline('html', {type: 'bar', barColor: '#00b19d'} );
-  	$('.bar').sparkline([ [1,4], [2, 3], [3, 2], [4, 1] ], { type: 'bar' });
-  	$('.pie').sparkline('html', {type: 'pie',borderWidth: 0, sliceColors: ['#3d4554', '#ee4749','#00b19d']});
-  	$('.linechart').sparkline();
-  	$('.pageviews').sparkline('html', {type: 'bar', height: '30px', barColor: '#ff6264'} );
-  	$('.uniquevisitors').sparkline('html', {type: 'bar', height: '30px', barColor: '#00b19d'} );
-  	
-  	
-  	$(".monthly-sales").sparkline([1,2,3,5,6,7,2,3,3,4,3,5,7,2,4,3,5,4,5,6,3,2], {
-  		type: 'bar',
-  		barColor: '#485671',
-  		height: '80px',
-  		barWidth: 10,
-  		barSpacing: 2
-  	});	
-  	
-  	
-  	// JVector Maps
-  	var map = $("#map");
-  	
-  	map.vectorMap({
-  		map: 'europe_merc_en',
-  		zoomMin: '3',
-  		backgroundColor: '#383f47',
-  		focusOn: { x: 0.5, y: 0.8, scale: 3 }
-  	});		
-  	
-  			
-  	
-  	// Line Charts
-  	var line_chart_demo = $("#line-chart-demo");
-  	
-  	var line_chart = Morris.Line({
-  		element: 'line-chart-demo',
-  		data: [
-  			{ y: '2006', a: 100, b: 90 },
-  			{ y: '2007', a: 75,  b: 65 },
-  			{ y: '2008', a: 50,  b: 40 },
-  			{ y: '2009', a: 75,  b: 65 },
-  			{ y: '2010', a: 50,  b: 40 },
-  			{ y: '2011', a: 75,  b: 65 },
-  			{ y: '2012', a: 100, b: 90 }
-  		],
-  		xkey: 'y',
-  		ykeys: ['a', 'b'],
-  		labels: ['October 2013', 'November 2013'],
-  		redraw: true
-  	});
-  	
-  	line_chart_demo.parent().attr('style', '');
-  	
-  	
-  	// Donut Chart
-  	var donut_chart_demo = $("#donut-chart-demo");
-  	
-  	donut_chart_demo.parent().show();
-  	
-  	var donut_chart = Morris.Donut({
-  		element: 'donut-chart-demo',
-  		data: [
-  			{label: "Download Sales", value: getRandomInt(10,50)},
-  			{label: "In-Store Sales", value: getRandomInt(10,50)},
-  			{label: "Mail-Order Sales", value: getRandomInt(10,50)}
-  		],
-  		colors: ['#707f9b', '#455064', '#242d3c']
-  	});
-  	
-  	donut_chart_demo.parent().attr('style', '');
-  	
-  	
-  	// Area Chart
-  	var area_chart_demo = $("#area-chart-demo");
-  	
-  	area_chart_demo.parent().show();
-  	
-  	var area_chart = Morris.Area({
-  		element: 'area-chart-demo',
-  		data: [
-  			{ y: '2006', a: 100, b: 90 },
-  			{ y: '2007', a: 75,  b: 65 },
-  			{ y: '2008', a: 50,  b: 40 },
-  			{ y: '2009', a: 75,  b: 65 },
-  			{ y: '2010', a: 50,  b: 40 },
-  			{ y: '2011', a: 75,  b: 65 },
-  			{ y: '2012', a: 100, b: 90 }
-  		],
-  		xkey: 'y',
-  		ykeys: ['a', 'b'],
-  		labels: ['Series A', 'Series B'],
-  		lineColors: ['#303641', '#576277']
-  	});
-  	
-  	area_chart_demo.parent().attr('style', '');
-  	
-  	
-  	
-  	
-  	// Rickshaw
-  	var seriesData = [ [], [] ];
-  	
-  	var random = new Rickshaw.Fixtures.RandomData(50);
-  	
-  	for (var i = 0; i < 50; i++) 
-  	{
-  		random.addData(seriesData);
-  	}
-  	
-  	var graph = new Rickshaw.Graph( {
-  		element: document.getElementById("rickshaw-chart-demo"),
-  		height: 193,
-  		renderer: 'area',
-  		stroke: false,
-  		preserve: true,
-  		series: [{
-  				color: '#73c8ff',
-  				data: seriesData[0],
-  				name: 'Upload'
-  			}, {
-  				color: '#e0f2ff',
-  				data: seriesData[1],
-  				name: 'Download'
-  			}
-  		]
-  	} );
-  	
-  	graph.render();
-  	
-  	var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-  		graph: graph,
-  		xFormatter: function(x) {
-  			return new Date(x * 1000).toString();
-  		}
-  	} );
-  	
-  	var legend = new Rickshaw.Graph.Legend( {
-  		graph: graph,
-  		element: document.getElementById('rickshaw-legend')
-  	} );
-  	
-  	var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
-  		graph: graph,
-  		legend: legend
-  	} );
-  	
-  	setInterval( function() {
-  		random.removeData(seriesData);
-  		random.addData(seriesData);
-  		graph.update();
-  	
-  	}, 500 );
-  });
-  
-  
-  function getRandomInt(min, max) 
-  {
-  	return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-.row
-  .col-sm-3
-    .tile-stats.tile-red
-      .icon
-        %i.entypo-users
-      .num{"data-delay" => "0", "data-duration" => "1500", "data-end" => "83", "data-postfix" => "", "data-start" => "0"} 0
-      %h3 Registered users
-      %p so far in our blog, and our website.
-  .col-sm-3
-    .tile-stats.tile-green
-      .icon
-        %i.entypo-chart-bar
-      .num{"data-delay" => "600", "data-duration" => "1500", "data-end" => "135", "data-postfix" => "", "data-start" => "0"} 0
-      %h3 Daily Visitors
-      %p this is the average value.
-  .col-sm-3
-    .tile-stats.tile-aqua
-      .icon
-        %i.entypo-mail
-      .num{"data-delay" => "1200", "data-duration" => "1500", "data-end" => "23", "data-postfix" => "", "data-start" => "0"} 0
-      %h3 New Messages
-      %p messages per day.
-  .col-sm-3
-    .tile-stats.tile-blue
-      .icon
-        %i.entypo-rss
-      .num{"data-delay" => "1800", "data-duration" => "1500", "data-end" => "52", "data-postfix" => "", "data-start" => "0"} 0
-      %h3 Subscribers
-      %p on our site right now.
-%br/
-.row
-  .col-sm-8
-    #charts_env.panel.panel-primary
-      .panel-heading
-        .panel-title Site Stats
-        .panel-options
-          %ul.nav.nav-tabs
+%div
+  .row.top_tiles
+    .animated.flipInY.col-lg-3.col-md-3.col-sm-6.col-xs-12
+      .tile-stats
+        .icon
+          %i.fa.fa-caret-square-o-right
+        .count 179
+        %h3 New Sign ups
+        %p Lorem ipsum psdea itgum rixt.
+    .animated.flipInY.col-lg-3.col-md-3.col-sm-6.col-xs-12
+      .tile-stats
+        .icon
+          %i.fa.fa-comments-o
+        .count 179
+        %h3 New Sign ups
+        %p Lorem ipsum psdea itgum rixt.
+    .animated.flipInY.col-lg-3.col-md-3.col-sm-6.col-xs-12
+      .tile-stats
+        .icon
+          %i.fa.fa-sort-amount-desc
+        .count 179
+        %h3 New Sign ups
+        %p Lorem ipsum psdea itgum rixt.
+    .animated.flipInY.col-lg-3.col-md-3.col-sm-6.col-xs-12
+      .tile-stats
+        .icon
+          %i.fa.fa-check-square-o
+        .count 179
+        %h3 New Sign ups
+        %p Lorem ipsum psdea itgum rixt.
+  .row
+    .col-md-12
+      .x_panel
+        .x_title
+          %h2
+            Transaction Summary
+            %small Weekly progress
+          .filter
+            #reportrange.pull-right{:style => "background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc"}
+              %i.glyphicon.glyphicon-calendar.fa.fa-calendar
+              %span December 30, 2014 - January 28, 2015
+              %b.caret
+          .clearfix
+        .x_content
+          .col-md-9.col-sm-12.col-xs-12
+            .demo-container{:style => "height:280px"}
+              #placeholder33x.demo-placeholder
+            .tiles
+              .col-md-4.tile
+                %span Total Sessions
+                %h2 231,809
+                %span.sparkline11.graph{:style => "height: 160px;"}
+                  %canvas{:height => "60", :style => "display: inline-block; vertical-align: top; width: 94px; height: 30px;", :width => "200"}
+              .col-md-4.tile
+                %span Total Revenue
+                %h2 $231,809
+                %span.sparkline22.graph{:style => "height: 160px;"}
+                  %canvas{:height => "60", :style => "display: inline-block; vertical-align: top; width: 94px; height: 30px;", :width => "200"}
+              .col-md-4.tile
+                %span Total Sessions
+                %h2 231,809
+                %span.sparkline11.graph{:style => "height: 160px;"}
+                  %canvas{:height => "60", :style => "display: inline-block; vertical-align: top; width: 94px; height: 30px;", :width => "200"}
+          .col-md-3.col-sm-12.col-xs-12
+            %div
+              .x_title
+                %h2 Top Profiles
+                %ul.nav.navbar-right.panel_toolbox
+                  %li
+                    %a.collapse-link
+                      %i.fa.fa-chevron-up
+                  %li.dropdown
+                    %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                      %i.fa.fa-wrench
+                    %ul.dropdown-menu{:role => "menu"}
+                      %li
+                        %a{:href => "#"} Settings 1
+                      %li
+                        %a{:href => "#"} Settings 2
+                  %li
+                    %a.close-link
+                      %i.fa.fa-close
+                .clearfix
+              %ul.list-unstyled.top_profiles.scroll-view
+                %li.media.event
+                  %a.pull-left.border-aero.profile_thumb
+                    %i.fa.fa-user.aero
+                  .media-body
+                    %a.title{:href => "#"} Ms. Mary Jane
+                    %p
+                      %strong $2300.
+                      Agent Avarage Sales
+                    %p
+                      %small 12 Sales Today
+                %li.media.event
+                  %a.pull-left.border-green.profile_thumb
+                    %i.fa.fa-user.green
+                  .media-body
+                    %a.title{:href => "#"} Ms. Mary Jane
+                    %p
+                      %strong $2300.
+                      Agent Avarage Sales
+                    %p
+                      %small 12 Sales Today
+                %li.media.event
+                  %a.pull-left.border-blue.profile_thumb
+                    %i.fa.fa-user.blue
+                  .media-body
+                    %a.title{:href => "#"} Ms. Mary Jane
+                    %p
+                      %strong $2300.
+                      Agent Avarage Sales
+                    %p
+                      %small 12 Sales Today
+                %li.media.event
+                  %a.pull-left.border-aero.profile_thumb
+                    %i.fa.fa-user.aero
+                  .media-body
+                    %a.title{:href => "#"} Ms. Mary Jane
+                    %p
+                      %strong $2300.
+                      Agent Avarage Sales
+                    %p
+                      %small 12 Sales Today
+                %li.media.event
+                  %a.pull-left.border-green.profile_thumb
+                    %i.fa.fa-user.green
+                  .media-body
+                    %a.title{:href => "#"} Ms. Mary Jane
+                    %p
+                      %strong $2300.
+                      Agent Avarage Sales
+                    %p
+                      %small 12 Sales Today
+  .row
+    .col-md-12
+      .x_panel
+        .x_title
+          %h2
+            Weekly Summary
+            %small Activity shares
+          %ul.nav.navbar-right.panel_toolbox
             %li
-              %a{"data-toggle" => "tab", :href => "#area-chart"} Area Chart
-            %li.active
-              %a{"data-toggle" => "tab", :href => "#line-chart"} Line Charts
+              %a.collapse-link
+                %i.fa.fa-chevron-up
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                %i.fa.fa-wrench
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a{:href => "#"} Settings 1
+                %li
+                  %a{:href => "#"} Settings 2
             %li
-              %a{"data-toggle" => "tab", :href => "#pie-chart"} Pie Chart
-      .panel-body
-        .tab-content
-          #area-chart.tab-pane
-            #area-chart-demo.morrischart{:style => "height: 300px"}
-          #line-chart.tab-pane.active
-            #line-chart-demo.morrischart{:style => "height: 300px"}
-          #pie-chart.tab-pane
-            #donut-chart-demo.morrischart{:style => "height: 300px;"}
-      %table.table.table-bordered.table-responsive
-        %thead
-          %tr
-            %th.col-padding-1{:width => "50%"}
-              .pull-left
-                .h4.no-margin Pageviews
-                %small 54,127
-              %span.pull-right.pageviews 4,3,5,4,5,6,5
-            %th.col-padding-1{:width => "50%"}
-              .pull-left
-                .h4.no-margin Unique Visitors
-                %small 25,127
-              %span.pull-right.uniquevisitors 2,3,5,4,3,4,5
-  .col-sm-4
-    .panel.panel-primary
-      .panel-heading
-        .panel-title
-          %h4
-            Real Time Stats
-            %br/
-            %small current server uptime
-        .panel-options
-          %a.bg{"data-target" => "#sample-modal-dialog-1", "data-toggle" => "modal", :href => "#sample-modal"}
-            %i.entypo-cog
-          %a{"data-rel" => "collapse", :href => "#"}
-            %i.entypo-down-open
-          %a{"data-rel" => "reload", :href => "#"}
-            %i.entypo-arrows-ccw
-          %a{"data-rel" => "close", :href => "#"}
-            %i.entypo-cancel
-      .panel-body.no-padding
-        #rickshaw-chart-demo
-          #rickshaw-legend
-%br/
-.row
-  .col-sm-4
-    .panel.panel-primary
-      %table.table.table-bordered.table-responsive
-        %thead
-          %tr
-            %th.padding-bottom-none.text-center
-              %br/
-              %br/
-              %span.monthly-sales
-        %tbody
-          %tr
-            %td.panel-heading
-              %h4 Monthly Sales
-  .col-sm-8
-    .panel.panel-primary
-      .panel-heading
-        .panel-title Latest Updated Profiles
-        .panel-options
-          %a.bg{"data-target" => "#sample-modal-dialog-1", "data-toggle" => "modal", :href => "#sample-modal"}
-            %i.entypo-cog
-          %a{"data-rel" => "collapse", :href => "#"}
-            %i.entypo-down-open
-          %a{"data-rel" => "reload", :href => "#"}
-            %i.entypo-arrows-ccw
-          %a{"data-rel" => "close", :href => "#"}
-            %i.entypo-cancel
-      %table.table.table-bordered.table-responsive
-        %thead
-          %tr
-            %th #
-            %th Name
-            %th Position
-            %th Activity
-        %tbody
-          %tr
-            %td 1
-            %td Art Ramadani
-            %td CEO
-            %td.text-center
-              %span.inlinebar 4,3,5,4,5,6
-          %tr
-            %td 2
-            %td Filan Fisteku
-            %td Member
-            %td.text-center
-              %span.inlinebar-2 1,3,4,5,3,5
-          %tr
-            %td 3
-            %td Arlind Nushi
-            %td Co-founder
-            %td.text-center
-              %span.inlinebar-3 5,3,2,5,4,5
-%br/
-:javascript
-  // Code used to add Todo Tasks
-  jQuery(document).ready(function($)
-  {
-  	var $todo_tasks = $("#todo_tasks");
-  	
-  	$todo_tasks.find('input[type="text"]').on('keydown', function(ev)
-  	{
-  		if(ev.keyCode == 13)
-  		{
-  			ev.preventDefault();
-  			
-  			if($.trim($(this).val()).length)
-  			{
-  				var $todo_entry = $('<li><div class="checkbox checkbox-replace color-white"><input type="checkbox" /><label>'+$(this).val()+'</label></div></li>');
-  				$(this).val('');
-  				
-  				$todo_entry.appendTo($todo_tasks.find('.todo-list'));
-  				$todo_entry.hide().slideDown('fast');
-  				replaceCheckboxes();
-  			}
-  		}
-  	});
-  });
-.row
-  .col-sm-3
-    #todo_tasks.tile-block
-      .tile-header
-        %i.entypo-list
-        %a{:href => "#"}
-          Tasks
-          %span To do list, tick one.
-      .tile-content
-        %input.form-control{:placeholder => "Add Task", :type => "text"}/
-        %ul.todo-list
-          %li
-            .checkbox.checkbox-replace.color-white
-              %input{:type => "checkbox"}/
-              %label Website Design
-          %li
-            .checkbox.checkbox-replace.color-white
-              %input#task-2{:checked => "checked", :type => "checkbox"}/
-              %label Slicing
-          %li
-            .checkbox.checkbox-replace.color-white
-              %input#task-3{:type => "checkbox"}/
-              %label WordPress Integration
-          %li
-            .checkbox.checkbox-replace.color-white
-              %input#task-4{:type => "checkbox"}/
-              %label SEO Optimize
-          %li
-            .checkbox.checkbox-replace.color-white
-              %input#task-5{:checked => "checked", :type => "checkbox"}/
-              %label Minify & Compress
-      .tile-footer
-        %a{:href => "#"} View all tasks
-  .col-sm-9
-    :javascript
-      jQuery(document).ready(function($)
-      {
-      	var map = $("#map-2");
-      	
-      	map.vectorMap({
-      		map: 'europe_merc_en',
-      		zoomMin: '3',
-      		backgroundColor: '#383f47',
-      		focusOn: { x: 0.5, y: 0.8, scale: 3 }
-      	});
+              %a.close-link
+                %i.fa.fa-close
+          .clearfix
+        .x_content
+          .row{:style => "border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;"}
+            .col-md-7{:style => "overflow:hidden;"}
+              %span.sparkline_one{:style => "height: 160px; padding: 10px 25px;"}
+                %canvas{:height => "60", :style => "display: inline-block; vertical-align: top; width: 94px; height: 30px;", :width => "200"}
+              %h4{:style => "margin:18px"} Weekly sales progress
+            .col-md-5
+              .row{:style => "text-align: center;"}
+                .col-md-4
+                  %canvas#canvas1i{:height => "110", :style => "margin: 5px 10px 10px 0", :width => "110"}
+                  %h4{:style => "margin:0"} Bounce Rates
+                .col-md-4
+                  %canvas#canvas1i2{:height => "110", :style => "margin: 5px 10px 10px 0", :width => "110"}
+                  %h4{:style => "margin:0"} New Traffic
+                .col-md-4
+                  %canvas#canvas1i3{:height => "110", :style => "margin: 5px 10px 10px 0", :width => "110"}
+                  %h4{:style => "margin:0"} Device Share
+  .row
+    .col-md-4
+      .x_panel
+        .x_title
+          %h2
+            Top Profiles
+            %small Sessions
+          %ul.nav.navbar-right.panel_toolbox
+            %li
+              %a.collapse-link
+                %i.fa.fa-chevron-up
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                %i.fa.fa-wrench
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a{:href => "#"} Settings 1
+                %li
+                  %a{:href => "#"} Settings 2
+            %li
+              %a.close-link
+                %i.fa.fa-close
+          .clearfix
+        .x_content
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item One Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Three Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    .col-md-4
+      .x_panel
+        .x_title
+          %h2
+            Top Profiles
+            %small Sessions
+          %ul.nav.navbar-right.panel_toolbox
+            %li
+              %a.collapse-link
+                %i.fa.fa-chevron-up
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                %i.fa.fa-wrench
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a{:href => "#"} Settings 1
+                %li
+                  %a{:href => "#"} Settings 2
+            %li
+              %a.close-link
+                %i.fa.fa-close
+          .clearfix
+        .x_content
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item One Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Three Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    .col-md-4
+      .x_panel
+        .x_title
+          %h2
+            Top Profiles
+            %small Sessions
+          %ul.nav.navbar-right.panel_toolbox
+            %li
+              %a.collapse-link
+                %i.fa.fa-chevron-up
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                %i.fa.fa-wrench
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a{:href => "#"} Settings 1
+                %li
+                  %a{:href => "#"} Settings 2
+            %li
+              %a.close-link
+                %i.fa.fa-close
+          .clearfix
+        .x_content
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item One Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Two Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %article.media.event
+            %a.pull-left.date
+              %p.month April
+              %p.day 23
+            .media-body
+              %a.title{:href => "#"} Item Three Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+- content_for :template_js do
+  :javascript
+    $(document).ready(function() {
+      //define chart clolors ( you maybe add more colors if you want or flot will add it automatic )
+      var chartColours = ['#96CA59', '#3F97EB', '#72c380', '#6f7a8a', '#f7cb38', '#5a8022', '#2c7282'];
+
+      //generate random number for charts
+      randNum = function() {
+        return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
+      };
+
+      var d1 = [];
+      //var d2 = [];
+
+      //here we generate data for chart
+      for (var i = 0; i < 30; i++) {
+        d1.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
+        //    d2.push([new Date(Date.today().add(i).days()).getTime(), randNum()]);
+      }
+
+      var chartMinDate = d1[0][0]; //first day
+      var chartMaxDate = d1[20][0]; //last day
+
+      var tickSize = [1, "day"];
+      var tformat = "%d/%m/%y";
+
+      //graph options
+      var options = {
+        grid: {
+          show: true,
+          aboveData: true,
+          color: "#3f3f3f",
+          labelMargin: 10,
+          axisMargin: 0,
+          borderWidth: 0,
+          borderColor: null,
+          minBorderMargin: 5,
+          clickable: true,
+          hoverable: true,
+          autoHighlight: true,
+          mouseActiveRadius: 100
+        },
+        series: {
+          lines: {
+            show: true,
+            fill: true,
+            lineWidth: 2,
+            steps: false
+          },
+          points: {
+            show: true,
+            radius: 4.5,
+            symbol: "circle",
+            lineWidth: 3.0
+          }
+        },
+        legend: {
+          position: "ne",
+          margin: [0, -25],
+          noColumns: 0,
+          labelBoxBorderColor: null,
+          labelFormatter: function(label, series) {
+            // just add some space to labes
+            return label + '  ';
+          },
+          width: 40,
+          height: 1
+        },
+        colors: chartColours,
+        shadowSize: 0,
+        tooltip: true, //activate tooltip
+        tooltipOpts: {
+          content: "%s: %y.0",
+          xDateFormat: "%d/%m",
+          shifts: {
+            x: -30,
+            y: -50
+          },
+          defaultTheme: false
+        },
+        yaxis: {
+          min: 0
+        },
+        xaxis: {
+          mode: "time",
+          minTickSize: tickSize,
+          timeformat: tformat,
+          min: chartMinDate,
+          max: chartMaxDate
+        }
+      };
+      var plot = $.plot($("#placeholder33x"), [{
+        label: "Email Sent",
+        data: d1,
+        lines: {
+          fillColor: "rgba(150, 202, 89, 0.12)"
+        }, //#96CA59 rgba(150, 202, 89, 0.42)
+        points: {
+          fillColor: "#fff"
+        }
+      }], options);
+    });
+  / /Flot
+  / jQuery Sparklines
+  :javascript
+    $(document).ready(function() {
+      $(".sparkline_one").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 4, 5, 6, 3, 5, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
+        type: 'bar',
+        height: '125',
+        barWidth: 13,
+        colorMap: {
+          '7': '#a1a1a1'
+        },
+        barSpacing: 2,
+        barColor: '#26B99A'
       });
-    .tile-group
-      .tile-left
-        .tile-entry
-          %h3 Map
-          %span top visitors location
-        .tile-entry
-          %img.pull-right.op{:alt => "", :src => "assets/images/sample-al.png"}/
-          %h4 Albania
-          %span 25%
-        .tile-entry
-          %img.pull-right.op{:alt => "", :src => "assets/images/sample-it.png"}/
-          %h4 Italy
-          %span 18%
-        .tile-entry
-          %img.pull-right.op{:alt => "", :src => "assets/images/sample-au.png"}/
-          %h4 Austria
-          %span 15%
-      .tile-right
-        #map-2.map
+
+      $(".sparkline11").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 6, 2, 4, 3, 4, 5, 4, 5, 4, 3], {
+        type: 'bar',
+        height: '40',
+        barWidth: 8,
+        colorMap: {
+          '7': '#a1a1a1'
+        },
+        barSpacing: 2,
+        barColor: '#26B99A'
+      });
+
+      $(".sparkline22").sparkline([2, 4, 3, 4, 7, 5, 4, 3, 5, 6, 2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 6], {
+        type: 'line',
+        height: '40',
+        width: '200',
+        lineColor: '#26B99A',
+        fillColor: '#ffffff',
+        lineWidth: 3,
+        spotColor: '#34495E',
+        minSpotColor: '#34495E'
+      });
+    });
+  / /jQuery Sparklines
+  / Doughnut Chart
+  :javascript
+    $(document).ready(function() {
+      var canvasDoughnut,
+          options = {
+            legend: false,
+            responsive: false
+          };
+
+      new Chart(document.getElementById("canvas1i"), {
+        type: 'doughnut',
+        tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+        data: {
+          labels: [
+            "Symbian",
+            "Blackberry",
+            "Other",
+            "Android",
+            "IOS"
+          ],
+          datasets: [{
+            data: [15, 20, 30, 10, 30],
+            backgroundColor: [
+              "#BDC3C7",
+              "#9B59B6",
+              "#E74C3C",
+              "#26B99A",
+              "#3498DB"
+            ],
+            hoverBackgroundColor: [
+              "#CFD4D8",
+              "#B370CF",
+              "#E95E4F",
+              "#36CAAB",
+              "#49A9EA"
+            ]
+
+          }]
+        },
+        options: options
+      });
+
+      new Chart(document.getElementById("canvas1i2"), {
+        type: 'doughnut',
+        tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+        data: {
+          labels: [
+            "Symbian",
+            "Blackberry",
+            "Other",
+            "Android",
+            "IOS"
+          ],
+          datasets: [{
+            data: [15, 20, 30, 10, 30],
+            backgroundColor: [
+              "#BDC3C7",
+              "#9B59B6",
+              "#E74C3C",
+              "#26B99A",
+              "#3498DB"
+            ],
+            hoverBackgroundColor: [
+              "#CFD4D8",
+              "#B370CF",
+              "#E95E4F",
+              "#36CAAB",
+              "#49A9EA"
+            ]
+
+          }]
+        },
+        options: options
+      });
+
+      new Chart(document.getElementById("canvas1i3"), {
+        type: 'doughnut',
+        tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+        data: {
+          labels: [
+            "Symbian",
+            "Blackberry",
+            "Other",
+            "Android",
+            "IOS"
+          ],
+          datasets: [{
+            data: [15, 20, 30, 10, 30],
+            backgroundColor: [
+              "#BDC3C7",
+              "#9B59B6",
+              "#E74C3C",
+              "#26B99A",
+              "#3498DB"
+            ],
+            hoverBackgroundColor: [
+              "#CFD4D8",
+              "#B370CF",
+              "#E95E4F",
+              "#36CAAB",
+              "#49A9EA"
+            ]
+
+          }]
+        },
+        options: options
+      });
+    });
+  / /Doughnut Chart
+  / bootstrap-daterangepicker
+  :javascript
+    $(document).ready(function() {
+
+      var cb = function(start, end, label) {
+        console.log(start.toISOString(), end.toISOString(), label);
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+      };
+
+      var optionSet1 = {
+        startDate: moment().subtract(29, 'days'),
+        endDate: moment(),
+        minDate: '01/01/2012',
+        maxDate: '12/31/2015',
+        dateLimit: {
+          days: 60
+        },
+        showDropdowns: true,
+        showWeekNumbers: true,
+        timePicker: false,
+        timePickerIncrement: 1,
+        timePicker12Hour: true,
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        opens: 'left',
+        buttonClasses: ['btn btn-default'],
+        applyClass: 'btn-small btn-primary',
+        cancelClass: 'btn-small',
+        format: 'MM/DD/YYYY',
+        separator: ' to ',
+        locale: {
+          applyLabel: 'Submit',
+          cancelLabel: 'Clear',
+          fromLabel: 'From',
+          toLabel: 'To',
+          customRangeLabel: 'Custom',
+          daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+          monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          firstDay: 1
+        }
+      };
+      $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+      $('#reportrange').daterangepicker(optionSet1, cb);
+      $('#reportrange').on('show.daterangepicker', function() {
+        console.log("show event fired");
+      });
+      $('#reportrange').on('hide.daterangepicker', function() {
+        console.log("hide event fired");
+      });
+      $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+        console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+      });
+      $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+        console.log("cancel event fired");
+      });
+      $('#options1').click(function() {
+        $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+      });
+      $('#options2').click(function() {
+        $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+      });
+      $('#destroy').click(function() {
+        $('#reportrange').data('daterangepicker').remove();
+      });
+    });
+  / /bootstrap-daterangepicker  

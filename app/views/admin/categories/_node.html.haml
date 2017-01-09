@@ -1,8 +1,8 @@
 %li
   %span
     = category.name
-  %a{:href=> edit_admin_category_path(category),class: 'btn btn-blue btn-xs' }
-    %i{class: 'entypo-pencil', title: 'Edycja'}
+  %a{:href=> edit_admin_category_path(category),class: 'btn btn-primary btn-xs' }
+    %i{class: 'fa fa-pencil', title: 'Edycja'}
   - unless category.parent_id
     %ul
       - category.subcategories.each do |cat|

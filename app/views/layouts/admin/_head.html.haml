@@ -1,0 +1,10 @@
+%head
+  %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  / Meta, title, CSS, favicons, etc.
+  %meta{:charset => "utf-8"}/
+  %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+  %title Madej Admin Panel
+  = stylesheet_link_tag 'admin'
+  = javascript_include_tag 'admin'
+  = csrf_meta_tags

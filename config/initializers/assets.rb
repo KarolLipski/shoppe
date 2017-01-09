@@ -4,7 +4,7 @@
 Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path
-# Rails.application.config.assets.paths << Emoji.images_path
+Rails.application.config.assets.paths << Rails.root.join('vendor','assets','bower_components')
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -12,4 +12,4 @@ Rails.application.config.assets.precompile += %w( admin.css frontend.css amaze/f
   amaze_frontend.js
   amaze/frontend-bottom.js
   frontend.js frontend-bottom.js
-  admin.js admin-bottom.js circles.js )
+  admin.js admin-bottom.js circles.js *.png *.jpg *.jpeg *.gif)
