@@ -1,9 +1,0 @@
-!!!
-%html{:lang => "en"}
-  = render :partial => 'layouts/admin/head'
-  %body.page-body.skin-cafe{"data-url" => "http://neon.dev"}
-    .page-container
-      / add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always
-      = render :partial => 'layouts/admin/sidebar_left'
-      = render :partial => 'layouts/admin/main_content'
-    = render :partial => 'layouts/admin/bottom_scripts'
