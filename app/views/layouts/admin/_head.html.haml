@@ -6,5 +6,6 @@
   %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
   %title Madej Admin Panel
   = stylesheet_link_tag 'admin'
+  = yield :additional_css
   = javascript_include_tag 'admin'
   = csrf_meta_tags

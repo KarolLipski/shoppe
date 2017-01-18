@@ -8,8 +8,8 @@ Rails.application.config.assets.paths << Rails.root.join('vendor','assets','bowe
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( admin.css frontend.css amaze/frontend.css
+Rails.application.config.assets.precompile += %w( admin.css admin/datatables.css frontend.css amaze/frontend.css
   amaze_frontend.js
   amaze/frontend-bottom.js
   frontend.js frontend-bottom.js
-  admin.js admin-bottom.js circles.js *.png *.jpg *.jpeg *.gif)
+  admin.js admin/datatables.js admin-bottom.js circles.js *.png *.jpg *.jpeg *.gif)

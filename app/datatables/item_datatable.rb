@@ -58,7 +58,7 @@ class ItemDatatable < AjaxDatatablesRails::Base
 
   def changeActiveButton(item)
     text = (item.active) ? 'Aktywny' : 'Nieaktywny'
-    css = (item.active) ? "btn btn-green btn-xs" : "btn btn-red btn-xs"
+    css = (item.active) ? "btn btn-success btn-xs" : "btn btn-danger btn-xs"
     @view.link_to text, @view.admin_item_path(item, item: {active: !item.active}), remote: true, :class => css, :id => "change-active-#{item.id}" ,method: :put
   end
 

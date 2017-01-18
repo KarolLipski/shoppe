@@ -1,20 +1,5 @@
 %h3
   Oferty
-  = link_to 'Dodaj oferte', new_admin_offer_path, class: "btn btn-blue"
+  = link_to 'Dodaj oferte', new_admin_offer_path, class: "btn btn-primary btn-sm"
 
-%table#table-standard_datatable.table.table-bordered.datatable.table-striped
-  %thead
-    %tr
-      %th Nazwa
-      %th Data Startu
-      %th Data Końca
-      %th Akcje
-  %tbody
-    - @offers.each do |offer|
-      %tr
-        %td= offer.name
-        %td= offer.start_date
-        %td= offer.end_date
-        %td
-          = link_to 'Edycja', edit_admin_offer_path(offer), :class => 'btn btn-xs btn-blue'
-          = link_to 'Towary', admin_offers_actualization_path(offer_id: offer.id), :class => 'btn btn-xs btn-orange'
+= render 'admin/datatables/offers'

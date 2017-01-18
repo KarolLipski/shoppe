@@ -1,23 +1,5 @@
 %h3
   Klienci
-  = link_to 'Dodaj Klienta', new_admin_user_path , class: "btn btn-blue"
+  = link_to 'Dodaj Klienta', new_admin_user_path , class: "btn btn-primary btn-sm"
 
-%table#table-standard_datatable.table.table-bordered.datatable.table-striped
-  %thead
-    %tr
-      %th Firma
-      %th Kontrahent
-      %th Odbiorca
-      %th Login
-      %th Email
-      %th Akcje
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.contractor_sym
-        %td= user.reciver_sym
-        %td= user.login
-        %td= user.email
-        %td
-          = link_to 'Edycja', edit_admin_user_path(user), :class => 'btn btn-xs btn-blue'
+= render 'admin/datatables/users'

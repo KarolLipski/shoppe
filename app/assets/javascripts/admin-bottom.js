@@ -9,8 +9,6 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require dataTables/jquery.dataTables
 //= require gentelella/vendors/bootstrap/dist/js/bootstrap.min.js
 //= require gentelella/vendors/fastclick/lib/fastclick.js
 //= require gentelella/vendors/nprogress/nprogress.js
@@ -30,8 +28,9 @@
 //= require gentelella/build/js/custom.min.js
 //= require toastr/toastr.js
 
+//= require admin/datatables
+//= require admin/datatable_init
 //= require admin/categories
-//= require users
 //= require admin/items
 //= require fancybox/jquery.fancybox.js
 //= require fancybox_photo.js
