@@ -21,7 +21,7 @@
       = f.text_field :login, class: 'form-control'
       = render_error_message(@user, :login)
   %div{class: field_class(@user, :email) }
-    = f.label :emial, class: 'col-sm-3 control-label'
+    = f.label :email, class: 'col-sm-3 control-label'
     .col-sm-5
       = f.text_field :email, class: 'form-control'
       = render_error_message(@user, :email)
@@ -38,3 +38,5 @@
   .form-group
     .col-sm-offset-3.col-sm-5
       = f.submit 'Zapisz', class: 'btn btn-success'
+
+= link_to 'Powrót', admin_users_path, :class => 'btn btn-primary'
