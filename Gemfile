@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'capistrano', '~> 3.1'
+gem 'capistrano-bower'
 gem 'capistrano-rvm'
 gem 'capistrano-passenger'
 
