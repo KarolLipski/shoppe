@@ -1,7 +1,5 @@
 module Pages 
-  class Login
-    include Capybara::DSL
-    include Rails.application.routes.url_helpers
+  class Login < BasePage
 
     def initialize
       FactoryGirl.create(:user, login: 'test_login')
