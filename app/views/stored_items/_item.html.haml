@@ -28,8 +28,8 @@
           .price-box
             %span.regular-price
               %span.price
-                = render_price(item, :sell_price)
+                = render_price(item, :price)
               %span.packing
                 &nbsp;
                 ="(#{item.big_wrap} / #{item.small_wrap})"
-        = stockValue(item.big_wrap, item.sell_quantity)
+        = stockValue(item.big_wrap, item.quantity)

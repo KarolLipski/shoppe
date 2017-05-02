@@ -36,6 +36,7 @@ group :development do
   gem 'meta_request'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'scout_apm'
   gem 'annotate'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.2'
