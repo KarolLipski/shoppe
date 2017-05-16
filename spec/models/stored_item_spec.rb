@@ -51,6 +51,4 @@ RSpec.describe StoredItem, type: :model do
     it 'return items where sum quantity > 0'
   end
 
-  it 'bestsellers returns most ordered items'
-
 end
